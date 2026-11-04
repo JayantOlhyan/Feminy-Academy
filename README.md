@@ -3,7 +3,7 @@
 > **High-converting, mobile-first beauty academy platform by Sunita Rathee (Bahadurgarh, Haryana).**  
 > Engineered for sub-second mobile load speeds, ad-driven lead generation, and frictionless WhatsApp conversions.
 
-[![Next.js 15](https://img.shields.io/badge/Next.js-15.1.6-black?style=flat&logo=next.js)](https://nextjs.org/)
+[![Next.js 15](https://img.shields.io/badge/Next.js-15.5.29-black?style=flat&logo=next.js)](https://nextjs.org/)
 [![React 19](https://img.shields.io/badge/React-19.0-61dafb?style=flat&logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178c6?style=flat&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38bdf8?style=flat&logo=tailwindcss)](https://tailwindcss.com/)
