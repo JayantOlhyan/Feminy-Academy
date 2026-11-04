@@ -12,6 +12,16 @@
 
 ---
 
+## 🚦 Phase & Milestone Tracker
+
+| Phase | Description | Status | Details |
+|---|---|---|---|
+| **Phase 1** | **Frontend Launch Scope & Performance Engine** | **COMPLETED** | 11 pages built, 100/100 Lighthouse score, WhatsApp deep-links, Ad-Landing mode, responsive viewports verified. |
+| **Phase 2** | **Client Content & Photography Ingestion** | **IN PROGRESS** | Replacing placeholder tokens with Sunita's real photography, confirmed syllabus, and verified credentials (tracked in `PLACEHOLDERS.md`). |
+| **Phase 3** | **Checkout Gateway & Backend Automations** | **UPCOMING** | Razorpay / course platform checkout integration (`PAYMENT_ENABLED=true`), Meta CAPI full pipeline, and automated WhatsApp replies. |
+
+---
+
 ## ⚡ Core Web Vitals & Performance
 
 Engineered specifically for visitors arriving from Instagram/Meta ads on mid-range Android devices over mobile 4G networks.
