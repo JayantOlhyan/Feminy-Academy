@@ -3,6 +3,9 @@
 > **High-converting, mobile-first beauty academy platform by Sunita Rathee (Bahadurgarh, Haryana).**  
 > Engineered for sub-second mobile load speeds, ad-driven lead generation, and frictionless WhatsApp conversions.
 
+🔗 **Live Production Site:** [https://feminy-academy.netlify.app/](https://feminy-academy.netlify.app/)
+
+[![Live Deployment](https://img.shields.io/badge/Live_Site-feminy--academy.netlify.app-00C7B7?style=flat&logo=netlify)](https://feminy-academy.netlify.app/)
 [![Next.js 15](https://img.shields.io/badge/Next.js-15.5.29-black?style=flat&logo=next.js)](https://nextjs.org/)
 [![React 19](https://img.shields.io/badge/React-19.0-61dafb?style=flat&logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178c6?style=flat&logo=typescript)](https://www.typescriptlang.org/)
@@ -125,6 +128,10 @@ Engineered specifically for visitors arriving from Instagram/Meta ads on mid-ran
 ---
 
 ## 🚀 Getting Started
+
+### 🌐 Live Deployment
+- **Production URL**: [https://feminy-academy.netlify.app/](https://feminy-academy.netlify.app/)
+- **Hosting Platform**: Netlify
 
 ### Prerequisites
 - **Node.js**: `v20+` (tested on Node v25)
