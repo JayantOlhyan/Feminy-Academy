@@ -27,6 +27,13 @@ const config: Config = {
       fontFamily: {
         serif: ["var(--font-fraunces)", "serif"],
         sans: ["var(--font-inter)", "sans-serif"],
+        mono: ["var(--font-inter)", "sans-serif"],
+      },
+      spacing: {
+        18: "4.5rem",
+      },
+      minHeight: {
+        dvh: "100dvh",
       },
       borderRadius: {
         card: "16px",
