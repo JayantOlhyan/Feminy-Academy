@@ -26,12 +26,26 @@ export const StickyCTA: React.FC<StickyCTAProps> = ({
   targetFormId = "hero-lead-form",
 }) => {
   const [visible, setVisible] = useState(false);
+  const [inputFocused, setInputFocused] = useState(false);
   const [whatsappUrl, setWhatsappUrl] = useState("");
   const isPaymentEnabled = siteConfig.flags.PAYMENT_ENABLED;
 
   useEffect(() => {
     setWhatsappUrl(getWhatsAppUrl(mode === "home" ? "general" : actionType));
   }, [mode, actionType]);
+
+  useEffect(() => {
+    const isField = (el: EventTarget | null) =>
+      el instanceof HTMLElement && /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName);
+    const onIn = (e: FocusEvent) => isField(e.target) && setInputFocused(true);
+    const onOut = () => setTimeout(() => !isField(document.activeElement) && setInputFocused(false), 50);
+    document.addEventListener("focusin", onIn);
+    document.addEventListener("focusout", onOut);
+    return () => {
+      document.removeEventListener("focusin", onIn);
+      document.removeEventListener("focusout", onOut);
+    };
+  }, []);
 
   useEffect(() => {
     const heroEl =
@@ -129,7 +143,7 @@ export const StickyCTA: React.FC<StickyCTAProps> = ({
     trackEvent("cta_click", { label: "whatsapp", location: "sticky" });
   };
 
-  if (!visible) return null;
+  if (!visible || inputFocused) return null;
 
   if (mode === "home") {
     return (
@@ -171,7 +185,7 @@ export const StickyCTA: React.FC<StickyCTAProps> = ({
           <div className="font-serif text-lg font-bold text-brand leading-none">
             {priceDisplay}
           </div>
-          <div className="text-[11px] text-muted truncate max-w-[150px]">
+          <div className="text-xs text-muted truncate max-w-[150px]">
             {courseTitle}
           </div>
         </div>

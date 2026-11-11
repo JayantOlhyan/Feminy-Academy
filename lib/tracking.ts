@@ -175,17 +175,31 @@ export function trackWhatsAppClick(source: string): string {
   });
 
   if (typeof window !== "undefined") {
+    const bodyStr = JSON.stringify({
+      channel: "whatsapp",
+      source,
+      event_id: eventId,
+      lid,
+      ...utms,
+      page,
+    });
+
+    try {
+      if (typeof navigator !== "undefined" && typeof navigator.sendBeacon === "function") {
+        const blob = new Blob([bodyStr], { type: "application/json" });
+        const queued = navigator.sendBeacon("/api/lead", blob);
+        if (queued) {
+          return eventId;
+        }
+      }
+    } catch {
+      // fall back to keepalive fetch
+    }
+
     fetch("/api/lead", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        channel: "whatsapp",
-        source,
-        event_id: eventId,
-        lid,
-        ...utms,
-        page,
-      }),
+      body: bodyStr,
       keepalive: true,
     }).catch(() => {});
   }

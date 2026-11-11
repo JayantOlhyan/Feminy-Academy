@@ -52,14 +52,26 @@ export const LeadForm: React.FC<LeadFormProps> = ({
     "Mujhe demo class book karni hai par form mein dikkat aayi."
   );
 
+  const sanitizeIndianPhone = (raw: string): string => {
+    let d = raw.replace(/\D/g, "");
+    if (d.length > 10 && d.startsWith("91")) d = d.slice(2);
+    return d.replace(/^0+/, "").slice(0, 10);
+  };
+
   const validatePhone = (num: string) => {
-    const cleaned = num.replace(/\D/g, "");
-    if (!/^[6-9]\d{9}$/.test(cleaned)) {
+    if (!/^[6-9]\d{9}$/.test(sanitizeIndianPhone(num))) {
       setPhoneError("Kripya 10-digit ka valid Indian mobile number dalein (shuruat 6-9)");
       return false;
     }
     setPhoneError(null);
     return true;
+  };
+
+  const handleFieldFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    if (window.innerWidth < 768) {
+      const el = e.currentTarget;
+      setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "center" }), 150);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -91,7 +103,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
       const payload = {
         channel: "form" as const,
         name: formData.name.trim(),
-        phone: formData.phone.replace(/\D/g, ""),
+        phone: sanitizeIndianPhone(formData.phone),
         city: activeFields.includes("city") ? formData.city.trim() : undefined,
         interest: formData.interest || "Sab kuch",
         preferredDate: activeFields.includes("preferredDate") ? formData.preferredDate : undefined,
@@ -163,7 +175,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
               <div>
                 <label
                   htmlFor={`lead-name-${uid}`}
-                  className="block text-[11px] font-semibold uppercase tracking-wider text-ink mb-1"
+                  className="block text-xs font-semibold uppercase tracking-wider text-ink mb-1"
                 >
                   Aapka Naam <span className="text-brand">*</span>
                 </label>
@@ -176,6 +188,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
                   enterKeyHint="next"
                   placeholder="e.g. Priya Sharma"
                   value={formData.name}
+                  onFocus={handleFieldFocus}
                   onChange={(e) => {
                     setFormData({ ...formData, name: e.target.value });
                     if (errorMsg) setErrorMsg(null);
@@ -189,7 +202,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
               <div>
                 <label
                   htmlFor={`lead-phone-${uid}`}
-                  className="block text-[11px] font-semibold uppercase tracking-wider text-ink mb-1"
+                  className="block text-xs font-semibold uppercase tracking-wider text-ink mb-1"
                 >
                   Mobile Number (WhatsApp) <span className="text-brand">*</span>
                 </label>
@@ -203,15 +216,16 @@ export const LeadForm: React.FC<LeadFormProps> = ({
                     type="tel"
                     inputMode="numeric"
                     autoComplete="tel"
-                    enterKeyHint="done"
+                    enterKeyHint="send"
                     required
                     maxLength={10}
                     placeholder="98765 43210"
                     aria-invalid={phoneError ? "true" : "false"}
                     aria-describedby={phoneError ? `phone-err-${uid}` : undefined}
                     value={formData.phone}
+                    onFocus={handleFieldFocus}
                     onChange={(e) => {
-                      const val = e.target.value.replace(/\D/g, "");
+                      const val = sanitizeIndianPhone(e.target.value);
                       setFormData({ ...formData, phone: val });
                       if (phoneError && /^[6-9]\d{9}$/.test(val)) {
                         setPhoneError(null);
@@ -311,6 +325,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
             enterKeyHint="next"
             placeholder="e.g. Priya Sharma"
             value={formData.name}
+            onFocus={handleFieldFocus}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             className="w-full min-h-[48px] px-4 py-3 rounded-xl border border-line bg-surface text-ink placeholder:text-muted/60 text-base focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand"
           />
@@ -337,8 +352,9 @@ export const LeadForm: React.FC<LeadFormProps> = ({
               placeholder="98765 43210"
               aria-invalid={phoneError ? "true" : "false"}
               value={formData.phone}
+              onFocus={handleFieldFocus}
               onChange={(e) => {
-                const val = e.target.value.replace(/\D/g, "");
+                const val = sanitizeIndianPhone(e.target.value);
                 setFormData({ ...formData, phone: val });
                 if (phoneError && /^[6-9]\d{9}$/.test(val)) setPhoneError(null);
               }}
@@ -363,9 +379,11 @@ export const LeadForm: React.FC<LeadFormProps> = ({
             name="city"
             type="text"
             autoComplete="address-level2"
+            enterKeyHint="next"
             required
             placeholder="e.g. Bahadurgarh, Rohtak, Delhi..."
             value={formData.city}
+            onFocus={handleFieldFocus}
             onChange={(e) => setFormData({ ...formData, city: e.target.value })}
             className="w-full min-h-[48px] px-4 py-3 rounded-xl border border-line bg-surface text-ink placeholder:text-muted/60 text-base focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand"
           />
@@ -376,13 +394,13 @@ export const LeadForm: React.FC<LeadFormProps> = ({
           <label className="block text-xs font-semibold uppercase tracking-wider text-ink mb-2">
             Aap kya seekhna chahti hain?
           </label>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
             {(["Sab kuch", "Makeup", "Hair", "Skin"] as const).map((opt) => (
               <button
                 key={opt}
                 type="button"
                 onClick={() => setFormData({ ...formData, interest: opt })}
-                className={`py-2 px-3 text-xs sm:text-sm font-semibold rounded-lg border transition-all ${
+                className={`min-h-[44px] py-2.5 px-3 text-xs sm:text-sm font-semibold rounded-lg border transition-all ${
                   formData.interest === opt
                     ? "bg-brand text-white border-brand shadow-sm"
                     : "bg-surface-2 text-ink border-line hover:border-gold"
@@ -396,15 +414,18 @@ export const LeadForm: React.FC<LeadFormProps> = ({
 
         {/* Preferred Date (Optional) */}
         <div>
-          <label htmlFor="lead-date" className="block text-xs font-semibold uppercase tracking-wider text-ink mb-1.5">
+          <label htmlFor={`lead-date-${uid}`} className="block text-xs font-semibold uppercase tracking-wider text-ink mb-1.5">
             Demo ke liye kaunsa din theek rahega? (Optional)
           </label>
           <input
-            id="lead-date"
+            id={`lead-date-${uid}`}
+            name="preferredDate"
             type="date"
+            enterKeyHint="send"
             value={formData.preferredDate}
+            onFocus={handleFieldFocus}
             onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
-            className="w-full px-4 py-2.5 rounded-xl border border-line bg-surface text-ink text-sm focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand"
+            className="w-full min-h-[48px] px-4 py-2.5 rounded-xl border border-line bg-surface text-ink text-base focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand"
           />
         </div>
 
