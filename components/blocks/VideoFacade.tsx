@@ -34,6 +34,7 @@ export const VideoFacade: React.FC<VideoFacadeProps> = ({
   altText = "Video preview of Sunita Rathee",
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   const handlePlay = () => {
     setIsPlaying(true);
@@ -46,7 +47,14 @@ export const VideoFacade: React.FC<VideoFacadeProps> = ({
     "4/3": "aspect-[4/3]",
   };
 
-  const hasValidPoster = posterUrl === "/images/sunita-hero.png";
+  // Never render the tiny 48x36 placeholder (`sunita-hero.png`) or placeholder paths as an upscaled blurry image.
+  // Only render `next/image` when a real high-res photo is provided and loads cleanly; otherwise show the neutral placeholder treatment.
+  const isPlaceholderAsset =
+    !posterUrl ||
+    posterUrl.includes("placeholder") ||
+    posterUrl === "/images/sunita-hero.png" ||
+    posterUrl === "/images/sunita-hero.jpg";
+  const showRealPoster = !isPlaceholderAsset && !imageError;
 
   return (
     <div className={`relative overflow-hidden rounded-card border border-line bg-surface-2 ${className}`}>
@@ -72,7 +80,7 @@ export const VideoFacade: React.FC<VideoFacadeProps> = ({
           aria-label={`Play video: ${badgeText}`}
           className={`group relative flex items-center justify-center cursor-pointer w-full ${aspectClasses[aspectRatio]} bg-[#2A2326]`}
         >
-          {hasValidPoster && (
+          {showRealPoster ? (
             <Image
               src={posterUrl}
               alt={altText}
@@ -82,12 +90,13 @@ export const VideoFacade: React.FC<VideoFacadeProps> = ({
               placeholder="blur"
               blurDataURL={blurDataURL}
               sizes={sizes}
-              className="object-cover"
+              onError={() => setImageError(true)}
+              className="object-cover opacity-90 transition-opacity group-hover:opacity-100"
             />
+          ) : (
+            /* Neutral warm blush placeholder backdrop */
+            <div className="absolute inset-0 bg-gradient-to-br from-[#45202D] via-[#2D1B22] to-[#1C1216] opacity-90 transition-opacity group-hover:opacity-100" />
           )}
-
-          {/* Neutral warm blush placeholder backdrop */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#45202D] via-[#2D1B22] to-[#1C1216] opacity-90 transition-opacity group-hover:opacity-100" />
 
           {/* Label indicator for dev / pending asset */}
           <div className="absolute top-4 left-4 z-10">
