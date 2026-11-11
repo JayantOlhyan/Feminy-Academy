@@ -2,15 +2,18 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { getMongoClient } from "@/lib/mongodb";
 
-const leadSchema = z.object({
+const formLeadSchema = z.object({
+  channel: z.literal("form").optional().default("form"),
   name: z.string().trim().min(2, "Kripya apna poora naam likhein"),
   phone: z
     .string()
     .trim()
     .regex(/^[6-9]\d{9}$/, "Kripya 10-digit ka valid mobile number dalein"),
-  city: z.string().trim().min(2, "Kripya apna shehar batayein"),
-  interest: z.enum(["Makeup", "Hair", "Skin", "Sab kuch"]),
+  city: z.string().trim().optional().nullable(),
+  interest: z.enum(["Makeup", "Hair", "Skin", "Sab kuch"]).optional().default("Sab kuch"),
   preferredDate: z.string().optional().nullable(),
+  source: z.string().optional().nullable(),
+  event_id: z.string().optional().nullable(),
   lid: z.string().optional().nullable(),
   utm_source: z.string().optional().nullable(),
   utm_medium: z.string().optional().nullable(),
@@ -21,6 +24,22 @@ const leadSchema = z.object({
   // Honeypot field
   website: z.string().optional().nullable(),
 });
+
+const whatsappLeadSchema = z.object({
+  channel: z.literal("whatsapp"),
+  source: z.string().optional().nullable(),
+  event_id: z.string().optional().nullable(),
+  lid: z.string().optional().nullable(),
+  utm_source: z.string().optional().nullable(),
+  utm_medium: z.string().optional().nullable(),
+  utm_campaign: z.string().optional().nullable(),
+  utm_term: z.string().optional().nullable(),
+  utm_content: z.string().optional().nullable(),
+  page: z.string().optional().nullable(),
+  website: z.string().optional().nullable(),
+});
+
+const leadSchema = z.union([whatsappLeadSchema, formLeadSchema]);
 
 // Simple in-memory rate limiter: max 5 requests per 10 minutes per IP
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
@@ -64,7 +83,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ success: true });
     }
 
-    const parsed = leadSchema.safeParse(body);
+    const parsed =
+      body?.channel === "whatsapp"
+        ? whatsappLeadSchema.safeParse(body)
+        : formLeadSchema.safeParse(body);
     if (!parsed.success) {
       const issue = parsed.error.issues[0]?.message || "Invalid details";
       return NextResponse.json({ error: issue }, { status: 400 });
@@ -84,7 +106,7 @@ export async function POST(req: NextRequest) {
         const db = mongo.db();
         await db.collection("leads").insertOne(leadData);
       } else {
-        console.warn("MongoDB connection unavailable; lead logged to server output", leadData.phone);
+        console.warn("MongoDB connection unavailable; lead logged to server output", "phone" in leadData ? leadData.phone : leadData.channel);
       }
     } catch (dbErr) {
       console.error("Failed to store lead in MongoDB:", dbErr);

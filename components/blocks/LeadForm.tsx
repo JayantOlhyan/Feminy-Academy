@@ -1,21 +1,38 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useId } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { getStoredLid, getUtmParams } from "@/lib/lid";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
-import { trackEvent } from "@/lib/tracking";
-import { MessageCircle, AlertCircle, CheckCircle2 } from "lucide-react";
+import { generateEventId, sendCapiEvent, trackEvent } from "@/lib/tracking";
+import { AlertCircle } from "lucide-react";
+
+export type LeadFormField = "name" | "phone" | "city" | "interest" | "preferredDate";
 
 interface LeadFormProps {
   id?: string;
+  variant?: "full" | "compact";
+  source?: string;
+  fields?: LeadFormField[];
+  submitLabel?: string;
   className?: string;
 }
 
-export const LeadForm: React.FC<LeadFormProps> = ({ id = "demo", className = "" }) => {
+export const LeadForm: React.FC<LeadFormProps> = ({
+  id = "demo",
+  variant = "full",
+  source = "offline-academy",
+  fields,
+  submitLabel,
+  className = "",
+}) => {
   const router = useRouter();
+  const uid = useId();
+  const isCompact = variant === "compact";
+  const activeFields: LeadFormField[] =
+    fields ?? (isCompact ? ["name", "phone"] : ["name", "phone", "city", "interest", "preferredDate"]);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -49,16 +66,16 @@ export const LeadForm: React.FC<LeadFormProps> = ({ id = "demo", className = "" 
     e.preventDefault();
     setErrorMsg(null);
 
-    if (!validatePhone(formData.phone)) {
-      return;
-    }
-
     if (formData.name.trim().length < 2) {
       setErrorMsg("Kripya apna poora naam likhein");
       return;
     }
 
-    if (formData.city.trim().length < 2) {
+    if (!validatePhone(formData.phone)) {
+      return;
+    }
+
+    if (activeFields.includes("city") && formData.city.trim().length < 2) {
       setErrorMsg("Kripya apna shehar likhein");
       return;
     }
@@ -68,13 +85,22 @@ export const LeadForm: React.FC<LeadFormProps> = ({ id = "demo", className = "" 
     try {
       const lid = getStoredLid();
       const utms = getUtmParams();
+      const eventId = generateEventId("lead");
+      const page = typeof window !== "undefined" ? window.location.pathname : "/offline-academy";
 
       const payload = {
-        ...formData,
+        channel: "form" as const,
+        name: formData.name.trim(),
         phone: formData.phone.replace(/\D/g, ""),
+        city: activeFields.includes("city") ? formData.city.trim() : undefined,
+        interest: formData.interest || "Sab kuch",
+        preferredDate: activeFields.includes("preferredDate") ? formData.preferredDate : undefined,
+        website: formData.website,
+        source,
+        event_id: eventId,
         lid,
         ...utms,
-        page: typeof window !== "undefined" ? window.location.pathname : "/offline-academy",
+        page,
       };
 
       const res = await fetch("/api/lead", {
@@ -89,10 +115,25 @@ export const LeadForm: React.FC<LeadFormProps> = ({ id = "demo", className = "" 
         throw new Error(data.error || "Submission failed");
       }
 
-      trackEvent("Lead", {
-        type: "offline_demo",
+      trackEvent(
+        "Lead",
+        {
+          channel: "form",
+          source,
+          interest: formData.interest,
+          city: formData.city || undefined,
+          lid,
+          ...utms,
+        },
+        eventId
+      );
+
+      sendCapiEvent("Lead", eventId, {
+        channel: "form",
+        source,
         interest: formData.interest,
-        city: formData.city,
+        city: formData.city || undefined,
+        page,
       });
 
       router.push("/thank-you?type=offline");
@@ -103,6 +144,122 @@ export const LeadForm: React.FC<LeadFormProps> = ({ id = "demo", className = "" 
       setLoading(false);
     }
   };
+
+  if (isCompact) {
+    return (
+      <div
+        id={id}
+        className={`w-full rounded-card bg-surface border border-gold/40 p-3.5 sm:p-5 shadow-warm text-left ${className}`}
+      >
+        <form onSubmit={handleSubmit} noValidate className="space-y-2.5">
+          {/* Honeypot field */}
+          <div className="hidden" aria-hidden="true">
+            <label htmlFor={`website-${uid}`}>Website</label>
+            <input
+              id={`website-${uid}`}
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              value={formData.website}
+              onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+            />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            {activeFields.includes("name") && (
+              <div>
+                <label
+                  htmlFor={`lead-name-${uid}`}
+                  className="block text-[11px] font-semibold uppercase tracking-wider text-ink mb-1"
+                >
+                  Aapka Naam <span className="text-brand">*</span>
+                </label>
+                <input
+                  id={`lead-name-${uid}`}
+                  name="name"
+                  type="text"
+                  required
+                  autoComplete="name"
+                  enterKeyHint="next"
+                  placeholder="e.g. Priya Sharma"
+                  value={formData.name}
+                  onChange={(e) => {
+                    setFormData({ ...formData, name: e.target.value });
+                    if (errorMsg) setErrorMsg(null);
+                  }}
+                  className="w-full min-h-[48px] px-3.5 py-2.5 rounded-xl border border-line bg-surface text-ink placeholder:text-muted/60 text-base focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand"
+                />
+              </div>
+            )}
+
+            {activeFields.includes("phone") && (
+              <div>
+                <label
+                  htmlFor={`lead-phone-${uid}`}
+                  className="block text-[11px] font-semibold uppercase tracking-wider text-ink mb-1"
+                >
+                  Mobile Number (WhatsApp) <span className="text-brand">*</span>
+                </label>
+                <div className="relative">
+                  <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted font-medium text-base pointer-events-none">
+                    +91
+                  </span>
+                  <input
+                    id={`lead-phone-${uid}`}
+                    name="phone"
+                    type="tel"
+                    inputMode="numeric"
+                    autoComplete="tel"
+                    enterKeyHint="done"
+                    required
+                    maxLength={10}
+                    placeholder="98765 43210"
+                    aria-invalid={phoneError ? "true" : "false"}
+                    aria-describedby={phoneError ? `phone-err-${uid}` : undefined}
+                    value={formData.phone}
+                    onChange={(e) => {
+                      const val = e.target.value.replace(/\D/g, "");
+                      setFormData({ ...formData, phone: val });
+                      if (phoneError && /^[6-9]\d{9}$/.test(val)) {
+                        setPhoneError(null);
+                      }
+                    }}
+                    onBlur={() => {
+                      if (formData.phone.length > 0) validatePhone(formData.phone);
+                    }}
+                    className="w-full min-h-[48px] pl-12 pr-3.5 py-2.5 rounded-xl border border-line bg-surface text-ink placeholder:text-muted/60 text-base focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand"
+                  />
+                </div>
+              </div>
+            )}
+          </div>
+
+          {phoneError && (
+            <p id={`phone-err-${uid}`} role="alert" className="text-xs text-brand font-medium">
+              {phoneError}
+            </p>
+          )}
+
+          {errorMsg && (
+            <div role="alert" className="p-2.5 rounded-xl bg-red-50 border border-red-200 text-red-900 text-xs flex items-center gap-2">
+              <AlertCircle className="w-4 h-4 text-brand shrink-0" />
+              <span>{errorMsg}</span>
+            </div>
+          )}
+
+          <Button
+            type="submit"
+            variant="primary"
+            disabled={loading}
+            className="w-full min-h-[48px] py-3 text-base font-semibold shadow-md"
+          >
+            {loading ? "Submit ho raha hai..." : submitLabel || "Free demo class book karein"}
+          </Button>
+        </form>
+      </div>
+    );
+  }
 
   return (
     <div
@@ -121,12 +278,12 @@ export const LeadForm: React.FC<LeadFormProps> = ({ id = "demo", className = "" 
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-5">
+      <form onSubmit={handleSubmit} noValidate className="space-y-5">
         {/* Honeypot field (hidden from human visitors) */}
         <div className="hidden" aria-hidden="true">
-          <label htmlFor="website">Website</label>
+          <label htmlFor={`website-${uid}`}>Website</label>
           <input
-            id="website"
+            id={`website-${uid}`}
             type="text"
             name="website"
             tabIndex={-1}
@@ -138,23 +295,26 @@ export const LeadForm: React.FC<LeadFormProps> = ({ id = "demo", className = "" 
 
         {/* Naam */}
         <div>
-          <label htmlFor="lead-name" className="block text-xs font-semibold uppercase tracking-wider text-ink mb-1.5">
+          <label htmlFor={`lead-name-${uid}`} className="block text-xs font-semibold uppercase tracking-wider text-ink mb-1.5">
             Aapka Naam <span className="text-brand">*</span>
           </label>
           <input
-            id="lead-name"
+            id={`lead-name-${uid}`}
+            name="name"
             type="text"
             required
+            autoComplete="name"
+            enterKeyHint="next"
             placeholder="e.g. Priya Sharma"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="w-full px-4 py-3 rounded-xl border border-line bg-surface text-ink placeholder:text-muted/60 text-base focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand"
+            className="w-full min-h-[48px] px-4 py-3 rounded-xl border border-line bg-surface text-ink placeholder:text-muted/60 text-base focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand"
           />
         </div>
 
         {/* Mobile Number */}
         <div>
-          <label htmlFor="lead-phone" className="block text-xs font-semibold uppercase tracking-wider text-ink mb-1.5">
+          <label htmlFor={`lead-phone-${uid}`} className="block text-xs font-semibold uppercase tracking-wider text-ink mb-1.5">
             Mobile Number (WhatsApp) <span className="text-brand">*</span>
           </label>
           <div className="relative">
@@ -162,39 +322,48 @@ export const LeadForm: React.FC<LeadFormProps> = ({ id = "demo", className = "" 
               +91
             </span>
             <input
-              id="lead-phone"
+              id={`lead-phone-${uid}`}
+              name="phone"
               type="tel"
+              inputMode="numeric"
+              autoComplete="tel"
+              enterKeyHint="next"
               required
               maxLength={10}
               placeholder="98765 43210"
+              aria-invalid={phoneError ? "true" : "false"}
               value={formData.phone}
               onChange={(e) => {
                 const val = e.target.value.replace(/\D/g, "");
                 setFormData({ ...formData, phone: val });
-                if (val.length === 10) validatePhone(val);
+                if (phoneError && /^[6-9]\d{9}$/.test(val)) setPhoneError(null);
               }}
-              onBlur={() => validatePhone(formData.phone)}
-              className="w-full pl-14 pr-4 py-3 rounded-xl border border-line bg-surface text-ink placeholder:text-muted/60 text-base focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand"
+              onBlur={() => {
+                if (formData.phone.length > 0) validatePhone(formData.phone);
+              }}
+              className="w-full min-h-[48px] pl-14 pr-4 py-3 rounded-xl border border-line bg-surface text-ink placeholder:text-muted/60 text-base focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand"
             />
           </div>
           {phoneError && (
-            <p className="mt-1.5 text-xs text-brand font-medium">{phoneError}</p>
+            <p role="alert" className="mt-1.5 text-xs text-brand font-medium">{phoneError}</p>
           )}
         </div>
 
         {/* Shehar */}
         <div>
-          <label htmlFor="lead-city" className="block text-xs font-semibold uppercase tracking-wider text-ink mb-1.5">
+          <label htmlFor={`lead-city-${uid}`} className="block text-xs font-semibold uppercase tracking-wider text-ink mb-1.5">
             Aapka Shehar <span className="text-brand">*</span>
           </label>
           <input
-            id="lead-city"
+            id={`lead-city-${uid}`}
+            name="city"
             type="text"
+            autoComplete="address-level2"
             required
             placeholder="e.g. Bahadurgarh, Rohtak, Delhi..."
             value={formData.city}
             onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-            className="w-full px-4 py-3 rounded-xl border border-line bg-surface text-ink placeholder:text-muted/60 text-base focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand"
+            className="w-full min-h-[48px] px-4 py-3 rounded-xl border border-line bg-surface text-ink placeholder:text-muted/60 text-base focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand"
           />
         </div>
 
