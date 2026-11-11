@@ -22,3 +22,4 @@ export const confirmedClaims: ConfirmedClaims = {
   lessonDurations: false,
   feminyAcademyDomain: false,
 };
+
