@@ -33,28 +33,28 @@ export default function HomePage() {
       {/* 5.1 Hero */}
       <section
         id="home-hero"
-        className="relative pt-4 sm:pt-12 pb-10 sm:pb-20 overflow-hidden"
+        className="relative pt-2.5 sm:pt-12 pb-12 sm:pb-20 overflow-hidden"
       >
         <Container size="wide">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 sm:gap-12 items-center">
             {/* Left Content */}
-            <div className="lg:col-span-7 space-y-3 sm:space-y-5 text-left">
+            <div className="lg:col-span-7 space-y-2 sm:space-y-5 text-left">
               <div className="inline-flex items-center gap-2">
-                <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-gold bg-gold/10 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-gold/20">
+                <span className="text-xs font-semibold uppercase tracking-wider text-gold bg-gold/10 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-gold/20">
                   FEMINY ACADEMY · BAHADURGARH
                 </span>
               </div>
 
-              <h1 className="font-serif text-[26px] sm:text-5xl lg:text-6xl font-semibold text-ink leading-[1.15] tracking-tight">
+              <h1 className="font-serif text-[23px] sm:text-5xl lg:text-6xl font-semibold text-ink leading-[1.14] tracking-tight">
                 Beauty seekhiye 15 saal ki expert se — ghar baithe, ya academy mein.
               </h1>
 
-              <p className="text-sm sm:text-lg text-muted max-w-xl leading-snug sm:leading-relaxed">
+              <p className="text-[13px] sm:text-lg text-muted max-w-xl leading-snug sm:leading-relaxed">
                 Software Engineer se Cosmetologist bani Sunita Rathee ab tak 150+ students ko sikha chuki hain. Simple Hindi mein, step-by-step, live doubt sessions ke saath.
               </p>
 
               {/* Compact Hero Lead Form */}
-              <div className="max-w-lg pt-1 space-y-2.5">
+              <div className="max-w-lg pt-0.5 sm:pt-1 space-y-2">
                 <LeadForm
                   id="hero-lead-form"
                   variant="compact"
@@ -69,7 +69,7 @@ export default function HomePage() {
                 </p>
 
                 {/* Secondary WhatsApp CTA + Courses Text Link */}
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 pt-1">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 pt-0.5 sm:pt-1">
                   <Button
                     variant="whatsapp"
                     href={whatsappUrl}
@@ -83,7 +83,7 @@ export default function HomePage() {
 
                   <Link
                     href="#courses"
-                    className="inline-flex items-center justify-center min-h-[44px] px-4 py-2 text-sm font-semibold text-brand hover:text-brand-dark transition-colors"
+                    className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-4 py-2 text-sm font-semibold text-brand hover:text-brand-dark transition-colors"
                   >
                     Courses dekhein ↓
                   </Link>
@@ -95,10 +95,10 @@ export default function HomePage() {
             <div className="lg:col-span-5">
               <div className="relative mx-auto max-w-md">
                 <VideoFacade
-                  posterUrl="/images/sunita-hero.png"
+                  posterUrl="/images/sunita-hero.jpg"
                   aspectRatio="4/3"
                   priority
-                  sizes="(max-width: 1024px) 100vw, 448px"
+                  sizes="(max-width: 640px) 380px, 448px"
                   badgeText="▶ Sunita ma'am se milein · 1 min"
                   caption="Sunita Rathee — Founder & Cosmetologist"
                   altText="PHOTO: Sunita, warm portrait at the academy"

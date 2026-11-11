@@ -28,7 +28,7 @@ export const VideoFacade: React.FC<VideoFacadeProps> = ({
   caption,
   aspectRatio = "16/9",
   priority = false,
-  sizes = "(max-width: 1024px) 100vw, 448px",
+  sizes = "(max-width: 640px) 380px, 448px",
   blurDataURL = DEFAULT_BLUR_DATA_URL,
   className = "",
   altText = "Video preview of Sunita Rathee",
@@ -52,8 +52,7 @@ export const VideoFacade: React.FC<VideoFacadeProps> = ({
   const isPlaceholderAsset =
     !posterUrl ||
     posterUrl.includes("placeholder") ||
-    posterUrl === "/images/sunita-hero.png" ||
-    posterUrl === "/images/sunita-hero.jpg";
+    posterUrl === "/images/sunita-hero.png";
   const showRealPoster = !isPlaceholderAsset && !imageError;
 
   return (
@@ -87,8 +86,7 @@ export const VideoFacade: React.FC<VideoFacadeProps> = ({
               fill
               priority={priority}
               fetchPriority={priority ? "high" : undefined}
-              placeholder="blur"
-              blurDataURL={blurDataURL}
+              quality={65}
               sizes={sizes}
               onError={() => setImageError(true)}
               className="object-cover opacity-90 transition-opacity group-hover:opacity-100"
@@ -100,7 +98,7 @@ export const VideoFacade: React.FC<VideoFacadeProps> = ({
 
           {/* Label indicator for dev / pending asset */}
           <div className="absolute top-4 left-4 z-10">
-            <span className="text-[11px] font-medium tracking-wide uppercase px-2.5 py-1 rounded bg-black/40 text-white/90 backdrop-blur-sm border border-white/10">
+            <span className="text-xs font-medium tracking-wide uppercase px-2.5 py-1 rounded bg-black/40 text-white/90 backdrop-blur-sm border border-white/10">
               {altText}
             </span>
           </div>

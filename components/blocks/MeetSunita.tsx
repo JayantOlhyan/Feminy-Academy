@@ -90,12 +90,12 @@ export const MeetSunita: React.FC<MeetSunitaProps> = ({ className = "" }) => {
         </div>
 
         {/* Links */}
-        <div className="flex flex-wrap items-center gap-5 pt-2 border-t border-line">
+        <div className="flex flex-wrap items-center gap-4 pt-2 border-t border-line">
           <a
             href={siteConfig.socials.youtube}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-brand hover:text-brand-dark"
+            className="inline-flex items-center gap-2 min-h-[44px] py-2 text-sm font-semibold text-brand hover:text-brand-dark"
           >
             <Youtube className="w-4 h-4 text-red-600" />
             <span>YouTube pe free videos dekhein →</span>
@@ -104,7 +104,7 @@ export const MeetSunita: React.FC<MeetSunitaProps> = ({ className = "" }) => {
             href={siteConfig.socials.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-brand hover:text-brand-dark"
+            className="inline-flex items-center gap-2 min-h-[44px] py-2 text-sm font-semibold text-brand hover:text-brand-dark"
           >
             <Instagram className="w-4 h-4 text-pink-600" />
             <span>Instagram →</span>

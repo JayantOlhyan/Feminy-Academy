@@ -22,7 +22,7 @@ export const CertificatePreview: React.FC<CertificatePreviewProps> = ({
             <span className="font-serif text-sm font-semibold tracking-wide text-brand">
               FEMINY ACADEMY
             </span>
-            <span className="text-[10px] uppercase font-sans tracking-widest text-gold">
+            <span className="text-xs uppercase font-sans tracking-wider text-gold">
               Certificate of Completion
             </span>
           </div>
@@ -42,7 +42,7 @@ export const CertificatePreview: React.FC<CertificatePreviewProps> = ({
 
           <div className="flex items-end justify-between border-t border-gold/30 pt-3">
             <div className="text-left">
-              <span className="text-[9px] uppercase tracking-wider text-muted block">
+              <span className="text-xs uppercase tracking-wider text-muted block">
                 Instructor
               </span>
               <span className="text-xs font-serif font-semibold text-ink">

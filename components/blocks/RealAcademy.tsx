@@ -23,19 +23,19 @@ export const RealAcademy: React.FC<RealAcademyProps> = ({
         <div className={`${compact ? "" : "lg:col-span-7"} grid grid-cols-2 gap-3 sm:gap-4`}>
           <div className="rounded-card overflow-hidden bg-surface-2 border border-line aspect-[4/3] flex flex-col items-center justify-center p-4 text-center">
             <span className="text-xs font-serif font-semibold text-ink">Entrance & Signage</span>
-            <span className="text-[10px] text-muted font-mono mt-1">PHOTO: Bahadurgarh Studio</span>
+            <span className="text-xs text-muted font-mono mt-1">PHOTO: Bahadurgarh Studio</span>
           </div>
           <div className="rounded-card overflow-hidden bg-surface-2 border border-line aspect-[4/3] flex flex-col items-center justify-center p-4 text-center">
             <span className="text-xs font-serif font-semibold text-ink">Workstations</span>
-            <span className="text-[10px] text-muted font-mono mt-1">PHOTO: Professional Setup</span>
+            <span className="text-xs text-muted font-mono mt-1">PHOTO: Professional Setup</span>
           </div>
           <div className="rounded-card overflow-hidden bg-surface-2 border border-line aspect-[4/3] flex flex-col items-center justify-center p-4 text-center">
             <span className="text-xs font-serif font-semibold text-ink">Class in Progress</span>
-            <span className="text-[10px] text-muted font-mono mt-1">PHOTO: Students Practice</span>
+            <span className="text-xs text-muted font-mono mt-1">PHOTO: Students Practice</span>
           </div>
           <div className="rounded-card overflow-hidden bg-surface-2 border border-line aspect-[4/3] flex flex-col items-center justify-center p-4 text-center">
             <span className="text-xs font-serif font-semibold text-ink">Sunita Teaching</span>
-            <span className="text-[10px] text-muted font-mono mt-1">PHOTO: 1-on-1 Guidance</span>
+            <span className="text-xs text-muted font-mono mt-1">PHOTO: 1-on-1 Guidance</span>
           </div>
         </div>
 

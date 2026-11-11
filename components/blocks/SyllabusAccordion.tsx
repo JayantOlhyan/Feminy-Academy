@@ -64,9 +64,9 @@ export const SyllabusAccordion: React.FC<SyllabusAccordionProps> = ({
                         <button
                           type="button"
                           onClick={() => onPreviewClick?.(lesson.title)}
-                          className="focus:outline-none"
+                          className="inline-flex items-center min-h-[44px] px-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded"
                         >
-                          <Badge variant="gold" className="text-[10px] py-0.5 cursor-pointer">
+                          <Badge variant="gold" className="text-xs py-0.5 cursor-pointer">
                             FREE PREVIEW ▶
                           </Badge>
                         </button>

@@ -124,7 +124,7 @@ export const PricingCard: React.FC<PricingCardProps> = ({
             <span>
               <Link
                 href="/refund-policy"
-                className="hover:underline text-muted hover:text-ink transition-colors"
+                className="inline-flex items-center min-h-[44px] py-2 hover:underline text-muted hover:text-ink transition-colors"
               >
                 <PlaceholderNotice label="REFUND ONE-LINER" fallbackText={refundOneLiner} />
               </Link>
@@ -133,12 +133,12 @@ export const PricingCard: React.FC<PricingCardProps> = ({
         </div>
 
         {/* Secondary link */}
-        <div className="text-center pt-2">
+        <div className="text-center pt-1">
           <a
             href={questionUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-muted hover:text-brand transition-colors"
+            className="inline-flex items-center justify-center gap-1.5 min-h-[44px] px-3 py-2 text-xs font-medium text-muted hover:text-brand transition-colors"
           >
             <HelpCircle className="w-3.5 h-3.5" />
             <span>Koi sawaal? WhatsApp kijiye →</span>

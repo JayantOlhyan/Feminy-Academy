@@ -64,6 +64,15 @@ export const FinalCTABand: React.FC<FinalCTABandProps> = ({
                 Ya WhatsApp pe baat karein
               </Button>
             </div>
+            <p className="text-xs text-muted">
+              Call karein:{" "}
+              <a
+                href="tel:+919955331142"
+                className="inline-flex items-center min-h-[44px] px-1 font-semibold text-ink underline hover:text-brand"
+              >
+                +91 99553 31142
+              </a>
+            </p>
           </div>
         ) : (
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">

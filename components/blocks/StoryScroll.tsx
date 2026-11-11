@@ -126,7 +126,9 @@ export const StoryScroll: React.FC = () => {
               <div
                 key={idx}
                 className={`transition-all duration-300 cursor-pointer ${
-                  isActive ? "opacity-100 scale-100" : "opacity-40 hover:opacity-70 scale-98"
+                  isActive
+                    ? "opacity-100 scale-100"
+                    : "opacity-40 hover:opacity-70 [@media(hover:none)]:opacity-100 scale-98"
                 }`}
                 onClick={() => setActiveBeat(idx)}
               >
@@ -148,7 +150,7 @@ export const StoryScroll: React.FC = () => {
           <div className="pt-4">
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-brand hover:text-brand-dark transition-colors"
+              className="inline-flex items-center gap-2 min-h-[44px] py-2 text-sm font-semibold text-brand hover:text-brand-dark transition-colors"
             >
               <span>Sunita ma&apos;am ke baare mein aur padhiye</span>
               <ArrowRight className="w-4 h-4" />
@@ -175,11 +177,11 @@ export const StoryScroll: React.FC = () => {
       </div>
 
       {/* Mobile Stacked Layout (Clean vertical timeline without pinning) */}
-      <div className="md:hidden space-y-8 py-4">
+      <div className="md:hidden space-y-6 py-4">
         {beats.map((beat, idx) => (
           <div
             key={idx}
-            className="p-5 rounded-card bg-surface border border-line space-y-3"
+            className="p-5 rounded-card bg-surface border border-line space-y-3 opacity-100"
           >
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold tracking-widest uppercase text-gold bg-gold/10 px-2.5 py-0.5 rounded-full">
@@ -202,7 +204,7 @@ export const StoryScroll: React.FC = () => {
         <div className="pt-2 text-center">
           <Link
             href="/about"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-brand hover:text-brand-dark"
+            className="inline-flex items-center justify-center gap-2 min-h-[44px] px-3 py-2 text-sm font-semibold text-brand hover:text-brand-dark"
           >
             <span>Sunita ma&apos;am ke baare mein aur padhiye</span>
             <ArrowRight className="w-4 h-4" />

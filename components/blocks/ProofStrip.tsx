@@ -55,7 +55,7 @@ export const ProofStrip: React.FC = () => {
                 {stat.label}
               </div>
               {!stat.verified && process.env.NODE_ENV !== "production" && (
-                <span className="mt-1 text-[10px] text-amber-700 bg-amber-100 px-1 rounded">
+                <span className="mt-1 text-xs text-amber-700 bg-amber-100 px-1 rounded">
                   Unverified
                 </span>
               )}
