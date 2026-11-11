@@ -103,3 +103,20 @@ Palette adheres to the **70-20-10** balance rule:
 - Mobile (<768px): All pinned triggers strictly disabled; static clean layout with direct readability.
 - Accessibility: `prefers-reduced-motion` unconditionally disables all animation and renders final states immediately.
 - Zero scroll jacking, smooth-scroll hijacking, text-splitting, or trailing cursor blobs.
+
+---
+
+## 6. Brand Mark, Favicons & Vector Suite
+
+To ensure authentic visual identity without AI slop, Feminy Academy uses a bespoke vector brand mark:
+- **Geometry**: An editorial serif capital **F** with balanced bilateral serifs, framed in an antique gold hairline (`#B8915A`), accented with the signature **Bindu** (cosmetic precision dot) above the crossbar.
+- **Colorway**: Deep wine tile (`#7A1F3D`) with pure white letterform (`#FFFFFF`) and antique gold hairline accents.
+- **Implementations**:
+  - `components/ui/Logo.tsx`: Reusable `<Logo variant="full|mark|wordmark" theme="light|dark|gold" />`.
+  - Header & Footer: Complete brand lockup pairing the vector mark with editorial typography.
+  - Certificate Preview: Official certificate header lockup + gold medallion seal (`theme="gold"`).
+- **Favicon Suite**:
+  - Vector: `app/icon.svg` and `public/icon.svg` (SVG icon, infinite sharpness).
+  - Multi-resolution ICO: `public/favicon.ico` & `app/favicon.ico` (packed with 16x16, 32x32, 48x48 bitmaps for legacy browsers).
+  - Apple Touch Icon: `public/apple-icon.png` (180x180) and `public/apple-touch-icon.png`.
+  - Android & Web Manifest: `public/icon-192.png` and `public/icon-512.png` via `app/manifest.ts`.

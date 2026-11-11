@@ -12,7 +12,7 @@ This document catalogs every pending item, policy decision, asset, and credentia
 | `content/site.ts` | Operating Hours | `[ACADEMY HOURS]` | Visiting & class operating hours (e.g., 10 AM - 6 PM) | Sunita Rathee | Pending |
 | `content/site.ts` | Google Maps URL | `[GOOGLE MAPS LINK]` | Direct Google Maps location link for the academy | Sunita Rathee | Fallback active |
 | `content/site.ts` | Legal Business Name | `[LEGAL BUSINESS NAME]` | Registered business / entity name for Razorpay & terms | Business team | Pending |
-| `content/site.ts` | Brand Logo | `[LOGO FILE PENDING]` | Vector or high-res transparent PNG of brand logo | Design / Brand | Text wordmark fallback active |
+| `content/site.ts` | Brand Logo & Favicons | Vector mark & multi-resolution favicon suite | Integrated across Header, Footer, Certificate Seal, JSON-LD, and Web Manifest | Design System | Active (SVG + 16/32/48/180/192/512px assets) |
 | `content/courses/hydra-facial.ts` | GST Note | `[GST NOTE]` | Tax status (e.g. "GST included" or "Taxes as applicable") | Finance / Sunita | Pending |
 | `content/courses/hydra-facial.ts` | Access Duration | `[ACCESS DURATION]` | Validity period of course access (e.g., "1 Year" or "Lifetime") | Sunita Rathee | Pending |
 | `content/courses/hydra-facial.ts` | Checkout URL | `[CHECKOUT URL]` | Course platform / Razorpay checkout link (when `PAYMENT_ENABLED=true`) | Tech / Sunita | Pending |

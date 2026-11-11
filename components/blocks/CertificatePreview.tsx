@@ -1,6 +1,7 @@
 import React from "react";
 import { PlaceholderNotice } from "@/components/ui/PlaceholderNotice";
-import { Award, Check, QrCode } from "lucide-react";
+import { Check, QrCode } from "lucide-react";
+import { Logo, LogoMark } from "@/components/ui/Logo";
 
 interface CertificatePreviewProps {
   courseName?: string;
@@ -17,12 +18,10 @@ export const CertificatePreview: React.FC<CertificatePreviewProps> = ({
     <div className={`grid grid-cols-1 md:grid-cols-12 gap-8 items-center font-sans ${className}`}>
       {/* Sample Certificate Preview */}
       <div className="md:col-span-6">
-        <div className="relative aspect-[1.414/1] rounded-card overflow-hidden bg-paper border border-line p-6 flex flex-col justify-between">
+        <div className="relative aspect-[1.414/1] rounded-card overflow-hidden bg-paper border border-line p-6 flex flex-col justify-between shadow-subtle">
           <div className="flex items-center justify-between border-b border-line pb-3">
-            <span className="font-serif text-sm font-semibold tracking-wide text-accent">
-              FEMINY ACADEMY
-            </span>
-            <span className="text-xs uppercase font-sans tracking-wider text-gold-text">
+            <Logo variant="full" markClassName="w-6 h-6" className="scale-90 origin-left" />
+            <span className="text-[11px] uppercase font-sans tracking-wider text-gold-text font-semibold">
               Certificate of Completion
             </span>
           </div>
@@ -49,8 +48,14 @@ export const CertificatePreview: React.FC<CertificatePreviewProps> = ({
                 Sunita Rathee
               </span>
             </div>
-            <div className="w-9 h-9 rounded-full border border-gold-line/40 flex items-center justify-center text-gold-line">
-              <Award className="w-4 h-4 stroke-[1.5]" />
+            {/* Official Academy Certificate Seal */}
+            <div className="flex flex-col items-center">
+              <div className="w-10 h-10 rounded-full border border-gold-line/60 p-0.5 flex items-center justify-center bg-paper-2/60">
+                <LogoMark className="w-7 h-7" theme="gold" />
+              </div>
+              <span className="text-[9px] font-sans font-semibold tracking-wider text-gold-text uppercase mt-0.5">
+                VERIFIED SEAL
+              </span>
             </div>
           </div>
         </div>

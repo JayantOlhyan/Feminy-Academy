@@ -4,6 +4,7 @@ import { siteConfig } from "@/content/site";
 import { Container } from "@/components/ui/Container";
 import { PlaceholderNotice } from "@/components/ui/PlaceholderNotice";
 import { Instagram, Youtube, Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Logo } from "@/components/ui/Logo";
 
 export const Footer: React.FC = () => {
   return (
@@ -12,13 +13,12 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-line">
           {/* Brand & Byline */}
           <div className="lg:col-span-2 space-y-4">
-            <Link href="/" className="inline-flex flex-col justify-center min-h-[44px] min-w-[44px] py-1">
-              <span className="font-serif text-2xl font-semibold tracking-tight text-ink">
-                {siteConfig.brand}
-              </span>
-              <span className="block text-xs uppercase font-sans font-semibold tracking-[0.18em] text-gold-text -mt-0.5">
-                ACADEMY
-              </span>
+            <Link
+              href="/"
+              aria-label="Feminy Academy Home"
+              className="inline-flex items-center min-h-[44px] min-w-[44px] py-1"
+            >
+              <Logo variant="full" theme="light" />
             </Link>
             <p className="font-serif text-base text-ink font-medium max-w-sm">
               Sunita Rathee ki academy — Bahadurgarh se, poore India ke liye.

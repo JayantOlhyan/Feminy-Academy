@@ -7,6 +7,7 @@ import { siteConfig } from "@/content/site";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { storeUrlAttribution, isAdLandingSession } from "@/lib/lid";
 import { initAnalytics, trackEvent, trackWhatsAppClick } from "@/lib/tracking";
+import { Logo } from "@/components/ui/Logo";
 
 export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -28,17 +29,13 @@ export const Header: React.FC = () => {
   return (
     <header className="sticky top-0 z-40 w-full bg-paper/98 border-b border-line">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 h-16 sm:h-18 py-2 sm:py-3">
-        {/* Wordmark Logo */}
+        {/* Official Brand Logo */}
         <Link
           href="/"
-          className="group inline-flex flex-col justify-center h-[48px] min-w-[44px] py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-card"
+          aria-label="Feminy Academy Home"
+          className="group inline-flex items-center h-[48px] min-w-[44px] py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-card"
         >
-          <span className="font-serif text-xl sm:text-2xl font-semibold tracking-tight text-ink group-hover:text-accent transition-colors leading-tight">
-            {siteConfig.brand}
-          </span>
-          <span className="text-xs uppercase font-sans font-semibold tracking-[0.18em] text-gold-text -mt-0.5">
-            ACADEMY
-          </span>
+          <Logo variant="full" theme="light" />
         </Link>
 
         {/* Ad Landing Mode: Hide nav links, show only WhatsApp */}

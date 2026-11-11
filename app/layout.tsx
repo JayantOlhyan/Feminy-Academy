@@ -20,7 +20,7 @@ const mukta = Mukta({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#8A2346",
+  themeColor: "#7A1F3D",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
@@ -45,6 +45,19 @@ export const metadata: Metadata = {
   authors: [{ name: "Sunita Rathee" }],
   creator: "Feminy Academy",
   publisher: "Feminy Academy",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+  },
+  manifest: "/manifest.webmanifest",
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -73,6 +86,8 @@ export default function RootLayout({
         name: siteConfig.brand,
         alternateName: "Feminy Academy by Sunita Rathee",
         url: "https://feminyacademy.com",
+        logo: "https://feminyacademy.com/icon-512.png",
+        image: "https://feminyacademy.com/icon-512.png",
         telephone: siteConfig.phone,
         address: {
           "@type": "PostalAddress",
