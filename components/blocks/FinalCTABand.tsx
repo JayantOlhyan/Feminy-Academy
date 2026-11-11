@@ -4,6 +4,7 @@ import React from "react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { LeadForm } from "@/components/blocks/LeadForm";
+import { PlaceholderNotice } from "@/components/ui/PlaceholderNotice";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { trackEvent } from "@/lib/tracking";
 
@@ -18,8 +19,8 @@ interface FinalCTABandProps {
 }
 
 export const FinalCTABand: React.FC<FinalCTABandProps> = ({
-  title = "Shuruaat aaj se kijiye.",
-  subtitle = "Ek course, ek teacher, aur aapka naya skill.",
+  title = "Apne clients. Apni pehchaan. Shuruaat ek free demo class se.",
+  subtitle = "Koi advance payment nahi. Pehle demo lijiye, padhaane ka tareeka samajhiye.",
   primaryButtonText = "Courses dekhein",
   primaryButtonHref = "#courses",
   showCompactForm = false,
@@ -31,13 +32,13 @@ export const FinalCTABand: React.FC<FinalCTABandProps> = ({
   return (
     <section
       id={showCompactForm ? "home-final-cta" : undefined}
-      className={`py-16 sm:py-20 surface-texture border-t border-line ${className}`}
+      className={`py-18 lg:py-28 bg-paper border-t border-line ${className}`}
     >
       <Container size="narrow" className="text-center">
-        <h2 className="font-serif text-3xl sm:text-5xl font-semibold text-ink leading-tight">
+        <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-ink leading-tight">
           {title}
         </h2>
-        <p className="mt-4 text-base sm:text-xl text-muted max-w-xl mx-auto">
+        <p className="mt-4 text-base sm:text-lg text-ink-muted max-w-xl mx-auto font-sans leading-relaxed">
           {subtitle}
         </p>
 
@@ -48,8 +49,18 @@ export const FinalCTABand: React.FC<FinalCTABandProps> = ({
               variant="compact"
               source={formSource}
               fields={["name", "phone"]}
+              submitLabel="Free demo class book karein"
             />
-            <div className="pt-1 flex flex-col sm:flex-row items-center justify-center gap-3">
+
+            {/* Verified Next Batch Slot */}
+            <div className="text-xs font-sans text-ink-muted">
+              <PlaceholderNotice
+                label="CONFIRMED NEXT BATCH DATE & SEATS"
+                fallbackText="Agla batch jald shuru hoga — seats limited hain."
+              />
+            </div>
+
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button
                 variant="whatsapp"
                 href={whatsappUrl}
@@ -64,11 +75,12 @@ export const FinalCTABand: React.FC<FinalCTABandProps> = ({
                 Ya WhatsApp pe baat karein
               </Button>
             </div>
-            <p className="text-xs text-muted">
-              Call karein:{" "}
+
+            <p className="text-xs text-ink-muted font-sans">
+              Direct call:{" "}
               <a
                 href="tel:+919955331142"
-                className="inline-flex items-center min-h-[44px] px-1 font-semibold text-ink underline hover:text-brand"
+                className="inline-flex items-center min-h-[44px] px-1 font-semibold text-ink underline hover:text-accent"
               >
                 +91 99553 31142
               </a>

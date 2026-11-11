@@ -50,20 +50,20 @@ export const WorkGallery: React.FC<WorkGalleryProps> = ({
             type="button"
             onClick={() => setActiveItem(item)}
             aria-label={`View before and after work by ${item.studentName}, ${item.city}`}
-            className="group w-full text-left cursor-pointer rounded-card overflow-hidden bg-surface border border-line shadow-subtle hover:shadow-warm transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+            className="group w-full text-left cursor-pointer rounded-card overflow-hidden bg-paper border border-line hover:border-ink transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             {/* Before / After Container */}
-            <div className="relative grid grid-cols-2 gap-1 p-2 bg-surface-2 aspect-[4/3]">
-              <div className="relative rounded-lg overflow-hidden bg-[#2D2327] flex flex-col items-center justify-center p-2 text-center">
-                <span className="text-xs font-semibold uppercase tracking-wider text-white/90 bg-black/60 px-2 py-0.5 rounded-full mb-1">
+            <div className="relative grid grid-cols-2 gap-1 p-2 bg-paper-2 aspect-[4/3]">
+              <div className="relative rounded-card overflow-hidden bg-[#2D2327] flex flex-col items-center justify-center p-2 text-center">
+                <span className="text-xs font-semibold uppercase tracking-wider text-white/90 bg-black/60 px-2 py-0.5 rounded-card mb-1">
                   Before
                 </span>
                 <span className="text-xs font-mono text-white/75">
                   {item.studentName} Practice
                 </span>
               </div>
-              <div className="relative rounded-lg overflow-hidden bg-[#3F1A28] flex flex-col items-center justify-center p-2 text-center">
-                <span className="text-xs font-semibold uppercase tracking-wider text-white/90 bg-brand/80 px-2 py-0.5 rounded-full mb-1">
+              <div className="relative rounded-card overflow-hidden bg-[#3F1A28] flex flex-col items-center justify-center p-2 text-center">
+                <span className="text-xs font-semibold uppercase tracking-wider text-white/90 bg-accent/90 px-2 py-0.5 rounded-card mb-1">
                   After
                 </span>
                 <span className="text-xs font-mono text-white/75">
@@ -72,19 +72,19 @@ export const WorkGallery: React.FC<WorkGalleryProps> = ({
               </div>
 
               {/* Touch-visible + Desktop Hover Zoom Affordance */}
-              <div className="absolute bottom-3 right-3 md:inset-0 md:bg-brand/10 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
-                <div className="p-2 rounded-full bg-white/90 text-brand shadow-sm">
+              <div className="absolute bottom-3 right-3 md:inset-0 md:bg-accent/10 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                <div className="p-2 rounded-full bg-paper/95 text-accent border border-line">
                   <ZoomIn className="w-4 h-4 md:w-5 md:h-5" aria-hidden="true" />
                 </div>
               </div>
             </div>
 
             {/* Caption */}
-            <div className="p-4 border-t border-line">
+            <div className="p-4 border-t border-line font-sans">
               <p className="text-sm font-semibold text-ink">
                 {item.studentName}, {item.city}
               </p>
-              <p className="text-xs text-muted mt-0.5">{item.course}</p>
+              <p className="text-xs text-ink-muted mt-0.5">{item.course}</p>
             </div>
           </button>
         ))}
@@ -101,18 +101,18 @@ export const WorkGallery: React.FC<WorkGalleryProps> = ({
             setActiveItem(null);
           }
         }}
-        className="fixed inset-0 z-50 m-0 max-w-none max-h-none w-full h-full bg-black/80 backdrop-blur-sm p-4 open:flex items-center justify-center border-0"
+        className="fixed inset-0 z-50 m-0 max-w-none max-h-none w-full h-full bg-ink/80 p-4 open:flex items-center justify-center border-0"
       >
         {activeItem && (
           <div
-            className="relative max-w-2xl w-full max-h-[calc(100dvh-2rem)] overflow-y-auto bg-surface rounded-card p-5 sm:p-6 border border-line shadow-2xl text-left"
+            className="relative max-w-2xl w-full max-h-[calc(100dvh-2rem)] overflow-y-auto bg-paper rounded-card p-5 sm:p-6 border border-line shadow-form text-left font-sans"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               type="button"
               onClick={() => setActiveItem(null)}
               aria-label="Close image modal"
-              className="absolute top-3 right-3 inline-flex items-center justify-center min-w-[44px] min-h-[44px] p-2.5 text-ink hover:text-brand bg-surface-2 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+              className="absolute top-3 right-3 inline-flex items-center justify-center min-w-[44px] min-h-[44px] p-2.5 text-ink hover:text-accent bg-paper-2 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <X className="w-5 h-5" aria-hidden="true" />
             </button>
@@ -123,30 +123,33 @@ export const WorkGallery: React.FC<WorkGalleryProps> = ({
             >
               {activeItem.studentName}, {activeItem.city}
             </h3>
-            <p className="text-sm text-muted mb-4">{activeItem.course}</p>
+            <p className="text-sm text-ink-muted mb-4">{activeItem.course}</p>
 
-            <div className="grid grid-cols-2 gap-3 sm:gap-4 aspect-[4/3] max-h-[55dvh] bg-surface-2 p-3 sm:p-4 rounded-xl border border-line">
-              <div className="rounded-lg bg-[#2D2327] flex flex-col items-center justify-center p-3 sm:p-4 text-center">
-                <span className="text-xs font-semibold text-white bg-black/70 px-3 py-1 rounded-full mb-2">
-                  BEFORE
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 aspect-[4/3] max-h-[55dvh] bg-paper-2 p-3 sm:p-4 rounded-card border border-line">
+              <div className="rounded-card bg-[#2D2327] flex flex-col items-center justify-center p-3 sm:p-4 text-center">
+                <span className="text-xs font-semibold text-white bg-black/70 px-3 py-1 rounded-card mb-2">
+                  Before Practice
                 </span>
                 <p className="text-xs text-white/80 font-mono">
-                  Initial Skin / Makeup Condition
+                  Initial Model Skin Analysis
                 </p>
               </div>
-              <div className="rounded-lg bg-[#3F1A28] flex flex-col items-center justify-center p-3 sm:p-4 text-center">
-                <span className="text-xs font-semibold text-white bg-brand px-3 py-1 rounded-full mb-2">
-                  AFTER
+
+              <div className="rounded-card bg-[#3F1A28] flex flex-col items-center justify-center p-3 sm:p-4 text-center">
+                <span className="text-xs font-semibold text-white bg-accent px-3 py-1 rounded-card mb-2">
+                  After Treatment
                 </span>
                 <p className="text-xs text-white/80 font-mono">
-                  Post-Treatment Student Result
+                  Clean Hydration & Finished Glow
                 </p>
               </div>
             </div>
 
-            <p className="mt-4 text-xs text-center text-muted italic">
-              {studentWorkConfig.subtitle}
-            </p>
+            <div className="mt-4 pt-3 border-t border-line text-xs text-ink-muted">
+              <p>
+                Student work verified by Sunita Rathee at Feminy Academy, Bahadurgarh.
+              </p>
+            </div>
           </div>
         )}
       </dialog>
