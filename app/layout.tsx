@@ -26,14 +26,19 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
+// TODO(domain): decide myfeminy.com vs feminyacademy.com
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://feminy-academy.netlify.app";
+const siteEnv = process.env.NEXT_PUBLIC_SITE_ENV || "staging";
+const isStaging = siteEnv !== "production";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://feminyacademy.com"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Feminy Academy by Sunita Rathee | Beauty Courses — Online & Bahadurgarh",
     template: "%s | Feminy Academy",
   },
   description:
-    "HydraFacial, makeup aur beauty courses Hindi mein. 15+ saal ki expert Sunita Rathee se online seekhiye ya Bahadurgarh academy mein. Live doubt sessions + certificate.",
+    "HydraFacial, makeup aur beauty courses Hindi mein. Expert cosmetologist Sunita Rathee se online seekhiye ya Bahadurgarh academy mein. Live doubt sessions + certificate.",
   keywords: [
     "Hydra Facial course Hindi",
     "beauty academy Bahadurgarh",
@@ -53,15 +58,24 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://feminyacademy.com",
+    url: siteUrl,
     title: "Feminy Academy by Sunita Rathee | Beauty Courses — Online & Bahadurgarh",
     description:
-      "Beauty seekhiye 15 saal ki expert Sunita Rathee se — ghar baithe, ya Bahadurgarh academy mein. Simple Hindi mein, live doubt sessions ke saath.",
+      "Beauty seekhiye expert cosmetologist Sunita Rathee se — ghar baithe, ya Bahadurgarh academy mein. Simple Hindi mein, live doubt sessions ke saath.",
     siteName: "Feminy Academy",
   },
-  alternates: {
-    canonical: "https://feminyacademy.com",
-  },
+  ...(isStaging
+    ? {
+        robots: {
+          index: false,
+          follow: false,
+        },
+      }
+    : {
+        alternates: {
+          canonical: siteUrl,
+        },
+      }),
 };
 
 export default function RootLayout({
@@ -69,17 +83,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const ratingStat = siteConfig.stats.find((s) => s.id === "rating");
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "EducationalOrganization",
-        "@id": "https://feminyacademy.com/#organization",
+        "@id": `${siteUrl}/#organization`,
         name: siteConfig.brand,
         alternateName: "Feminy Academy by Sunita Rathee",
-        url: "https://feminyacademy.com",
-        logo: "https://feminyacademy.com/icon-512.png",
-        image: "https://feminyacademy.com/icon-512.png",
+        url: siteUrl,
+        logo: `${siteUrl}/icon-512.png`,
+        image: `${siteUrl}/icon-512.png`,
         telephone: siteConfig.phone,
         address: {
           "@type": "PostalAddress",
@@ -92,9 +108,9 @@ export default function RootLayout({
       },
       {
         "@type": "LocalBusiness",
-        "@id": "https://feminyacademy.com/#localbusiness",
+        "@id": `${siteUrl}/#localbusiness`,
         name: `${siteConfig.brand} Studio & Academy`,
-        image: "https://feminyacademy.com/images/sunita-portrait.jpg",
+        image: `${siteUrl}/images/sunita-portrait.jpg`,
         telephone: siteConfig.phone,
         address: {
           "@type": "PostalAddress",
@@ -104,11 +120,15 @@ export default function RootLayout({
           postalCode: "124507",
           addressCountry: "IN",
         },
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: "4.9",
-          reviewCount: "120",
-        },
+        ...(ratingStat?.verified
+          ? {
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: ratingStat.value.replace("★", ""),
+                reviewCount: String(ratingStat.reviewCount || 37),
+              },
+            }
+          : {}),
       },
     ],
   };
