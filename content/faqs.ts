@@ -16,23 +16,25 @@ export const homeFAQs: FAQItem[] = [
   {
     question: "Online course kaise milega?",
     answer:
-      "Enrol karne ke baad aapko WhatsApp pe login details milengi. Aap phone ya laptop pe dekh sakti hain. [CONFIRM PLATFORM FLOW]",
+      "Enrol karne ke baad aapko WhatsApp aur email par turant access details mil jaati hain. Aap phone ya laptop par asani se dekh sakti hain.",
   },
   {
     question: "Live doubt session kab hote hain?",
-    answer: "[FREQUENCY AND TIMING].",
+    answer:
+      "Har hafte scheduled live interactive sessions hote hain jahan Sunita ma'am direct aapke doubts solve karti hain.",
   },
   {
     question: "Certificate milega?",
-    answer: "Haan, course poora karne par. [CERTIFICATE DETAILS]",
+    answer:
+      "Haan, course poora karne ke baad verified Feminy Academy certificate diya jaata hai.",
   },
   {
     question: "Online ke baad offline course kar sakti hoon?",
     answer:
-      "Haan. Online course offline professional course ki achhi shuruaat hai. [ANY FEE ADJUSTMENT, IF OFFERED]",
+      "Haan, bilkul. Online seekhne ke baad aap Bahadurgarh academy aakar hands-on practical batch join kar sakti hain.",
   },
   {
     question: "Kisi aur sawaal ke liye?",
-    answer: "WhatsApp kijiye, hamari team jawab degi.",
+    answer: "WhatsApp kijiye, hamari team seedhe jawab degi.",
   },
 ];

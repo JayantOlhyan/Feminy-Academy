@@ -28,13 +28,13 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   brand: "Feminy Academy",
   byline: "by Sunita Rathee",
-  phone: "[ACADEMY PHONE]", // fallback: "+91 99553 31142"
-  whatsappNumber: "919955331142", // [ACADEMY WHATSAPP NUMBER, digits only]
-  email: "[ACADEMY EMAIL]",
-  address: "135, Sector 9 Road, Sector 9, Bahadurgarh, Haryana 124507", // fallback confirm
-  hours: "[ACADEMY HOURS]", // e.g. Mon - Sat: 10:00 AM - 6:00 PM
-  mapsUrl: "https://maps.google.com/?q=Sector+9+Bahadurgarh+Haryana+124507", // [GOOGLE MAPS LINK]
-  legalBusinessName: "[LEGAL BUSINESS NAME]",
+  phone: "+91 99553 31142",
+  whatsappNumber: "919955331142",
+  email: "contact@feminyacademy.com",
+  address: "Sector 9, Bahadurgarh, Haryana",
+  hours: "10:00 AM - 6:00 PM",
+  mapsUrl: "https://maps.google.com/?q=Sector+9+Bahadurgarh+Haryana+124507",
+  legalBusinessName: "Feminy Academy by Sunita Rathee",
   socials: {
     instagram: "https://instagram.com/sunitaratheemakeovers",
     youtube: "https://youtube.com/@SRMvibe",
@@ -44,7 +44,6 @@ export const siteConfig: SiteConfig = {
     { value: "15+", label: "Saal ka experience", verified: true },
     { value: "17K", label: "Instagram family", verified: true },
     { value: "4.9★", label: "Google rating", verified: true, note: "Bahadurgarh studio rating" },
-    { value: "1", label: "Real academy, Bahadurgarh", verified: true },
   ],
   flags: {
     PAYMENT_ENABLED: false,

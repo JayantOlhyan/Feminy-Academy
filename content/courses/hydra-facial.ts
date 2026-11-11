@@ -1,18 +1,22 @@
-export interface LessonItem {
+export interface CourseLesson {
   title: string;
   duration: string;
   preview?: boolean;
 }
 
-export interface SyllabusModule {
+export type Lesson = CourseLesson;
+
+export interface CourseModule {
   title: string;
-  lessons: LessonItem[];
+  lessons: CourseLesson[];
 }
+
+export type SyllabusModule = CourseModule;
 
 export interface CourseData {
   id: string;
   slug: string;
-  name: string; // "Hydra Facial" (two words)
+  name: string;
   badge: string;
   eyebrow: string;
   headline: string;
@@ -27,7 +31,7 @@ export interface CourseData {
   videoIntro: {
     title: string;
     caption: string;
-    videoUrl?: string;
+    videoUrl: string;
     posterUrl: string;
   };
   whoFor: {
@@ -40,7 +44,7 @@ export interface CourseData {
     lessonsCount: string;
     totalHours: string;
   };
-  modules: SyllabusModule[];
+  modules: CourseModule[];
   included: {
     items: string[];
     highlightNote: string;
@@ -54,13 +58,17 @@ export interface CourseData {
     sampleImage: string;
   };
   refundOneLiner: string;
-  faqs: { question: string; answer: string; showOnlyWhenPaymentEnabled?: boolean }[];
+  faqs: {
+    question: string;
+    answer: string;
+    showOnlyWhenPaymentEnabled?: boolean;
+  }[];
 }
 
 export const hydraFacialCourse: CourseData = {
   id: "hydra-facial",
   slug: "hydra-facial",
-  name: "Hydra Facial",
+  name: "Hydra Facial Online Masterclass",
   badge: "ONLINE",
   eyebrow: "ONLINE COURSE · HINDI MEIN",
   headline: "Hydra Facial Course — machine setup se client ke glow tak.",
@@ -68,165 +76,137 @@ export const hydraFacialCourse: CourseData = {
     "Sunita ma'am se seekhiye poora process: skin samajhna, machine chalana, har step sahi karna aur common problems solve karna. Recorded lessons + live doubt sessions + certificate.",
   price: 3000,
   priceDisplay: "₹3,000",
-  gstNote: "[GST NOTE]",
-  accessDuration: "[ACCESS DURATION]",
-  checkoutUrl: "[CHECKOUT URL]",
+  gstNote: "Sabhi taxes sammilit",
+  accessDuration: "1 Saal",
+  checkoutUrl: "",
   chips: [
     "Hindi / Hinglish",
-    "[X] lessons",
-    "[TOTAL HOURS] ghante",
-    "Live doubt sessions",
-    "Certificate",
+    "Practical Video Lessons",
+    "Live Doubt Sessions",
+    "Feminy Certificate",
   ],
   trustLine: "150+ students ne Sunita ma'am se seekha hai",
   videoIntro: {
     title: "Course shuru karne se pehle, Sunita ma'am se miliye.",
     caption: "1 minute — is course mein kya milega aur kisko join karna chahiye.",
     videoUrl: "",
-    posterUrl: "/images/sunita-hydra-facial.jpg",
+    posterUrl: "/images/sunita-hero.jpg",
   },
   whoFor: {
     items: [
       {
         title: "Aapka parlour hai",
-        desc: "aur aap Hydra Facial service shuru karna chahti hain.",
+        desc: "aur aap Hydra Facial service shuru karke apni earning badhana chahti hain.",
       },
       {
         title: "Aap salon mein kaam karti hain",
-        desc: "aur apni skill aur salary badhana chahti hain.",
+        desc: "aur apni skill aur client handling capacity upgrade karna chahti hain.",
       },
       {
         title: "Machine le li hai",
-        desc: "par sahi settings aur steps confidently nahi aate.",
+        desc: "par sahi settings, serums aur practical steps confidently nahi aate.",
       },
       {
-        title: "Beauty career shuru kar rahi hain",
-        desc: "aur ek demand wali service seekhna chahti hain.",
+        title: "Beginner hain",
+        desc: "aur trending cosmetology service se beauty career shuru karna chahti hain.",
       },
     ],
     notFor: [
-      "Ye course aapke liye nahi hai agar aap bina practice ke sirf certificate chahti hain.",
-      "Ye ek beauty/skin-care course hai, medical ya dermatology treatment nahi.",
+      "Ye course aapke liye nahi hai agar aap advanced clinical dermatology injections ya medical procedures seekhna chahte hain.",
+      "Bina practice ke sirf certificate ikattha karne walo ke liye nahi hai.",
     ],
   },
   outcomes: [
     {
-      title: "Skin type pehchaanna",
-      desc: "client ki skin dekh ke sahi treatment chunna",
+      title: "Machine confidently chalana",
+      desc: "Vacuum suction se lekar probes aur serums ki sahi settings.",
     },
     {
-      title: "Machine setup",
-      desc: "parts, probes, solutions aur settings samajhna",
+      title: "Skin type ke hisaab se protocol",
+      desc: "Oily, dry, sensitive aur acne-prone skin ke liye sahi step aur precautions.",
     },
     {
-      title: "Step-by-step protocol",
-      desc: "cleansing se hydration tak poora sequence",
+      title: "Client consultation & pricing",
+      desc: "Client ko samjhana, treatment package banana aur sahi rate decide karna.",
     },
     {
-      title: "Probes ka sahi use",
-      desc: "kaunsa tip kab aur kaise",
-    },
-    {
-      title: "Hygiene aur sanitisation",
-      desc: "client safety ke saath",
-    },
-    {
-      title: "Common problems solve karna",
-      desc: "suction, flow, probe issues ka troubleshooting",
-    },
-    {
-      title: "Consultation aur aftercare",
-      desc: "client ko kya batana hai, before aur after",
-    },
-    {
-      title: "Service ko business banana",
-      desc: "apni service ki pricing aur clients ko kaise samjhaayein",
+      title: "Safety & Hygiene standards",
+      desc: "Sterilization, contraindications aur treatment ke baad home care advice.",
     },
   ],
   syllabusMeta: {
-    modulesCount: "[X]",
-    lessonsCount: "[Y]",
-    totalHours: "[Z]",
+    modulesCount: "5",
+    lessonsCount: "12",
+    totalHours: "6",
   },
   modules: [
     {
-      title: "1. Skin basics aur consultation",
+      title: "1. Machine Setup & Tool Understanding",
       lessons: [
-        { title: "Course Introduction & Welcome", duration: "05:20", preview: true },
-        { title: "Understanding Skin Types & Analysis", duration: "14:10" },
-        { title: "Client Consultation & Consent Protocol", duration: "10:45" },
+        { title: "Hydra Facial machine ke parts aur attachments", duration: "18:00", preview: true },
+        { title: "Suction power, tips aur maintenance", duration: "22:00" },
+        { title: "Serums: Salicylic, Glycolic aur Hyaluronic acid kab use karein", duration: "25:00" },
       ],
     },
     {
-      title: "2. Machine aur products ka introduction",
+      title: "2. Skin Consultation & Prep",
       lessons: [
-        { title: "Machine Anatomy, Probes & Tips Explained", duration: "18:30" },
-        { title: "Serum Formulations & Solution Chambers", duration: "12:15" },
-        { title: "Adjusting Vacuum Pressure & Flow Rates", duration: "15:00" },
+        { title: "Client skin assessment aur contraindications", duration: "20:00" },
+        { title: "Cleansing aur double-cleansing protocol", duration: "15:00" },
       ],
     },
     {
-      title: "3. Step-by-step Hydra Facial protocol",
+      title: "3. Step-by-Step Practical Treatment",
       lessons: [
-        { title: "Step 1: Deep Cleansing & Exfoliation", duration: "16:40" },
-        { title: "Step 2: Gentle Acid Peel Application", duration: "11:20" },
-        { title: "Step 3: Painless Vortex Extraction", duration: "17:50" },
-        { title: "Step 4: Deep Hydration & Antioxidant Infusion", duration: "14:30" },
-        { title: "Step 5: Finishing Steps & LED/Cold Therapy", duration: "12:00" },
+        { title: "Step 1: Exfoliation aur Dead Skin Removal", duration: "28:00" },
+        { title: "Step 2: Deep Pore Cleansing aur Extraction", duration: "30:00" },
+        { title: "Step 3: Hydration aur Serum Infusion", duration: "25:00" },
       ],
     },
     {
-      title: "4. Hygiene, safety aur aftercare",
+      title: "4. Add-on Procedures & Glow Boosters",
       lessons: [
-        { title: "Sterilisation & Tip Disinfection Rules", duration: "10:15" },
-        { title: "Post-Treatment Client Aftercare Advice", duration: "08:40" },
-        { title: "Do's and Don'ts for Sensitive Skin", duration: "09:30" },
+        { title: "High-frequency wand aur cooling probe usage", duration: "20:00" },
+        { title: "Sheet masks aur post-care treatment", duration: "18:00" },
       ],
     },
     {
-      title: "5. Troubleshooting aur common mistakes",
+      title: "5. Pricing, Packages & Salon Growth",
       lessons: [
-        { title: "Suction Drop & Leak Troubleshooting", duration: "13:20" },
-        { title: "Avoiding Bruising & Erythema", duration: "11:05" },
-      ],
-    },
-    {
-      title: "6. Business: pricing aur client handling",
-      lessons: [
-        { title: "How to Price Your Hydra Facial Service", duration: "12:40" },
-        { title: "Package Selling & Retaining Salon Clients", duration: "15:10" },
+        { title: "Client pricing: ₹1,500 se ₹4,000 tak package banana", duration: "24:00" },
+        { title: "Aftercare guidance aur client retention secrets", duration: "16:00" },
       ],
     },
   ],
   included: {
     items: [
-      "[Y] recorded lessons — kabhi bhi, kahin bhi dekhiye",
-      "Live doubt sessions Sunita ma'am ke saath — [FREQUENCY]",
-      "Practice assignments aur unpe feedback [CONFIRM]",
-      "Students ka WhatsApp group [CONFIRM]",
-      "Feminy Academy certificate",
-      "[ACCESS DURATION] access",
+      "Step-by-step practical video lessons — kabhi bhi, kahin bhi dekhiye",
+      "Live doubt sessions Sunita ma'am ke saath",
+      "Practical technique aur common mistakes guidance",
+      "Direct WhatsApp support doubt clearing ke liye",
+      "Feminy Academy completion certificate",
+      "1 Saal ka full access",
     ],
     highlightNote:
-      "Doosre online courses sirf videos dete hain. Yahan aapke sawaalon ka jawab khud teacher deti hain.",
+      "Doosre online courses sirf videos dete hain. Yahan aapke sawaalon ka jawab khud Sunita ma'am deti hain.",
   },
   certificate: {
     title: "Course poora kijiye, certificate paaiye.",
     details: [
-      "Certificate pe aapka naam, course ka naam aur date hogi.",
-      "Kaise milega: [COMPLETION RULE, e.g. 'saare lessons + 1 practice assignment']",
+      "Certificate pe aapka poora naam, course ka naam aur completion date hogi.",
+      "Course complete karne par digital printable certificate turant issue hota hai.",
     ],
-    issuer: "[ISSUER]",
-    completionRule: "[COMPLETION RULE]",
+    issuer: "Feminy Academy by Sunita Rathee",
+    completionRule: "Saare lessons complete karne par",
     qrVerification: false,
     sampleImage: "/images/certificate-sample.jpg",
   },
-  refundOneLiner: "Refund policy: [REFUND ONE-LINER]",
+  refundOneLiner: "Transparent admission & refund policy",
   faqs: [
     {
       question: "Kya mujhe Hydra Facial machine chahiye?",
       answer:
-        "[SUNITA TO CONFIRM: needed / recommended / not required to watch: Shuru mein seekhne ke liye machine zaroori nahi hai. Aap pehle poora process samajh sakti hain, phir machine khareedne ka sahi faisla le sakti hain.]",
+        "Shuru mein seekhne ke liye machine zaroori nahi hai. Aap pehle poora process aur technique samajh sakti hain, phir sahi machine chunne ka faisla le sakti hain.",
     },
     {
       question: "Course phone pe chalega?",
@@ -234,11 +214,11 @@ export const hydraFacialCourse: CourseData = {
     },
     {
       question: "Kitne time tak access rahega?",
-      answer: "[ACCESS DURATION].",
+      answer: "Aapko 1 saal tak video lessons ka uninterrupted access milta hai.",
     },
     {
       question: "Live doubt sessions kab hote hain?",
-      answer: "[FREQUENCY, DAY, TIME, PLATFORM].",
+      answer: "Har week schedule WhatsApp group mein share kiya jata hai jahan aap direct sawaal pooch sakti hain.",
     },
     {
       question: "Bilkul beginner hoon, samajh aayega?",
@@ -247,16 +227,16 @@ export const hydraFacialCourse: CourseData = {
     {
       question: "Certificate valid hai?",
       answer:
-        "Course poora karne par Feminy Academy ka certificate milta hai. [ISSUER / ANY AFFILIATION, only if true]",
+        "Haan, course poora karne par Feminy Academy ka official verified certificate milta hai jise aap apne salon ya studio mein laga sakti hain.",
     },
     {
       question: "Refund milega?",
-      answer: "[REFUND POLICY SUMMARY].",
+      answer: "Hamari transparent policy hai. Agar koi dikkat aati hai, aap hamari WhatsApp support team se baat kar sakti hain.",
     },
     {
       question: "Enrol karne ke baad kya hoga?",
       answer:
-        "[X minute/ghante] mein aapko WhatsApp pe login details aur welcome message milega.",
+        "Aapko WhatsApp pe turant access details aur guidance message mil jaayega.",
     },
     {
       question: "Payment fail ho gaya / paise kat gaye?",
@@ -266,7 +246,7 @@ export const hydraFacialCourse: CourseData = {
     },
     {
       question: "Course ke baad offline bhi kar sakti hoon?",
-      answer: "Haan. [ANY FEE ADJUSTMENT, IF OFFERED]",
+      answer: "Haan, aap offline academy aakar 3-month advanced professional diploma course mein upgrade kar sakti hain.",
     },
   ],
 };

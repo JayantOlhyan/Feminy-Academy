@@ -106,4 +106,17 @@ export const testimonialsData: TestimonialItem[] = [
   },
 ];
 
+export const hasRealStudentWork = studentWorkConfig.items.some(
+  (item) => !item.studentName.startsWith("[") && !item.beforeImage.includes("placeholder")
+);
+
+export const hasRealTestimonials = (category?: string) =>
+  testimonialsData.some(
+    (item) =>
+      !item.isPlaceholder &&
+      !item.name.startsWith("[") &&
+      !item.outcomeOneLiner.includes("PENDING") &&
+      (!category || category === "all" || item.courseCategory === category || item.courseCategory === "all")
+  );
+
 export const googleReviewsLink = "[GOOGLE REVIEWS LINK]";

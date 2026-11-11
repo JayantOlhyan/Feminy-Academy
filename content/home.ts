@@ -30,6 +30,7 @@ export interface HomeContent {
     ctaLabel: string;
   };
   transformation: {
+    showStudentStories: boolean;
     eyebrow: string;
     heading: string;
     subtitle: string;
@@ -72,9 +73,9 @@ export const homeContent: HomeContent = {
   },
   guide: {
     eyebrow: "AAPKI GUIDE",
-    heading: "Main bhi ek din zero se shuru hui thi.",
+    heading: "15+ saal ka practical tajurba aur verified guidance.",
     empathyFallback:
-      "Software engineer se cosmetologist banne ka safar aasan nahi tha. Maine seekha ki sirf theory ya online videos se confidence nahi aata — asli hunar tab banta hai jab koi aapka haath pakadkar har step samjhaye aur har chhota-bada doubt bina jhijhak clear kare. Feminy Academy mein mera maksad yahi hai: aapko independent banana.",
+      "Sunita Rathee ne pichhle 15+ saalon mein 150 se zyada students ko cosmetology, skincare aur beauty treatments mein personally train kiya hai. Bahadurgarh mein apni functional academy aur studio ke zariye, unka focus hamesha real clinical practice, hygiene standards aur client confidence par rehta hai — bina kisi unnecessary theory ya shortcuts ke.",
     authority: [
       { value: "15+ saal", label: "Ka practical experience" },
       { value: "150+", label: "Students trained & guided" },
@@ -83,27 +84,27 @@ export const homeContent: HomeContent = {
     storyBeats: [
       {
         step: "01",
-        period: "Pehle",
-        title: "Engineering se Shuruaat",
-        text: "Tech desk chhod kar jab maine passion chuna, sabne sawaal uthaye.",
+        period: "Tajurba",
+        title: "15+ Saal ka Safar",
+        text: "Practical cosmetology aur salon industry mein 15 saal se zyada ka continuous anubhav.",
       },
       {
         step: "02",
-        period: "Phir",
-        title: "Kadi Mehnat & Clients",
-        text: "Saalon ki real practice, clinical skin understanding aur bridal artistry.",
+        period: "Technique",
+        title: "Clinical & Practical Focus",
+        text: "Skin anatomy, machine handling aur modern treatments ki deep practical understanding.",
       },
       {
         step: "03",
-        period: "15+ saal",
-        title: "Apni Academy",
-        text: "Bahadurgarh mein studio aur academy setup jahan har tool real hai.",
+        period: "Centre",
+        title: "Apni Functional Academy",
+        text: "Bahadurgarh (Sector 9) mein physical studio setup jahan har tool aur machine real practice ke liye available hai.",
       },
       {
         step: "04",
-        period: "Aaj",
-        title: "150+ Self-Reliant Students",
-        text: "Hazaaron doubts door karke students ko unke pairon par khada karna.",
+        period: "Students",
+        title: "150+ Trained Students",
+        text: "Students ko live models pe practical karwake self-reliant aur career-ready banana.",
       },
     ],
   },
@@ -130,35 +131,11 @@ export const homeContent: HomeContent = {
     ctaLabel: "Step 1 abhi kijiye",
   },
   transformation: {
+    showStudentStories: false,
     eyebrow: "STUDENTS KI PEHCHAAN",
     heading: "Inhone bhi yahin se shuru kiya tha.",
     subtitle: "Real practice aur live guidance se badla confidence.",
-    studentStories: [
-      {
-        id: "story-1",
-        name: "Pooja S.",
-        city: "Rohtak",
-        before: "Basic beauty work aata tha par skin machines se darr lagta tha",
-        after: "HydraFacial aur treatments khud confidence se handle karti hain",
-        course: "HydraFacial Course",
-      },
-      {
-        id: "story-2",
-        name: "Ritu V.",
-        city: "Bahadurgarh",
-        before: "Online videos se seekhne ki koshish ki, doubts clear nahi hote the",
-        after: "Academy mein live models pe practical karke apna kaam shuru kiya",
-        course: "3-Month Professional",
-      },
-      {
-        id: "story-3",
-        name: "Neha M.",
-        city: "Delhi NCR",
-        before: "Client ke saamne baat karne aur rate batane mein jhijhak thi",
-        after: "Certified cosmetologist bankar freelance clients le rahi hain",
-        course: "HydraFacial Course",
-      },
-    ],
+    studentStories: [],
   },
   finalCta: {
     heading: "Apne clients. Apni pehchaan. Shuruaat ek free demo class se.",

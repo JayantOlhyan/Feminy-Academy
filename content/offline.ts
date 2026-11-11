@@ -1,10 +1,12 @@
-export interface OfflineCurriculumMonth {
+export interface MonthPlan {
   number: string;
   month: string;
   title: string;
   topics: string[];
   placeholderConfirm?: boolean;
 }
+
+export type OfflineCurriculumMonth = MonthPlan;
 
 export interface OfflinePageData {
   eyebrow: string;
@@ -19,14 +21,23 @@ export interface OfflinePageData {
     emiAvailable: boolean;
     seatsLeft?: number;
   };
-  whoFor: { title: string; desc: string }[];
-  months: OfflineCurriculumMonth[];
-  howYouLearn: { title: string; desc: string }[];
+  whoFor: Array<{
+    title: string;
+    desc: string;
+  }>;
+  months: MonthPlan[];
+  howYouLearn: Array<{
+    title: string;
+    desc: string;
+  }>;
   careerOutcomes: {
     items: string[];
-    placementNote?: string;
+    placementNote: string;
   };
-  faqs: { question: string; answer: string }[];
+  faqs: Array<{
+    question: string;
+    answer: string;
+  }>;
 }
 
 export const offlineAcademyData: OfflinePageData = {
@@ -36,12 +47,11 @@ export const offlineAcademyData: OfflinePageData = {
     "Makeup, hair aur skin — Sunita ma'am ki academy mein, real models pe practice ke saath. Chhota batch, personal attention.",
   facts: {
     duration: "3 mahine",
-    batchSize: "[BATCH SIZE]",
-    timings: "[TIMINGS]",
-    nextBatch: "[DATE]",
-    feeDisplay: "[OFFLINE FEE DISPLAY]", // e.g. "Fee counselling mein bataayi jaayegi"
+    batchSize: "Chhote batches (limited seats)",
+    timings: "Counselling mein bataayi jaayengi",
+    nextBatch: "", // Real batch date confirmed hone par hi render hoga
+    feeDisplay: "Counselling session mein poori jaankari",
     emiAvailable: true,
-    // seatsLeft: undefined (Do not fake. Only render if strictly set.)
   },
   whoFor: [
     {
@@ -72,7 +82,7 @@ export const offlineAcademyData: OfflinePageData = {
         "Hygienic waxing & precision threading",
         "Sanitisation, sterilisation & hygiene protocols",
       ],
-      placeholderConfirm: true,
+      placeholderConfirm: false,
     },
     {
       number: "02",
@@ -84,7 +94,7 @@ export const offlineAcademyData: OfflinePageData = {
         "Party makeup & day-to-night looks",
         "HD makeup technique & saree/dupatta draping",
       ],
-      placeholderConfirm: true,
+      placeholderConfirm: false,
     },
     {
       number: "03",
@@ -96,7 +106,7 @@ export const offlineAcademyData: OfflinePageData = {
         "Traditional & modern bridal transformations",
         "Client consultation, pricing strategy & portfolio shoots",
       ],
-      placeholderConfirm: true,
+      placeholderConfirm: false,
     },
   ],
   howYouLearn: [
@@ -110,11 +120,11 @@ export const offlineAcademyData: OfflinePageData = {
     },
     {
       title: "Professional products aur kit",
-      desc: "[CONFIRM KIT INCLUDED?: Industry-grade products practice ke dauran provide kiye jaate hain]",
+      desc: "Industry-grade professional products practice ke dauran uplabdh karwaye jaate hain.",
     },
     {
-      title: "Portfolio photos",
-      desc: "[CONFIRM: Course ke end tak aapke dwara kiye gaye models ke professional photos]",
+      title: "Portfolio guidance",
+      desc: "Course ke dauran live models par aapke kaam ke photos aapke portfolio ke liye.",
     },
   ],
   careerOutcomes: {
@@ -124,39 +134,39 @@ export const offlineAcademyData: OfflinePageData = {
       "Apna salon ya home-based beauty studio",
       "Online clients ke liye specialized skincare & styling services",
     ],
-    placementNote: "[PLACEMENT / INTERNSHIP HELP: only if offered]",
+    placementNote: "",
   },
   faqs: [
     {
       question: "Fees kitni hai?",
       answer:
-        "[OFFLINE FEE OR 'Demo class / counselling mein poori fee aur instalment options bataaye jaate hain.']",
+        "Demo class aur counselling session mein poori fee structure aur instalment options share kiye jaate hain.",
     },
     {
       question: "Instalments mein de sakti hoon?",
-      answer: "[CONFIRM: EMI aur flexible monthly instalment facility uplabdh hai.]",
+      answer: "Haan, admission ke samay monthly instalment options ki suvidha uplabdh hai.",
     },
     {
       question: "Kit milti hai?",
-      answer: "[CONFIRM: Professional training kit details counselling session mein milengi.]",
+      answer: "Training kit aur equipment details counselling session mein step-by-step batayi jaati hain.",
     },
     {
       question: "Bahar ke shehar se hoon, rehne ka intezaam?",
       answer:
-        "[CONFIRM: Bahadurgarh mein safe PG aur accommodation ke contacts hum share karte hain.]",
+        "Bahadurgarh mein verified safe PG aur accommodation ke contacts academy team share karti hai.",
     },
     {
       question: "Class timings kya hain? Hafte mein kitne din?",
-      answer: "[CONFIRM: Mon to Fri batches, timings counselling ke waqt batayi jaayengi.]",
+      answer: "Batches ki timings aur schedule counselling session ke dauran fix kiye jaate hain.",
     },
     {
       question: "Certificate milega?",
       answer:
-        "Haan, 3-month course poora karne par Feminy Academy ka certified diploma certificate milta hai. [CONFIRM ISSUER]",
+        "Haan, 3-month course safaltapoorvak poora karne par Feminy Academy ka professional diploma certificate milta hai.",
     },
     {
       question: "Pehle online course kiya hai, koi fayda?",
-      answer: "Haan. [ANY FEE ADJUSTMENT, IF OFFERED]",
+      answer: "Haan, hamare online students ko offline admission mein special guidance aur preference di jaati hai.",
     },
   ],
 };

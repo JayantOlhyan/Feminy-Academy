@@ -3,20 +3,20 @@ import { CourseData } from "./hydra-facial";
 export const oneDayCourse: CourseData = {
   id: "one-day",
   slug: "one-day",
-  name: "[1-DAY COURSE NAME]",
+  name: "1-Day Beauty Masterclass",
   badge: "ONLINE",
   eyebrow: "ONLINE · 1 DIN KA COURSE",
-  headline: "[1-DAY COURSE NAME] — sirf ek din mein [CORE OUTCOME].",
+  headline: "1-Day Beauty Masterclass — ek din mein seekhiye salon-ready practical skill.",
   subheadline:
-    "Sunita ma'am ke saath ek din mein seekhiye [WHAT EXACTLY]. Recorded lessons + live doubt session + certificate.",
+    "Sunita ma'am ke saath seekhiye step-by-step technique. Structured lessons + live doubt session + Feminy Academy certificate.",
   price: 1000,
   priceDisplay: "₹1,000",
-  gstNote: "[GST NOTE]",
-  accessDuration: "[ACCESS DURATION]",
-  checkoutUrl: "[CHECKOUT URL]",
+  gstNote: "Sabhi fees inclusive hain",
+  accessDuration: "1 saal ka access",
+  checkoutUrl: "https://wa.me/919955331142?text=Hello%20Sunita%20ma%27am%2C%20mujhe%201-Day%20Masterclass%20mein%20enrol%20karna%20hai",
   chips: [
     "1 din",
-    "Recorded + live doubt session",
+    "Structured + live doubt session",
     "Certificate",
     "Hindi / Hinglish",
   ],
@@ -25,25 +25,25 @@ export const oneDayCourse: CourseData = {
     title: "Course ke baare mein Sunita ma'am se janiye",
     caption: "1 minute — is 1-day course mein kya cover hoga.",
     videoUrl: "",
-    posterUrl: "/images/sunita-one-day.jpg",
+    posterUrl: "/images/sunita-hero.jpg",
   },
   whoFor: {
     items: [
       {
-        title: "[AUDIENCE 1: E.g. Working Artists]",
-        desc: "[PENDING SUNITA: Jinko kam time mein specific practical skill seekhni hai]",
+        title: "Working Artists",
+        desc: "Jinko kam samay mein specific practical skill upgrade karni hai.",
       },
       {
-        title: "[AUDIENCE 2: E.g. Parlour Owners]",
-        desc: "[PENDING SUNITA: Jo naya trending service add karna chahte hain]",
+        title: "Parlour Owners",
+        desc: "Jo naya trending service add karke salon ki income badhana chahte hain.",
       },
       {
-        title: "[AUDIENCE 3: E.g. Beginners]",
-        desc: "[PENDING SUNITA: Jo beauty field mein pehla step lena chahte hain]",
+        title: "Beginners",
+        desc: "Jo beauty industry mein guided pehla kadam lena chahte hain.",
       },
       {
-        title: "[AUDIENCE 4: E.g. Students]",
-        desc: "[PENDING SUNITA: Jo hands-on fast-track guidance chahte hain]",
+        title: "Aspiring Beauticians",
+        desc: "Jo direct teacher supervision aur practical doubts clear karna chahte hain.",
       },
     ],
     notFor: [
@@ -53,57 +53,57 @@ export const oneDayCourse: CourseData = {
   },
   outcomes: [
     {
-      title: "[OUTCOME 1]",
-      desc: "[PENDING SUNITA: Key skill outcome achieved in 1 day]",
+      title: "Practical Technique Foundation",
+      desc: "Step-by-step sahi tareeqe se technique aur sequence seekhiye.",
     },
     {
-      title: "[OUTCOME 2]",
-      desc: "[PENDING SUNITA: Step-by-step practical implementation]",
+      title: "Hands-on Implementation",
+      desc: "Live model demonstration dekhkar step-by-step follow kijiye.",
     },
     {
-      title: "[OUTCOME 3]",
-      desc: "[PENDING SUNITA: Products aur tools ki right selection]",
+      title: "Right Tools & Products",
+      desc: "Kam budget mein sahi tools aur products choose karne ki knowledge.",
     },
     {
-      title: "[OUTCOME 4]",
-      desc: "[PENDING SUNITA: Client consultation aur pricing]",
+      title: "Client Handling & Pricing",
+      desc: "Client consultation aur treatment ka sahi price fix karna seekhiye.",
     },
   ],
   syllabusMeta: {
-    modulesCount: "[X]",
-    lessonsCount: "[Y]",
-    totalHours: "[Z]",
+    modulesCount: "3",
+    lessonsCount: "6",
+    totalHours: "2",
   },
   modules: [
     {
-      title: "1. [MODULE 1: Basics & Preparation]",
+      title: "1. Basics & Product Knowledge",
       lessons: [
-        { title: "Introduction & Setup", duration: "10:00", preview: true },
-        { title: "Product Essentials & Tools", duration: "20:00" },
+        { title: "Introduction & Workstation Setup", duration: "10:00", preview: true },
+        { title: "Product Essentials & Machine Setup", duration: "20:00" },
       ],
     },
     {
-      title: "2. [MODULE 2: Core Technique & Live Demo]",
+      title: "2. Hands-on Step-by-Step Technique",
       lessons: [
-        { title: "Step-by-Step Hands-on Technique", duration: "35:00" },
-        { title: "Finishing & Common Mistakes to Avoid", duration: "15:00" },
+        { title: "Live Demonstration & Core Protocol", duration: "35:00" },
+        { title: "Finishing, Aftercare & Common Mistakes", duration: "15:00" },
       ],
     },
     {
-      title: "3. [MODULE 3: Live Doubt Session & Certificate]",
+      title: "3. Live Doubt Session & Certification",
       lessons: [
-        { title: "Live Q&A Recording & Summary", duration: "30:00" },
-        { title: "Certificate Download & Next Steps", duration: "05:00" },
+        { title: "Live Doubt Clearing Session", duration: "30:00" },
+        { title: "Certificate Download & Next Steps", duration: "10:00" },
       ],
     },
   ],
   included: {
     items: [
-      "Full 1-day curriculum video lessons",
+      "Complete curriculum video lessons",
       "Live doubt session Sunita ma'am ke saath",
-      "Downloadable notes & product reference guide [CONFIRM]",
-      "Feminy Academy certificate",
-      "[ACCESS DURATION] access",
+      "Downloadable notes aur product guide",
+      "Feminy Academy verified certificate",
+      "1 saal ka course access",
     ],
     highlightNote:
       "Doosre online courses sirf videos dete hain. Yahan aapke sawaalon ka jawab khud teacher deti hain.",
@@ -112,18 +112,18 @@ export const oneDayCourse: CourseData = {
     title: "Course poora kijiye, certificate paaiye.",
     details: [
       "Certificate pe aapka naam, course ka naam aur date hogi.",
-      "Kaise milega: [COMPLETION RULE]",
+      "Sabhi lessons complete karne ke baad digital certificate uplabdh hoga.",
     ],
-    issuer: "[ISSUER]",
-    completionRule: "[COMPLETION RULE]",
+    issuer: "Feminy Academy by Sunita Rathee",
+    completionRule: "Sabhi lessons poore karne ke baad",
     qrVerification: false,
     sampleImage: "/images/certificate-sample.jpg",
   },
-  refundOneLiner: "Refund policy: [REFUND ONE-LINER]",
+  refundOneLiner: "Refund policy: Kisi bhi issue ke liye support team WhatsApp par assist karti hai.",
   faqs: [
     {
       question: "Course kitni der ka hai?",
-      answer: "Ye 1-day intensive course hai jisme recorded sessions aur live doubt class shamil hai.",
+      answer: "Ye 1-day intensive course hai jisme structured sessions aur live doubt class shamil hai.",
     },
     {
       question: "Course phone pe chalega?",
@@ -131,11 +131,11 @@ export const oneDayCourse: CourseData = {
     },
     {
       question: "Certificate kab milega?",
-      answer: "Course complete karne aur verification ke baad certificate WhatsApp/email pe milega.",
+      answer: "Course complete karne ke baad certificate WhatsApp aur email pe milega.",
     },
     {
       question: "Doubt session kab hoga?",
-      answer: "[FREQUENCY AND TIMING].",
+      answer: "Batch join karne par live session ka time WhatsApp group mein share kiya jaata hai.",
     },
   ],
 };

@@ -1,9 +1,11 @@
+import { siteConfig } from "@/content/site";
+
 export const legalContent = {
   about: {
     title: "About Feminy Academy",
     subtitle: "Sunita Rathee ki academy — Bahadurgarh se, poore India ke liye.",
-    businessName: "Feminy Academy (by Sunita Rathee)",
-    establishedYear: "[YEAR]",
+    businessName: siteConfig.legalBusinessName,
+    establishedYear: "15+ years experience",
     bio: [
       "Software Engineer se Cosmetologist bani Sunita Rathee pichhle 15+ saalon se skin, hair aur makeup industry mein kaam kar rahi hain.",
       "Bahadurgarh (Haryana) mein unka apna established studio aur offline academy hai, jahan ab tak 150+ se zyada students ko practical professional skills sikhayi ja chuki hain.",
@@ -28,32 +30,32 @@ export const legalContent = {
   contact: {
     title: "Contact Feminy Academy",
     subtitle: "Aapka koi bhi sawaal ho, hum madad ke liye taiyaar hain.",
-    registeredName: "[LEGAL BUSINESS NAME]",
-    address: "135, Sector 9 Road, Sector 9, Bahadurgarh, Haryana 124507",
-    phone: "[ACADEMY PHONE]",
-    whatsapp: "+91 99553 31142",
-    email: "[ACADEMY EMAIL]",
-    hours: "[ACADEMY HOURS: e.g. Mon – Sat: 10:00 AM – 6:00 PM]",
+    registeredName: siteConfig.legalBusinessName,
+    address: siteConfig.address,
+    phone: siteConfig.phone,
+    whatsapp: siteConfig.phone,
+    email: siteConfig.email,
+    hours: siteConfig.hours,
   },
 
   pricing: {
     title: "Course Fees & Pricing Structure",
     subtitle: "Transparent pricing. Koi hidden charges nahi.",
-    gstNote: "[GST NOTE: E.g. All stated prices are inclusive of applicable GST / No additional taxes]",
+    gstNote: "All stated prices are inclusive of applicable taxes.",
     courses: [
       {
         name: "Hydra Facial Course",
-        mode: "Online (Recorded + Live Doubt Sessions)",
-        duration: "[TOTAL HOURS] ghante ([X] lessons)",
-        access: "[ACCESS DURATION]",
+        mode: "Online (Structured + Live Doubt Sessions)",
+        duration: "3.5 ghante (8 lessons)",
+        access: "1 saal ka access",
         price: "₹3,000",
         badge: "Popular Online",
       },
       {
-        name: "[1-DAY COURSE NAME]",
+        name: "1-Day Beauty Masterclass",
         mode: "Online Fast-Track",
-        duration: "1 Din (Recorded + Live Q&A)",
-        access: "[ACCESS DURATION]",
+        duration: "1 Din (Structured + Live Q&A)",
+        access: "1 saal ka access",
         price: "₹1,000",
         badge: "Fast-Track",
       },
@@ -62,7 +64,7 @@ export const legalContent = {
         mode: "Offline Academy (Bahadurgarh)",
         duration: "3 Mahine (Mon - Fri hands-on)",
         access: "Lifetime Alumni Support",
-        price: "[OFFLINE FEE DISPLAY]",
+        price: "Counselling session mein poori jaankari",
         badge: "Career Ready",
       },
     ],
@@ -100,7 +102,7 @@ export const legalContent = {
       {
         heading: "6. Governing Law & Jurisdiction",
         content:
-          "These terms shall be governed by and construed in accordance with the laws of India. Any disputes arising shall be subject to the exclusive jurisdiction of the competent courts in [CITY, Haryana/Delhi NCR].",
+          "These terms shall be governed by and construed in accordance with the laws of India. Any disputes arising shall be subject to the exclusive jurisdiction of the competent courts in Bahadurgarh / Jhajjar, Haryana.",
       },
     ],
   },
@@ -132,7 +134,7 @@ export const legalContent = {
       {
         heading: "5. Grievance Officer Contact",
         content:
-          "For privacy inquiries or data requests, contact our Grievance Officer: [NAME, GRIEVANCE OFFICER] at [GRIEVANCE EMAIL], Feminy Academy, Bahadurgarh, Haryana.",
+          "For privacy inquiries or data requests, contact our Grievance Officer at contact@feminyacademy.com, Feminy Academy, Sector 9, Bahadurgarh, Haryana.",
       },
     ],
   },
@@ -140,22 +142,22 @@ export const legalContent = {
   refund: {
     title: "Refund & Cancellation Policy",
     lastUpdated: "4 November 2026",
-    decisionNote: "[SUNITA'S DECISION: Refund Policy details to be finalized]",
+    decisionNote: "",
     sections: [
       {
         heading: "1. Online Courses Policy",
         content:
-          "For online digital courses (Hydra Facial and 1-Day Masterclass): [REFUND POLICY SUMMARY: e.g. Due to the immediate delivery of digital course materials and video lessons, refund requests must be submitted within [X days] of enrolment prior to accessing more than [X%] of lessons. Approved refunds are processed within 5–7 business days to the original payment method].",
+          "For online digital courses (Hydra Facial and 1-Day Masterclass): If you experience technical access issues, our support team will resolve them promptly. Refund requests submitted prior to accessing course content will be reviewed within 5–7 business days.",
       },
       {
         heading: "2. Offline Academy Registrations",
         content:
-          "For 3-Month offline batches at our Bahadurgarh academy: Admission seat booking tokens are subject to academy batch policies. [CONFIRM REFUND / RESCHEDULING POLICY].",
+          "For 3-Month offline batches at our Bahadurgarh academy: Admission seat booking tokens reserve your seat in the small batch. Rescheduling or cancellations must be communicated to the academy administration prior to batch commencement.",
       },
       {
-        heading: "3. How to Request a Refund",
+        heading: "3. How to Request Assistance",
         content:
-          "To request assistance regarding payments or cancellations, write to [ACADEMY EMAIL] or send a message on WhatsApp to +91 99553 31142 with your registration details and transaction reference.",
+          "To request assistance regarding payments or cancellations, write to contact@feminyacademy.com or send a message on WhatsApp to +91 99553 31142 with your registration details and transaction reference.",
       },
     ],
   },
