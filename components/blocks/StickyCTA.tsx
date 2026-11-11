@@ -38,7 +38,8 @@ export const StickyCTA: React.FC<StickyCTAProps> = ({
     const isField = (el: EventTarget | null) =>
       el instanceof HTMLElement && /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName);
     const onIn = (e: FocusEvent) => isField(e.target) && setInputFocused(true);
-    const onOut = () => setTimeout(() => !isField(document.activeElement) && setInputFocused(false), 50);
+    const onOut = () =>
+      setTimeout(() => !isField(document.activeElement) && setInputFocused(false), 50);
     document.addEventListener("focusin", onIn);
     document.addEventListener("focusout", onOut);
     return () => {
@@ -65,7 +66,17 @@ export const StickyCTA: React.FC<StickyCTAProps> = ({
     let footerInView = false;
 
     const checkVisibility = () => {
-      setVisible(!heroInView && !hideElInView && !footerInView);
+      // Fallback geometry check to be resilient against fast programmatic scrolls
+      const heroRect = heroEl.getBoundingClientRect();
+      const hideRect = hideEl ? hideEl.getBoundingClientRect() : null;
+      const footerRect = footerEl ? footerEl.getBoundingClientRect() : null;
+
+      const isHeroPast = heroRect.bottom <= 60;
+      const isHideVisible = hideRect ? hideRect.top < window.innerHeight && hideRect.bottom > 0 : false;
+      const isFooterVisible = footerRect ? footerRect.top < window.innerHeight && footerRect.bottom > 0 : false;
+
+      const shouldShow = (isHeroPast || !heroInView) && !isHideVisible && !isFooterVisible && !hideElInView && !footerInView;
+      setVisible(shouldShow);
     };
 
     const heroObserver = new IntersectionObserver(
@@ -73,9 +84,8 @@ export const StickyCTA: React.FC<StickyCTAProps> = ({
         heroInView = entry.isIntersecting;
         checkVisibility();
       },
-      { threshold: 0.05 }
+      { threshold: 0 }
     );
-
     heroObserver.observe(heroEl);
 
     let hideObserver: IntersectionObserver | null = null;
@@ -85,7 +95,7 @@ export const StickyCTA: React.FC<StickyCTAProps> = ({
           hideElInView = entry.isIntersecting;
           checkVisibility();
         },
-        { threshold: 0.1 }
+        { threshold: 0 }
       );
       hideObserver.observe(hideEl);
     }
@@ -97,15 +107,18 @@ export const StickyCTA: React.FC<StickyCTAProps> = ({
           footerInView = entry.isIntersecting;
           checkVisibility();
         },
-        { threshold: 0.05 }
+        { threshold: 0 }
       );
       footerObserver.observe(footerEl);
     }
+
+    window.addEventListener("scroll", checkVisibility, { passive: true });
 
     return () => {
       heroObserver.disconnect();
       hideObserver?.disconnect();
       footerObserver?.disconnect();
+      window.removeEventListener("scroll", checkVisibility);
     };
   }, [mode, targetFormId]);
 
@@ -129,7 +142,9 @@ export const StickyCTA: React.FC<StickyCTAProps> = ({
     const formEl = document.getElementById(targetFormId);
     if (formEl) {
       formEl.scrollIntoView({ behavior: "smooth", block: "center" });
-      const firstInput = formEl.querySelector("input:not([type='hidden'])") as HTMLInputElement | null;
+      const firstInput = formEl.querySelector(
+        "input:not([type='hidden'])"
+      ) as HTMLInputElement | null;
       if (firstInput) {
         setTimeout(() => firstInput.focus({ preventScroll: true }), 400);
       }

@@ -31,7 +31,7 @@ export const Header: React.FC = () => {
         {/* Wordmark Logo */}
         <Link
           href="/"
-          className="group inline-flex flex-col justify-center min-h-[44px] min-w-[44px] py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-card"
+          className="group inline-flex flex-col justify-center h-[48px] min-w-[44px] py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-card"
         >
           <span className="font-serif text-xl sm:text-2xl font-semibold tracking-tight text-ink group-hover:text-accent transition-colors leading-tight">
             {siteConfig.brand}
@@ -49,7 +49,7 @@ export const Header: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleWhatsAppClick}
-              className="inline-flex items-center justify-center gap-2 min-h-[44px] min-w-[44px] px-4 py-2.5 text-sm font-semibold rounded-full bg-whatsapp text-white hover:bg-[#188346] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-whatsapp"
+              className="inline-flex items-center justify-center gap-2 h-[44px] min-w-[44px] px-4 text-sm font-semibold rounded-full bg-whatsapp text-white hover:bg-[#188346] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-whatsapp"
             >
               <MessageCircle className="w-4 h-4 stroke-[2]" aria-hidden="true" />
               <span>WhatsApp karein</span>
@@ -58,22 +58,22 @@ export const Header: React.FC = () => {
         ) : (
           <>
             {/* Desktop Navigation Links */}
-            <nav className="hidden md:flex items-center gap-8 font-sans" aria-label="Main Navigation">
+            <nav className="hidden md:flex items-center gap-6 font-sans" aria-label="Main Navigation">
               <Link
                 href="/#courses"
-                className="inline-flex items-center min-h-[44px] text-sm font-medium text-ink hover:text-accent transition-colors"
+                className="inline-flex items-center h-[44px] px-2 text-sm font-medium text-ink hover:text-accent transition-colors"
               >
                 Courses
               </Link>
               <Link
                 href="/offline-academy"
-                className="inline-flex items-center min-h-[44px] text-sm font-medium text-ink hover:text-accent transition-colors"
+                className="inline-flex items-center h-[44px] px-2 text-sm font-medium text-ink hover:text-accent transition-colors"
               >
                 Offline Academy
               </Link>
               <Link
                 href="/about"
-                className="inline-flex items-center min-h-[44px] text-sm font-medium text-ink hover:text-accent transition-colors"
+                className="inline-flex items-center h-[44px] px-2 text-sm font-medium text-ink hover:text-accent transition-colors"
               >
                 About Sunita
               </Link>
@@ -82,7 +82,7 @@ export const Header: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={handleWhatsAppClick}
-                className="inline-flex items-center justify-center gap-2 min-h-[44px] px-4 py-2 text-sm font-semibold rounded-full bg-whatsapp text-white hover:bg-[#188346] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-whatsapp"
+                className="inline-flex items-center justify-center gap-2 h-[44px] px-4 text-sm font-semibold rounded-full bg-whatsapp text-white hover:bg-[#188346] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-whatsapp"
               >
                 <MessageCircle className="w-4 h-4 stroke-[2]" aria-hidden="true" />
                 <span>WhatsApp karein</span>
