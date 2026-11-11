@@ -21,8 +21,10 @@
 |---|---|---|---|
 | **Phase 1** | **Frontend Launch Scope & Performance Engine** | **COMPLETED** | 11 pages built, 100/100 Lighthouse score, WhatsApp deep-links, Ad-Landing mode, responsive viewports verified. |
 | **Phase 2** | **Homepage Lead-Conversion (CRO) Pass** | **COMPLETED** | Above-the-fold compact `LeadForm` on `/`, proof-before-pitch section order, deduplicated Meta Pixel + CAPI event tracking (`event_id`) for form & WhatsApp leads, mobile `StickyCTA` on `/`, 100/100 mobile Lighthouse maintained. |
-| **Phase 3** | **Client Content & Photography Ingestion** | **IN PROGRESS** | Replacing placeholder tokens with Sunita's real photography, confirmed syllabus, and verified credentials (tracked in `PLACEHOLDERS.md`). |
-| **Phase 4** | **Checkout Gateway & Backend Automations** | **UPCOMING** | Razorpay / course platform checkout integration (`PAYMENT_ENABLED=true`), Meta CAPI full pipeline, and automated WhatsApp replies. |
+| **Phase 3** | **Lead Reliability & Durable Delivery** | **COMPLETED** | Parallel MongoDB + Google Sheet writes with 5s timeout, WhatsApp click logging in `whatsapp_clicks` (Meta `Contact`), CGNAT-safe rate limiting, real Meta Graph API v22.0 CAPI dispatch, and instant email alerts via Google Apps Script (`scripts/sheet-webhook.gs`). |
+| **Phase 4** | **Mobile-First Hardening (Meta Ad Traffic)** | **COMPLETED** | Hardened for 360–412px Android in-app browsers (Instagram/Facebook) and iOS WebKit: hero submit button visible at 360×640 without scrolling (`509px`), ≥16px inputs to prevent iOS zoom, ≥44×44px tap targets (0 violations), no horizontal scroll across 6 viewports, native `<dialog>` lightbox with scroll lock and 100dvh fit, automatic StickyCTA hiding during keyboard focus, and resilient attribution parsing. |
+| **Phase 5** | **Client Content & Photography Ingestion** | **IN PROGRESS** | Replacing placeholder tokens with Sunita's real photography, confirmed syllabus, and verified credentials (tracked in `PLACEHOLDERS.md`). |
+| **Phase 6** | **Checkout Gateway & Backend Automations** | **UPCOMING** | Razorpay / course platform checkout integration (`PAYMENT_ENABLED=true`) and automated WhatsApp student onboarding. |
 
 ---
 
