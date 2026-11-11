@@ -164,9 +164,8 @@ export default async function OneDayCoursePage({
                 <VideoFacade
                   posterUrl={oneDayCourse.videoIntro.posterUrl}
                   aspectRatio="4/3"
-                  badgeText="▶ Course Preview · 1 min"
                   caption={oneDayCourse.videoIntro.caption}
-                  altText="PHOTO: Sunita 1-Day course preview"
+                  altText="Sunita Rathee — 1-Day Masterclass Demonstration"
                 />
               </div>
             </div>

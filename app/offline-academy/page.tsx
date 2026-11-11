@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
@@ -15,6 +16,8 @@ import { RealAcademy } from "@/components/blocks/RealAcademy";
 import { LeadForm } from "@/components/blocks/LeadForm";
 import { FAQBlock } from "@/components/blocks/FAQBlock";
 import { offlineAcademyData } from "@/content/offline";
+import { siteConfig } from "@/content/site";
+import { hasRealStudentWork, hasRealTestimonials } from "@/content/testimonials";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import {
   Users,
@@ -54,7 +57,7 @@ export default function OfflineAcademyPage() {
     location: {
       "@type": "Place",
       name: "Feminy Academy Studio",
-      address: "135, Sector 9 Road, Sector 9, Bahadurgarh, Haryana 124507",
+      address: siteConfig.address,
     },
   };
 
@@ -84,7 +87,7 @@ export default function OfflineAcademyPage() {
               </p>
 
               {/* Facts Row */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 p-4 rounded-card bg-paper-2 border border-line text-xs font-sans">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 p-4 rounded-card bg-paper-2 border border-line text-[13px] font-sans">
                 <div className="flex items-center gap-2">
                   <Clock className="w-4 h-4 text-gold-line shrink-0" />
                   <span>
@@ -94,41 +97,27 @@ export default function OfflineAcademyPage() {
                 <div className="flex items-center gap-2">
                   <Users className="w-4 h-4 text-gold-line shrink-0" />
                   <span>
-                    <strong>Batch:</strong>{" "}
-                    <PlaceholderNotice
-                      label="BATCH SIZE"
-                      fallbackText={offlineAcademyData.facts.batchSize}
-                    />
+                    <strong>Batch:</strong> {offlineAcademyData.facts.batchSize}
                   </span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4 text-gold-line shrink-0" />
-                  <span>
-                    <strong>Next batch:</strong>{" "}
-                    <PlaceholderNotice
-                      label="DATE"
-                      fallbackText={offlineAcademyData.facts.nextBatch}
-                    />
-                  </span>
-                </div>
+                {offlineAcademyData.facts.nextBatch && (
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-gold-line shrink-0" />
+                    <span>
+                      <strong>Next batch:</strong> {offlineAcademyData.facts.nextBatch}
+                    </span>
+                  </div>
+                )}
                 <div className="flex items-center gap-2">
                   <Clock className="w-4 h-4 text-gold-line shrink-0" />
                   <span>
-                    <strong>Timings:</strong>{" "}
-                    <PlaceholderNotice
-                      label="TIMINGS"
-                      fallbackText={offlineAcademyData.facts.timings}
-                    />
+                    <strong>Timings:</strong> {offlineAcademyData.facts.timings}
                   </span>
                 </div>
                 <div className="col-span-2 sm:col-span-2 flex items-center gap-2">
                   <CreditCard className="w-4 h-4 text-accent shrink-0" />
                   <span>
-                    <strong>Fee:</strong>{" "}
-                    <PlaceholderNotice
-                      label="OFFLINE FEE DISPLAY"
-                      fallbackText={offlineAcademyData.facts.feeDisplay}
-                    />
+                    <strong>Fee:</strong> {offlineAcademyData.facts.feeDisplay}
                     {offlineAcademyData.facts.emiAvailable && (
                       <span className="text-ink-muted ml-1 font-normal">
                         (EMI / instalments available)
@@ -157,17 +146,23 @@ export default function OfflineAcademyPage() {
 
             {/* Right Media */}
             <div className="lg:col-span-5">
-              <div className="relative mx-auto max-w-md aspect-[4/3] rounded-card overflow-hidden bg-paper-2 border border-line p-3 flex flex-col justify-between">
-                <div className="w-full h-full rounded-card bg-ink flex flex-col items-center justify-center p-6 text-center text-on-ink">
-                  <span className="text-xs uppercase tracking-[0.12em] text-gold-line font-semibold mb-2">
-                    Bahadurgarh Studio
-                  </span>
-                  <h3 className="font-serif text-xl font-semibold mb-3 text-on-ink">
-                    Hands-on Practical Training
-                  </h3>
-                  <span className="text-xs font-mono text-on-ink-muted bg-ink/60 px-3 py-1.5 rounded-card border border-line/20">
-                    PHOTO: Class in progress at the academy
-                  </span>
+              <div className="relative mx-auto max-w-md aspect-[4/3] rounded-card overflow-hidden bg-paper border border-line p-2">
+                <div className="relative w-full h-full rounded-card overflow-hidden">
+                  <Image
+                    src="/images/sunita-hero.jpg"
+                    alt="Sunita Rathee — Master Educator at Bahadurgarh Studio"
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 1024px) 100vw, 448px"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-ink via-ink/60 to-transparent text-white">
+                    <span className="text-xs uppercase tracking-[0.12em] text-gold-line font-semibold block">
+                      Bahadurgarh Studio
+                    </span>
+                    <span className="text-sm font-serif font-medium text-on-ink">
+                      Direct practical training under Sunita Rathee
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -223,7 +218,7 @@ export default function OfflineAcademyPage() {
                 {card.title}
               </h3>
               <p className="text-sm text-ink-muted leading-relaxed font-sans">
-                <PlaceholderNotice label={card.desc} fallbackText={card.desc} />
+                {card.desc}
               </p>
             </Card>
           ))}
@@ -244,31 +239,31 @@ export default function OfflineAcademyPage() {
           ))}
         </div>
         {offlineAcademyData.careerOutcomes.placementNote && (
-          <div className="mt-6 text-center">
-            <PlaceholderNotice
-              label={offlineAcademyData.careerOutcomes.placementNote}
-              fallbackText=""
-              className="text-xs text-ink-muted"
-            />
+          <div className="mt-6 text-center text-[13px] text-ink-muted">
+            {offlineAcademyData.careerOutcomes.placementNote}
           </div>
         )}
       </Section>
 
-      {/* 8.7 Student work + testimonials */}
-      <Section
-        title="Hamare offline students ka kaam"
-        subtitle="Studio mein real models par ki gayi live transformations."
-        variant="surface-2"
-      >
-        <WorkGallery filterCourse="Professional" />
-      </Section>
+      {/* 8.7 Student work + testimonials (only rendered when real verified assets arrive) */}
+      {hasRealStudentWork && (
+        <Section
+          title="Hamare offline students ka kaam"
+          subtitle="Studio mein real models par ki gayi live transformations."
+          variant="surface-2"
+        >
+          <WorkGallery filterCourse="Professional" />
+        </Section>
+      )}
 
-      <Section
-        title="Students kya kehti hain"
-        subtitle="Academy batch ke real experiences."
-      >
-        <Testimonials filterCategory="offline" />
-      </Section>
+      {hasRealTestimonials("offline") && (
+        <Section
+          title="Students kya kehti hain"
+          subtitle="Academy batch ke real experiences."
+        >
+          <Testimonials filterCategory="offline" />
+        </Section>
+      )}
 
       {/* 8.8 Meet Sunita */}
       <Section
@@ -311,15 +306,9 @@ export default function OfflineAcademyPage() {
       <section className="py-18 lg:py-28 bg-paper border-t border-line text-center">
         <Container size="narrow">
           <h2 className="font-serif text-3xl sm:text-5xl font-semibold text-ink leading-tight">
-            Agla batch{" "}
-            <PlaceholderNotice
-              label="DATE"
-              fallbackText={offlineAcademyData.facts.nextBatch}
-            />{" "}
-            se.
-            {offlineAcademyData.facts.seatsLeft !== undefined && (
-              <span> Seats limited hain.</span>
-            )}
+            {offlineAcademyData.facts.nextBatch && !offlineAcademyData.facts.nextBatch.startsWith("[")
+              ? `Agla batch ${offlineAcademyData.facts.nextBatch} se.`
+              : "3 Mahine mein apna professional beauty career shuru kijiye."}
           </h2>
           <p className="mt-4 text-base sm:text-xl text-ink-muted max-w-lg mx-auto font-sans">
             Sunita ma&apos;am ke direct batch mein shamil hoiye.

@@ -35,7 +35,7 @@ export default function HomePage() {
             {/* Left Content + Form (order-1 on mobile so submit bottom <= 640px) */}
             <div className="order-1 lg:col-span-7 space-y-3 sm:space-y-4 text-left">
               <div className="inline-flex items-center">
-                <span className="text-xs font-semibold uppercase tracking-[0.12em] text-accent font-sans">
+                <span className="text-[13px] font-semibold uppercase tracking-[0.12em] text-accent font-sans">
                   {hero.eyebrow}
                 </span>
               </div>
@@ -45,7 +45,7 @@ export default function HomePage() {
                 {hero.h1}
               </h1>
 
-              <p className="text-[14px] sm:text-lg text-ink-muted max-w-xl leading-relaxed font-sans">
+              <p className="text-[15px] sm:text-lg text-ink-muted max-w-xl leading-relaxed font-sans">
                 {hero.sub}
               </p>
 
@@ -60,7 +60,7 @@ export default function HomePage() {
                 />
 
                 {/* Trust Micro-line under form */}
-                <p className="text-xs text-ink-muted font-normal text-center sm:text-left font-sans">
+                <p className="text-[13px] text-ink-muted font-normal text-center sm:text-left font-sans">
                   {hero.trustMicroline}
                 </p>
 
@@ -87,17 +87,16 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Media Frame: Portrait / Video Facade (order-2 on mobile, below the form) */}
+            {/* Right Media Frame: Portrait (order-2 on mobile, below the form) */}
             <div className="order-2 lg:col-span-5">
               <div className="relative mx-auto max-w-md">
                 <VideoFacade
                   posterUrl="/images/sunita-hero.jpg"
                   aspectRatio="4/3"
                   priority
-                  sizes="(max-width: 640px) 340px, 448px"
-                  badgeText="▶ Sunita ma'am se milein · 1 min"
+                  sizes="(max-width: 1024px) 100vw, 448px"
                   caption="Sunita Rathee — Founder & Cosmetologist"
-                  altText="PHOTO: Sunita, warm portrait at the academy"
+                  altText="Sunita Rathee — Founder & Cosmetologist"
                 />
               </div>
             </div>
@@ -117,8 +116,8 @@ export default function HomePage() {
       {/* 5. PLAN — "3 aasaan steps" */}
       <PlanSection />
 
-      {/* 6. TRANSFORMATION — Students' Stories & Real Work Gallery */}
-      <TransformationSection />
+      {/* 6. TRANSFORMATION — Students' Stories & Real Work Gallery (Rendered only when real stories confirmed) */}
+      {homeContent.transformation.showStudentStories && <TransformationSection />}
 
       {/* 7. COURSES — The Offer (Snap-scroll on mobile, 3-card grid on desktop) */}
       <CoursesSection />
@@ -127,7 +126,7 @@ export default function HomePage() {
       <section className="py-18 lg:py-28 bg-paper-2 border-b border-line">
         <Container size="wide">
           <div className="max-w-3xl mb-10 sm:mb-14">
-            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent font-sans">
+            <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-accent font-sans">
               ASLI ACADEMY
             </p>
             <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-ink leading-[1.1]">

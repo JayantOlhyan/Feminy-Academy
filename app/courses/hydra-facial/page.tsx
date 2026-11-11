@@ -21,6 +21,7 @@ import { OfflineUpsell } from "@/components/blocks/OfflineUpsell";
 import { FAQBlock } from "@/components/blocks/FAQBlock";
 import { StickyCTA } from "@/components/blocks/StickyCTA";
 import { hydraFacialCourse } from "@/content/courses/hydra-facial";
+import { hasRealStudentWork, hasRealTestimonials } from "@/content/testimonials";
 import { siteConfig } from "@/content/site";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { Sparkles, MessageCircle, HelpCircle } from "lucide-react";
@@ -170,9 +171,8 @@ export default function HydraFacialCoursePage() {
                 <VideoFacade
                   posterUrl={hydraFacialCourse.videoIntro.posterUrl}
                   aspectRatio="4/3"
-                  badgeText="▶ Sunita ma'am se milein · 1 min"
                   caption="Sunita doing a Hydra Facial on a client"
-                  altText="PHOTO: Sunita doing a Hydra Facial on a client"
+                  altText="Sunita Rathee — Hydra Facial Practical Demonstration"
                 />
               </div>
             </div>
@@ -242,22 +242,26 @@ export default function HydraFacialCoursePage() {
         />
       </Section>
 
-      {/* 6.8 Student work */}
-      <Section
-        title="Students ka kaam"
-        subtitle="Hamare students ki real Hydra Facial practice results."
-      >
-        <WorkGallery filterCourse="Hydra Facial" />
-      </Section>
+      {/* 6.8 Student work (hidden until real student work photos arrive) */}
+      {hasRealStudentWork && (
+        <Section
+          title="Students ka kaam"
+          subtitle="Hamare students ki real Hydra Facial practice results."
+        >
+          <WorkGallery filterCourse="Hydra Facial" />
+        </Section>
+      )}
 
-      {/* 6.9 Testimonials */}
-      <Section
-        title="Jinhone ye course kiya, unki baat."
-        subtitle="Real reviews from verified learners."
-        variant="surface-2"
-      >
-        <Testimonials filterCategory="hydra-facial" />
-      </Section>
+      {/* 6.9 Testimonials (hidden until real verified testimonials arrive) */}
+      {hasRealTestimonials("hydra-facial") && (
+        <Section
+          title="Jinhone ye course kiya, unki baat."
+          subtitle="Real reviews from verified learners."
+          variant="surface-2"
+        >
+          <Testimonials filterCategory="hydra-facial" />
+        </Section>
+      )}
 
       {/* 6.10 Meet Sunita */}
       <Section
