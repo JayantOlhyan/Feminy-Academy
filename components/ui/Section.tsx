@@ -65,12 +65,12 @@ export const Section: React.FC<SectionProps> = ({
   const isDark = variant === "dark";
 
   return (
-    <section id={id} className={`py-18 lg:py-28 ${bgClasses[variant]} ${className}`}>
+    <section id={id} className={`py-8 sm:py-12 lg:py-24 ${bgClasses[variant]} ${className}`}>
       <Container size={containerSize}>
         {(title || number) && (
           <div
             ref={headerRef}
-            className={`mb-10 sm:mb-14 transition-all duration-500 ease-out ${
+            className={`mb-5 sm:mb-8 lg:mb-12 transition-all duration-500 ease-out ${
               headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
             } ${headerCentered ? "text-center mx-auto max-w-2xl" : "max-w-3xl"}`}
           >

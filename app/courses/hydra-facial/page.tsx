@@ -78,7 +78,7 @@ export default function HydraFacialCoursePage() {
       {/* 6.1 Hero */}
       <section
         id="course-hero"
-        className="relative pt-10 sm:pt-14 pb-14 sm:pb-20 overflow-hidden"
+        className="relative pt-8 sm:pt-12 pb-10 sm:pb-16 overflow-hidden"
       >
         <Container size="wide">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
@@ -332,7 +332,7 @@ export default function HydraFacialCoursePage() {
       </Section>
 
       {/* 6.14 Offline Upsell Band */}
-      <div className="py-8 bg-bg">
+      <div className="py-6 bg-bg">
         <Container size="default">
           <OfflineUpsell />
         </Container>
@@ -348,7 +348,7 @@ export default function HydraFacialCoursePage() {
       </Section>
 
       {/* 6.16 Final CTA Band */}
-      <section className="py-18 lg:py-28 bg-paper border-t border-line text-center font-sans">
+      <section className="py-8 sm:py-12 lg:py-24 bg-paper border-t border-line text-center font-sans">
         <Container size="narrow">
           <h2 className="font-serif text-3xl sm:text-5xl font-semibold text-ink leading-tight">
             Apni pehli Hydra Facial client ke liye taiyaar ho jaiye.
