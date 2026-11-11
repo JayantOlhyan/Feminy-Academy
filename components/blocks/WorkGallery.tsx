@@ -16,11 +16,16 @@ export const WorkGallery: React.FC<WorkGalleryProps> = ({
   const [activeItem, setActiveItem] = useState<StudentWorkItem | null>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
 
-  const items = filterCourse
+  const items = (filterCourse
     ? studentWorkConfig.items.filter((item) =>
         item.course.toLowerCase().includes(filterCourse.toLowerCase())
       )
-    : studentWorkConfig.items;
+    : studentWorkConfig.items
+  ).filter(
+    (item) =>
+      !item.studentName.startsWith("[") &&
+      !item.beforeImage.includes("placeholder")
+  );
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -40,6 +45,10 @@ export const WorkGallery: React.FC<WorkGalleryProps> = ({
       dialog.close();
     }
   }, [activeItem]);
+
+  if (items.length === 0) {
+    return null;
+  }
 
   return (
     <div className={`w-full ${className}`}>

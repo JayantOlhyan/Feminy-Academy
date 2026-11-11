@@ -123,7 +123,7 @@ export const PricingCard: React.FC<PricingCardProps> = ({
             <ShieldCheck className="w-4 h-4 text-accent shrink-0" />
             <span>
               <Link
-                href="/legal/refund"
+                href="/refund-policy"
                 className="inline-flex items-center min-h-[44px] py-2 hover:underline text-ink-muted hover:text-ink transition-colors"
               >
                 <PlaceholderNotice label="REFUND ONE-LINER" fallbackText={refundOneLiner} />

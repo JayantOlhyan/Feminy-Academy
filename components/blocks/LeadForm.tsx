@@ -454,7 +454,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
         {/* Consent line */}
         <p className="text-xs text-ink-muted leading-relaxed">
           Submit karke aap Feminy Academy ko call/WhatsApp karne ki permission deti hain. Details hamari{" "}
-          <Link href="/legal/privacy" className="text-accent underline hover:text-accent-strong">
+          <Link href="/privacy" className="text-accent underline hover:text-accent-strong">
             Privacy Policy
           </Link>{" "}
           ke hisaab se surakshit hain.

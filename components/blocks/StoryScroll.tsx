@@ -24,7 +24,7 @@ const beats: StoryBeat[] = [
         />
       </span>
     ),
-    photoLabel: "PHOTO: Sunita early engineering days",
+    photoLabel: "Sunita early engineering days",
   },
   {
     tag: "PHIR",
@@ -37,19 +37,19 @@ const beats: StoryBeat[] = [
         />
       </span>
     ),
-    photoLabel: "PHOTO: Sunita during cosmetology training",
+    photoLabel: "Sunita during cosmetology training",
   },
   {
     tag: "15+ SAAL",
     title: "Skin, hair, makeup — har din clients ke saath.",
     desc: "Hazaaron services, ek hi standard: hygiene aur perfection.",
-    photoLabel: "PHOTO: Sunita doing client makeovers at studio",
+    photoLabel: "Sunita doing client makeovers at studio",
   },
   {
     tag: "AAJ",
     title: "150+ students. Apni academy. Ab aapki baari.",
     desc: "Bahadurgarh mein apni full-fledged academy aur online courses. Jo humne 15 saal mein seekha, wahi simple Hindi mein aap tak pohchana.",
-    photoLabel: "PHOTO: Sunita teaching batch at academy",
+    photoLabel: "Sunita teaching batch at academy",
   },
 ];
 

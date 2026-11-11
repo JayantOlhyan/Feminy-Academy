@@ -55,6 +55,23 @@ input, select, textarea {
   font-size: 16px !important;
 }
 
+/* Ensure sticky header is 100% solid and never transparent */
+header.sticky {
+  background-color: var(--paper) !important;
+  border-bottom: 1px solid var(--line);
+}
+
+/* Suppress Netlify collaborative HUD/drawer from overlapping mobile CTA */
+#netlify-hud,
+[data-netlify-hud],
+.netlify-badge,
+iframe[src*="netlify"],
+div[class*="netlify-feedback"] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
 /* Typography Scale */
 h1 {
   font-family: var(--font-bodoni), serif;

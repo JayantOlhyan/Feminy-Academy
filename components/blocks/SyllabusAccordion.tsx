@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { SyllabusModule } from "@/content/courses/hydra-facial";
+import { SyllabusModule, CourseLesson } from "@/content/courses/hydra-facial";
 import { ChevronDown, PlayCircle, Clock } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 
@@ -52,7 +52,7 @@ export const SyllabusAccordion: React.FC<SyllabusAccordionProps> = ({
 
             {isOpen && (
               <div className="px-5 pb-5 pt-1 border-t border-line bg-paper divide-y divide-line/60">
-                {mod.lessons.map((lesson, lIdx) => (
+                {mod.lessons.map((lesson: CourseLesson, lIdx: number) => (
                   <div
                     key={lIdx}
                     className="py-3 flex items-center justify-between text-sm"

@@ -65,7 +65,7 @@ export const GuideSection: React.FC = () => {
       <Container size="wide">
         {/* Top Header: Empathy & Authority */}
         <div className="max-w-3xl mb-12 lg:mb-16">
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-gold-line font-sans">
+          <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-gold-line font-sans">
             {guide.eyebrow}
           </p>
           <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-on-ink leading-[1.1]">
@@ -73,12 +73,9 @@ export const GuideSection: React.FC = () => {
           </h2>
           <div className="mt-4 w-12 h-px bg-gold-line" />
 
-          {/* Empathy Text with Placeholder */}
+          {/* Verified Third-Person Narrative */}
           <div className="mt-6 text-base sm:text-lg text-on-ink-muted leading-relaxed font-sans">
-            <PlaceholderNotice
-              label="SUNITA'S WORDS: why she left engineering, first struggle"
-              fallbackText={guide.empathyFallback}
-            />
+            <p>{guide.empathyFallback}</p>
           </div>
 
           {/* Authority Row (Verified only) */}
@@ -88,7 +85,7 @@ export const GuideSection: React.FC = () => {
                 <span className="font-serif text-2xl sm:text-3xl font-medium text-gold-line">
                   {item.value}
                 </span>
-                <p className="text-xs sm:text-sm text-on-ink-muted font-sans">
+                <p className="text-[13px] sm:text-sm text-on-ink-muted font-sans">
                   {item.label}
                 </p>
               </div>
@@ -110,7 +107,7 @@ export const GuideSection: React.FC = () => {
               />
               <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-ink via-ink/80 to-transparent">
                 <p className="text-sm font-medium text-on-ink">Sunita Rathee</p>
-                <p className="text-xs text-on-ink-muted">Founder & Cosmetologist · Bahadurgarh</p>
+                <p className="text-[13px] text-on-ink-muted">Founder & Cosmetologist · Bahadurgarh</p>
               </div>
             </div>
           </div>

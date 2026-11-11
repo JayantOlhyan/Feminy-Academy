@@ -67,53 +67,45 @@ export const VideoFacade: React.FC<VideoFacadeProps> = ({
         />
       ) : (
         <div
-          role="button"
-          tabIndex={0}
-          onClick={handlePlay}
-          onKeyDown={(e) => {
+          role={videoUrl ? "button" : undefined}
+          tabIndex={videoUrl ? 0 : undefined}
+          onClick={videoUrl ? handlePlay : undefined}
+          onKeyDown={videoUrl ? (e) => {
             if (e.key === "Enter" || e.key === " ") {
               e.preventDefault();
               handlePlay();
             }
-          }}
-          aria-label={`Play video: ${badgeText}`}
-          className={`group relative flex items-center justify-center cursor-pointer w-full ${aspectClasses[aspectRatio]} bg-[#2A2326]`}
+          } : undefined}
+          aria-label={videoUrl ? `Play video: ${caption || "Masterclass video"}` : altText}
+          className={`relative flex items-center justify-center w-full ${aspectClasses[aspectRatio]} bg-paper-2 ${videoUrl ? "group cursor-pointer" : ""}`}
         >
-          {showRealPoster ? (
+          {showRealPoster && (
             <Image
               src={posterUrl}
               alt={altText}
               fill
               priority={priority}
               fetchPriority={priority ? "high" : undefined}
-              quality={65}
+              quality={80}
               sizes={sizes}
               onError={() => setImageError(true)}
-              className="object-cover opacity-90 transition-opacity group-hover:opacity-100"
+              className="object-cover"
             />
-          ) : (
-            /* Neutral warm blush placeholder backdrop */
-            <div className="absolute inset-0 bg-gradient-to-br from-[#45202D] via-[#2D1B22] to-[#1C1216] opacity-90 transition-opacity group-hover:opacity-100" />
           )}
 
-          {/* Label indicator for dev / pending asset */}
-          <div className="absolute top-4 left-4 z-10">
-            <span className="text-xs font-medium tracking-wide uppercase px-2.5 py-1 rounded bg-black/40 text-white/90 backdrop-blur-sm border border-white/10">
-              {altText}
-            </span>
-          </div>
-
-          {/* Central Play Button */}
-          <div className="relative z-10 flex flex-col items-center gap-3">
-            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-accent/90 text-white flex items-center justify-center border border-gold-line group-hover:scale-105 group-hover:bg-accent transition-all duration-200">
-              <Play className="w-7 h-7 sm:w-8 sm:h-8 fill-current translate-x-0.5 text-white" />
+          {/* Central Play Button only if actual video URL exists */}
+          {videoUrl && (
+            <div className="relative z-10 flex flex-col items-center gap-3">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-accent/90 text-white flex items-center justify-center border border-gold-line group-hover:scale-105 group-hover:bg-accent transition-all duration-200">
+                <Play className="w-7 h-7 sm:w-8 sm:h-8 fill-current translate-x-0.5 text-white" />
+              </div>
+              {badgeText && (
+                <span className="px-4 py-1.5 rounded-full bg-black/60 text-white text-xs sm:text-sm font-medium border border-white/15">
+                  {badgeText}
+                </span>
+              )}
             </div>
-            {badgeText && (
-              <span className="px-4 py-1.5 rounded-full bg-black/60 text-white text-xs sm:text-sm font-medium border border-white/15">
-                {badgeText}
-              </span>
-            )}
-          </div>
+          )}
         </div>
       )}
 

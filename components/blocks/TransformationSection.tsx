@@ -8,6 +8,10 @@ import { homeContent } from "@/content/home";
 export const TransformationSection: React.FC = () => {
   const { transformation } = homeContent;
 
+  if (!transformation.showStudentStories || transformation.studentStories.length === 0) {
+    return null;
+  }
+
   return (
     <section id="students" className="py-18 lg:py-28 bg-paper-2 border-b border-line">
       <Container size="wide">

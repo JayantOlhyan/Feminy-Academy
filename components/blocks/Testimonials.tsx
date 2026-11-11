@@ -14,12 +14,22 @@ export const Testimonials: React.FC<TestimonialsProps> = ({
   filterCategory = "all",
   className = "",
 }) => {
-  const items =
+  const items = (
     filterCategory === "all"
       ? testimonialsData
       : testimonialsData.filter(
           (t) => t.courseCategory === filterCategory || t.courseCategory === "all"
-        );
+        )
+  ).filter(
+    (t) =>
+      !t.isPlaceholder &&
+      !t.name.startsWith("[") &&
+      !t.outcomeOneLiner.includes("PENDING")
+  );
+
+  if (items.length === 0) {
+    return null;
+  }
 
   return (
     <div className={`w-full ${className}`}>
@@ -59,7 +69,7 @@ export const Testimonials: React.FC<TestimonialsProps> = ({
                     />
                   </div>
                   <span className="text-xs text-muted text-center font-mono">
-                    PHOTO: WhatsApp Chat Screenshot
+                    WhatsApp message review
                   </span>
                 </div>
                 <div className="pt-2">

@@ -10,7 +10,7 @@ export const ProblemSection: React.FC = () => {
     <section className="py-18 lg:py-28 bg-paper-2 border-b border-line">
       <Container size="default">
         <div className="max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent font-sans">
+          <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-accent font-sans">
             {problem.eyebrow}
           </p>
           <h2 className="mt-2 font-serif text-2xl sm:text-4xl lg:text-[40px] font-semibold text-ink leading-[1.15]">
@@ -25,14 +25,11 @@ export const ProblemSection: React.FC = () => {
                 key={idx}
                 className="py-6 sm:py-8 flex items-baseline gap-4 sm:gap-8"
               >
-                <span className="font-serif text-2xl sm:text-3xl font-medium text-gold-line select-none shrink-0 w-8">
+                <span className="font-serif text-2xl sm:text-3xl font-medium text-gold-line select-none shrink-0 min-w-[3.25rem] sm:min-w-[3.75rem] whitespace-nowrap">
                   0{idx + 1}
                 </span>
                 <p className="text-lg sm:text-xl text-ink leading-relaxed font-sans">
-                  <PlaceholderNotice
-                    label="VALIDATE WITH SUNITA: real student pains"
-                    fallbackText={pain}
-                  />
+                  {pain}
                 </p>
               </div>
             ))}

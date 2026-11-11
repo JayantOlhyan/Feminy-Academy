@@ -50,7 +50,7 @@ export const Footer: React.FC = () => {
 
           {/* Courses */}
           <div className="space-y-3">
-            <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-accent font-sans">
+            <h3 className="text-[13px] font-semibold tracking-[0.12em] uppercase text-accent font-sans">
               Courses
             </h3>
             <ul className="space-y-1 text-sm text-ink-muted">
@@ -61,7 +61,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link href="/courses/one-day" className="inline-flex items-center min-h-[44px] py-1.5 hover:text-accent transition-colors">
-                  <PlaceholderNotice label="1-DAY COURSE NAME" fallbackText="1-Day Masterclass" />
+                  1-Day Masterclass
                 </Link>
               </li>
               <li>
@@ -74,7 +74,7 @@ export const Footer: React.FC = () => {
 
           {/* Academy */}
           <div className="space-y-3">
-            <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-accent font-sans">
+            <h3 className="text-[13px] font-semibold tracking-[0.12em] uppercase text-accent font-sans">
               Academy
             </h3>
             <ul className="space-y-1 text-sm text-ink-muted">
@@ -103,7 +103,7 @@ export const Footer: React.FC = () => {
 
           {/* Contact Details */}
           <div className="space-y-3">
-            <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-accent font-sans">
+            <h3 className="text-[13px] font-semibold tracking-[0.12em] uppercase text-accent font-sans">
               Contact
             </h3>
             <ul className="space-y-2 text-sm text-ink-muted">
@@ -119,17 +119,13 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-start gap-2.5">
                 <Clock className="w-4 h-4 shrink-0 text-gold-line mt-1" />
-                <PlaceholderNotice
-                  label="ACADEMY VISITING HOURS"
-                  fallbackText="10:00 AM - 6:00 PM"
-                />
+                <span>10:00 AM - 6:00 PM (Somvaar - Shanivaar)</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 shrink-0 text-gold-line" />
-                <PlaceholderNotice
-                  label="ACADEMY EMAIL"
-                  fallbackText="contact@feminyacademy.com"
-                />
+                <a href="mailto:contact@feminyacademy.com" className="hover:text-accent transition-colors">
+                  contact@feminyacademy.com
+                </a>
               </li>
             </ul>
           </div>
@@ -137,15 +133,15 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar: Legal & Copyright */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-ink-muted font-sans">
-          <p>© {new Date().getFullYear()} Feminy Academy by Sunita Rathee. All rights reserved.</p>
+          <p>© 2026 Feminy Academy by Sunita Rathee. All rights reserved.</p>
           <div className="flex flex-wrap items-center gap-6">
-            <Link href="/legal/terms" className="inline-flex items-center min-h-[44px] hover:text-accent transition-colors">
+            <Link href="/terms" className="inline-flex items-center min-h-[44px] hover:text-accent transition-colors">
               Terms & Conditions
             </Link>
-            <Link href="/legal/privacy" className="inline-flex items-center min-h-[44px] hover:text-accent transition-colors">
+            <Link href="/privacy" className="inline-flex items-center min-h-[44px] hover:text-accent transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/legal/refund" className="inline-flex items-center min-h-[44px] hover:text-accent transition-colors">
+            <Link href="/refund-policy" className="inline-flex items-center min-h-[44px] hover:text-accent transition-colors">
               Refund Policy
             </Link>
           </div>

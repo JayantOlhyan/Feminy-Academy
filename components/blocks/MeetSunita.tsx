@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import { siteConfig } from "@/content/site";
-import { PlaceholderNotice } from "@/components/ui/PlaceholderNotice";
 import { ExternalLink, Youtube, Instagram, CheckCircle2 } from "lucide-react";
 
 interface MeetSunitaProps {
@@ -37,7 +36,7 @@ export const MeetSunita: React.FC<MeetSunitaProps> = ({ className = "" }) => {
       {/* Bio points */}
       <div className="md:col-span-7 space-y-6">
         <div>
-          <span className="text-xs font-semibold uppercase tracking-[0.12em] text-accent font-sans">
+          <span className="text-[13px] font-semibold uppercase tracking-[0.12em] text-accent font-sans">
             Founder & Master Educator
           </span>
           <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-ink mt-1">
@@ -51,11 +50,7 @@ export const MeetSunita: React.FC<MeetSunitaProps> = ({ className = "" }) => {
             <div>
               <p className="font-semibold text-ink">Software Engineer se Cosmetologist</p>
               <p className="text-ink-muted text-sm mt-0.5">
-                <PlaceholderNotice
-                  label="YEARS IN ENGINEERING"
-                  fallbackText="Multiple"
-                />{" "}
-                saal tech mein, phir beauty ko apna career banaya.
+                Pehle tech industry mein kaam kiya, phir cosmetology ko apna professional career banaya.
               </p>
             </div>
           </div>
@@ -97,7 +92,7 @@ export const MeetSunita: React.FC<MeetSunitaProps> = ({ className = "" }) => {
             href={siteConfig.socials.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 rounded-full border border-line bg-paper text-ink hover:text-accent hover:border-accent text-xs font-semibold transition-colors"
+            className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 rounded-full border border-line bg-paper text-ink hover:text-accent hover:border-accent text-[13px] font-semibold transition-colors"
           >
             <Instagram className="w-4 h-4 text-accent" />
             <span>17K+ Instagram Family</span>
@@ -108,7 +103,7 @@ export const MeetSunita: React.FC<MeetSunitaProps> = ({ className = "" }) => {
             href={siteConfig.socials.youtube}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 rounded-full border border-line bg-paper text-ink hover:text-accent hover:border-accent text-xs font-semibold transition-colors"
+            className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 rounded-full border border-line bg-paper text-ink hover:text-accent hover:border-accent text-[13px] font-semibold transition-colors"
           >
             <Youtube className="w-4 h-4 text-accent" />
             <span>@SRMvibe YouTube</span>

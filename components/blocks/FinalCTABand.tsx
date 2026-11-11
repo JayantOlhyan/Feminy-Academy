@@ -7,6 +7,7 @@ import { LeadForm } from "@/components/blocks/LeadForm";
 import { PlaceholderNotice } from "@/components/ui/PlaceholderNotice";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { trackEvent } from "@/lib/tracking";
+import { offlineAcademyData } from "@/content/offline";
 
 interface FinalCTABandProps {
   title?: string;
@@ -52,13 +53,12 @@ export const FinalCTABand: React.FC<FinalCTABandProps> = ({
               submitLabel="Free demo class book karein"
             />
 
-            {/* Verified Next Batch Slot */}
-            <div className="text-xs font-sans text-ink-muted">
-              <PlaceholderNotice
-                label="CONFIRMED NEXT BATCH DATE & SEATS"
-                fallbackText="Agla batch jald shuru hoga — seats limited hain."
-              />
-            </div>
+            {/* Only show batch info if a real date is confirmed */}
+            {offlineAcademyData.facts.nextBatch && !offlineAcademyData.facts.nextBatch.startsWith("[") && (
+              <div className="text-[13px] font-sans text-ink-muted">
+                Agla batch: {offlineAcademyData.facts.nextBatch}
+              </div>
+            )}
 
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button
@@ -76,7 +76,7 @@ export const FinalCTABand: React.FC<FinalCTABandProps> = ({
               </Button>
             </div>
 
-            <p className="text-xs text-ink-muted font-sans">
+            <p className="text-[13px] text-ink-muted font-sans">
               Direct call:{" "}
               <a
                 href="tel:+919955331142"

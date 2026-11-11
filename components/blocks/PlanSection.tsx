@@ -37,7 +37,7 @@ export const PlanSection: React.FC = () => {
     >
       <Container size="wide">
         <div className="max-w-3xl mb-12 lg:mb-16">
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent font-sans">
+          <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-accent font-sans">
             {plan.eyebrow}
           </p>
           <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-ink leading-[1.1]">

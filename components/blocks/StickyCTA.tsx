@@ -27,7 +27,9 @@ export const StickyCTA: React.FC<StickyCTAProps> = ({
 }) => {
   const [visible, setVisible] = useState(false);
   const [inputFocused, setInputFocused] = useState(false);
-  const [whatsappUrl, setWhatsappUrl] = useState("");
+  const [whatsappUrl, setWhatsappUrl] = useState(() =>
+    getWhatsAppUrl(mode === "home" ? "general" : actionType)
+  );
   const isPaymentEnabled = siteConfig.flags.PAYMENT_ENABLED;
 
   useEffect(() => {

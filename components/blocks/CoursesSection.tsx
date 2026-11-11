@@ -11,7 +11,7 @@ export const CoursesSection: React.FC = () => {
       <Container size="wide">
         {/* Header */}
         <div className="max-w-3xl mb-10 sm:mb-14">
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent font-sans">
+          <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-accent font-sans">
             HAMARE COURSES
           </p>
           <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-ink leading-[1.1]">
@@ -40,7 +40,7 @@ export const CoursesSection: React.FC = () => {
               <p className="text-sm text-ink-muted leading-relaxed font-sans">
                 Machine setup se client ke glow tak — poora process, Hindi mein.
               </p>
-              <div className="p-3 bg-paper-2 rounded-card text-xs text-ink-muted font-medium space-y-1 font-sans">
+              <div className="p-3 bg-paper-2 rounded-card text-[13px] text-ink-muted font-medium space-y-1 font-sans">
                 <p>• Recorded + live doubt sessions</p>
                 <p>• Certificate</p>
               </div>
@@ -67,18 +67,12 @@ export const CoursesSection: React.FC = () => {
                 </span>
               </div>
               <h3 className="font-serif text-2xl font-semibold text-ink">
-                <PlaceholderNotice
-                  label="1-DAY COURSE NAME"
-                  fallbackText="1-Day Masterclass"
-                />
+                1-Day Masterclass
               </h3>
               <p className="text-sm text-ink-muted leading-relaxed font-sans">
-                <PlaceholderNotice
-                  label="ONE-LINE OUTCOME OF 1-DAY COURSE"
-                  fallbackText="Ek din mein specific practical technique seekhiye real model demo ke saath."
-                />
+                Ek din mein specific practical technique seekhiye real model demo ke saath.
               </p>
-              <div className="p-3 bg-paper-2 rounded-card text-xs text-ink-muted font-medium space-y-1 font-sans">
+              <div className="p-3 bg-paper-2 rounded-card text-[13px] text-ink-muted font-medium space-y-1 font-sans">
                 <p>• 1 din · Recorded + live doubt session</p>
                 <p>• Certificate</p>
               </div>
@@ -100,7 +94,7 @@ export const CoursesSection: React.FC = () => {
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <Badge variant="gold">OFFLINE · BAHADURGARH</Badge>
-                <span className="text-xs font-semibold text-gold-text font-sans uppercase">
+                <span className="text-[13px] font-semibold text-gold-text font-sans uppercase">
                   Career Ready
                 </span>
               </div>
@@ -110,14 +104,11 @@ export const CoursesSection: React.FC = () => {
               <p className="text-sm text-ink-muted leading-relaxed font-sans">
                 Makeup, hair aur skin — real models pe practice karke professional baniye.
               </p>
-              <div className="p-3 bg-paper-2 rounded-card text-xs text-ink-muted font-medium space-y-1 font-sans">
+              <div className="p-3 bg-paper-2 rounded-card text-[13px] text-ink-muted font-medium space-y-1 font-sans">
                 <p>• 3 mahine · Academy mein</p>
                 <p>• Certificate</p>
                 <p className="font-semibold text-ink pt-1">
-                  <PlaceholderNotice
-                    label="OFFLINE FEE DISPLAY"
-                    fallbackText="Fee counselling mein bataayi jaayegi"
-                  />
+                  Fee counselling mein bataayi jaayegi
                 </p>
               </div>
             </div>
