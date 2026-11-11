@@ -46,16 +46,8 @@ export const metadata: Metadata = {
   creator: "Feminy Academy",
   publisher: "Feminy Academy",
   icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/icon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/icon-16.png", sizes: "16x16", type: "image/png" },
-    ],
-    apple: [
-      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
-    ],
-    shortcut: "/favicon.ico",
+    icon: "/icon.svg",
+    apple: "/apple-icon.png",
   },
   manifest: "/manifest.webmanifest",
   openGraph: {
@@ -122,14 +114,16 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en-IN" className={`${bodoniModa.variable} ${mukta.variable}`}>
-      <head>
+    <html
+      lang="en-IN"
+      className={`${bodoniModa.variable} ${mukta.variable}`}
+      suppressHydrationWarning
+    >
+      <body className="min-h-screen min-h-dvh flex flex-col font-sans bg-paper text-ink antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-      </head>
-      <body className="min-h-screen min-h-dvh flex flex-col font-sans bg-paper text-ink antialiased">
         <Header />
         <main className="flex-1 pb-20 md:pb-0">{children}</main>
         <Footer />
