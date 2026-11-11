@@ -242,6 +242,15 @@ The visual design language is an editorial, anti-slop system honoring Sunita Rat
 - **Motion Budget**: One pinned desktop sequence for Sunita's guide journey (static fallback on mobile <768px), smooth stat count-up, subtle 16px enter reveals, and plan hairline draw-in. Zero scroll-jacking, zero unnecessary parallax.
 - **Accessibility**: Full `@media (prefers-reduced-motion)` support, zero horizontal scroll on all viewports, inputs 16px (no iOS auto-zoom).
 
+### Brand Mark & Favicon Suite
+- **Bespoke Vector Mark (`components/ui/Logo.tsx`)**: An editorial serif capital **F** with balanced bilateral serifs, framed in an antique gold hairline (`#B8915A`), accented with the signature **Bindu** (cosmetic precision dot) above the crossbar. Zero generic icons, zero AI slop.
+- **Deployments**: Header brand link, Footer brand lockup, Certificate header, and verified gold certificate seal (`theme="gold"`).
+- **Multi-Resolution Favicon Suite**:
+  - `app/icon.svg` & `public/icon.svg`: Razor-sharp SVG favicon for modern browsers.
+  - `app/favicon.ico` & `public/favicon.ico`: Multi-resolution ICO (16px, 32px, 48px bitmaps) for legacy browsers.
+  - `app/apple-icon.png` & `public/apple-icon.png` (180×180): High-resolution iOS Safari touch icon.
+  - `public/icon-192.png` & `public/icon-512.png`: Android & PWA web app manifest icons via `app/manifest.ts`.
+
 ---
 
 ## 📄 Documentation
