@@ -56,13 +56,12 @@ Engineered specifically for visitors arriving from Instagram/Meta ads on mid-ran
 - Injects lead attribution tracking: `Ref: {lid}` persisted from query params to `localStorage`.
 - Supports 5 distinct action types: general enquiry, Hydra Facial enrolment, 1-Day masterclass enrolment, question resolution, and offline demo bookings.
 
-### 3. Lead Generation API (`/api/lead`) & Event Deduplication
-- **Schema Validation**: Robust server-side validation using Zod — supports both full & compact form leads (`channel: "form"`, optional `city`, `interest` defaulting to `"Sab kuch"`) as well as WhatsApp click attribution (`channel: "whatsapp"`).
-- **Strict Indian Phone Regex**: Matches 10-digit Indian mobile numbers (`/^[6-9]\d{9}$/`).
-- **Attribution & Deduplication**: Tracks `source` (`home-hero`, `home-final-cta`, `sticky`, `header`, `offline-academy`), `lid`, and UTM parameters; fires client Meta Pixel + server `/api/capi` events with a shared `event_id` for deduplication.
-- **Spam Mitigation**: Invisible honeypot field (`website`) silently traps and discards automated bots.
-- **In-Memory Rate Limiting**: Restricts abuse to 5 submissions per 10 minutes per IP.
-- **Persistence Pipeline**: Directly saves leads to MongoDB Atlas (`leads` collection) with automated fail-safe forwarding to Google Sheets via webhook (`SHEET_WEBHOOK_URL`).
+### 3. Lead Generation API (`/api/lead`), Durability & Event Deduplication
+- **Never Lose a Lead**: Form submissions execute MongoDB (`leads` collection) and Google Sheet webhook writes in parallel (`Promise.allSettled` with a 5s `AbortController` timeout on Sheet). A lead only succeeds (`200 OK`) if at least one durable store succeeds; if both fail, `/api/lead` returns `500` and the form displays an inline Hinglish error with a direct WhatsApp fallback button (never redirecting to `/thank-you`).
+- **Channel Separation**: Form leads are stored in `leads` (and forwarded to the Sheet), whereas WhatsApp clicks are logged separately to `whatsapp_clicks` (never inflating `leads` or triggering Sheet emails) and fire Meta `Contact` (never `Lead`).
+- **CGNAT-Safe Rate Limiting**: Skips rate limiting for `channel: "whatsapp"` and keys form submissions by `ip:phone` (5 per 10 minutes, best-effort per serverless instance) so multiple mobile users sharing a carrier CGNAT IP do not block one another.
+- **Meta Conversions API (`lib/capi.ts` + `/api/capi`)**: Sends real Graph API `v22.0` events (`POST https://graph.facebook.com/v22.0/<PIXEL_ID>/events`) with SHA-256 hashed phone (`91XXXXXXXXXX`) and lowercase first name (`fn`), `client_ip_address`, `client_user_agent`, `fbp`/`fbc` cookies, `META_TEST_EVENT_CODE` support, and `event_id` deduplication. Server-side `Lead` fires directly from `/api/lead` only after a confirmed durable save.
+- **Health Check (`GET /api/health`)**: Returns boolean configuration flags (`{ mongo, sheet, capi, pixel }`) without exposing secret values.
 
 ### 4. Controlled Scroll & Motion Limits
 - **Home Page**: Exactly 1 pinned founder journey sequence (*"Engineer se Cosmetologist tak"*) + smooth stat count-up.
@@ -164,9 +163,22 @@ SHEET_WEBHOOK_URL="https://script.google.com/macros/s/.../exec"
 NEXT_PUBLIC_META_PIXEL_ID=""
 NEXT_PUBLIC_GA4_ID=""
 
-# Server-Side Meta Conversions API
+# Server-Side Meta Conversions API (Graph API v22.0)
 META_CAPI_TOKEN=""
+META_TEST_EVENT_CODE=""
 ```
+
+### 2b. Google Sheet Webhook + Instant Email Alert Setup (`scripts/sheet-webhook.gs`)
+To receive leads in a Google Sheet and get an instant email notification (with `tel:` and `wa.me` links) within a minute:
+1. Create a Google Sheet and open **Extensions → Apps Script**.
+2. Copy the contents of [`scripts/sheet-webhook.gs`](./scripts/sheet-webhook.gs) into `Code.gs` and save.
+3. Open **Project Settings (gear icon) → Script Properties → Add script property**:
+   - **Property**: `NOTIFY_EMAIL`
+   - **Value**: Sunita's email address (e.g. `feminyacademy@gmail.com`)
+4. Click **Deploy → New deployment → Select type: Web app**:
+   - **Execute as**: `Me`
+   - **Who has access**: `Anyone`
+5. Authorize the script when prompted (`SpreadsheetApp` + `MailApp` permissions), copy the **Web app URL** (`https://script.google.com/macros/s/.../exec`), and set it as `SHEET_WEBHOOK_URL` in `.env.local` and Netlify environment variables.
 
 ### 3. Development Server
 ```bash
