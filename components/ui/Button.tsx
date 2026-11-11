@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { MessageCircle } from "lucide-react";
+import { trackWhatsAppClick } from "@/lib/tracking";
 
 export type ButtonVariant = "primary" | "whatsapp" | "secondary" | "gold" | "outline";
 
@@ -9,6 +12,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string;
   isExternal?: boolean;
   withWhatsAppIcon?: boolean;
+  trackSource?: string;
   children: React.ReactNode;
   className?: string;
 }
@@ -18,8 +22,10 @@ export const Button: React.FC<ButtonProps> = ({
   href,
   isExternal = false,
   withWhatsAppIcon = false,
+  trackSource,
   children,
   className = "",
+  onClick,
   ...props
 }) => {
   const baseClasses =
@@ -49,6 +55,18 @@ export const Button: React.FC<ButtonProps> = ({
     </>
   );
 
+  const isWhatsAppLink =
+    variant === "whatsapp" || Boolean(href && href.startsWith("https://wa.me"));
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isWhatsAppLink) {
+      trackWhatsAppClick(trackSource || "whatsapp-button");
+    }
+    if (onClick) {
+      (onClick as unknown as React.MouseEventHandler<HTMLAnchorElement>)(e);
+    }
+  };
+
   if (href) {
     if (isExternal || href.startsWith("http") || href.startsWith("https://wa.me")) {
       return (
@@ -56,6 +74,7 @@ export const Button: React.FC<ButtonProps> = ({
           href={href}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={handleLinkClick}
           className={finalClasses}
         >
           {content}
@@ -64,14 +83,23 @@ export const Button: React.FC<ButtonProps> = ({
     }
 
     return (
-      <Link href={href} className={finalClasses}>
+      <Link href={href} onClick={handleLinkClick} className={finalClasses}>
         {content}
       </Link>
     );
   }
 
   return (
-    <button className={finalClasses} {...props}>
+    <button
+      className={finalClasses}
+      onClick={(e) => {
+        if (isWhatsAppLink) {
+          trackWhatsAppClick(trackSource || "whatsapp-button");
+        }
+        onClick?.(e);
+      }}
+      {...props}
+    >
       {content}
     </button>
   );

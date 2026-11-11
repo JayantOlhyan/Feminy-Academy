@@ -44,9 +44,6 @@ export const PricingCard: React.FC<PricingCardProps> = ({
       course: courseTitle,
       value: priceNumber,
     });
-    if (!isPaymentEnabled) {
-      trackEvent("Contact", { label: "pricing_card_whatsapp" });
-    }
   };
 
   return (

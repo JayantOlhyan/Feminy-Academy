@@ -1,6 +1,12 @@
 export function getStoredLid(): string | null {
   if (typeof window === "undefined") return null;
   try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlLid = urlParams.get("lid");
+    if (urlLid) {
+      localStorage.setItem("feminy_lid", urlLid);
+      return urlLid;
+    }
     return localStorage.getItem("feminy_lid");
   } catch {
     return null;
@@ -19,8 +25,21 @@ export function setStoredLid(lid: string): void {
 export function getUtmParams(): Record<string, string> {
   if (typeof window === "undefined") return {};
   try {
-    const raw = sessionStorage.getItem("feminy_utms");
-    return raw ? JSON.parse(raw) : {};
+    const storedRaw = sessionStorage.getItem("feminy_utms");
+    const stored: Record<string, string> = storedRaw ? JSON.parse(storedRaw) : {};
+    const urlParams = new URLSearchParams(window.location.search);
+    const current: Record<string, string> = {};
+    for (const [key, value] of urlParams.entries()) {
+      if (key.startsWith("utm_") || key === "fbclid" || key === "gclid") {
+        current[key] = value;
+      }
+    }
+    if (Object.keys(current).length > 0) {
+      const merged = { ...stored, ...current };
+      sessionStorage.setItem("feminy_utms", JSON.stringify(merged));
+      return merged;
+    }
+    return stored;
   } catch {
     return {};
   }

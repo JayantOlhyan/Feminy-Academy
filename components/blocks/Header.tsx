@@ -6,7 +6,7 @@ import { Menu, X, MessageCircle } from "lucide-react";
 import { siteConfig } from "@/content/site";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { storeUrlAttribution, isAdLandingSession } from "@/lib/lid";
-import { trackEvent } from "@/lib/tracking";
+import { initAnalytics, trackEvent, trackWhatsAppClick } from "@/lib/tracking";
 
 export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -15,12 +15,13 @@ export const Header: React.FC = () => {
 
   useEffect(() => {
     storeUrlAttribution();
+    initAnalytics();
     setIsAdLanding(isAdLandingSession());
     setWhatsappHref(getWhatsAppUrl("general"));
   }, []);
 
   const handleWhatsAppClick = () => {
-    trackEvent("Contact", { label: "header_whatsapp" });
+    trackWhatsAppClick("header");
     trackEvent("cta_click", { label: "whatsapp", location: "header" });
   };
 
