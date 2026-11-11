@@ -58,7 +58,7 @@ export const Testimonials: React.FC<TestimonialsProps> = ({
                       fallbackText="Sunita ma'am, thank you so much! HydraFacial ke steps itne ache se samajh aaye ki aaj pehla client successfully attend kiya."
                     />
                   </div>
-                  <span className="text-[10px] text-muted text-center font-mono">
+                  <span className="text-xs text-muted text-center font-mono">
                     PHOTO: WhatsApp Chat Screenshot
                   </span>
                 </div>
@@ -105,7 +105,7 @@ export const Testimonials: React.FC<TestimonialsProps> = ({
           href={googleReviewsLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-brand hover:text-brand-dark transition-colors"
+          className="inline-flex items-center justify-center gap-2 min-h-[44px] px-3 py-2 text-sm font-semibold text-brand hover:text-brand-dark transition-colors"
         >
           <span>Google pe saare reviews dekhein</span>
           <ExternalLink className="w-4 h-4" />

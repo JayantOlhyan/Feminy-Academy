@@ -3,52 +3,104 @@
 @tailwind utilities;
 
 :root {
-  --bg: #FFFBF7;
-  --surface: #FFFFFF;
-  --surface-2: #F6EEE8;
-  --ink: #231F20;
-  --muted: #6B6461;
-  --line: #E8DDD5;
-  --brand: #8A2346;
-  --brand-dark: #5E1530;
-  --gold: #B8915A;
+  --paper: #FFFFFF;
+  --paper-2: #F2EFEC;
+  --ink: #161314;
+  --ink-muted: #5C5557;
+  --line: #E4DEDA;
+  --accent: #7A1F3D;
+  --accent-strong: #5A1229;
+  --gold-line: #B8915A;
+  --gold-text: #8A6A2F;
+  --on-ink: #F2EFEC;
+  --on-ink-muted: #B9B0AC;
   --whatsapp: #1F9D55;
   --success: #2F7D5B;
+
+  /* Backward compatibility aliases */
+  --bg: var(--paper);
+  --surface: var(--paper);
+  --surface-2: var(--paper-2);
+  --muted: var(--ink-muted);
+  --brand: var(--accent);
+  --brand-dark: var(--accent-strong);
+  --gold: var(--gold-text);
 }
 
 html {
   scroll-behavior: smooth;
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-mukta), sans-serif;
   color: var(--ink);
-  background-color: var(--bg);
+  background-color: var(--paper);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   min-height: 100vh;
+  min-height: 100dvh;
   margin: 0;
   padding: 0;
-  background-color: var(--bg);
+  background-color: var(--paper);
   color: var(--ink);
+  font-family: var(--font-mukta), sans-serif;
+  font-size: 1.0625rem; /* 17px body */
+  line-height: 1.6;
   overflow-x: hidden;
+  overflow-wrap: anywhere;
 }
 
-/* Subtle paper grain texture on surface-2 without image download */
-.surface-texture {
-  background-color: var(--surface-2);
-  background-image: radial-gradient(rgba(184, 145, 90, 0.08) 1px, transparent 1px);
-  background-size: 20px 20px;
+/* Enforce >=16px on inputs to prevent iOS automatic zoom */
+input, select, textarea {
+  font-size: 16px !important;
 }
 
-/* Gold hairline borders */
+/* Typography Scale */
+h1 {
+  font-family: var(--font-bodoni), serif;
+  font-size: clamp(2.125rem, 5vw + 1rem, 4rem); /* 34px -> 64px */
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+h2 {
+  font-family: var(--font-bodoni), serif;
+  font-size: clamp(1.75rem, 3.5vw + 0.8rem, 2.75rem); /* 28px -> 44px */
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h3 {
+  font-family: var(--font-mukta), sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.25rem, 1.5vw + 0.9rem, 1.5rem); /* 20px -> 24px */
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+p, li {
+  text-wrap: pretty;
+  max-width: 65ch;
+}
+
+dialog:modal {
+  overscroll-behavior: contain;
+}
+
+dialog::backdrop {
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+
+/* Gold hairline borders & dividers (strictly non-text) */
 .border-gold-hairline {
-  border: 1px solid rgba(184, 145, 90, 0.35);
+  border: 1px solid var(--gold-line);
 }
 
 .divider-gold {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  background-color: var(--gold-line);
   opacity: 0.4;
 }
 

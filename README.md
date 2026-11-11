@@ -20,8 +20,12 @@
 | Phase | Description | Status | Details |
 |---|---|---|---|
 | **Phase 1** | **Frontend Launch Scope & Performance Engine** | **COMPLETED** | 11 pages built, 100/100 Lighthouse score, WhatsApp deep-links, Ad-Landing mode, responsive viewports verified. |
-| **Phase 2** | **Client Content & Photography Ingestion** | **IN PROGRESS** | Replacing placeholder tokens with Sunita's real photography, confirmed syllabus, and verified credentials (tracked in `PLACEHOLDERS.md`). |
-| **Phase 3** | **Checkout Gateway & Backend Automations** | **UPCOMING** | Razorpay / course platform checkout integration (`PAYMENT_ENABLED=true`), Meta CAPI full pipeline, and automated WhatsApp replies. |
+| **Phase 2** | **Homepage Lead-Conversion (CRO) Pass** | **COMPLETED** | Above-the-fold compact `LeadForm` on `/`, proof-before-pitch section order, deduplicated Meta Pixel + CAPI event tracking (`event_id`) for form & WhatsApp leads, mobile `StickyCTA` on `/`, 100/100 mobile Lighthouse maintained. |
+| **Phase 3** | **Lead Reliability & Durable Delivery** | **COMPLETED** | Parallel MongoDB + Google Sheet writes with 5s timeout, WhatsApp click logging in `whatsapp_clicks` (Meta `Contact`), CGNAT-safe rate limiting, real Meta Graph API v22.0 CAPI dispatch, and instant email alerts via Google Apps Script (`scripts/sheet-webhook.gs`). |
+| **Phase 4** | **Mobile-First Hardening (Meta Ad Traffic)** | **COMPLETED** | Hardened for 360–412px Android in-app browsers (Instagram/Facebook) and iOS WebKit: hero submit button visible at 360×640 without scrolling (`509px`), ≥16px inputs to prevent iOS zoom, ≥44×44px tap targets (0 violations), no horizontal scroll across 6 viewports, native `<dialog>` lightbox with scroll lock and 100dvh fit, automatic StickyCTA hiding during keyboard focus, and resilient attribution parsing. |
+| **Phase 5** | **StoryBrand Restructure & Anti-Slop Design System** | **COMPLETED** | Transformed homepage into a StoryBrand narrative (Hero = Student, Guide = Sunita, Plan = 3-step course). Replaced AI slop patterns (no icon-in-circle grids, no generic Lucide filler, no cream/gold overuse, no 16px radius everywhere) with an editorial design system: Bodoni Moda (display ≥28px) + Mukta (body/UI), 4px card radius, disciplined palette (`--paper`, `--paper-2`, `--ink`, `--accent`), 1 pinned desktop-only Guide story with mobile static fallback, and CSS snap-scroll courses. Verified zero horizontal scroll, submit button at 521px (≤640px), 16px inputs, LCP 0.65s, CLS 0.0000. |
+| **Phase 6** | **Client Content & Photography Ingestion** | **IN PROGRESS** | Replacing placeholder tokens with Sunita's real photography, confirmed syllabus, and verified credentials (tracked in `PLACEHOLDERS.md`). |
+| **Phase 7** | **Checkout Gateway & Backend Automations** | **UPCOMING** | Razorpay / course platform checkout integration (`PAYMENT_ENABLED=true`) and automated WhatsApp student onboarding. |
 
 ---
 
@@ -55,12 +59,12 @@ Engineered specifically for visitors arriving from Instagram/Meta ads on mid-ran
 - Injects lead attribution tracking: `Ref: {lid}` persisted from query params to `localStorage`.
 - Supports 5 distinct action types: general enquiry, Hydra Facial enrolment, 1-Day masterclass enrolment, question resolution, and offline demo bookings.
 
-### 3. Lead Generation API (`/api/lead`)
-- **Schema Validation**: Robust server-side validation using Zod.
-- **Strict Indian Phone Regex**: Matches 10-digit Indian mobile numbers (`/^[6-9]\d{9}$/`).
-- **Spam Mitigation**: Invisible honeypot field (`website`) silently traps and discards automated bots.
-- **In-Memory Rate Limiting**: Restricts abuse to 5 submissions per 10 minutes per IP.
-- **Persistence Pipeline**: Directly saves leads to MongoDB Atlas (`leads` collection) with automated fail-safe forwarding to Google Sheets via webhook (`SHEET_WEBHOOK_URL`).
+### 3. Lead Generation API (`/api/lead`), Durability & Event Deduplication
+- **Never Lose a Lead**: Form submissions execute MongoDB (`leads` collection) and Google Sheet webhook writes in parallel (`Promise.allSettled` with a 5s `AbortController` timeout on Sheet). A lead only succeeds (`200 OK`) if at least one durable store succeeds; if both fail, `/api/lead` returns `500` and the form displays an inline Hinglish error with a direct WhatsApp fallback button (never redirecting to `/thank-you`).
+- **Channel Separation**: Form leads are stored in `leads` (and forwarded to the Sheet), whereas WhatsApp clicks are logged separately to `whatsapp_clicks` (never inflating `leads` or triggering Sheet emails) and fire Meta `Contact` (never `Lead`).
+- **CGNAT-Safe Rate Limiting**: Skips rate limiting for `channel: "whatsapp"` and keys form submissions by `ip:phone` (5 per 10 minutes, best-effort per serverless instance) so multiple mobile users sharing a carrier CGNAT IP do not block one another.
+- **Meta Conversions API (`lib/capi.ts` + `/api/capi`)**: Sends real Graph API `v22.0` events (`POST https://graph.facebook.com/v22.0/<PIXEL_ID>/events`) with SHA-256 hashed phone (`91XXXXXXXXXX`) and lowercase first name (`fn`), `client_ip_address`, `client_user_agent`, `fbp`/`fbc` cookies, `META_TEST_EVENT_CODE` support, and `event_id` deduplication. Server-side `Lead` fires directly from `/api/lead` only after a confirmed durable save.
+- **Health Check (`GET /api/health`)**: Returns boolean configuration flags (`{ mongo, sheet, capi, pixel }`) without exposing secret values.
 
 ### 4. Controlled Scroll & Motion Limits
 - **Home Page**: Exactly 1 pinned founder journey sequence (*"Engineer se Cosmetologist tak"*) + smooth stat count-up.
@@ -162,9 +166,22 @@ SHEET_WEBHOOK_URL="https://script.google.com/macros/s/.../exec"
 NEXT_PUBLIC_META_PIXEL_ID=""
 NEXT_PUBLIC_GA4_ID=""
 
-# Server-Side Meta Conversions API
+# Server-Side Meta Conversions API (Graph API v22.0)
 META_CAPI_TOKEN=""
+META_TEST_EVENT_CODE=""
 ```
+
+### 2b. Google Sheet Webhook + Instant Email Alert Setup (`scripts/sheet-webhook.gs`)
+To receive leads in a Google Sheet and get an instant email notification (with `tel:` and `wa.me` links) within a minute:
+1. Create a Google Sheet and open **Extensions → Apps Script**.
+2. Copy the contents of [`scripts/sheet-webhook.gs`](./scripts/sheet-webhook.gs) into `Code.gs` and save.
+3. Open **Project Settings (gear icon) → Script Properties → Add script property**:
+   - **Property**: `NOTIFY_EMAIL`
+   - **Value**: Sunita's email address (e.g. `feminyacademy@gmail.com`)
+4. Click **Deploy → New deployment → Select type: Web app**:
+   - **Execute as**: `Me`
+   - **Who has access**: `Anyone`
+5. Authorize the script when prompted (`SpreadsheetApp` + `MailApp` permissions), copy the **Web app URL** (`https://script.google.com/macros/s/.../exec`), and set it as `SHEET_WEBHOOK_URL` in `.env.local` and Netlify environment variables.
 
 ### 3. Development Server
 ```bash
@@ -187,27 +204,43 @@ npm run lint
 npm run build
 ```
 
-### Run Headless Viewport & Responsive Tests
-Verifies zero horizontal scroll and proper sticky CTA trigger behavior across mobile, tablet, and desktop:
+### Run Headless Viewport, Responsive & Story Design Tests
+Verifies zero horizontal scroll, hero submit button positioning on mobile fold, sticky CTA trigger behavior, input font sizes, and StoryBrand components:
 ```bash
 node test-viewports.mjs
+node scripts/verify-story-design.js
+node scripts/measure-performance.js
 ```
 
 ---
 
-## 🎨 Design System Tokens
+## 🎨 Design System Tokens (Single Source of Truth: `DESIGN.md`)
 
-The visual design language is warm, approachable, and authoritative — reflecting an experienced educator rather than a generic tech startup or luxury salon:
+The visual design language is an editorial, anti-slop system honoring Sunita Rathee's craft. No generic icon-in-circle cards, no heavy 16px corner radiuses everywhere, no cream+gold overdose, and no AI-generated filler copy.
 
-- `--bg`: `#FFFBF7` (Warm Ivory canvas)
-- `--surface`: `#FFFFFF` (Card background)
-- `--surface-2`: `#F6EEE8` (Soft blush textured sections)
-- `--ink`: `#231F20` (High-contrast charcoal typography)
-- `--muted`: `#6B6461` (Secondary body text)
-- `--line`: `#E8DDD5` (Hairline dividers and borders)
-- `--brand`: `#8A2346` (Deep berry — primary actions)
-- `--gold`: `#B8915A` (Editorial numbering, hairline accents)
+### Typography
+- **Display**: `Bodoni Moda` (weights 500, 600, display: swap) via `next/font/google`. Exclusively for headings and big numerals at ≥28px.
+- **Body & UI**: `Mukta` (weights 400, 600, subsets `latin`) via `next/font/google`. Used for all body copy, inputs, badges, and buttons.
+- **Monospace**: Clean monospace stack (`ui-monospace`, `SFMono-Regular`, `Menlo`, `Monaco`, `Consolas`).
+
+### Colors & Contrast Ratios
+- `--paper`: `#FFFFFF` (Default canvas — 70% usage)
+- `--paper-2`: `#F2EFEC` (Warm stone alternate canvas)
+- `--ink`: `#161314` (Deep charcoal body text — 18.46:1 contrast on paper; also used for the single dark Guide section)
+- `--ink-muted`: `#5C5557` (Secondary meta text — 7.26:1 contrast on paper)
+- `--line`: `#E4DEDA` (Hairline dividers and card borders)
+- `--accent`: `#7A1F3D` (Rich wine — primary actions, 10.04:1 contrast with white text)
+- `--accent-strong`: `#5A1229` (Hover/pressed state)
+- `--gold-line`: `#B8915A` (Decorative hairlines and borders only; never used for text)
+- `--gold-text`: `#8A6A2F` (Gold-tinted text — 5.02:1 contrast on paper)
+- `--on-ink`: `#F2EFEC` (Headline/body text on dark Guide section — 16.32:1 contrast)
+- `--on-ink-muted`: `#B9B0AC` (Secondary text on dark Guide section — 9.38:1 contrast)
 - `--whatsapp`: `#1F9D55` (WhatsApp conversion buttons)
+
+### Shape, Spacing & Motion
+- **Radius**: Crisp 4px (`rounded-card` / `rounded-input`) across all cards, modals, and inputs. Full pill (`rounded-full`) is reserved strictly for primary CTA buttons.
+- **Motion Budget**: One pinned desktop sequence for Sunita's guide journey (static fallback on mobile <768px), smooth stat count-up, subtle 16px enter reveals, and plan hairline draw-in. Zero scroll-jacking, zero unnecessary parallax.
+- **Accessibility**: Full `@media (prefers-reduced-motion)` support, zero horizontal scroll on all viewports, inputs 16px (no iOS auto-zoom).
 
 ---
 

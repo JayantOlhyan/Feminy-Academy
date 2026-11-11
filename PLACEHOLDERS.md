@@ -38,4 +38,5 @@ This document catalogs every pending item, policy decision, asset, and credentia
 | `content/legal/terms.ts` | Jurisdiction City | `[CITY]` | Legal jurisdiction (Bahadurgarh / Jhajjar / Delhi) | Legal team | Pending |
 | `content/legal/privacy.ts` | Grievance Contact | `[NAME, EMAIL]` | Name & email of designated grievance officer | Sunita Rathee | Pending |
 | `content/legal/refund.ts` | Refund Policy Decision | `[SUNITA'S DECISION]` | Definitive decision on refund eligibility (non-refundable vs X days window) | Sunita Rathee | Scaffold active |
+| `public/images/sunita-hero.jpg` | Hero Portrait Photo | `public/images/sunita-hero.png` (48×36 placeholder) | Real portrait photo of Sunita at the academy, min 1200px wide (`public/images/sunita-hero.jpg`) | Sunita Rathee | **LAUNCH BLOCKER** — Neutral placeholder active |
 | Assets / Photos | Real Photography | `PHOTO: ...` | Real photos of Sunita, students, academy interior, student before/after work | Sunita Rathee | SVG / neutral visual placeholders active |

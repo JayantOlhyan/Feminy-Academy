@@ -39,7 +39,7 @@ export const Accordion: React.FC<AccordionProps> = ({
       {items.map((item) => {
         const isOpen = openIds.includes(item.id);
         return (
-          <div key={item.id} className="py-4">
+          <div key={item.id} className="py-2 sm:py-3">
             <h3>
               <button
                 type="button"
@@ -47,7 +47,7 @@ export const Accordion: React.FC<AccordionProps> = ({
                 aria-expanded={isOpen}
                 aria-controls={`accordion-content-${item.id}`}
                 id={`accordion-btn-${item.id}`}
-                className="flex w-full items-center justify-between text-left py-2 font-medium text-ink hover:text-brand transition-colors text-base sm:text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded"
+                className="flex w-full items-center justify-between text-left min-h-[48px] py-2.5 font-medium text-ink hover:text-brand transition-colors text-base sm:text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded"
               >
                 <span className="pr-4">{item.title}</span>
                 <ChevronDown

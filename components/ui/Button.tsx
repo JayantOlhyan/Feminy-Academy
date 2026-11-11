@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { MessageCircle } from "lucide-react";
+import { trackWhatsAppClick } from "@/lib/tracking";
 
 export type ButtonVariant = "primary" | "whatsapp" | "secondary" | "gold" | "outline";
 
@@ -9,6 +12,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string;
   isExternal?: boolean;
   withWhatsAppIcon?: boolean;
+  trackSource?: string;
   children: React.ReactNode;
   className?: string;
 }
@@ -18,24 +22,26 @@ export const Button: React.FC<ButtonProps> = ({
   href,
   isExternal = false,
   withWhatsAppIcon = false,
+  trackSource,
   children,
   className = "",
+  onClick,
   ...props
 }) => {
   const baseClasses =
-    "inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-semibold rounded-full min-h-[48px] min-w-[48px] transition-all duration-200 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
+    "inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-semibold min-h-[48px] min-w-[48px] transition-colors duration-150 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
 
   const variantClasses: Record<ButtonVariant, string> = {
     primary:
-      "bg-brand text-white hover:bg-brand-dark focus-visible:ring-brand shadow-sm",
+      "bg-accent text-white hover:bg-accent-strong focus-visible:ring-accent rounded-full",
     whatsapp:
-      "bg-whatsapp text-white hover:bg-[#188346] focus-visible:ring-whatsapp shadow-sm",
+      "bg-whatsapp text-white hover:bg-[#188346] focus-visible:ring-whatsapp rounded-full",
     secondary:
-      "bg-white text-ink border border-line hover:border-gold hover:text-ink focus-visible:ring-gold shadow-sm",
+      "bg-paper text-ink border border-line hover:border-ink hover:text-ink focus-visible:ring-ink rounded-card",
     gold:
-      "bg-gold text-white hover:bg-[#9E7A47] focus-visible:ring-gold shadow-sm",
+      "bg-gold-text text-white hover:bg-[#725725] focus-visible:ring-gold-text rounded-card",
     outline:
-      "bg-transparent text-ink border border-line hover:border-ink focus-visible:ring-ink",
+      "bg-transparent text-ink border border-line hover:border-ink focus-visible:ring-ink rounded-card",
   };
 
   const finalClasses = `${baseClasses} ${variantClasses[variant]} ${className}`;
@@ -49,6 +55,18 @@ export const Button: React.FC<ButtonProps> = ({
     </>
   );
 
+  const isWhatsAppLink =
+    variant === "whatsapp" || Boolean(href && href.startsWith("https://wa.me"));
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isWhatsAppLink) {
+      trackWhatsAppClick(trackSource || "whatsapp-button");
+    }
+    if (onClick) {
+      (onClick as unknown as React.MouseEventHandler<HTMLAnchorElement>)(e);
+    }
+  };
+
   if (href) {
     if (isExternal || href.startsWith("http") || href.startsWith("https://wa.me")) {
       return (
@@ -56,6 +74,7 @@ export const Button: React.FC<ButtonProps> = ({
           href={href}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={handleLinkClick}
           className={finalClasses}
         >
           {content}
@@ -64,14 +83,23 @@ export const Button: React.FC<ButtonProps> = ({
     }
 
     return (
-      <Link href={href} className={finalClasses}>
+      <Link href={href} onClick={handleLinkClick} className={finalClasses}>
         {content}
       </Link>
     );
   }
 
   return (
-    <button className={finalClasses} {...props}>
+    <button
+      className={finalClasses}
+      onClick={(e) => {
+        if (isWhatsAppLink) {
+          trackWhatsAppClick(trackSource || "whatsapp-button");
+        }
+        onClick?.(e);
+      }}
+      {...props}
+    >
       {content}
     </button>
   );

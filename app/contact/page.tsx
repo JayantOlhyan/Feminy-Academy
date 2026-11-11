@@ -20,16 +20,16 @@ export default function ContactPage() {
   const whatsappUrl = getWhatsAppUrl("general");
 
   return (
-    <div className="w-full">
-      <section className="pt-12 pb-14 border-b border-line bg-surface">
+    <div className="w-full font-sans">
+      <section className="pt-12 pb-14 border-b border-line bg-paper">
         <Container size="narrow" className="text-center">
-          <span className="text-xs font-semibold uppercase tracking-widest text-gold bg-gold/10 px-3 py-1 rounded-full">
+          <span className="text-xs font-semibold uppercase tracking-[0.12em] text-accent font-sans">
             Get in touch
           </span>
-          <h1 className="font-serif text-3xl sm:text-5xl font-semibold text-ink mt-3 leading-tight">
+          <h1 className="font-serif text-3xl sm:text-5xl font-semibold text-ink mt-2 leading-tight">
             {legalContent.contact.title}
           </h1>
-          <p className="mt-3 text-base sm:text-lg text-muted max-w-xl mx-auto">
+          <p className="mt-3 text-base sm:text-lg text-ink-muted max-w-xl mx-auto font-sans">
             {legalContent.contact.subtitle}
           </p>
         </Container>
@@ -45,18 +45,18 @@ export default function ContactPage() {
 
             <div className="space-y-4 text-sm text-ink divide-y divide-line">
               <div className="pt-2 flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-gold shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-gold-line shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold">Academy Address</p>
-                  <p className="text-muted mt-0.5">{siteConfig.address}</p>
+                  <p className="font-semibold text-ink">Academy Address</p>
+                  <p className="text-ink-muted mt-0.5">{siteConfig.address}</p>
                 </div>
               </div>
 
               <div className="pt-4 flex items-start gap-3">
-                <Phone className="w-5 h-5 text-gold shrink-0 mt-0.5" />
+                <Phone className="w-5 h-5 text-gold-line shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold">Phone</p>
-                  <p className="text-muted mt-0.5">
+                  <p className="font-semibold text-ink">Phone</p>
+                  <p className="text-ink-muted mt-0.5">
                     <PlaceholderNotice label="ACADEMY PHONE" fallbackText={siteConfig.phone} />
                   </p>
                 </div>
@@ -65,26 +65,26 @@ export default function ContactPage() {
               <div className="pt-4 flex items-start gap-3">
                 <MessageCircle className="w-5 h-5 text-whatsapp shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold">WhatsApp</p>
-                  <p className="text-muted mt-0.5">+{siteConfig.whatsappNumber}</p>
+                  <p className="font-semibold text-ink">WhatsApp</p>
+                  <p className="text-ink-muted mt-0.5">+{siteConfig.whatsappNumber}</p>
                 </div>
               </div>
 
               <div className="pt-4 flex items-start gap-3">
-                <Mail className="w-5 h-5 text-gold shrink-0 mt-0.5" />
+                <Mail className="w-5 h-5 text-gold-line shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold">Email</p>
-                  <p className="text-muted mt-0.5">
+                  <p className="font-semibold text-ink">Email</p>
+                  <p className="text-ink-muted mt-0.5">
                     <PlaceholderNotice label="ACADEMY EMAIL" fallbackText="feminyacademy@gmail.com" />
                   </p>
                 </div>
               </div>
 
               <div className="pt-4 flex items-start gap-3">
-                <Clock className="w-5 h-5 text-gold shrink-0 mt-0.5" />
+                <Clock className="w-5 h-5 text-gold-line shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold">Visiting Hours</p>
-                  <p className="text-muted mt-0.5">
+                  <p className="font-semibold text-ink">Visiting Hours</p>
+                  <p className="text-ink-muted mt-0.5">
                     <PlaceholderNotice label="ACADEMY HOURS" fallbackText="Mon - Sat: 10:00 AM - 6:00 PM" />
                   </p>
                 </div>
@@ -104,12 +104,12 @@ export default function ContactPage() {
             </div>
           </Card>
 
-          {/* Map Facade */}
+          {/* Map Location Card */}
           <Card variant="surface-2" className="space-y-4">
             <h3 className="font-serif text-xl font-semibold text-ink">
-              Location Map
+              Location & Directions
             </h3>
-            <p className="text-xs text-muted">
+            <p className="text-sm text-ink-muted leading-relaxed">
               Tap the card below to open exact location in Google Maps:
             </p>
 
@@ -117,23 +117,15 @@ export default function ContactPage() {
               href={siteConfig.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block relative aspect-video rounded-xl overflow-hidden border border-line bg-surface p-4 flex flex-col items-center justify-center text-center shadow-sm hover:border-gold transition-colors"
+              aria-label="Open location in Google Maps"
+              className="block group rounded-card overflow-hidden border border-line bg-paper p-4 hover:border-ink transition-colors"
             >
-              <div className="w-12 h-12 rounded-full bg-brand/10 text-brand flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
-                <Navigation className="w-6 h-6" />
+              <div className="aspect-[4/3] rounded-card bg-paper-2 flex flex-col items-center justify-center p-4 text-center">
+                <Navigation className="w-8 h-8 text-accent mb-2 group-hover:scale-110 transition-transform" />
+                <p className="text-sm font-semibold text-ink">Open Google Maps</p>
+                <p className="text-xs text-ink-muted mt-1">{siteConfig.address}</p>
               </div>
-              <p className="font-serif text-sm font-semibold text-ink">
-                Sector 9, Bahadurgarh, Haryana
-              </p>
-              <span className="text-xs text-brand font-medium mt-1">
-                Open in Google Maps →
-              </span>
             </a>
-
-            <div className="text-[11px] text-muted">
-              Registered Entity:{" "}
-              <PlaceholderNotice label="LEGAL BUSINESS NAME" fallbackText="Feminy Academy" />
-            </div>
           </Card>
         </div>
       </Section>

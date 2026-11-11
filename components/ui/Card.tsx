@@ -3,7 +3,7 @@ import React from "react";
 interface CardProps {
   children: React.ReactNode;
   className?: string;
-  variant?: "white" | "surface-2" | "gold-border";
+  variant?: "white" | "surface-2" | "gold-border" | "ink";
   onClick?: () => void;
 }
 
@@ -14,15 +14,16 @@ export const Card: React.FC<CardProps> = ({
   onClick,
 }) => {
   const variantStyles = {
-    white: "bg-surface border border-line",
-    "surface-2": "bg-surface-2 border border-line",
-    "gold-border": "bg-surface border-gold-hairline shadow-warm",
+    white: "bg-paper border border-line text-ink",
+    "surface-2": "bg-paper-2 border border-line text-ink",
+    "gold-border": "bg-paper border-gold-hairline text-ink",
+    ink: "bg-ink border border-line/20 text-on-ink",
   };
 
   return (
     <div
       onClick={onClick}
-      className={`rounded-card p-6 sm:p-8 transition-shadow duration-200 shadow-subtle ${variantStyles[variant]} ${className}`}
+      className={`rounded-card p-6 sm:p-8 transition-colors duration-150 ${variantStyles[variant]} ${className}`}
     >
       {children}
     </div>

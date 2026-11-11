@@ -17,15 +17,12 @@ import { FAQBlock } from "@/components/blocks/FAQBlock";
 import { offlineAcademyData } from "@/content/offline";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import {
-  Sparkles,
   Users,
   Clock,
   Calendar,
   CreditCard,
   CheckCircle2,
   Briefcase,
-  Layers,
-  Camera,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -62,14 +59,14 @@ export default function OfflineAcademyPage() {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full font-sans">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(offlineJsonLd) }}
       />
 
       {/* 8.1 Hero */}
-      <section className="relative pt-10 sm:pt-14 pb-14 sm:pb-20 overflow-hidden">
+      <section className="relative pt-10 sm:pt-14 pb-14 sm:pb-20 bg-paper overflow-hidden">
         <Container size="wide">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Column */}
@@ -78,24 +75,24 @@ export default function OfflineAcademyPage() {
                 <Badge variant="gold">{offlineAcademyData.eyebrow}</Badge>
               </div>
 
-              <h1 className="font-serif text-3xl sm:text-5xl font-semibold text-ink leading-[1.15] tracking-tight">
+              <h1 className="font-serif text-3xl sm:text-5xl font-semibold text-ink leading-[1.1] tracking-tight">
                 {offlineAcademyData.headline}
               </h1>
 
-              <p className="text-base sm:text-lg text-muted leading-relaxed max-w-xl">
+              <p className="text-base sm:text-lg text-ink-muted leading-relaxed max-w-xl font-sans">
                 {offlineAcademyData.subheadline}
               </p>
 
               {/* Facts Row */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 p-4 rounded-xl bg-surface border border-line text-xs">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 p-4 rounded-card bg-paper-2 border border-line text-xs font-sans">
                 <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-gold shrink-0" />
+                  <Clock className="w-4 h-4 text-gold-line shrink-0" />
                   <span>
                     <strong>Duration:</strong> {offlineAcademyData.facts.duration}
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Users className="w-4 h-4 text-gold shrink-0" />
+                  <Users className="w-4 h-4 text-gold-line shrink-0" />
                   <span>
                     <strong>Batch:</strong>{" "}
                     <PlaceholderNotice
@@ -105,7 +102,7 @@ export default function OfflineAcademyPage() {
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4 text-gold shrink-0" />
+                  <Calendar className="w-4 h-4 text-gold-line shrink-0" />
                   <span>
                     <strong>Next batch:</strong>{" "}
                     <PlaceholderNotice
@@ -115,7 +112,7 @@ export default function OfflineAcademyPage() {
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-gold shrink-0" />
+                  <Clock className="w-4 h-4 text-gold-line shrink-0" />
                   <span>
                     <strong>Timings:</strong>{" "}
                     <PlaceholderNotice
@@ -125,7 +122,7 @@ export default function OfflineAcademyPage() {
                   </span>
                 </div>
                 <div className="col-span-2 sm:col-span-2 flex items-center gap-2">
-                  <CreditCard className="w-4 h-4 text-brand shrink-0" />
+                  <CreditCard className="w-4 h-4 text-accent shrink-0" />
                   <span>
                     <strong>Fee:</strong>{" "}
                     <PlaceholderNotice
@@ -133,7 +130,7 @@ export default function OfflineAcademyPage() {
                       fallbackText={offlineAcademyData.facts.feeDisplay}
                     />
                     {offlineAcademyData.facts.emiAvailable && (
-                      <span className="text-muted ml-1 font-normal">
+                      <span className="text-ink-muted ml-1 font-normal">
                         (EMI / instalments available)
                       </span>
                     )}
@@ -160,15 +157,15 @@ export default function OfflineAcademyPage() {
 
             {/* Right Media */}
             <div className="lg:col-span-5">
-              <div className="relative mx-auto max-w-md aspect-[4/3] rounded-card overflow-hidden bg-surface-2 border border-line p-3 shadow-subtle flex flex-col justify-between">
-                <div className="w-full h-full rounded-[12px] bg-gradient-to-br from-[#2D1F24] via-[#21161A] to-[#140D10] flex flex-col items-center justify-center p-6 text-center text-white">
-                  <span className="text-xs uppercase tracking-widest text-gold font-semibold mb-2">
+              <div className="relative mx-auto max-w-md aspect-[4/3] rounded-card overflow-hidden bg-paper-2 border border-line p-3 flex flex-col justify-between">
+                <div className="w-full h-full rounded-card bg-ink flex flex-col items-center justify-center p-6 text-center text-on-ink">
+                  <span className="text-xs uppercase tracking-[0.12em] text-gold-line font-semibold mb-2">
                     Bahadurgarh Studio
                   </span>
-                  <h3 className="font-serif text-xl font-semibold mb-3">
+                  <h3 className="font-serif text-xl font-semibold mb-3 text-on-ink">
                     Hands-on Practical Training
                   </h3>
-                  <span className="text-xs font-mono text-white/80 bg-black/40 px-3 py-1.5 rounded border border-white/10">
+                  <span className="text-xs font-mono text-on-ink-muted bg-ink/60 px-3 py-1.5 rounded-card border border-line/20">
                     PHOTO: Class in progress at the academy
                   </span>
                 </div>
@@ -191,12 +188,12 @@ export default function OfflineAcademyPage() {
           {offlineAcademyData.whoFor.map((item, idx) => (
             <Card key={idx} variant="white" className="space-y-3">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-brand shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
                 <h3 className="font-serif text-lg font-semibold text-ink">
                   {item.title}
                 </h3>
               </div>
-              <p className="text-sm text-muted leading-relaxed">{item.desc}</p>
+              <p className="text-sm text-ink-muted leading-relaxed font-sans">{item.desc}</p>
             </Card>
           ))}
         </div>
@@ -210,7 +207,7 @@ export default function OfflineAcademyPage() {
         <MonthJourneyScroll />
       </Section>
 
-      {/* 8.5 How you learn */}
+      {/* 8.5 How you learn (Clean Bodoni numerals, NO icon cards) */}
       <Section
         title="Seekhne ka tareeka"
         subtitle="Theory kam, real practice zyada."
@@ -219,16 +216,13 @@ export default function OfflineAcademyPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {offlineAcademyData.howYouLearn.map((card, idx) => (
             <Card key={idx} variant="white" className="space-y-3">
-              <div className="w-10 h-10 rounded-full bg-gold/15 text-gold flex items-center justify-center">
-                {idx === 0 && <Users className="w-5 h-5" />}
-                {idx === 1 && <Sparkles className="w-5 h-5" />}
-                {idx === 2 && <Layers className="w-5 h-5" />}
-                {idx === 3 && <Camera className="w-5 h-5" />}
-              </div>
+              <span className="font-serif text-2xl font-medium text-gold-line block">
+                0{idx + 1}
+              </span>
               <h3 className="font-serif text-lg font-semibold text-ink">
                 {card.title}
               </h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <p className="text-sm text-ink-muted leading-relaxed font-sans">
                 <PlaceholderNotice label={card.desc} fallbackText={card.desc} />
               </p>
             </Card>
@@ -244,8 +238,8 @@ export default function OfflineAcademyPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {offlineAcademyData.careerOutcomes.items.map((outcome, idx) => (
             <Card key={idx} variant="white" className="flex items-start gap-3 p-5">
-              <Briefcase className="w-5 h-5 text-brand shrink-0 mt-0.5" />
-              <span className="text-sm font-semibold text-ink">{outcome}</span>
+              <Briefcase className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+              <span className="text-sm font-semibold text-ink font-sans">{outcome}</span>
             </Card>
           ))}
         </div>
@@ -254,7 +248,7 @@ export default function OfflineAcademyPage() {
             <PlaceholderNotice
               label={offlineAcademyData.careerOutcomes.placementNote}
               fallbackText=""
-              className="text-xs text-muted"
+              className="text-xs text-ink-muted"
             />
           </div>
         )}
@@ -314,7 +308,7 @@ export default function OfflineAcademyPage() {
       </Section>
 
       {/* 8.12 Final CTA */}
-      <section className="py-16 sm:py-20 surface-texture border-t border-line text-center">
+      <section className="py-18 lg:py-28 bg-paper border-t border-line text-center">
         <Container size="narrow">
           <h2 className="font-serif text-3xl sm:text-5xl font-semibold text-ink leading-tight">
             Agla batch{" "}
@@ -327,7 +321,7 @@ export default function OfflineAcademyPage() {
               <span> Seats limited hain.</span>
             )}
           </h2>
-          <p className="mt-4 text-base sm:text-xl text-muted max-w-lg mx-auto">
+          <p className="mt-4 text-base sm:text-xl text-ink-muted max-w-lg mx-auto font-sans">
             Sunita ma&apos;am ke direct batch mein shamil hoiye.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">

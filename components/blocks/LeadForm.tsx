@@ -1,21 +1,38 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useId } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { getStoredLid, getUtmParams } from "@/lib/lid";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
-import { trackEvent } from "@/lib/tracking";
-import { MessageCircle, AlertCircle, CheckCircle2 } from "lucide-react";
+import { generateEventId, trackEvent } from "@/lib/tracking";
+import { AlertCircle } from "lucide-react";
+
+export type LeadFormField = "name" | "phone" | "city" | "interest" | "preferredDate";
 
 interface LeadFormProps {
   id?: string;
+  variant?: "full" | "compact";
+  source?: string;
+  fields?: LeadFormField[];
+  submitLabel?: string;
   className?: string;
 }
 
-export const LeadForm: React.FC<LeadFormProps> = ({ id = "demo", className = "" }) => {
+export const LeadForm: React.FC<LeadFormProps> = ({
+  id = "demo",
+  variant = "full",
+  source = "offline-academy",
+  fields,
+  submitLabel,
+  className = "",
+}) => {
   const router = useRouter();
+  const uid = useId();
+  const isCompact = variant === "compact";
+  const activeFields: LeadFormField[] =
+    fields ?? (isCompact ? ["name", "phone"] : ["name", "phone", "city", "interest", "preferredDate"]);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -35,9 +52,14 @@ export const LeadForm: React.FC<LeadFormProps> = ({ id = "demo", className = "" 
     "Mujhe demo class book karni hai par form mein dikkat aayi."
   );
 
+  const sanitizeIndianPhone = (raw: string): string => {
+    let d = raw.replace(/\D/g, "");
+    if (d.length > 10 && d.startsWith("91")) d = d.slice(2);
+    return d.replace(/^0+/, "").slice(0, 10);
+  };
+
   const validatePhone = (num: string) => {
-    const cleaned = num.replace(/\D/g, "");
-    if (!/^[6-9]\d{9}$/.test(cleaned)) {
+    if (!/^[6-9]\d{9}$/.test(sanitizeIndianPhone(num))) {
       setPhoneError("Kripya 10-digit ka valid Indian mobile number dalein (shuruat 6-9)");
       return false;
     }
@@ -45,20 +67,27 @@ export const LeadForm: React.FC<LeadFormProps> = ({ id = "demo", className = "" 
     return true;
   };
 
+  const handleFieldFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    if (window.innerWidth < 768) {
+      const el = e.currentTarget;
+      setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "center" }), 150);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg(null);
-
-    if (!validatePhone(formData.phone)) {
-      return;
-    }
 
     if (formData.name.trim().length < 2) {
       setErrorMsg("Kripya apna poora naam likhein");
       return;
     }
 
-    if (formData.city.trim().length < 2) {
+    if (!validatePhone(formData.phone)) {
+      return;
+    }
+
+    if (activeFields.includes("city") && formData.city.trim().length < 2) {
       setErrorMsg("Kripya apna shehar likhein");
       return;
     }
@@ -68,13 +97,22 @@ export const LeadForm: React.FC<LeadFormProps> = ({ id = "demo", className = "" 
     try {
       const lid = getStoredLid();
       const utms = getUtmParams();
+      const eventId = generateEventId("lead");
+      const page = typeof window !== "undefined" ? window.location.pathname : "/offline-academy";
 
       const payload = {
-        ...formData,
-        phone: formData.phone.replace(/\D/g, ""),
+        channel: "form" as const,
+        name: formData.name.trim(),
+        phone: sanitizeIndianPhone(formData.phone),
+        city: activeFields.includes("city") ? formData.city.trim() : undefined,
+        interest: formData.interest || "Sab kuch",
+        preferredDate: activeFields.includes("preferredDate") ? formData.preferredDate : undefined,
+        website: formData.website,
+        source,
+        event_id: eventId,
         lid,
         ...utms,
-        page: typeof window !== "undefined" ? window.location.pathname : "/offline-academy",
+        page,
       };
 
       const res = await fetch("/api/lead", {
@@ -89,11 +127,18 @@ export const LeadForm: React.FC<LeadFormProps> = ({ id = "demo", className = "" 
         throw new Error(data.error || "Submission failed");
       }
 
-      trackEvent("Lead", {
-        type: "offline_demo",
-        interest: formData.interest,
-        city: formData.city,
-      });
+      trackEvent(
+        "Lead",
+        {
+          channel: "form",
+          source,
+          interest: formData.interest,
+          city: formData.city || undefined,
+          lid,
+          ...utms,
+        },
+        eventId
+      );
 
       router.push("/thank-you?type=offline");
     } catch (err: unknown) {
@@ -104,29 +149,159 @@ export const LeadForm: React.FC<LeadFormProps> = ({ id = "demo", className = "" 
     }
   };
 
+  if (isCompact) {
+    return (
+      <div
+        id={id}
+        className={`w-full rounded-card bg-paper border border-line p-3.5 sm:p-5 shadow-form text-left ${className}`}
+      >
+        <form onSubmit={handleSubmit} noValidate className="space-y-2.5 font-sans">
+          {/* Honeypot field */}
+          <div className="hidden" aria-hidden="true">
+            <label htmlFor={`website-${uid}`}>Website</label>
+            <input
+              id={`website-${uid}`}
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              value={formData.website}
+              onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+            />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            {activeFields.includes("name") && (
+              <div>
+                <label
+                  htmlFor={`lead-name-${uid}`}
+                  className="block text-xs font-semibold uppercase tracking-[0.12em] text-ink mb-1"
+                >
+                  Aapka Naam <span className="text-accent">*</span>
+                </label>
+                <input
+                  id={`lead-name-${uid}`}
+                  name="name"
+                  type="text"
+                  required
+                  autoComplete="name"
+                  enterKeyHint="next"
+                  placeholder="e.g. Priya Sharma"
+                  value={formData.name}
+                  onFocus={handleFieldFocus}
+                  onChange={(e) => {
+                    setFormData({ ...formData, name: e.target.value });
+                    if (errorMsg) setErrorMsg(null);
+                  }}
+                  className="w-full min-h-[48px] px-3.5 py-2.5 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted/60 text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+                />
+              </div>
+            )}
+
+            {activeFields.includes("phone") && (
+              <div>
+                <label
+                  htmlFor={`lead-phone-${uid}`}
+                  className="block text-xs font-semibold uppercase tracking-[0.12em] text-ink mb-1"
+                >
+                  Mobile Number (WhatsApp) <span className="text-accent">*</span>
+                </label>
+                <div className="relative">
+                  <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-ink-muted font-medium text-base pointer-events-none">
+                    +91
+                  </span>
+                  <input
+                    id={`lead-phone-${uid}`}
+                    name="phone"
+                    type="tel"
+                    inputMode="numeric"
+                    autoComplete="tel"
+                    enterKeyHint="send"
+                    required
+                    maxLength={10}
+                    placeholder="98765 43210"
+                    aria-invalid={phoneError ? "true" : "false"}
+                    aria-describedby={phoneError ? `phone-err-${uid}` : undefined}
+                    value={formData.phone}
+                    onFocus={handleFieldFocus}
+                    onChange={(e) => {
+                      const val = sanitizeIndianPhone(e.target.value);
+                      setFormData({ ...formData, phone: val });
+                      if (phoneError && /^[6-9]\d{9}$/.test(val)) {
+                        setPhoneError(null);
+                      }
+                    }}
+                    onBlur={() => {
+                      if (formData.phone.length > 0) validatePhone(formData.phone);
+                    }}
+                    className="w-full min-h-[48px] pl-12 pr-3.5 py-2.5 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted/60 text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+                  />
+                </div>
+              </div>
+            )}
+          </div>
+
+          {phoneError && (
+            <p id={`phone-err-${uid}`} role="alert" className="text-xs text-accent font-medium">
+              {phoneError}
+            </p>
+          )}
+
+          {errorMsg && (
+            <div role="alert" className="p-2.5 rounded-card bg-red-50 border border-red-200 text-red-900 text-xs space-y-2">
+              <div className="flex items-center gap-2 font-medium">
+                <AlertCircle className="w-4 h-4 text-accent shrink-0" />
+                <span>{errorMsg}</span>
+              </div>
+              <Button
+                variant="whatsapp"
+                href={whatsappFallback}
+                isExternal
+                withWhatsAppIcon
+                trackSource={`${source}-error-fallback`}
+                className="w-full text-xs py-2 min-h-[44px]"
+              >
+                WhatsApp pe message bhejein
+              </Button>
+            </div>
+          )}
+
+          <Button
+            type="submit"
+            variant="primary"
+            disabled={loading}
+            className="w-full min-h-[48px] py-3 text-base font-semibold"
+          >
+            {loading ? "Submit ho raha hai..." : submitLabel || "Free demo class book karein"}
+          </Button>
+        </form>
+      </div>
+    );
+  }
+
   return (
     <div
       id={id}
-      className={`max-w-xl mx-auto rounded-card bg-surface border-2 border-gold/40 p-6 sm:p-10 shadow-warm ${className}`}
+      className={`max-w-xl mx-auto rounded-card bg-paper border border-line p-6 sm:p-10 shadow-form font-sans ${className}`}
     >
       <div className="text-center mb-8">
-        <span className="text-xs font-semibold uppercase tracking-widest text-gold bg-gold/10 px-3 py-1 rounded-full">
+        <span className="text-xs font-semibold uppercase tracking-[0.12em] text-accent font-sans">
           No Commitment · 100% Free
         </span>
-        <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-ink mt-3">
+        <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-ink mt-2">
           Free demo class book karein
         </h3>
-        <p className="text-sm text-muted mt-2">
+        <p className="text-sm text-ink-muted mt-2">
           Academy aakar Sunita ma&apos;am se miliye aur khud seekhne ka mahol dekhiye.
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-5">
+      <form onSubmit={handleSubmit} noValidate className="space-y-5">
         {/* Honeypot field (hidden from human visitors) */}
         <div className="hidden" aria-hidden="true">
-          <label htmlFor="website">Website</label>
+          <label htmlFor={`website-${uid}`}>Website</label>
           <input
-            id="website"
+            id={`website-${uid}`}
             type="text"
             name="website"
             tabIndex={-1}
@@ -138,81 +313,97 @@ export const LeadForm: React.FC<LeadFormProps> = ({ id = "demo", className = "" 
 
         {/* Naam */}
         <div>
-          <label htmlFor="lead-name" className="block text-xs font-semibold uppercase tracking-wider text-ink mb-1.5">
-            Aapka Naam <span className="text-brand">*</span>
+          <label htmlFor={`lead-name-${uid}`} className="block text-xs font-semibold uppercase tracking-[0.12em] text-ink mb-1.5">
+            Aapka Naam <span className="text-accent">*</span>
           </label>
           <input
-            id="lead-name"
+            id={`lead-name-${uid}`}
+            name="name"
             type="text"
             required
+            autoComplete="name"
+            enterKeyHint="next"
             placeholder="e.g. Priya Sharma"
             value={formData.name}
+            onFocus={handleFieldFocus}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="w-full px-4 py-3 rounded-xl border border-line bg-surface text-ink placeholder:text-muted/60 text-base focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand"
+            className="w-full min-h-[48px] px-4 py-3 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted/60 text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
           />
         </div>
 
         {/* Mobile Number */}
         <div>
-          <label htmlFor="lead-phone" className="block text-xs font-semibold uppercase tracking-wider text-ink mb-1.5">
-            Mobile Number (WhatsApp) <span className="text-brand">*</span>
+          <label htmlFor={`lead-phone-${uid}`} className="block text-xs font-semibold uppercase tracking-[0.12em] text-ink mb-1.5">
+            Mobile Number (WhatsApp) <span className="text-accent">*</span>
           </label>
           <div className="relative">
-            <span className="absolute left-4 top-3 text-muted font-medium text-base">
+            <span className="absolute left-4 top-3 text-ink-muted font-medium text-base">
               +91
             </span>
             <input
-              id="lead-phone"
+              id={`lead-phone-${uid}`}
+              name="phone"
               type="tel"
+              inputMode="numeric"
+              autoComplete="tel"
+              enterKeyHint="next"
               required
               maxLength={10}
               placeholder="98765 43210"
+              aria-invalid={phoneError ? "true" : "false"}
               value={formData.phone}
+              onFocus={handleFieldFocus}
               onChange={(e) => {
-                const val = e.target.value.replace(/\D/g, "");
+                const val = sanitizeIndianPhone(e.target.value);
                 setFormData({ ...formData, phone: val });
-                if (val.length === 10) validatePhone(val);
+                if (phoneError && /^[6-9]\d{9}$/.test(val)) setPhoneError(null);
               }}
-              onBlur={() => validatePhone(formData.phone)}
-              className="w-full pl-14 pr-4 py-3 rounded-xl border border-line bg-surface text-ink placeholder:text-muted/60 text-base focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand"
+              onBlur={() => {
+                if (formData.phone.length > 0) validatePhone(formData.phone);
+              }}
+              className="w-full min-h-[48px] pl-14 pr-4 py-3 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted/60 text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
             />
           </div>
           {phoneError && (
-            <p className="mt-1.5 text-xs text-brand font-medium">{phoneError}</p>
+            <p role="alert" className="mt-1.5 text-xs text-accent font-medium">{phoneError}</p>
           )}
         </div>
 
         {/* Shehar */}
         <div>
-          <label htmlFor="lead-city" className="block text-xs font-semibold uppercase tracking-wider text-ink mb-1.5">
-            Aapka Shehar <span className="text-brand">*</span>
+          <label htmlFor={`lead-city-${uid}`} className="block text-xs font-semibold uppercase tracking-[0.12em] text-ink mb-1.5">
+            Aapka Shehar <span className="text-accent">*</span>
           </label>
           <input
-            id="lead-city"
+            id={`lead-city-${uid}`}
+            name="city"
             type="text"
+            autoComplete="address-level2"
+            enterKeyHint="next"
             required
             placeholder="e.g. Bahadurgarh, Rohtak, Delhi..."
             value={formData.city}
+            onFocus={handleFieldFocus}
             onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-            className="w-full px-4 py-3 rounded-xl border border-line bg-surface text-ink placeholder:text-muted/60 text-base focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand"
+            className="w-full min-h-[48px] px-4 py-3 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted/60 text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
           />
         </div>
 
         {/* Interest Selector */}
         <div>
-          <label className="block text-xs font-semibold uppercase tracking-wider text-ink mb-2">
+          <label className="block text-xs font-semibold uppercase tracking-[0.12em] text-ink mb-2">
             Aap kya seekhna chahti hain?
           </label>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
             {(["Sab kuch", "Makeup", "Hair", "Skin"] as const).map((opt) => (
               <button
                 key={opt}
                 type="button"
                 onClick={() => setFormData({ ...formData, interest: opt })}
-                className={`py-2 px-3 text-xs sm:text-sm font-semibold rounded-lg border transition-all ${
+                className={`min-h-[44px] py-2.5 px-3 text-xs sm:text-sm font-semibold rounded-card border transition-all ${
                   formData.interest === opt
-                    ? "bg-brand text-white border-brand shadow-sm"
-                    : "bg-surface-2 text-ink border-line hover:border-gold"
+                    ? "bg-accent text-white border-accent shadow-sm"
+                    : "bg-paper-2 text-ink border-line hover:border-ink"
                 }`}
               >
                 {opt}
@@ -223,23 +414,26 @@ export const LeadForm: React.FC<LeadFormProps> = ({ id = "demo", className = "" 
 
         {/* Preferred Date (Optional) */}
         <div>
-          <label htmlFor="lead-date" className="block text-xs font-semibold uppercase tracking-wider text-ink mb-1.5">
+          <label htmlFor={`lead-date-${uid}`} className="block text-xs font-semibold uppercase tracking-[0.12em] text-ink mb-1.5">
             Demo ke liye kaunsa din theek rahega? (Optional)
           </label>
           <input
-            id="lead-date"
+            id={`lead-date-${uid}`}
+            name="preferredDate"
             type="date"
+            enterKeyHint="send"
             value={formData.preferredDate}
+            onFocus={handleFieldFocus}
             onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
-            className="w-full px-4 py-2.5 rounded-xl border border-line bg-surface text-ink text-sm focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand"
+            className="w-full min-h-[48px] px-4 py-2.5 rounded-card border border-line bg-paper text-ink text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
           />
         </div>
 
         {/* Error message */}
         {errorMsg && (
-          <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-900 text-sm space-y-2">
+          <div className="p-4 rounded-card bg-red-50 border border-red-200 text-red-900 text-sm space-y-2">
             <div className="flex items-center gap-2 font-medium">
-              <AlertCircle className="w-4 h-4 text-brand shrink-0" />
+              <AlertCircle className="w-4 h-4 text-accent shrink-0" />
               <span>{errorMsg}</span>
             </div>
             <p className="text-xs">
@@ -258,9 +452,9 @@ export const LeadForm: React.FC<LeadFormProps> = ({ id = "demo", className = "" 
         )}
 
         {/* Consent line */}
-        <p className="text-xs text-muted leading-relaxed">
+        <p className="text-xs text-ink-muted leading-relaxed">
           Submit karke aap Feminy Academy ko call/WhatsApp karne ki permission deti hain. Details hamari{" "}
-          <Link href="/privacy" className="text-brand underline hover:text-brand-dark">
+          <Link href="/legal/privacy" className="text-accent underline hover:text-accent-strong">
             Privacy Policy
           </Link>{" "}
           ke hisaab se surakshit hain.
@@ -271,7 +465,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({ id = "demo", className = "" 
           type="submit"
           variant="primary"
           disabled={loading}
-          className="w-full py-4 text-base font-semibold shadow-md"
+          className="w-full py-4 text-base font-semibold"
         >
           {loading ? "Submit ho raha hai..." : "Demo class book karein"}
         </Button>

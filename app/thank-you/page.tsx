@@ -22,9 +22,7 @@ function ThankYouContent() {
   );
 
   useEffect(() => {
-    if (type === "offline") {
-      trackEvent("Lead", { type: "thank_you_offline" });
-    } else if (type === "enrol") {
+    if (type === "enrol") {
       // Future purchase tracking stub
       trackEvent("PageView", { type: "thank_you_enrol" });
     }

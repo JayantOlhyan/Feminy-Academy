@@ -1,9 +1,18 @@
+import { getStoredLid, getUtmParams } from "@/lib/lid";
+
 declare global {
   interface Window {
     fbq?: (...args: unknown[]) => void;
     gtag?: (...args: unknown[]) => void;
     _feminyTrackingLoaded?: boolean;
   }
+}
+
+export function generateEventId(prefix = "evt"): string {
+  if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
+    return `${prefix}_${crypto.randomUUID()}`;
+  }
+  return `${prefix}_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
 }
 
 export function initAnalytics(): void {
@@ -82,26 +91,118 @@ export function trackEvent(
     | "faq_open"
     | "Lead"
     | "Contact",
-  params?: Record<string, unknown>
+  params?: Record<string, unknown>,
+  eventId?: string
 ): void {
   if (typeof window === "undefined") return;
 
   // Meta Pixel mapping
   if (window.fbq) {
+    const options = eventId ? { eventID: eventId } : undefined;
     if (["PageView", "ViewContent", "Lead", "Contact"].includes(eventName)) {
-      window.fbq("track", eventName, params);
+      if (options) {
+        window.fbq("track", eventName, params || {}, options);
+      } else {
+        window.fbq("track", eventName, params);
+      }
     } else {
-      window.fbq("trackCustom", eventName, params);
+      if (options) {
+        window.fbq("trackCustom", eventName, params || {}, options);
+      } else {
+        window.fbq("trackCustom", eventName, params);
+      }
     }
   }
 
   // GA4 event
   if (window.gtag) {
-    window.gtag("event", eventName, params);
+    window.gtag("event", eventName, eventId ? { ...params, event_id: eventId } : params);
+  }
+}
+
+export function sendCapiEvent(
+  eventName: "Lead" | "Contact",
+  eventId: string,
+  params?: Record<string, unknown>
+): void {
+  if (typeof window === "undefined") return;
+  try {
+    const lid = getStoredLid();
+    const utms = getUtmParams();
+    const payload = {
+      event_name: eventName,
+      event_id: eventId,
+      event_time: Math.floor(Date.now() / 1000),
+      event_source_url: window.location.href,
+      custom_data: {
+        ...params,
+        lid,
+        ...utms,
+      },
+    };
+    fetch("/api/capi", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+      keepalive: true,
+    }).catch(() => {});
+  } catch {
+    // ignore tracking failures
+  }
+}
+
+export function trackWhatsAppClick(source: string): string {
+  const eventId = generateEventId("wa");
+  const lid = getStoredLid();
+  const utms = getUtmParams();
+  const page = typeof window !== "undefined" ? window.location.pathname : "/";
+
+  trackEvent(
+    "Contact",
+    {
+      channel: "whatsapp",
+      source,
+      lid,
+      ...utms,
+    },
+    eventId
+  );
+
+  sendCapiEvent("Contact", eventId, {
+    channel: "whatsapp",
+    source,
+    page,
+  });
+
+  if (typeof window !== "undefined") {
+    const bodyStr = JSON.stringify({
+      channel: "whatsapp",
+      source,
+      event_id: eventId,
+      lid,
+      ...utms,
+      page,
+    });
+
+    try {
+      if (typeof navigator !== "undefined" && typeof navigator.sendBeacon === "function") {
+        const blob = new Blob([bodyStr], { type: "application/json" });
+        const queued = navigator.sendBeacon("/api/lead", blob);
+        if (queued) {
+          return eventId;
+        }
+      }
+    } catch {
+      // fall back to keepalive fetch
+    }
+
+    fetch("/api/lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: bodyStr,
+      keepalive: true,
+    }).catch(() => {});
   }
 
-  // Development logging
-  if (process.env.NODE_ENV !== "production") {
-    // console.log(`[Tracking] ${eventName}`, params);
-  }
+  return eventId;
 }

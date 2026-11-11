@@ -94,17 +94,17 @@ export default function HydraFacialCoursePage() {
               </p>
 
               {/* Price Block */}
-              <div className="p-4 rounded-xl bg-surface border border-line flex flex-wrap items-baseline gap-3">
-                <span className="font-serif text-3xl sm:text-4xl font-bold text-brand">
+              <div className="p-4 rounded-card bg-paper-2 border border-line flex flex-wrap items-baseline gap-3">
+                <span className="font-serif text-3xl sm:text-4xl font-bold text-accent">
                   {hydraFacialCourse.priceDisplay}
                 </span>
-                <span className="text-xs text-muted">
+                <span className="text-xs text-ink-muted">
                   <PlaceholderNotice
                     label="GST NOTE"
                     fallbackText={hydraFacialCourse.gstNote}
                   />
                 </span>
-                <span className="text-xs text-muted font-medium ml-auto">
+                <span className="text-xs text-ink-muted font-medium ml-auto">
                   Ek baar ki fees ·{" "}
                   <PlaceholderNotice
                     label="ACCESS DURATION"
@@ -119,7 +119,7 @@ export default function HydraFacialCoursePage() {
                 {hydraFacialCourse.chips.map((chip, idx) => (
                   <span
                     key={idx}
-                    className="px-3 py-1 rounded-full bg-surface-2 border border-line"
+                    className="px-3 py-1 rounded-card bg-paper border border-line"
                   >
                     <PlaceholderNotice label={chip} fallbackText={chip} />
                   </span>
@@ -324,12 +324,12 @@ export default function HydraFacialCoursePage() {
       </Section>
 
       {/* 6.16 Final CTA Band */}
-      <section className="py-16 sm:py-20 surface-texture border-t border-line text-center">
+      <section className="py-18 lg:py-28 bg-paper border-t border-line text-center font-sans">
         <Container size="narrow">
           <h2 className="font-serif text-3xl sm:text-5xl font-semibold text-ink leading-tight">
             Apni pehli Hydra Facial client ke liye taiyaar ho jaiye.
           </h2>
-          <p className="mt-3 text-2xl font-serif font-bold text-brand">
+          <p className="mt-3 text-2xl font-serif font-bold text-accent">
             {hydraFacialCourse.priceDisplay}
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">

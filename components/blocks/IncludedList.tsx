@@ -14,13 +14,13 @@ export const IncludedList: React.FC<IncludedListProps> = ({
   className = "",
 }) => {
   return (
-    <div className={`grid grid-cols-1 md:grid-cols-12 gap-8 items-center ${className}`}>
+    <div className={`grid grid-cols-1 md:grid-cols-12 gap-8 items-center font-sans ${className}`}>
       {/* Left 6 items */}
       <div className="md:col-span-7 space-y-3.5">
         {items.map((item, idx) => (
           <div
             key={idx}
-            className="flex items-start gap-3 p-3.5 rounded-xl bg-surface border border-line"
+            className="flex items-start gap-3 p-3.5 rounded-card bg-paper border border-line"
           >
             <div className="w-5 h-5 rounded-full bg-whatsapp/15 text-whatsapp flex items-center justify-center shrink-0 mt-0.5">
               <Check className="w-3.5 h-3.5 stroke-[2.5]" />
@@ -32,16 +32,16 @@ export const IncludedList: React.FC<IncludedListProps> = ({
         ))}
       </div>
 
-      {/* Right Gold Differentiator Box */}
+      {/* Right Differentiator Box */}
       <div className="md:col-span-5">
-        <div className="rounded-card bg-surface border-gold-hairline p-6 sm:p-8 shadow-warm relative">
-          <span className="text-xs font-semibold uppercase tracking-widest text-gold block mb-2">
+        <div className="rounded-card bg-paper border border-line p-6 sm:p-8 relative">
+          <span className="text-xs font-semibold uppercase tracking-[0.12em] text-accent block mb-2 font-sans">
             The Feminy Difference
           </span>
           <p className="font-serif text-lg sm:text-xl font-semibold text-ink leading-snug">
             {highlightNote}
           </p>
-          <div className="mt-4 pt-4 border-t border-line text-xs text-muted">
+          <div className="mt-4 pt-4 border-t border-line text-xs text-ink-muted">
             Direct access to Sunita Rathee during scheduled live doubt batches.
           </div>
         </div>
