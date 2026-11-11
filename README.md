@@ -20,8 +20,9 @@
 | Phase | Description | Status | Details |
 |---|---|---|---|
 | **Phase 1** | **Frontend Launch Scope & Performance Engine** | **COMPLETED** | 11 pages built, 100/100 Lighthouse score, WhatsApp deep-links, Ad-Landing mode, responsive viewports verified. |
-| **Phase 2** | **Client Content & Photography Ingestion** | **IN PROGRESS** | Replacing placeholder tokens with Sunita's real photography, confirmed syllabus, and verified credentials (tracked in `PLACEHOLDERS.md`). |
-| **Phase 3** | **Checkout Gateway & Backend Automations** | **UPCOMING** | Razorpay / course platform checkout integration (`PAYMENT_ENABLED=true`), Meta CAPI full pipeline, and automated WhatsApp replies. |
+| **Phase 2** | **Homepage Lead-Conversion (CRO) Pass** | **COMPLETED** | Above-the-fold compact `LeadForm` on `/`, proof-before-pitch section order, deduplicated Meta Pixel + CAPI event tracking (`event_id`) for form & WhatsApp leads, mobile `StickyCTA` on `/`, 100/100 mobile Lighthouse maintained. |
+| **Phase 3** | **Client Content & Photography Ingestion** | **IN PROGRESS** | Replacing placeholder tokens with Sunita's real photography, confirmed syllabus, and verified credentials (tracked in `PLACEHOLDERS.md`). |
+| **Phase 4** | **Checkout Gateway & Backend Automations** | **UPCOMING** | Razorpay / course platform checkout integration (`PAYMENT_ENABLED=true`), Meta CAPI full pipeline, and automated WhatsApp replies. |
 
 ---
 
@@ -55,9 +56,10 @@ Engineered specifically for visitors arriving from Instagram/Meta ads on mid-ran
 - Injects lead attribution tracking: `Ref: {lid}` persisted from query params to `localStorage`.
 - Supports 5 distinct action types: general enquiry, Hydra Facial enrolment, 1-Day masterclass enrolment, question resolution, and offline demo bookings.
 
-### 3. Lead Generation API (`/api/lead`)
-- **Schema Validation**: Robust server-side validation using Zod.
+### 3. Lead Generation API (`/api/lead`) & Event Deduplication
+- **Schema Validation**: Robust server-side validation using Zod — supports both full & compact form leads (`channel: "form"`, optional `city`, `interest` defaulting to `"Sab kuch"`) as well as WhatsApp click attribution (`channel: "whatsapp"`).
 - **Strict Indian Phone Regex**: Matches 10-digit Indian mobile numbers (`/^[6-9]\d{9}$/`).
+- **Attribution & Deduplication**: Tracks `source` (`home-hero`, `home-final-cta`, `sticky`, `header`, `offline-academy`), `lid`, and UTM parameters; fires client Meta Pixel + server `/api/capi` events with a shared `event_id` for deduplication.
 - **Spam Mitigation**: Invisible honeypot field (`website`) silently traps and discards automated bots.
 - **In-Memory Rate Limiting**: Restricts abuse to 5 submissions per 10 minutes per IP.
 - **Persistence Pipeline**: Directly saves leads to MongoDB Atlas (`leads` collection) with automated fail-safe forwarding to Google Sheets via webhook (`SHEET_WEBHOOK_URL`).
