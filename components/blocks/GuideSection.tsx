@@ -13,7 +13,7 @@ export const GuideSection: React.FC = () => {
   const pinContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let mm: { revert: () => void } | null = null;
+    let mm: any = null;
 
     const initGsap = async () => {
       try {

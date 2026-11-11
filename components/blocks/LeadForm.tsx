@@ -153,9 +153,9 @@ export const LeadForm: React.FC<LeadFormProps> = ({
     return (
       <div
         id={id}
-        className={`w-full rounded-card bg-surface border border-gold/40 p-3.5 sm:p-5 shadow-warm text-left ${className}`}
+        className={`w-full rounded-card bg-paper border border-line p-3.5 sm:p-5 shadow-form text-left ${className}`}
       >
-        <form onSubmit={handleSubmit} noValidate className="space-y-2.5">
+        <form onSubmit={handleSubmit} noValidate className="space-y-2.5 font-sans">
           {/* Honeypot field */}
           <div className="hidden" aria-hidden="true">
             <label htmlFor={`website-${uid}`}>Website</label>
@@ -175,9 +175,9 @@ export const LeadForm: React.FC<LeadFormProps> = ({
               <div>
                 <label
                   htmlFor={`lead-name-${uid}`}
-                  className="block text-xs font-semibold uppercase tracking-wider text-ink mb-1"
+                  className="block text-xs font-semibold uppercase tracking-[0.12em] text-ink mb-1"
                 >
-                  Aapka Naam <span className="text-brand">*</span>
+                  Aapka Naam <span className="text-accent">*</span>
                 </label>
                 <input
                   id={`lead-name-${uid}`}
@@ -193,7 +193,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
                     setFormData({ ...formData, name: e.target.value });
                     if (errorMsg) setErrorMsg(null);
                   }}
-                  className="w-full min-h-[48px] px-3.5 py-2.5 rounded-xl border border-line bg-surface text-ink placeholder:text-muted/60 text-base focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand"
+                  className="w-full min-h-[48px] px-3.5 py-2.5 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted/60 text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
                 />
               </div>
             )}
@@ -202,12 +202,12 @@ export const LeadForm: React.FC<LeadFormProps> = ({
               <div>
                 <label
                   htmlFor={`lead-phone-${uid}`}
-                  className="block text-xs font-semibold uppercase tracking-wider text-ink mb-1"
+                  className="block text-xs font-semibold uppercase tracking-[0.12em] text-ink mb-1"
                 >
-                  Mobile Number (WhatsApp) <span className="text-brand">*</span>
+                  Mobile Number (WhatsApp) <span className="text-accent">*</span>
                 </label>
                 <div className="relative">
-                  <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted font-medium text-base pointer-events-none">
+                  <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-ink-muted font-medium text-base pointer-events-none">
                     +91
                   </span>
                   <input
@@ -234,7 +234,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
                     onBlur={() => {
                       if (formData.phone.length > 0) validatePhone(formData.phone);
                     }}
-                    className="w-full min-h-[48px] pl-12 pr-3.5 py-2.5 rounded-xl border border-line bg-surface text-ink placeholder:text-muted/60 text-base focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand"
+                    className="w-full min-h-[48px] pl-12 pr-3.5 py-2.5 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted/60 text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
                   />
                 </div>
               </div>
@@ -242,15 +242,15 @@ export const LeadForm: React.FC<LeadFormProps> = ({
           </div>
 
           {phoneError && (
-            <p id={`phone-err-${uid}`} role="alert" className="text-xs text-brand font-medium">
+            <p id={`phone-err-${uid}`} role="alert" className="text-xs text-accent font-medium">
               {phoneError}
             </p>
           )}
 
           {errorMsg && (
-            <div role="alert" className="p-2.5 rounded-xl bg-red-50 border border-red-200 text-red-900 text-xs space-y-2">
+            <div role="alert" className="p-2.5 rounded-card bg-red-50 border border-red-200 text-red-900 text-xs space-y-2">
               <div className="flex items-center gap-2 font-medium">
-                <AlertCircle className="w-4 h-4 text-brand shrink-0" />
+                <AlertCircle className="w-4 h-4 text-accent shrink-0" />
                 <span>{errorMsg}</span>
               </div>
               <Button
@@ -270,7 +270,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
             type="submit"
             variant="primary"
             disabled={loading}
-            className="w-full min-h-[48px] py-3 text-base font-semibold shadow-md"
+            className="w-full min-h-[48px] py-3 text-base font-semibold"
           >
             {loading ? "Submit ho raha hai..." : submitLabel || "Free demo class book karein"}
           </Button>
@@ -282,16 +282,16 @@ export const LeadForm: React.FC<LeadFormProps> = ({
   return (
     <div
       id={id}
-      className={`max-w-xl mx-auto rounded-card bg-surface border-2 border-gold/40 p-6 sm:p-10 shadow-warm ${className}`}
+      className={`max-w-xl mx-auto rounded-card bg-paper border border-line p-6 sm:p-10 shadow-form font-sans ${className}`}
     >
       <div className="text-center mb-8">
-        <span className="text-xs font-semibold uppercase tracking-widest text-gold bg-gold/10 px-3 py-1 rounded-full">
+        <span className="text-xs font-semibold uppercase tracking-[0.12em] text-accent font-sans">
           No Commitment · 100% Free
         </span>
-        <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-ink mt-3">
+        <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-ink mt-2">
           Free demo class book karein
         </h3>
-        <p className="text-sm text-muted mt-2">
+        <p className="text-sm text-ink-muted mt-2">
           Academy aakar Sunita ma&apos;am se miliye aur khud seekhne ka mahol dekhiye.
         </p>
       </div>
@@ -313,8 +313,8 @@ export const LeadForm: React.FC<LeadFormProps> = ({
 
         {/* Naam */}
         <div>
-          <label htmlFor={`lead-name-${uid}`} className="block text-xs font-semibold uppercase tracking-wider text-ink mb-1.5">
-            Aapka Naam <span className="text-brand">*</span>
+          <label htmlFor={`lead-name-${uid}`} className="block text-xs font-semibold uppercase tracking-[0.12em] text-ink mb-1.5">
+            Aapka Naam <span className="text-accent">*</span>
           </label>
           <input
             id={`lead-name-${uid}`}
@@ -327,17 +327,17 @@ export const LeadForm: React.FC<LeadFormProps> = ({
             value={formData.name}
             onFocus={handleFieldFocus}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="w-full min-h-[48px] px-4 py-3 rounded-xl border border-line bg-surface text-ink placeholder:text-muted/60 text-base focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand"
+            className="w-full min-h-[48px] px-4 py-3 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted/60 text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
           />
         </div>
 
         {/* Mobile Number */}
         <div>
-          <label htmlFor={`lead-phone-${uid}`} className="block text-xs font-semibold uppercase tracking-wider text-ink mb-1.5">
-            Mobile Number (WhatsApp) <span className="text-brand">*</span>
+          <label htmlFor={`lead-phone-${uid}`} className="block text-xs font-semibold uppercase tracking-[0.12em] text-ink mb-1.5">
+            Mobile Number (WhatsApp) <span className="text-accent">*</span>
           </label>
           <div className="relative">
-            <span className="absolute left-4 top-3 text-muted font-medium text-base">
+            <span className="absolute left-4 top-3 text-ink-muted font-medium text-base">
               +91
             </span>
             <input
@@ -361,18 +361,18 @@ export const LeadForm: React.FC<LeadFormProps> = ({
               onBlur={() => {
                 if (formData.phone.length > 0) validatePhone(formData.phone);
               }}
-              className="w-full min-h-[48px] pl-14 pr-4 py-3 rounded-xl border border-line bg-surface text-ink placeholder:text-muted/60 text-base focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand"
+              className="w-full min-h-[48px] pl-14 pr-4 py-3 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted/60 text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
             />
           </div>
           {phoneError && (
-            <p role="alert" className="mt-1.5 text-xs text-brand font-medium">{phoneError}</p>
+            <p role="alert" className="mt-1.5 text-xs text-accent font-medium">{phoneError}</p>
           )}
         </div>
 
         {/* Shehar */}
         <div>
-          <label htmlFor={`lead-city-${uid}`} className="block text-xs font-semibold uppercase tracking-wider text-ink mb-1.5">
-            Aapka Shehar <span className="text-brand">*</span>
+          <label htmlFor={`lead-city-${uid}`} className="block text-xs font-semibold uppercase tracking-[0.12em] text-ink mb-1.5">
+            Aapka Shehar <span className="text-accent">*</span>
           </label>
           <input
             id={`lead-city-${uid}`}
@@ -385,13 +385,13 @@ export const LeadForm: React.FC<LeadFormProps> = ({
             value={formData.city}
             onFocus={handleFieldFocus}
             onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-            className="w-full min-h-[48px] px-4 py-3 rounded-xl border border-line bg-surface text-ink placeholder:text-muted/60 text-base focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand"
+            className="w-full min-h-[48px] px-4 py-3 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted/60 text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
           />
         </div>
 
         {/* Interest Selector */}
         <div>
-          <label className="block text-xs font-semibold uppercase tracking-wider text-ink mb-2">
+          <label className="block text-xs font-semibold uppercase tracking-[0.12em] text-ink mb-2">
             Aap kya seekhna chahti hain?
           </label>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
@@ -400,10 +400,10 @@ export const LeadForm: React.FC<LeadFormProps> = ({
                 key={opt}
                 type="button"
                 onClick={() => setFormData({ ...formData, interest: opt })}
-                className={`min-h-[44px] py-2.5 px-3 text-xs sm:text-sm font-semibold rounded-lg border transition-all ${
+                className={`min-h-[44px] py-2.5 px-3 text-xs sm:text-sm font-semibold rounded-card border transition-all ${
                   formData.interest === opt
-                    ? "bg-brand text-white border-brand shadow-sm"
-                    : "bg-surface-2 text-ink border-line hover:border-gold"
+                    ? "bg-accent text-white border-accent shadow-sm"
+                    : "bg-paper-2 text-ink border-line hover:border-ink"
                 }`}
               >
                 {opt}
@@ -414,7 +414,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
 
         {/* Preferred Date (Optional) */}
         <div>
-          <label htmlFor={`lead-date-${uid}`} className="block text-xs font-semibold uppercase tracking-wider text-ink mb-1.5">
+          <label htmlFor={`lead-date-${uid}`} className="block text-xs font-semibold uppercase tracking-[0.12em] text-ink mb-1.5">
             Demo ke liye kaunsa din theek rahega? (Optional)
           </label>
           <input
@@ -425,15 +425,15 @@ export const LeadForm: React.FC<LeadFormProps> = ({
             value={formData.preferredDate}
             onFocus={handleFieldFocus}
             onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
-            className="w-full min-h-[48px] px-4 py-2.5 rounded-xl border border-line bg-surface text-ink text-base focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand"
+            className="w-full min-h-[48px] px-4 py-2.5 rounded-card border border-line bg-paper text-ink text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
           />
         </div>
 
         {/* Error message */}
         {errorMsg && (
-          <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-900 text-sm space-y-2">
+          <div className="p-4 rounded-card bg-red-50 border border-red-200 text-red-900 text-sm space-y-2">
             <div className="flex items-center gap-2 font-medium">
-              <AlertCircle className="w-4 h-4 text-brand shrink-0" />
+              <AlertCircle className="w-4 h-4 text-accent shrink-0" />
               <span>{errorMsg}</span>
             </div>
             <p className="text-xs">
@@ -452,9 +452,9 @@ export const LeadForm: React.FC<LeadFormProps> = ({
         )}
 
         {/* Consent line */}
-        <p className="text-xs text-muted leading-relaxed">
+        <p className="text-xs text-ink-muted leading-relaxed">
           Submit karke aap Feminy Academy ko call/WhatsApp karne ki permission deti hain. Details hamari{" "}
-          <Link href="/privacy" className="text-brand underline hover:text-brand-dark">
+          <Link href="/legal/privacy" className="text-accent underline hover:text-accent-strong">
             Privacy Policy
           </Link>{" "}
           ke hisaab se surakshit hain.
@@ -465,7 +465,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
           type="submit"
           variant="primary"
           disabled={loading}
-          className="w-full py-4 text-base font-semibold shadow-md"
+          className="w-full py-4 text-base font-semibold"
         >
           {loading ? "Submit ho raha hai..." : "Demo class book karein"}
         </Button>

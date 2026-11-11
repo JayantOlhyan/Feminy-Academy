@@ -56,7 +56,7 @@ export const VideoFacade: React.FC<VideoFacadeProps> = ({
   const showRealPoster = !isPlaceholderAsset && !imageError;
 
   return (
-    <div className={`relative overflow-hidden rounded-card border border-line bg-surface-2 ${className}`}>
+    <div className={`relative overflow-hidden rounded-card border border-line bg-paper-2 font-sans ${className}`}>
       {isPlaying && videoUrl ? (
         <iframe
           src={`${videoUrl}${videoUrl.includes("?") ? "&" : "?"}autoplay=1`}
@@ -105,11 +105,11 @@ export const VideoFacade: React.FC<VideoFacadeProps> = ({
 
           {/* Central Play Button */}
           <div className="relative z-10 flex flex-col items-center gap-3">
-            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-brand/90 text-white flex items-center justify-center shadow-warm border-2 border-gold/40 group-hover:scale-105 group-hover:bg-brand transition-all duration-200">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-accent/90 text-white flex items-center justify-center border border-gold-line group-hover:scale-105 group-hover:bg-accent transition-all duration-200">
               <Play className="w-7 h-7 sm:w-8 sm:h-8 fill-current translate-x-0.5 text-white" />
             </div>
             {badgeText && (
-              <span className="px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md text-white text-xs sm:text-sm font-medium border border-white/15">
+              <span className="px-4 py-1.5 rounded-full bg-black/60 text-white text-xs sm:text-sm font-medium border border-white/15">
                 {badgeText}
               </span>
             )}
@@ -118,7 +118,7 @@ export const VideoFacade: React.FC<VideoFacadeProps> = ({
       )}
 
       {caption && (
-        <div className="p-3 bg-surface border-t border-line text-xs sm:text-sm text-muted text-center font-medium">
+        <div className="p-3 bg-paper border-t border-line text-xs sm:text-sm text-ink-muted text-center font-medium">
           {caption}
         </div>
       )}

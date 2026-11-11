@@ -148,14 +148,14 @@ export const StickyCTA: React.FC<StickyCTAProps> = ({
   if (mode === "home") {
     return (
       <div
-        className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-surface/95 backdrop-blur-md border-t border-line px-4 pt-2.5 shadow-2xl transition-all duration-300"
+        className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-paper border-t border-line px-4 pt-2.5 shadow-form transition-all duration-300 font-sans"
         style={{ paddingBottom: "calc(0.625rem + env(safe-area-inset-bottom, 0px))" }}
       >
         <div className="flex items-center gap-3">
           <a
             href={`#${targetFormId}`}
             onClick={handleHomeDemoClick}
-            className="flex-1 inline-flex items-center justify-center min-h-[48px] px-5 py-2.5 rounded-full bg-brand text-white text-sm font-semibold shadow-sm active:scale-95 transition-all"
+            className="flex-1 inline-flex items-center justify-center min-h-[48px] px-5 py-2.5 rounded-full bg-accent text-white text-sm font-semibold active:scale-95 transition-colors"
           >
             <span>Demo book karein</span>
           </a>
@@ -166,7 +166,7 @@ export const StickyCTA: React.FC<StickyCTAProps> = ({
             rel="noopener noreferrer"
             onClick={handleHomeWhatsAppClick}
             aria-label="WhatsApp pe baat karein"
-            className="inline-flex items-center justify-center min-h-[48px] min-w-[48px] px-4 py-2.5 rounded-full bg-whatsapp text-white text-sm font-semibold shadow-sm active:scale-95 transition-all"
+            className="inline-flex items-center justify-center min-h-[48px] min-w-[48px] px-4 py-2.5 rounded-full bg-whatsapp text-white text-sm font-semibold active:scale-95 transition-colors"
           >
             <MessageCircle className="w-5 h-5 stroke-[2]" aria-hidden="true" />
           </a>
@@ -177,15 +177,15 @@ export const StickyCTA: React.FC<StickyCTAProps> = ({
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-surface/95 backdrop-blur-md border-t border-line px-4 pt-3 shadow-2xl transition-all duration-300"
+      className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-paper border-t border-line px-4 pt-3 shadow-form transition-all duration-300 font-sans"
       style={{ paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom, 0px))" }}
     >
       <div className="flex items-center justify-between gap-3">
         <div>
-          <div className="font-serif text-lg font-bold text-brand leading-none">
+          <div className="font-serif text-lg font-bold text-accent leading-none">
             {priceDisplay}
           </div>
-          <div className="text-xs text-muted truncate max-w-[150px]">
+          <div className="text-xs text-ink-muted truncate max-w-[150px]">
             {courseTitle}
           </div>
         </div>
@@ -194,7 +194,7 @@ export const StickyCTA: React.FC<StickyCTAProps> = ({
           <a
             href={checkoutUrl}
             onClick={handleCourseClick}
-            className="inline-flex items-center justify-center min-h-[48px] px-5 py-2.5 rounded-full bg-brand text-white text-sm font-semibold shadow-sm active:scale-95 transition-all"
+            className="inline-flex items-center justify-center min-h-[48px] px-5 py-2.5 rounded-full bg-accent text-white text-sm font-semibold active:scale-95 transition-colors"
           >
             <span>Enrol karein</span>
           </a>
@@ -204,7 +204,7 @@ export const StickyCTA: React.FC<StickyCTAProps> = ({
             target="_blank"
             rel="noopener noreferrer"
             onClick={handleCourseClick}
-            className="inline-flex items-center gap-2 min-h-[48px] px-5 py-2.5 rounded-full bg-whatsapp text-white text-sm font-semibold shadow-sm active:scale-95 transition-all"
+            className="inline-flex items-center gap-2 min-h-[48px] px-5 py-2.5 rounded-full bg-whatsapp text-white text-sm font-semibold active:scale-95 transition-colors"
           >
             <MessageCircle className="w-4 h-4 stroke-[2]" />
             <span>Enrol karein</span>

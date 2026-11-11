@@ -14,7 +14,7 @@ export const AudienceCards: React.FC<AudienceCardsProps> = ({
   className = "",
 }) => {
   return (
-    <div className={`space-y-8 ${className}`}>
+    <div className={`space-y-8 font-sans ${className}`}>
       {/* "For" Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {items.map((item, idx) => (
@@ -25,23 +25,23 @@ export const AudienceCards: React.FC<AudienceCardsProps> = ({
                 {item.title}
               </h3>
             </div>
-            <p className="text-sm text-muted leading-relaxed">{item.desc}</p>
+            <p className="text-sm text-ink-muted leading-relaxed">{item.desc}</p>
           </Card>
         ))}
       </div>
 
       {/* "Not For" Muted Box */}
-      <div className="rounded-card bg-surface-2 border border-line p-6 sm:p-7">
+      <div className="rounded-card bg-paper-2 border border-line p-6 sm:p-7">
         <div className="flex items-start gap-3">
-          <AlertCircle className="w-5 h-5 text-muted shrink-0 mt-0.5" />
+          <AlertCircle className="w-5 h-5 text-ink-muted shrink-0 mt-0.5" />
           <div className="space-y-2">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-muted">
+            <h4 className="text-xs font-semibold uppercase tracking-[0.12em] text-ink-muted">
               Important: Ye course kiske liye NAHI hai
             </h4>
-            <ul className="space-y-1.5 text-sm text-muted leading-relaxed">
+            <ul className="space-y-1.5 text-sm text-ink-muted leading-relaxed">
               {notFor.map((nf, idx) => (
                 <li key={idx} className="flex items-start gap-2">
-                  <span className="text-muted/60">•</span>
+                  <span className="text-ink-muted/60">•</span>
                   <span>{nf}</span>
                 </li>
               ))}

@@ -21,32 +21,32 @@ export default function AboutPage() {
 
   return (
     <div className="w-full">
-      <section className="pt-12 pb-14 border-b border-line bg-surface">
+      <section className="pt-12 pb-14 border-b border-line bg-paper font-sans">
         <Container size="narrow" className="text-center">
-          <span className="text-xs font-semibold uppercase tracking-widest text-gold bg-gold/10 px-3 py-1 rounded-full">
+          <span className="text-xs font-semibold uppercase tracking-[0.12em] text-accent">
             Our Story & Founder
           </span>
-          <h1 className="font-serif text-3xl sm:text-5xl font-semibold text-ink mt-3 leading-tight">
+          <h1 className="font-serif text-3xl sm:text-5xl font-semibold text-ink mt-2 leading-tight">
             {legalContent.about.title}
           </h1>
-          <p className="mt-3 text-base sm:text-lg text-muted max-w-xl mx-auto">
+          <p className="mt-3 text-base sm:text-lg text-ink-muted max-w-xl mx-auto font-sans">
             {legalContent.about.subtitle}
           </p>
         </Container>
       </section>
 
       <Section containerSize="narrow">
-        <div className="space-y-8">
-          <div className="rounded-card bg-surface border border-line p-6 sm:p-8 space-y-4 shadow-subtle">
+        <div className="space-y-8 font-sans">
+          <div className="rounded-card bg-paper border border-line p-6 sm:p-8 space-y-4">
             <h2 className="font-serif text-2xl font-semibold text-ink">
               Sunita Rathee ki Journey
             </h2>
             {legalContent.about.bio.map((paragraph, idx) => (
-              <p key={idx} className="text-base text-muted leading-relaxed">
+              <p key={idx} className="text-base text-ink-muted leading-relaxed">
                 {paragraph}
               </p>
             ))}
-            <div className="pt-2 text-xs text-muted">
+            <div className="pt-2 text-xs text-ink-muted">
               Established:{" "}
               <PlaceholderNotice label="YEAR" fallbackText="2010" /> in{" "}
               {siteConfig.address}
@@ -60,13 +60,13 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {legalContent.about.offerings.map((offering, idx) => (
                 <Card key={idx} variant="white" className="space-y-3">
-                  <div className="w-9 h-9 rounded-full bg-gold/15 text-gold flex items-center justify-center">
-                    <CheckCircle2 className="w-5 h-5" />
-                  </div>
+                  <span className="font-serif text-xl font-medium text-gold-line block">
+                    0{idx + 1}
+                  </span>
                   <h4 className="font-serif text-lg font-semibold text-ink">
                     {offering.title}
                   </h4>
-                  <p className="text-sm text-muted leading-relaxed">
+                  <p className="text-sm text-ink-muted leading-relaxed">
                     {offering.description}
                   </p>
                 </Card>
@@ -74,7 +74,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="p-6 rounded-card bg-surface-2 border border-line text-center space-y-4">
+          <div className="p-6 rounded-card bg-paper-2 border border-line text-center space-y-4">
             <h3 className="font-serif text-xl font-semibold text-ink">
               Koi bhi sawaal ho, Sunita ma&apos;am se poochiye
             </h3>
