@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { getStoredLid, getUtmParams } from "@/lib/lid";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
-import { generateEventId, sendCapiEvent, trackEvent } from "@/lib/tracking";
+import { generateEventId, trackEvent } from "@/lib/tracking";
 import { AlertCircle } from "lucide-react";
 
 export type LeadFormField = "name" | "phone" | "city" | "interest" | "preferredDate";
@@ -128,14 +128,6 @@ export const LeadForm: React.FC<LeadFormProps> = ({
         eventId
       );
 
-      sendCapiEvent("Lead", eventId, {
-        channel: "form",
-        source,
-        interest: formData.interest,
-        city: formData.city || undefined,
-        page,
-      });
-
       router.push("/thank-you?type=offline");
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : "Kuch gadbad ho gayi. Kripya WhatsApp pe message kijiye.";
@@ -242,9 +234,21 @@ export const LeadForm: React.FC<LeadFormProps> = ({
           )}
 
           {errorMsg && (
-            <div role="alert" className="p-2.5 rounded-xl bg-red-50 border border-red-200 text-red-900 text-xs flex items-center gap-2">
-              <AlertCircle className="w-4 h-4 text-brand shrink-0" />
-              <span>{errorMsg}</span>
+            <div role="alert" className="p-2.5 rounded-xl bg-red-50 border border-red-200 text-red-900 text-xs space-y-2">
+              <div className="flex items-center gap-2 font-medium">
+                <AlertCircle className="w-4 h-4 text-brand shrink-0" />
+                <span>{errorMsg}</span>
+              </div>
+              <Button
+                variant="whatsapp"
+                href={whatsappFallback}
+                isExternal
+                withWhatsAppIcon
+                trackSource={`${source}-error-fallback`}
+                className="w-full text-xs py-2 min-h-[44px]"
+              >
+                WhatsApp pe message bhejein
+              </Button>
             </div>
           )}
 
