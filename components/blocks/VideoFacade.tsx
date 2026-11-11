@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { Play } from "lucide-react";
 import { trackEvent } from "@/lib/tracking";
 
@@ -10,9 +11,15 @@ interface VideoFacadeProps {
   badgeText?: string;
   caption?: string;
   aspectRatio?: "16/9" | "9/16" | "4/3";
+  priority?: boolean;
+  sizes?: string;
+  blurDataURL?: string;
   className?: string;
   altText?: string;
 }
+
+const DEFAULT_BLUR_DATA_URL =
+  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAIAAAA7ljmRAAAAD0lEQVR42mNgYGBgYGAEAACkAAH8oF0pAAAAAElFTkSuQmCC";
 
 export const VideoFacade: React.FC<VideoFacadeProps> = ({
   posterUrl,
@@ -20,6 +27,9 @@ export const VideoFacade: React.FC<VideoFacadeProps> = ({
   badgeText = "▶ Sunita ma'am se milein · 1 min",
   caption,
   aspectRatio = "16/9",
+  priority = false,
+  sizes = "(max-width: 1024px) 100vw, 448px",
+  blurDataURL = DEFAULT_BLUR_DATA_URL,
   className = "",
   altText = "Video preview of Sunita Rathee",
 }) => {
@@ -35,6 +45,8 @@ export const VideoFacade: React.FC<VideoFacadeProps> = ({
     "9/16": "aspect-[9/16]",
     "4/3": "aspect-[4/3]",
   };
+
+  const hasValidPoster = posterUrl === "/images/sunita-hero.png";
 
   return (
     <div className={`relative overflow-hidden rounded-card border border-line bg-surface-2 ${className}`}>
@@ -60,6 +72,20 @@ export const VideoFacade: React.FC<VideoFacadeProps> = ({
           aria-label={`Play video: ${badgeText}`}
           className={`group relative flex items-center justify-center cursor-pointer w-full ${aspectClasses[aspectRatio]} bg-[#2A2326]`}
         >
+          {hasValidPoster && (
+            <Image
+              src={posterUrl}
+              alt={altText}
+              fill
+              priority={priority}
+              fetchPriority={priority ? "high" : undefined}
+              placeholder="blur"
+              blurDataURL={blurDataURL}
+              sizes={sizes}
+              className="object-cover"
+            />
+          )}
+
           {/* Neutral warm blush placeholder backdrop */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#45202D] via-[#2D1B22] to-[#1C1216] opacity-90 transition-opacity group-hover:opacity-100" />
 

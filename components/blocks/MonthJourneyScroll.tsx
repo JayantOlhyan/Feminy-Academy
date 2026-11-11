@@ -11,7 +11,13 @@ export const MonthJourneyScroll: React.FC = () => {
   const months = offlineAcademyData.months;
 
   useEffect(() => {
-    if (typeof window === "undefined" || window.innerWidth < 768) return;
+    if (
+      typeof window === "undefined" ||
+      window.innerWidth < 768 ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return;
+    }
 
     let ctx: { revert: () => void } | null = null;
 

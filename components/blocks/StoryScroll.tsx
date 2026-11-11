@@ -58,8 +58,14 @@ export const StoryScroll: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Only initialize GSAP ScrollTrigger on client and desktop screens
-    if (typeof window === "undefined" || window.innerWidth < 768) return;
+    // Only initialize GSAP ScrollTrigger on client and desktop screens, respecting reduced motion
+    if (
+      typeof window === "undefined" ||
+      window.innerWidth < 768 ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return;
+    }
 
     let ctx: { revert: () => void } | null = null;
 
