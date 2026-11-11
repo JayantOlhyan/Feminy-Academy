@@ -14,6 +14,8 @@ import { Testimonials } from "@/components/blocks/Testimonials";
 import { RealAcademy } from "@/components/blocks/RealAcademy";
 import { FAQBlock } from "@/components/blocks/FAQBlock";
 import { FinalCTABand } from "@/components/blocks/FinalCTABand";
+import { LeadForm } from "@/components/blocks/LeadForm";
+import { StickyCTA } from "@/components/blocks/StickyCTA";
 import { homeFAQs } from "@/content/faqs";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import {
@@ -21,8 +23,6 @@ import {
   BookOpen,
   HelpCircle,
   Award,
-  ArrowRight,
-  ShieldCheck,
 } from "lucide-react";
 
 export default function HomePage() {
@@ -31,48 +31,63 @@ export default function HomePage() {
   return (
     <div className="w-full">
       {/* 5.1 Hero */}
-      <section className="relative pt-10 sm:pt-16 pb-16 sm:pb-24 overflow-hidden">
+      <section
+        id="home-hero"
+        className="relative pt-4 sm:pt-12 pb-10 sm:pb-20 overflow-hidden"
+      >
         <Container size="wide">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center">
             {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6 text-left">
+            <div className="lg:col-span-7 space-y-3 sm:space-y-5 text-left">
               <div className="inline-flex items-center gap-2">
-                <span className="text-xs font-semibold uppercase tracking-wider text-gold bg-gold/10 px-3 py-1 rounded-full border border-gold/20">
+                <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-gold bg-gold/10 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-gold/20">
                   FEMINY ACADEMY · BAHADURGARH
                 </span>
               </div>
 
-              <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-semibold text-ink leading-[1.15] tracking-tight">
+              <h1 className="font-serif text-[26px] sm:text-5xl lg:text-6xl font-semibold text-ink leading-[1.15] tracking-tight">
                 Beauty seekhiye 15 saal ki expert se — ghar baithe, ya academy mein.
               </h1>
 
-              <p className="text-base sm:text-lg text-muted max-w-xl leading-relaxed">
+              <p className="text-sm sm:text-lg text-muted max-w-xl leading-snug sm:leading-relaxed">
                 Software Engineer se Cosmetologist bani Sunita Rathee ab tak 150+ students ko sikha chuki hain. Simple Hindi mein, step-by-step, live doubt sessions ke saath.
               </p>
 
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
-                <Button variant="primary" href="#courses" className="text-base">
-                  Courses dekhein
-                </Button>
-                <Button
-                  variant="whatsapp"
-                  href={whatsappUrl}
-                  isExternal
-                  withWhatsAppIcon
-                  className="text-base"
-                >
-                  WhatsApp pe baat karein
-                </Button>
-              </div>
+              {/* Compact Hero Lead Form */}
+              <div className="max-w-lg pt-1 space-y-2.5">
+                <LeadForm
+                  id="hero-lead-form"
+                  variant="compact"
+                  source="home-hero"
+                  fields={["name", "phone"]}
+                  submitLabel="Free demo class book karein"
+                />
 
-              {/* Trust Micro-line */}
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted font-medium pt-1">
-                <span>Hindi / Hinglish</span>
-                <span>•</span>
-                <span>Live doubt sessions</span>
-                <span>•</span>
-                <span>Certificate</span>
+                {/* Trust Micro-line under button */}
+                <p className="text-xs text-muted font-medium text-center sm:text-left">
+                  Koi payment nahi · Hindi / Hinglish · Live doubt sessions · Certificate
+                </p>
+
+                {/* Secondary WhatsApp CTA + Courses Text Link */}
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 pt-1">
+                  <Button
+                    variant="whatsapp"
+                    href={whatsappUrl}
+                    isExternal
+                    withWhatsAppIcon
+                    trackSource="home-hero"
+                    className="text-sm sm:text-base py-2.5 px-5"
+                  >
+                    Ya WhatsApp pe baat karein
+                  </Button>
+
+                  <Link
+                    href="#courses"
+                    className="inline-flex items-center justify-center min-h-[44px] px-4 py-2 text-sm font-semibold text-brand hover:text-brand-dark transition-colors"
+                  >
+                    Courses dekhein ↓
+                  </Link>
+                </div>
               </div>
             </div>
 
@@ -80,8 +95,10 @@ export default function HomePage() {
             <div className="lg:col-span-5">
               <div className="relative mx-auto max-w-md">
                 <VideoFacade
-                  posterUrl="/images/sunita-hero.jpg"
+                  posterUrl="/images/sunita-hero.png"
                   aspectRatio="4/3"
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 448px"
                   badgeText="▶ Sunita ma'am se milein · 1 min"
                   caption="Sunita Rathee — Founder & Cosmetologist"
                   altText="PHOTO: Sunita, warm portrait at the academy"
@@ -95,12 +112,32 @@ export default function HomePage() {
       {/* 5.2 Proof Strip */}
       <ProofStrip />
 
-      {/* 5.3 Courses: 01 */}
+      {/* 01: Student work (formerly 04) */}
+      <Section
+        number="01"
+        title="Hamare students ka kaam."
+        subtitle="Ye photos hamare students ki practice ki hain — koi filter, koi editing nahi."
+        variant="surface-2"
+      >
+        <WorkGallery />
+      </Section>
+
+      {/* 02: Testimonials (formerly 05) */}
+      <Section
+        number="02"
+        title="Students kya kehti hain."
+        subtitle="Real reviews aur feedback from our learners."
+      >
+        <Testimonials filterCategory="all" />
+      </Section>
+
+      {/* 03: Courses (formerly 01) */}
       <Section
         id="courses"
-        number="01"
+        number="03"
         title="Aapke liye kaunsa course?"
         subtitle="Shuruaat online se kijiye, ya seedha professional baniye."
+        variant="surface-2"
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {/* Card 1: HydraFacial */}
@@ -213,11 +250,10 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* 5.4 Why Feminy: 02 */}
+      {/* 04: Why Feminy (formerly 02) */}
       <Section
-        number="02"
+        number="04"
         title="Sirf videos nahi — ek teacher jo sach mein sikhaati hai."
-        variant="surface-2"
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Point 1 */}
@@ -275,37 +311,9 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* 5.5 Founder story: 03 */}
-      <Section
-        number="03"
-        title="Engineer se Cosmetologist tak."
-        subtitle="Ek genuine teacher ki real journey."
-      >
-        <StoryScroll />
-      </Section>
-
-      {/* 5.6 Student work: 04 */}
-      <Section
-        number="04"
-        title="Hamare students ka kaam."
-        subtitle="Ye photos hamare students ki practice ki hain — koi filter, koi editing nahi."
-        variant="surface-2"
-      >
-        <WorkGallery />
-      </Section>
-
-      {/* 5.7 Testimonials: 05 */}
+      {/* 05: Real academy (formerly 06) */}
       <Section
         number="05"
-        title="Students kya kehti hain."
-        subtitle="Real reviews aur feedback from our learners."
-      >
-        <Testimonials filterCategory="all" />
-      </Section>
-
-      {/* 5.8 Real academy: 06 */}
-      <Section
-        number="06"
         title="Online hai, par asli hai."
         subtitle="Hamari academy Bahadurgarh mein hai. Aap kabhi bhi aakar mil sakti hain."
         variant="surface-2"
@@ -313,17 +321,33 @@ export default function HomePage() {
         <RealAcademy />
       </Section>
 
-      {/* 5.9 FAQ: 07 */}
+      {/* 06: Founder story (formerly 03) */}
+      <Section
+        number="06"
+        title="Engineer se Cosmetologist tak."
+        subtitle="Ek genuine teacher ki real journey."
+      >
+        <StoryScroll />
+      </Section>
+
+      {/* 07: FAQ */}
       <Section
         number="07"
         title="Aksar pooche jaane wale sawaal"
         subtitle="Aapke zaroori sawaalon ke aasaan jawab."
+        variant="surface-2"
       >
         <FAQBlock faqs={homeFAQs} />
       </Section>
 
-      {/* 5.10 Final CTA Band */}
-      <FinalCTABand />
+      {/* Final CTA Band with Compact Form */}
+      <FinalCTABand
+        showCompactForm
+        formSource="home-final-cta"
+      />
+
+      {/* Sticky Mobile CTA (<768px) */}
+      <StickyCTA mode="home" targetFormId="hero-lead-form" />
     </div>
   );
 }
