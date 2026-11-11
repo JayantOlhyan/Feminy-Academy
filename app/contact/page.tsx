@@ -4,7 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
-import { PlaceholderNotice } from "@/components/ui/PlaceholderNotice";
+import { PlaceholderNotice, isPlaceholder } from "@/components/ui/PlaceholderNotice";
 import { legalContent } from "@/content/legal";
 import { siteConfig } from "@/content/site";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
+  const isDev = process.env.NODE_ENV !== "production";
   const whatsappUrl = getWhatsAppUrl("general");
 
   return (
@@ -70,25 +71,35 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="pt-4 flex items-start gap-3">
-                <Mail className="w-5 h-5 text-gold-line shrink-0 mt-0.5" />
-                <div>
-                  <p className="font-semibold text-ink">Email</p>
-                  <p className="text-ink-muted mt-0.5">
-                    <PlaceholderNotice label="ACADEMY EMAIL" fallbackText="feminyacademy@gmail.com" />
-                  </p>
+              {(!isPlaceholder(siteConfig.email) || isDev) && (
+                <div className="pt-4 flex items-start gap-3">
+                  <Mail className="w-5 h-5 text-gold-line shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-ink">Email</p>
+                    <p className="text-ink-muted mt-0.5">
+                      {isPlaceholder(siteConfig.email) ? (
+                        <PlaceholderNotice label="ACADEMY EMAIL" fallbackText={siteConfig.email} />
+                      ) : (
+                        <a href={`mailto:${siteConfig.email}`} className="hover:text-accent transition-colors">
+                          {siteConfig.email}
+                        </a>
+                      )}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              )}
 
-              <div className="pt-4 flex items-start gap-3">
-                <Clock className="w-5 h-5 text-gold-line shrink-0 mt-0.5" />
-                <div>
-                  <p className="font-semibold text-ink">Visiting Hours</p>
-                  <p className="text-ink-muted mt-0.5">
-                    <PlaceholderNotice label="ACADEMY HOURS" fallbackText="Mon - Sat: 10:00 AM - 6:00 PM" />
-                  </p>
+              {(!isPlaceholder(siteConfig.hours) || isDev) && (
+                <div className="pt-4 flex items-start gap-3">
+                  <Clock className="w-5 h-5 text-gold-line shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-ink">Visiting Hours</p>
+                    <p className="text-ink-muted mt-0.5">
+                      <PlaceholderNotice label="ACADEMY HOURS" fallbackText={siteConfig.hours} />
+                    </p>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
 
             <div className="pt-2 flex flex-col sm:flex-row gap-3">

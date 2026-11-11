@@ -1,6 +1,7 @@
 import React from "react";
 import { Accordion, AccordionItemData } from "@/components/ui/Accordion";
 import { FAQItem } from "@/content/faqs";
+import { isPlaceholder, PlaceholderNotice } from "@/components/ui/PlaceholderNotice";
 
 interface FAQBlockProps {
   faqs: FAQItem[];
@@ -8,16 +9,34 @@ interface FAQBlockProps {
 }
 
 export const FAQBlock: React.FC<FAQBlockProps> = ({ faqs, className = "" }) => {
-  const items: AccordionItemData[] = faqs.map((faq, idx) => ({
+  const isDev = process.env.NODE_ENV !== "production";
+  const visibleFaqs = faqs.filter((faq) => {
+    if (isDev) return true;
+    return !isPlaceholder(faq.answer) && !faq.answer.includes("[");
+  });
+
+  if (visibleFaqs.length === 0) {
+    return null;
+  }
+
+  const items: AccordionItemData[] = visibleFaqs.map((faq, idx) => ({
     id: `faq-${idx}`,
     title: faq.question,
-    content: <p>{faq.answer}</p>,
+    content: (
+      <p>
+        {isPlaceholder(faq.answer) ? (
+          <PlaceholderNotice label={faq.question} fallbackText={faq.answer} />
+        ) : (
+          faq.answer
+        )}
+      </p>
+    ),
   }));
 
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
+    mainEntity: visibleFaqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
       acceptedAnswer: {

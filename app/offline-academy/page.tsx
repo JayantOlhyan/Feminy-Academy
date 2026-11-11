@@ -51,7 +51,7 @@ export default function OfflineAcademyPage() {
     provider: {
       "@type": "Organization",
       name: "Feminy Academy",
-      sameAs: "https://feminyacademy.com",
+      sameAs: process.env.NEXT_PUBLIC_SITE_URL || "https://feminy-academy.netlify.app",
     },
     educationalCredentialAwarded: "Feminy Academy Professional Diploma",
     courseMode: "Onsite",
@@ -89,12 +89,18 @@ export default function OfflineAcademyPage() {
 
               {/* Facts Row */}
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 p-4 rounded-card bg-paper-2 border border-line text-[13px] font-sans">
-                <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-gold-line shrink-0" />
-                  <span>
-                    <strong>Duration:</strong> {offlineAcademyData.facts.duration}
-                  </span>
-                </div>
+                {(!isPlaceholder(offlineAcademyData.facts.duration) || isDev) && (
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-4 h-4 text-gold-line shrink-0" />
+                    <span>
+                      <strong>Duration:</strong>{" "}
+                      <PlaceholderNotice
+                        label="OFFLINE DURATION"
+                        fallbackText={offlineAcademyData.facts.duration}
+                      />
+                    </span>
+                  </div>
+                )}
                 <div className="flex items-center gap-2">
                   <Users className="w-4 h-4 text-gold-line shrink-0" />
                   <span>
