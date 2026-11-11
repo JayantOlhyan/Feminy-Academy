@@ -1,7 +1,9 @@
 export interface StatItem {
+  id?: string;
   value: string;
   label: string;
   verified: boolean;
+  reviewCount?: number;
   note?: string;
 }
 
@@ -20,6 +22,12 @@ export interface SiteConfig {
     youtube: string;
   };
   stats: StatItem[];
+  meetSunita: {
+    careerSwitch: string;
+    studentOutcome: string;
+    clientsHandled: string;
+    physicalStudio: string;
+  };
   flags: {
     PAYMENT_ENABLED: boolean;
   };
@@ -30,9 +38,9 @@ export const siteConfig: SiteConfig = {
   byline: "by Sunita Rathee",
   phone: "+91 99553 31142",
   whatsappNumber: "919955331142",
-  email: "contact@feminyacademy.com",
+  email: "[ACADEMY EMAIL]",
   address: "Sector 9, Bahadurgarh, Haryana",
-  hours: "10:00 AM - 6:00 PM",
+  hours: "[ACADEMY HOURS]",
   mapsUrl: "https://maps.google.com/?q=Sector+9+Bahadurgarh+Haryana+124507",
   legalBusinessName: "Feminy Academy by Sunita Rathee",
   socials: {
@@ -40,11 +48,24 @@ export const siteConfig: SiteConfig = {
     youtube: "https://youtube.com/@SRMvibe",
   },
   stats: [
-    { value: "150+", label: "Students trained", verified: true },
-    { value: "15+", label: "Saal ka experience", verified: true },
-    { value: "17K", label: "Instagram family", verified: true },
-    { value: "4.9★", label: "Google rating", verified: true, note: "Bahadurgarh studio rating" },
+    { id: "students", value: "150+", label: "Students trained", verified: false },
+    { id: "experience", value: "15+", label: "Saal ka experience", verified: false },
+    { id: "instagram", value: "17K", label: "Instagram family", verified: false },
+    {
+      id: "rating",
+      value: "4.9★",
+      label: "Google rating",
+      verified: false,
+      reviewCount: 37,
+      note: "Bahadurgarh studio ki verified rating hai.",
+    },
   ],
+  meetSunita: {
+    careerSwitch: "[SUNITA'S WORDS: career switch]",
+    studentOutcome: "[VERIFIED STUDENT OUTCOME]",
+    clientsHandled: "[HAZAARON REAL CLIENTS]",
+    physicalStudio: "[ZAMEEN PAR STUDIO]",
+  },
   flags: {
     PAYMENT_ENABLED: false,
   },

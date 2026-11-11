@@ -1,3 +1,8 @@
+import { siteConfig } from "./site";
+
+const experienceStat = siteConfig.stats.find((s) => s.id === "experience");
+const studentsStat = siteConfig.stats.find((s) => s.id === "students");
+
 export interface HomeContent {
   hero: {
     eyebrow: string;
@@ -56,7 +61,9 @@ export const homeContent: HomeContent = {
     // Option A is selected as default; Option B preserved for CRO A/B testing
     h1: "Beauty ka hunar seekhiye — aur apne naam se kaam shuru kijiye.",
     h1VariantB: "Ghar se shuru kijiye. Certificate ke saath professional baniye.",
-    sub: "Sunita Rathee, 15+ saal ki experienced cosmetologist, aapko simple Hindi mein step-by-step sikhaati hain — live doubt sessions ke saath.",
+    sub: experienceStat?.verified
+      ? `Sunita Rathee, ${experienceStat.value} saal ki experienced cosmetologist, aapko simple Hindi mein step-by-step sikhaati hain — live doubt sessions ke saath.`
+      : "Sunita Rathee, experienced cosmetologist, aapko simple Hindi mein step-by-step sikhaati hain — live doubt sessions ke saath.",
     trustMicroline: "Koi payment nahi · Hindi / Hinglish · Live doubt sessions · Certificate",
     formSubmitLabel: "Free demo class book karein",
     coursesLinkLabel: "Courses dekhein ↓",
@@ -73,20 +80,34 @@ export const homeContent: HomeContent = {
   },
   guide: {
     eyebrow: "AAPKI GUIDE",
-    heading: "15+ saal ka practical tajurba aur verified guidance.",
-    empathyFallback:
-      "Sunita Rathee ne pichhle 15+ saalon mein 150 se zyada students ko cosmetology, skincare aur beauty treatments mein personally train kiya hai. Bahadurgarh mein apni functional academy aur studio ke zariye, unka focus hamesha real clinical practice, hygiene standards aur client confidence par rehta hai — bina kisi unnecessary theory ya shortcuts ke.",
+    heading: experienceStat?.verified
+      ? `${experienceStat.value} saal ka practical tajurba aur verified guidance.`
+      : "Practical tajurba aur verified guidance.",
+    empathyFallback: [
+      "Sunita Rathee",
+      experienceStat?.verified ? `ne pichhle ${experienceStat.value} saalon mein` : "",
+      studentsStat?.verified ? `${studentsStat.value} se zyada students ko` : "students ko",
+      "cosmetology, skincare aur beauty treatments mein personally train kiya hai. Bahadurgarh mein apni functional academy aur studio ke zariye, unka focus hamesha real clinical practice, hygiene standards aur client confidence par rehta hai — bina kisi unnecessary theory ya shortcuts ke.",
+    ]
+      .filter(Boolean)
+      .join(" "),
     authority: [
-      { value: "15+ saal", label: "Ka practical experience" },
-      { value: "150+", label: "Students trained & guided" },
+      ...(experienceStat?.verified
+        ? [{ value: `${experienceStat.value} saal`, label: "Ka practical experience" }]
+        : []),
+      ...(studentsStat?.verified
+        ? [{ value: studentsStat.value, label: "Students trained & guided" }]
+        : []),
       { value: "Bahadurgarh", label: "Physical academy & studio" },
     ],
     storyBeats: [
       {
         step: "01",
         period: "Tajurba",
-        title: "15+ Saal ka Safar",
-        text: "Practical cosmetology aur salon industry mein 15 saal se zyada ka continuous anubhav.",
+        title: experienceStat?.verified ? `${experienceStat.value} Saal ka Safar` : "Tajurba aur Safar",
+        text: experienceStat?.verified
+          ? `Practical cosmetology aur salon industry mein ${experienceStat.value} saal se zyada ka continuous anubhav.`
+          : "Practical cosmetology aur salon industry mein continuous anubhav.",
       },
       {
         step: "02",
@@ -103,7 +124,7 @@ export const homeContent: HomeContent = {
       {
         step: "04",
         period: "Students",
-        title: "150+ Trained Students",
+        title: studentsStat?.verified ? `${studentsStat.value} Trained Students` : "Trained Students",
         text: "Students ko live models pe practical karwake self-reliant aur career-ready banana.",
       },
     ],

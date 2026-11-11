@@ -2,6 +2,7 @@ import React from "react";
 import { siteConfig } from "@/content/site";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { Button } from "@/components/ui/Button";
+import { PlaceholderNotice, isPlaceholder } from "@/components/ui/PlaceholderNotice";
 import { MapPin, Clock, Navigation } from "lucide-react";
 
 interface RealAcademyProps {
@@ -13,6 +14,7 @@ export const RealAcademy: React.FC<RealAcademyProps> = ({
   className = "",
 }) => {
   const whatsappOffline = getWhatsAppUrl("offline");
+  const isDev = process.env.NODE_ENV !== "production";
 
   return (
     <div className={`w-full max-w-3xl mx-auto font-sans ${className}`}>
@@ -39,15 +41,22 @@ export const RealAcademy: React.FC<RealAcademyProps> = ({
             </div>
           </div>
 
-          <div className="flex items-start gap-3.5">
-            <Clock className="w-5 h-5 shrink-0 text-gold-line mt-0.5" />
-            <div>
-              <p className="font-semibold text-ink text-base">Visiting Hours</p>
-              <p className="text-[13px] text-ink-muted mt-0.5">
-                Somvaar se Shanivaar: 10:00 AM - 6:00 PM (Prior appointment recommended)
-              </p>
+          {(!isPlaceholder(siteConfig.hours) || isDev) && (
+            <div className="flex items-start gap-3.5">
+              <Clock className="w-5 h-5 shrink-0 text-gold-line mt-0.5" />
+              <div>
+                <p className="font-semibold text-ink text-base">Visiting Hours</p>
+                <p className="text-[13px] text-ink-muted mt-0.5">
+                  {isPlaceholder(siteConfig.hours) ? (
+                    <PlaceholderNotice label="ACADEMY HOURS" fallbackText={siteConfig.hours} />
+                  ) : (
+                    siteConfig.hours
+                  )}{" "}
+                  (Prior appointment recommended)
+                </p>
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3 pt-1">

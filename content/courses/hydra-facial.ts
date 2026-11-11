@@ -1,6 +1,8 @@
+import { siteConfig } from "@/content/site";
+
 export interface CourseLesson {
   title: string;
-  duration: string;
+  duration?: string;
   preview?: boolean;
 }
 
@@ -43,6 +45,7 @@ export interface CourseData {
     modulesCount: string;
     lessonsCount: string;
     totalHours: string;
+    confirmed?: boolean;
   };
   modules: CourseModule[];
   included: {
@@ -65,6 +68,8 @@ export interface CourseData {
   }[];
 }
 
+const studentsStat = siteConfig.stats.find((s) => s.id === "students");
+
 export const hydraFacialCourse: CourseData = {
   id: "hydra-facial",
   slug: "hydra-facial",
@@ -76,8 +81,8 @@ export const hydraFacialCourse: CourseData = {
     "Sunita ma'am se seekhiye poora process: skin samajhna, machine chalana, har step sahi karna aur common problems solve karna. Recorded lessons + live doubt sessions + certificate.",
   price: 3000,
   priceDisplay: "₹3,000",
-  gstNote: "Sabhi taxes sammilit",
-  accessDuration: "1 Saal",
+  gstNote: "[GST NOTE]",
+  accessDuration: "[ACCESS DURATION]",
   checkoutUrl: "",
   chips: [
     "Hindi / Hinglish",
@@ -85,7 +90,7 @@ export const hydraFacialCourse: CourseData = {
     "Live Doubt Sessions",
     "Feminy Certificate",
   ],
-  trustLine: "150+ students ne Sunita ma'am se seekha hai",
+  trustLine: studentsStat?.verified ? `${studentsStat.value} students ne Sunita ma'am se seekha hai` : "",
   videoIntro: {
     title: "Course shuru karne se pehle, Sunita ma'am se miliye.",
     caption: "1 minute — is course mein kya milega aur kisko join karna chahiye.",
@@ -136,45 +141,45 @@ export const hydraFacialCourse: CourseData = {
   ],
   syllabusMeta: {
     modulesCount: "5",
-    lessonsCount: "12",
+    lessonsCount: "11",
     totalHours: "6",
+    confirmed: false,
   },
   modules: [
     {
       title: "1. Machine Setup & Tool Understanding",
       lessons: [
-        { title: "Hydra Facial machine ke parts aur attachments", duration: "18:00", preview: true },
-        { title: "Suction power, tips aur maintenance", duration: "22:00" },
-        { title: "Serums: Salicylic, Glycolic aur Hyaluronic acid kab use karein", duration: "25:00" },
+        { title: "Hydra Facial machine ke parts aur attachments", preview: true },
+        { title: "Suction power, tips aur maintenance" },
+        { title: "Serums: Salicylic, Glycolic aur Hyaluronic acid kab use karein" },
       ],
     },
     {
       title: "2. Skin Consultation & Prep",
       lessons: [
-        { title: "Client skin assessment aur contraindications", duration: "20:00" },
-        { title: "Cleansing aur double-cleansing protocol", duration: "15:00" },
+        { title: "Client skin assessment aur contraindications" },
+        { title: "Cleansing aur double-cleansing protocol" },
       ],
     },
     {
       title: "3. Step-by-Step Practical Treatment",
       lessons: [
-        { title: "Step 1: Exfoliation aur Dead Skin Removal", duration: "28:00" },
-        { title: "Step 2: Deep Pore Cleansing aur Extraction", duration: "30:00" },
-        { title: "Step 3: Hydration aur Serum Infusion", duration: "25:00" },
+        { title: "Step 1: Exfoliation aur Dead Skin Removal" },
+        { title: "Step 2: Deep Pore Cleansing aur Extraction" },
+        { title: "Step 3: Hydration aur Serum Infusion" },
       ],
     },
     {
       title: "4. Add-on Procedures & Glow Boosters",
       lessons: [
-        { title: "High-frequency wand aur cooling probe usage", duration: "20:00" },
-        { title: "Sheet masks aur post-care treatment", duration: "18:00" },
+        { title: "High-frequency wand aur cooling probe usage" },
+        { title: "Sheet masks aur post-care treatment" },
       ],
     },
     {
       title: "5. Pricing, Packages & Salon Growth",
       lessons: [
-        { title: "Client pricing: ₹1,500 se ₹4,000 tak package banana", duration: "24:00" },
-        { title: "Aftercare guidance aur client retention secrets", duration: "16:00" },
+        { title: "Aftercare guidance aur client retention secrets" },
       ],
     },
   ],
@@ -185,7 +190,7 @@ export const hydraFacialCourse: CourseData = {
       "Practical technique aur common mistakes guidance",
       "Direct WhatsApp support doubt clearing ke liye",
       "Feminy Academy completion certificate",
-      "1 Saal ka full access",
+      "[ACCESS DURATION]",
     ],
     highlightNote:
       "Doosre online courses sirf videos dete hain. Yahan aapke sawaalon ka jawab khud Sunita ma'am deti hain.",
@@ -194,10 +199,10 @@ export const hydraFacialCourse: CourseData = {
     title: "Course poora kijiye, certificate paaiye.",
     details: [
       "Certificate pe aapka poora naam, course ka naam aur completion date hogi.",
-      "Course complete karne par digital printable certificate turant issue hota hai.",
+      "[SOFT COPY DELIVERY]",
     ],
-    issuer: "Feminy Academy by Sunita Rathee",
-    completionRule: "Saare lessons complete karne par",
+    issuer: "[CERTIFICATE ISSUER]",
+    completionRule: "[COMPLETION RULE]",
     qrVerification: false,
     sampleImage: "/images/certificate-sample.jpg",
   },
@@ -214,7 +219,7 @@ export const hydraFacialCourse: CourseData = {
     },
     {
       question: "Kitne time tak access rahega?",
-      answer: "Aapko 1 saal tak video lessons ka uninterrupted access milta hai.",
+      answer: "[ACCESS DURATION FAQ]",
     },
     {
       question: "Live doubt sessions kab hote hain?",
@@ -227,7 +232,7 @@ export const hydraFacialCourse: CourseData = {
     {
       question: "Certificate valid hai?",
       answer:
-        "Haan, course poora karne par Feminy Academy ka official verified certificate milta hai jise aap apne salon ya studio mein laga sakti hain.",
+        "Haan, course poora karne par [CERTIFICATE RULE + ISSUER] jise aap apne salon ya studio mein laga sakti hain.",
     },
     {
       question: "Refund milega?",
@@ -246,7 +251,7 @@ export const hydraFacialCourse: CourseData = {
     },
     {
       question: "Course ke baad offline bhi kar sakti hoon?",
-      answer: "Haan, aap offline academy aakar 3-month advanced professional diploma course mein upgrade kar sakti hain.",
+      answer: "Haan, aap offline academy aakar professional diploma course mein upgrade kar sakti hain.",
     },
   ],
 };

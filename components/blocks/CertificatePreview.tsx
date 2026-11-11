@@ -54,7 +54,7 @@ export const CertificatePreview: React.FC<CertificatePreviewProps> = ({
                 <LogoMark className="w-7 h-7" theme="gold" />
               </div>
               <span className="text-[9px] font-sans font-semibold tracking-wider text-gold-text uppercase mt-0.5">
-                VERIFIED SEAL
+                ACADEMY SEAL
               </span>
             </div>
           </div>
@@ -71,15 +71,28 @@ export const CertificatePreview: React.FC<CertificatePreviewProps> = ({
             Feminy Academy ka completion certificate
           </h3>
           <p className="text-sm text-ink-muted mt-2 leading-relaxed">
-            Course poora karne par aapko soft copy turant milti hai. Is certificate ko aap apne salon ya studio mein display kar sakti hain.
+            {process.env.NODE_ENV !== "production" && (
+              <PlaceholderNotice
+                label="SOFT COPY DELIVERY"
+                fallbackText="[SOFT COPY TURANT MILTI HAI]"
+              />
+            )}
+            {" "}Is certificate ko aap apne salon ya studio mein display kar sakti hain.
           </p>
         </div>
 
         <div className="space-y-3 pt-2 text-sm text-ink">
-          <div className="flex items-start gap-2.5">
-            <Check className="w-4 h-4 text-whatsapp shrink-0 mt-0.5" />
-            <span>Aapke poore naam ke saath officially verified certificate</span>
-          </div>
+          {process.env.NODE_ENV !== "production" && (
+            <div className="flex items-start gap-2.5">
+              <Check className="w-4 h-4 text-whatsapp shrink-0 mt-0.5" />
+              <span>
+                <PlaceholderNotice
+                  label="VERIFIED CERTIFICATE"
+                  fallbackText="[OFFICIALLY VERIFIED CERTIFICATE]"
+                />
+              </span>
+            </div>
+          )}
           <div className="flex items-start gap-2.5">
             <Check className="w-4 h-4 text-whatsapp shrink-0 mt-0.5" />
             <span>Digital high-resolution printable PDF directly downloadable</span>
@@ -89,17 +102,17 @@ export const CertificatePreview: React.FC<CertificatePreviewProps> = ({
               <QrCode className="w-4 h-4 text-accent shrink-0 mt-0.5" />
               <span>Unique QR code verification — authenticity check ke liye</span>
             </div>
-          ) : (
+          ) : process.env.NODE_ENV !== "production" ? (
             <div className="flex items-start gap-2.5">
               <Check className="w-4 h-4 text-whatsapp shrink-0 mt-0.5" />
               <span>
                 <PlaceholderNotice
                   label="CONFIRM CERTIFICATE ISSUER"
-                  fallbackText="Course complete hone par directly issued by Feminy Academy"
+                  fallbackText="[DIRECTLY ISSUED BY FEMINY ACADEMY]"
                 />
               </span>
             </div>
-          )}
+          ) : null}
         </div>
       </div>
     </div>

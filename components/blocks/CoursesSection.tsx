@@ -99,13 +99,13 @@ export const CoursesSection: React.FC = () => {
                 </span>
               </div>
               <h3 className="font-serif text-2xl font-semibold text-ink">
-                3-Month Professional Course
+                Professional Beauty Course
               </h3>
               <p className="text-sm text-ink-muted leading-relaxed font-sans">
                 Makeup, hair aur skin — real models pe practice karke professional baniye.
               </p>
               <div className="p-3 bg-paper-2 rounded-card text-[13px] text-ink-muted font-medium space-y-1 font-sans">
-                <p>• 3 mahine · Academy mein</p>
+                <p>• Hands-on practical · Academy mein</p>
                 <p>• Certificate</p>
                 <p className="font-semibold text-ink pt-1">
                   Fee counselling mein bataayi jaayegi

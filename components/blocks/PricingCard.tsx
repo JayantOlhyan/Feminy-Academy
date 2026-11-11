@@ -5,7 +5,7 @@ import Link from "next/link";
 import { siteConfig } from "@/content/site";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { Button } from "@/components/ui/Button";
-import { PlaceholderNotice } from "@/components/ui/PlaceholderNotice";
+import { PlaceholderNotice, isPlaceholder } from "@/components/ui/PlaceholderNotice";
 import { trackEvent } from "@/lib/tracking";
 import { Check, ShieldCheck, HelpCircle } from "lucide-react";
 
@@ -15,6 +15,7 @@ interface PricingCardProps {
   priceDisplay: string;
   priceNumber: number;
   gstNote: string;
+  accessDuration?: string;
   includedItems: string[];
   refundOneLiner: string;
   actionType?: "hydrafacial_enrol" | "oneday_enrol";
@@ -28,12 +29,14 @@ export const PricingCard: React.FC<PricingCardProps> = ({
   priceDisplay,
   priceNumber,
   gstNote,
+  accessDuration,
   includedItems,
   refundOneLiner,
   actionType = "hydrafacial_enrol",
   checkoutUrl = "#",
   className = "",
 }) => {
+  const isDev = process.env.NODE_ENV !== "production";
   const isPaymentEnabled = siteConfig.flags.PAYMENT_ENABLED;
   const whatsappUrl = getWhatsAppUrl(actionType);
   const questionUrl = getWhatsAppUrl("question", `${courseTitle} ke fees ke baare mein`);
@@ -62,25 +65,36 @@ export const PricingCard: React.FC<PricingCardProps> = ({
           <span className="font-serif text-4xl sm:text-5xl font-bold text-accent">
             {priceDisplay}
           </span>
-          <span className="text-xs text-ink-muted">
-            <PlaceholderNotice label="GST NOTE" fallbackText={gstNote} />
-          </span>
+          {(!isPlaceholder(gstNote) || isDev) && (
+            <span className="text-xs text-ink-muted">
+              <PlaceholderNotice label="GST NOTE" fallbackText={gstNote} />
+            </span>
+          )}
         </div>
-        <p className="text-xs text-ink-muted font-medium">
-          Ek baar ki fees · Poora access
-        </p>
+        {accessDuration && !isPlaceholder(accessDuration) ? (
+          <p className="text-xs text-ink-muted font-medium">
+            Ek baar ki fees · {accessDuration}
+          </p>
+        ) : isDev ? (
+          <p className="text-xs text-ink-muted font-medium">
+            <PlaceholderNotice label="ACCESS DURATION" fallbackText={accessDuration || "[ACCESS DURATION]"} />
+          </p>
+        ) : null}
       </div>
 
       {/* Included items summary */}
       <div className="py-6 space-y-3">
-        {includedItems.slice(0, 6).map((item, idx) => (
-          <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-ink">
-            <Check className="w-4 h-4 text-whatsapp shrink-0 mt-0.5" />
-            <span>
-              <PlaceholderNotice label={item} fallbackText={item} />
-            </span>
-          </div>
-        ))}
+        {includedItems.slice(0, 6).map((item, idx) => {
+          if (isPlaceholder(item) && !isDev) return null;
+          return (
+            <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-ink">
+              <Check className="w-4 h-4 text-whatsapp shrink-0 mt-0.5" />
+              <span>
+                <PlaceholderNotice label={item} fallbackText={item} />
+              </span>
+            </div>
+          );
+        })}
       </div>
 
       {/* Primary CTA button */}

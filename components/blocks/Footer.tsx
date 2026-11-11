@@ -2,11 +2,12 @@ import React from "react";
 import Link from "next/link";
 import { siteConfig } from "@/content/site";
 import { Container } from "@/components/ui/Container";
-import { PlaceholderNotice } from "@/components/ui/PlaceholderNotice";
+import { PlaceholderNotice, isPlaceholder } from "@/components/ui/PlaceholderNotice";
 import { Instagram, Youtube, Phone, Mail, MapPin, Clock } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 
 export const Footer: React.FC = () => {
+  const isDev = process.env.NODE_ENV !== "production";
   return (
     <footer className="bg-paper border-t border-line pt-14 pb-10 text-ink font-sans">
       <Container size="wide">
@@ -117,16 +118,30 @@ export const Footer: React.FC = () => {
                   +91 99553 31142
                 </a>
               </li>
-              <li className="flex items-start gap-2.5">
-                <Clock className="w-4 h-4 shrink-0 text-gold-line mt-1" />
-                <span>10:00 AM - 6:00 PM (Somvaar - Shanivaar)</span>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 shrink-0 text-gold-line" />
-                <a href="mailto:contact@feminyacademy.com" className="hover:text-accent transition-colors">
-                  contact@feminyacademy.com
-                </a>
-              </li>
+              {(!isPlaceholder(siteConfig.hours) || isDev) && (
+                <li className="flex items-start gap-2.5">
+                  <Clock className="w-4 h-4 shrink-0 text-gold-line mt-1" />
+                  <span>
+                    {isPlaceholder(siteConfig.hours) ? (
+                      <PlaceholderNotice label="ACADEMY HOURS" fallbackText={siteConfig.hours} />
+                    ) : (
+                      siteConfig.hours
+                    )}
+                  </span>
+                </li>
+              )}
+              {(!isPlaceholder(siteConfig.email) || isDev) && (
+                <li className="flex items-center gap-2.5">
+                  <Mail className="w-4 h-4 shrink-0 text-gold-line" />
+                  {isPlaceholder(siteConfig.email) ? (
+                    <PlaceholderNotice label="ACADEMY EMAIL" fallbackText={siteConfig.email} />
+                  ) : (
+                    <a href={`mailto:${siteConfig.email}`} className="hover:text-accent transition-colors">
+                      {siteConfig.email}
+                    </a>
+                  )}
+                </li>
+              )}
             </ul>
           </div>
         </div>

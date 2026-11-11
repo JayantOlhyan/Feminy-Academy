@@ -38,5 +38,16 @@ This document catalogs every pending item, policy decision, asset, and credentia
 | `content/legal/terms.ts` | Jurisdiction City | `[CITY]` | Legal jurisdiction (Bahadurgarh / Jhajjar / Delhi) | Legal team | Pending |
 | `content/legal/privacy.ts` | Grievance Contact | `[NAME, EMAIL]` | Name & email of designated grievance officer | Sunita Rathee | Pending |
 | `content/legal/refund.ts` | Refund Policy Decision | `[SUNITA'S DECISION]` | Definitive decision on refund eligibility (non-refundable vs X days window) | Sunita Rathee | Scaffold active |
+| `content/site.ts` | MeetSunita Career Switch | `[SUNITA'S WORDS: career switch]` | Sunita's personal story of transitioning into cosmetology | Sunita | Pending |
+| `content/site.ts` | MeetSunita Student Outcome | `[VERIFIED STUDENT OUTCOME]` | Verified outcomes of graduates (e.g. salon running / freelancing) | Sunita | Pending |
+| `content/courses/hydra-facial.ts` | Certificate Rule + Issuer | `[CERTIFICATE RULE + ISSUER]` | Rule of completion and legal certificate issuing entity | Sunita | Pending |
+| `content/courses/hydra-facial.ts` | Soft Copy Delivery | `[SOFT COPY DELIVERY]` | Delivery method & timeframe for digital certificate | Sunita | Pending |
+| `content/courses/hydra-facial.ts` | Access Duration FAQ | `[ACCESS DURATION FAQ]` | Exact validity and access duration statement | Sunita | Pending |
+| `content/legal/index.ts` | Offline Duration + Days | `[OFFLINE DURATION + DAYS]` | Offline batch duration and schedule days (e.g. 3 Months, Mon-Fri) | Sunita | Pending |
+| `content/legal/index.ts` | Alumni Support | `[ALUMNI SUPPORT]` | Post-course alumni mentorship and guidance terms | Sunita | Pending |
+| `content/legal/index.ts` | Grievance Officer | `[GRIEVANCE OFFICER NAME, EMAIL]` | Name and email of designated Grievance Officer | Sunita | Pending |
+| `content/offline.ts` | Offline Duration | `[OFFLINE DURATION]` | Official duration of the offline comprehensive course | Sunita | Pending |
+| `components/blocks/CertificatePreview.tsx` | Verified Certificate Claim | `[OFFICIALLY VERIFIED CERTIFICATE]` | Confirmation of legal/authorized status of completion certificate | Sunita | Pending |
+| `components/blocks/CertificatePreview.tsx` | Direct Issuer Confirmation | `[DIRECTLY ISSUED BY FEMINY ACADEMY]` | Issuance authority and method | Sunita | Pending |
 | `public/images/sunita-hero.jpg` | Hero Portrait Photo | `public/images/sunita-hero.png` (48×36 placeholder) | Real portrait photo of Sunita at the academy, min 1200px wide (`public/images/sunita-hero.jpg`) | Sunita Rathee | **LAUNCH BLOCKER** — Neutral placeholder active |
 | Assets / Photos | Real Photography | `PHOTO: ...` | Real photos of Sunita, students, academy interior, student before/after work | Sunita Rathee | SVG / neutral visual placeholders active |

@@ -1,4 +1,7 @@
 import { CourseData } from "./hydra-facial";
+import { siteConfig } from "@/content/site";
+
+const studentsStat = siteConfig.stats.find((s) => s.id === "students");
 
 export const oneDayCourse: CourseData = {
   id: "one-day",
@@ -11,8 +14,8 @@ export const oneDayCourse: CourseData = {
     "Sunita ma'am ke saath seekhiye step-by-step technique. Structured lessons + live doubt session + Feminy Academy certificate.",
   price: 1000,
   priceDisplay: "₹1,000",
-  gstNote: "Sabhi fees inclusive hain",
-  accessDuration: "1 saal ka access",
+  gstNote: "[GST NOTE]",
+  accessDuration: "[ACCESS DURATION]",
   checkoutUrl: "https://wa.me/919955331142?text=Hello%20Sunita%20ma%27am%2C%20mujhe%201-Day%20Masterclass%20mein%20enrol%20karna%20hai",
   chips: [
     "1 din",
@@ -20,7 +23,7 @@ export const oneDayCourse: CourseData = {
     "Certificate",
     "Hindi / Hinglish",
   ],
-  trustLine: "150+ students ne Sunita ma'am se seekha hai",
+  trustLine: studentsStat?.verified ? `${studentsStat.value} students ne Sunita ma'am se seekha hai` : "",
   videoIntro: {
     title: "Course ke baare mein Sunita ma'am se janiye",
     caption: "1 minute — is 1-day course mein kya cover hoga.",
@@ -73,27 +76,28 @@ export const oneDayCourse: CourseData = {
     modulesCount: "3",
     lessonsCount: "6",
     totalHours: "2",
+    confirmed: false,
   },
   modules: [
     {
       title: "1. Basics & Product Knowledge",
       lessons: [
-        { title: "Introduction & Workstation Setup", duration: "10:00", preview: true },
-        { title: "Product Essentials & Machine Setup", duration: "20:00" },
+        { title: "Introduction & Workstation Setup", preview: true },
+        { title: "Product Essentials & Machine Setup" },
       ],
     },
     {
       title: "2. Hands-on Step-by-Step Technique",
       lessons: [
-        { title: "Live Demonstration & Core Protocol", duration: "35:00" },
-        { title: "Finishing, Aftercare & Common Mistakes", duration: "15:00" },
+        { title: "Live Demonstration & Core Protocol" },
+        { title: "Finishing, Aftercare & Common Mistakes" },
       ],
     },
     {
       title: "3. Live Doubt Session & Certification",
       lessons: [
-        { title: "Live Doubt Clearing Session", duration: "30:00" },
-        { title: "Certificate Download & Next Steps", duration: "10:00" },
+        { title: "Live Doubt Clearing Session" },
+        { title: "Certificate Download & Next Steps" },
       ],
     },
   ],
@@ -102,8 +106,8 @@ export const oneDayCourse: CourseData = {
       "Complete curriculum video lessons",
       "Live doubt session Sunita ma'am ke saath",
       "Downloadable notes aur product guide",
-      "Feminy Academy verified certificate",
-      "1 saal ka course access",
+      "Feminy Academy completion certificate",
+      "[ACCESS DURATION]",
     ],
     highlightNote:
       "Doosre online courses sirf videos dete hain. Yahan aapke sawaalon ka jawab khud teacher deti hain.",
@@ -112,10 +116,10 @@ export const oneDayCourse: CourseData = {
     title: "Course poora kijiye, certificate paaiye.",
     details: [
       "Certificate pe aapka naam, course ka naam aur date hogi.",
-      "Sabhi lessons complete karne ke baad digital certificate uplabdh hoga.",
+      "[SOFT COPY DELIVERY]",
     ],
-    issuer: "Feminy Academy by Sunita Rathee",
-    completionRule: "Sabhi lessons poore karne ke baad",
+    issuer: "[CERTIFICATE ISSUER]",
+    completionRule: "[COMPLETION RULE]",
     qrVerification: false,
     sampleImage: "/images/certificate-sample.jpg",
   },

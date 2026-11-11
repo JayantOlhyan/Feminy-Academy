@@ -42,11 +42,11 @@ export interface OfflinePageData {
 
 export const offlineAcademyData: OfflinePageData = {
   eyebrow: "OFFLINE ACADEMY · BAHADURGARH",
-  headline: "3 mahine mein professional beauty artist baniye.",
+  headline: "Professional beauty artist baniye.",
   subheadline:
     "Makeup, hair aur skin — Sunita ma'am ki academy mein, real models pe practice ke saath. Chhota batch, personal attention.",
   facts: {
-    duration: "3 mahine",
+    duration: "[OFFLINE DURATION]",
     batchSize: "Chhote batches (limited seats)",
     timings: "Counselling mein bataayi jaayengi",
     nextBatch: "", // Real batch date confirmed hone par hi render hoga

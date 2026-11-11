@@ -4,7 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import { PlaceholderNotice } from "@/components/ui/PlaceholderNotice";
+import { PlaceholderNotice, isPlaceholder } from "@/components/ui/PlaceholderNotice";
 import { legalContent } from "@/content/legal";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
@@ -91,12 +91,14 @@ export default function PricingPage() {
             </table>
           </div>
 
-          <div className="p-4 rounded-xl bg-surface-2 border border-line text-xs text-muted">
-            <PlaceholderNotice
-              label="GST NOTE"
-              fallbackText={legalContent.pricing.gstNote}
-            />
-          </div>
+          {(!isPlaceholder(legalContent.pricing.gstNote) || process.env.NODE_ENV !== "production") && (
+            <div className="p-4 rounded-xl bg-surface-2 border border-line text-xs text-muted">
+              <PlaceholderNotice
+                label="GST NOTE"
+                fallbackText={legalContent.pricing.gstNote}
+              />
+            </div>
+          )}
         </div>
       </Section>
     </div>

@@ -1,14 +1,19 @@
 import { siteConfig } from "@/content/site";
 
+const experienceStat = siteConfig.stats.find((s) => s.id === "experience");
+const studentsStat = siteConfig.stats.find((s) => s.id === "students");
+
 export const legalContent = {
   about: {
     title: "About Feminy Academy",
     subtitle: "Sunita Rathee ki academy — Bahadurgarh se, poore India ke liye.",
     businessName: siteConfig.legalBusinessName,
-    establishedYear: "15+ years experience",
+    establishedYear: experienceStat?.verified ? `${experienceStat.value} years experience` : "[EXPERIENCE YEARS]",
     bio: [
-      "Software Engineer se Cosmetologist bani Sunita Rathee pichhle 15+ saalon se skin, hair aur makeup industry mein kaam kar rahi hain.",
-      "Bahadurgarh (Haryana) mein unka apna established studio aur offline academy hai, jahan ab tak 150+ se zyada students ko practical professional skills sikhayi ja chuki hain.",
+      "[SUNITA'S WORDS: career switch]",
+      studentsStat?.verified
+        ? `Bahadurgarh (Haryana) mein unka apna established studio aur offline academy hai, jahan ab tak ${studentsStat.value} se zyada students ko practical professional skills sikhayi ja chuki hain.`
+        : "Bahadurgarh (Haryana) mein unka apna established studio aur offline academy hai, jahan students ko practical professional skills sikhayi ja chuki hain.",
       "Feminy Academy ka lakshya hai ki har mahila aur aspiring beauty professional ko honest, practical aur bina kisi gimmick ke real skills sikhayi ja sakein — simple Hindi mein.",
     ],
     offerings: [
@@ -17,7 +22,7 @@ export const legalContent = {
         description: "Specialized courses like Hydra Facial and intensive masterclasses with live doubt sessions.",
       },
       {
-        title: "3-Month Professional Offline Academy",
+        title: "Professional Offline Academy",
         description: "Comprehensive hands-on training covering skin, makeup, and hair with real models in Bahadurgarh.",
       },
       {
@@ -41,29 +46,29 @@ export const legalContent = {
   pricing: {
     title: "Course Fees & Pricing Structure",
     subtitle: "Transparent pricing. Koi hidden charges nahi.",
-    gstNote: "All stated prices are inclusive of applicable taxes.",
+    gstNote: "[GST NOTE]",
     courses: [
       {
         name: "Hydra Facial Course",
         mode: "Online (Structured + Live Doubt Sessions)",
-        duration: "3.5 ghante (8 lessons)",
-        access: "1 saal ka access",
+        duration: "[COURSE DURATION]",
+        access: "[ACCESS DURATION]",
         price: "₹3,000",
         badge: "Popular Online",
       },
       {
         name: "1-Day Beauty Masterclass",
         mode: "Online Fast-Track",
-        duration: "1 Din (Structured + Live Q&A)",
-        access: "1 saal ka access",
+        duration: "[COURSE DURATION]",
+        access: "[ACCESS DURATION]",
         price: "₹1,000",
         badge: "Fast-Track",
       },
       {
-        name: "3-Month Professional Beauty Course",
+        name: "Professional Beauty Course",
         mode: "Offline Academy (Bahadurgarh)",
-        duration: "3 Mahine (Mon - Fri hands-on)",
-        access: "Lifetime Alumni Support",
+        duration: "[OFFLINE DURATION + DAYS]",
+        access: "[ALUMNI SUPPORT]",
         price: "Counselling session mein poori jaankari",
         badge: "Career Ready",
       },
@@ -134,7 +139,7 @@ export const legalContent = {
       {
         heading: "5. Grievance Officer Contact",
         content:
-          "For privacy inquiries or data requests, contact our Grievance Officer at contact@feminyacademy.com, Feminy Academy, Sector 9, Bahadurgarh, Haryana.",
+          "[GRIEVANCE OFFICER NAME, EMAIL] ya WhatsApp/call: " + siteConfig.phone,
       },
     ],
   },
@@ -152,12 +157,14 @@ export const legalContent = {
       {
         heading: "2. Offline Academy Registrations",
         content:
-          "For 3-Month offline batches at our Bahadurgarh academy: Admission seat booking tokens reserve your seat in the small batch. Rescheduling or cancellations must be communicated to the academy administration prior to batch commencement.",
+          "For offline batches at our Bahadurgarh academy: Admission seat booking tokens reserve your seat in the small batch. Rescheduling or cancellations must be communicated to the academy administration prior to batch commencement.",
       },
       {
         heading: "3. How to Request Assistance",
         content:
-          "To request assistance regarding payments or cancellations, write to contact@feminyacademy.com or send a message on WhatsApp to +91 99553 31142 with your registration details and transaction reference.",
+          "To request assistance regarding payments or cancellations, write to [ACADEMY EMAIL] or send a message on WhatsApp to " +
+          siteConfig.phone +
+          " with your registration details and transaction reference.",
       },
     ],
   },

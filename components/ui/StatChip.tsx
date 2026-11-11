@@ -12,6 +12,15 @@ export const StatChip: React.FC<StatChipProps> = ({ stat, className = "" }) => {
     return null;
   }
 
+  const isGoogle =
+    stat.id === "rating" ||
+    stat.value.includes("4.9") ||
+    stat.label.toLowerCase().includes("google");
+  const displayLabel =
+    isGoogle && stat.reviewCount
+      ? `${stat.reviewCount} Google reviews (studio)`
+      : stat.label;
+
   return (
     <div
       className={`flex flex-col items-center justify-center text-center p-4 rounded-card bg-paper border border-line ${className}`}
@@ -20,7 +29,7 @@ export const StatChip: React.FC<StatChipProps> = ({ stat, className = "" }) => {
         {stat.value}
       </div>
       <div className="mt-1 text-xs sm:text-sm text-ink-muted font-medium">
-        {stat.label}
+        {displayLabel}
       </div>
       {!stat.verified && process.env.NODE_ENV !== "production" && (
         <span className="mt-1 text-[10px] text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded">

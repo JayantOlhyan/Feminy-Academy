@@ -6,7 +6,7 @@ import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-import { PlaceholderNotice } from "@/components/ui/PlaceholderNotice";
+import { PlaceholderNotice, isPlaceholder } from "@/components/ui/PlaceholderNotice";
 import { ProofStrip } from "@/components/blocks/ProofStrip";
 import { MonthJourneyScroll } from "@/components/blocks/MonthJourneyScroll";
 import { WorkGallery } from "@/components/blocks/WorkGallery";
@@ -40,6 +40,7 @@ export const metadata: Metadata = {
 };
 
 export default function OfflineAcademyPage() {
+  const isDev = process.env.NODE_ENV !== "production";
   const whatsappOffline = getWhatsAppUrl("offline");
 
   const offlineJsonLd = {
@@ -306,9 +307,21 @@ export default function OfflineAcademyPage() {
       <section className="py-18 lg:py-28 bg-paper border-t border-line text-center">
         <Container size="narrow">
           <h2 className="font-serif text-3xl sm:text-5xl font-semibold text-ink leading-tight">
-            {offlineAcademyData.facts.nextBatch && !offlineAcademyData.facts.nextBatch.startsWith("[")
-              ? `Agla batch ${offlineAcademyData.facts.nextBatch} se.`
-              : "3 Mahine mein apna professional beauty career shuru kijiye."}
+            {offlineAcademyData.facts.nextBatch && !offlineAcademyData.facts.nextBatch.startsWith("[") ? (
+              `Agla batch ${offlineAcademyData.facts.nextBatch} se.`
+            ) : !isPlaceholder(offlineAcademyData.facts.duration) ? (
+              `${offlineAcademyData.facts.duration} mein apna professional beauty career shuru kijiye.`
+            ) : isDev ? (
+              <>
+                <PlaceholderNotice
+                  label="OFFLINE DURATION"
+                  fallbackText={offlineAcademyData.facts.duration}
+                />{" "}
+                mein apna professional beauty career shuru kijiye.
+              </>
+            ) : (
+              "Apna professional beauty career shuru kijiye."
+            )}
           </h2>
           <p className="mt-4 text-base sm:text-xl text-ink-muted max-w-lg mx-auto font-sans">
             Sunita ma&apos;am ke direct batch mein shamil hoiye.

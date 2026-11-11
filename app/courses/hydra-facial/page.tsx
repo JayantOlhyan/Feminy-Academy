@@ -4,7 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
-import { PlaceholderNotice } from "@/components/ui/PlaceholderNotice";
+import { PlaceholderNotice, isPlaceholder } from "@/components/ui/PlaceholderNotice";
 import { ProofStrip } from "@/components/blocks/ProofStrip";
 import { VideoFacade } from "@/components/blocks/VideoFacade";
 import { AudienceCards } from "@/components/blocks/AudienceCards";
@@ -38,6 +38,8 @@ export const metadata: Metadata = {
 };
 
 export default function HydraFacialCoursePage() {
+  const isDev = process.env.NODE_ENV !== "production";
+  const experienceStat = siteConfig.stats.find((s) => s.id === "experience");
   const isPaymentEnabled = siteConfig.flags.PAYMENT_ENABLED;
   const whatsappEnrol = getWhatsAppUrl("hydrafacial_enrol");
   const whatsappQuestion = getWhatsAppUrl(
@@ -99,20 +101,26 @@ export default function HydraFacialCoursePage() {
                 <span className="font-serif text-3xl sm:text-4xl font-bold text-accent">
                   {hydraFacialCourse.priceDisplay}
                 </span>
-                <span className="text-xs text-ink-muted">
-                  <PlaceholderNotice
-                    label="GST NOTE"
-                    fallbackText={hydraFacialCourse.gstNote}
-                  />
-                </span>
-                <span className="text-xs text-ink-muted font-medium ml-auto">
-                  Ek baar ki fees ·{" "}
-                  <PlaceholderNotice
-                    label="ACCESS DURATION"
-                    fallbackText="1 Year"
-                  />{" "}
-                  access
-                </span>
+                {(!isPlaceholder(hydraFacialCourse.gstNote) || isDev) && (
+                  <span className="text-xs text-ink-muted">
+                    <PlaceholderNotice
+                      label="GST NOTE"
+                      fallbackText={hydraFacialCourse.gstNote}
+                    />
+                  </span>
+                )}
+                {hydraFacialCourse.accessDuration && !isPlaceholder(hydraFacialCourse.accessDuration) ? (
+                  <span className="text-xs text-ink-muted font-medium ml-auto">
+                    Ek baar ki fees · {hydraFacialCourse.accessDuration}
+                  </span>
+                ) : isDev ? (
+                  <span className="text-xs text-ink-muted font-medium ml-auto">
+                    <PlaceholderNotice
+                      label="ACCESS DURATION"
+                      fallbackText={hydraFacialCourse.accessDuration}
+                    />
+                  </span>
+                ) : null}
               </div>
 
               {/* Meta Chips */}
@@ -160,9 +168,11 @@ export default function HydraFacialCoursePage() {
               </div>
 
               {/* Trust Micro-line */}
-              <p className="text-xs text-muted font-medium">
-                ✓ {hydraFacialCourse.trustLine}
-              </p>
+              {hydraFacialCourse.trustLine ? (
+                <p className="text-xs text-muted font-medium">
+                  ✓ {hydraFacialCourse.trustLine}
+                </p>
+              ) : null}
             </div>
 
             {/* Right Media: Video Facade */}
@@ -224,9 +234,14 @@ export default function HydraFacialCoursePage() {
       {/* 6.6 Syllabus */}
       <Section
         title="Poora syllabus"
-        subtitle={`${hydraFacialCourse.syllabusMeta.modulesCount} modules · ${hydraFacialCourse.syllabusMeta.lessonsCount} lessons · ${hydraFacialCourse.syllabusMeta.totalHours} ghante`}
+        subtitle={`${hydraFacialCourse.syllabusMeta.modulesCount} modules · ${hydraFacialCourse.syllabusMeta.lessonsCount} lessons`}
         headerCentered
       >
+        {!hydraFacialCourse.syllabusMeta.confirmed && (
+          <p className="text-xs text-ink-muted italic mb-4 text-center">
+            Final lesson list Sunita ma&apos;am ke saath confirm ho rahi hai.
+          </p>
+        )}
         <SyllabusAccordion modules={hydraFacialCourse.modules} />
       </Section>
 
@@ -266,7 +281,11 @@ export default function HydraFacialCoursePage() {
       {/* 6.10 Meet Sunita */}
       <Section
         title="Aapki teacher: Sunita Rathee"
-        subtitle="15+ saal ka hands-on salon & cosmetology experience."
+        subtitle={
+          experienceStat?.verified
+            ? `${experienceStat.value} saal ka hands-on salon & cosmetology experience.`
+            : "Hands-on salon & cosmetology experience."
+        }
       >
         <MeetSunita />
       </Section>
@@ -304,6 +323,7 @@ export default function HydraFacialCoursePage() {
           priceDisplay={hydraFacialCourse.priceDisplay}
           priceNumber={hydraFacialCourse.price}
           gstNote={hydraFacialCourse.gstNote}
+          accessDuration={hydraFacialCourse.accessDuration}
           includedItems={hydraFacialCourse.included.items}
           refundOneLiner={hydraFacialCourse.refundOneLiner}
           actionType="hydrafacial_enrol"

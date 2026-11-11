@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { siteConfig } from "@/content/site";
 
 export const alt = "Feminy Academy by Sunita Rathee";
 export const size = {
@@ -8,6 +9,8 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image() {
+  const experienceStat = siteConfig.stats.find((s) => s.id === "experience");
+  const studentsStat = siteConfig.stats.find((s) => s.id === "students");
   return new ImageResponse(
     (
       <div
@@ -96,10 +99,17 @@ export default async function Image() {
             color: "#B9B0AC",
           }}
         >
-          <span>Sunita Rathee (15+ saal experience)</span>
+          <span>
+            Sunita Rathee
+            {experienceStat?.verified ? ` (${experienceStat.value} saal experience)` : " (Cosmetologist & Mentor)"}
+          </span>
           <span>•</span>
-          <span>150+ Students trained</span>
-          <span>•</span>
+          {studentsStat?.verified && (
+            <>
+              <span>{studentsStat.value} Students trained</span>
+              <span>•</span>
+            </>
+          )}
           <span>Online & Bahadurgarh Academy</span>
         </div>
       </div>

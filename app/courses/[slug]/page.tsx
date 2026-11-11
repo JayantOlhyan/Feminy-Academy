@@ -5,7 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
-import { PlaceholderNotice } from "@/components/ui/PlaceholderNotice";
+import { PlaceholderNotice, isPlaceholder } from "@/components/ui/PlaceholderNotice";
 import { ProofStrip } from "@/components/blocks/ProofStrip";
 import { VideoFacade } from "@/components/blocks/VideoFacade";
 import { AudienceCards } from "@/components/blocks/AudienceCards";
@@ -53,6 +53,8 @@ export default async function OneDayCoursePage({
     notFound();
   }
 
+  const isDev = process.env.NODE_ENV !== "production";
+  const experienceStat = siteConfig.stats.find((s) => s.id === "experience");
   const isPaymentEnabled = siteConfig.flags.PAYMENT_ENABLED;
   const whatsappEnrol = getWhatsAppUrl("oneday_enrol", undefined, oneDayCourse.name);
   const whatsappQuestion = getWhatsAppUrl(
@@ -97,20 +99,26 @@ export default async function OneDayCoursePage({
                 <span className="font-serif text-3xl sm:text-4xl font-bold text-accent">
                   {oneDayCourse.priceDisplay}
                 </span>
-                <span className="text-xs text-ink-muted">
-                  <PlaceholderNotice
-                    label="GST NOTE"
-                    fallbackText={oneDayCourse.gstNote}
-                  />
-                </span>
-                <span className="text-xs text-ink-muted font-medium ml-auto">
-                  Ek baar ki fees ·{" "}
-                  <PlaceholderNotice
-                    label="ACCESS DURATION"
-                    fallbackText="1 Year"
-                  />{" "}
-                  access
-                </span>
+                {(!isPlaceholder(oneDayCourse.gstNote) || isDev) && (
+                  <span className="text-xs text-ink-muted">
+                    <PlaceholderNotice
+                      label="GST NOTE"
+                      fallbackText={oneDayCourse.gstNote}
+                    />
+                  </span>
+                )}
+                {oneDayCourse.accessDuration && !isPlaceholder(oneDayCourse.accessDuration) ? (
+                  <span className="text-xs text-ink-muted font-medium ml-auto">
+                    Ek baar ki fees · {oneDayCourse.accessDuration}
+                  </span>
+                ) : isDev ? (
+                  <span className="text-xs text-ink-muted font-medium ml-auto">
+                    <PlaceholderNotice
+                      label="ACCESS DURATION"
+                      fallbackText={oneDayCourse.accessDuration}
+                    />
+                  </span>
+                ) : null}
               </div>
 
               {/* Meta Chips */}
@@ -153,9 +161,11 @@ export default async function OneDayCoursePage({
                 </Button>
               </div>
 
-              <p className="text-xs text-muted font-medium">
-                ✓ {oneDayCourse.trustLine}
-              </p>
+              {oneDayCourse.trustLine ? (
+                <p className="text-xs text-muted font-medium">
+                  ✓ {oneDayCourse.trustLine}
+                </p>
+              ) : null}
             </div>
 
             {/* Right Media */}
@@ -220,7 +230,11 @@ export default async function OneDayCoursePage({
       {/* Meet Sunita */}
       <Section
         title="Aapki teacher: Sunita Rathee"
-        subtitle="15+ saal ka hands-on salon & cosmetology experience."
+        subtitle={
+          experienceStat?.verified
+            ? `${experienceStat.value} saal ka hands-on salon & cosmetology experience.`
+            : "Hands-on salon & cosmetology experience."
+        }
         variant="surface-2"
       >
         <MeetSunita />
@@ -229,7 +243,7 @@ export default async function OneDayCoursePage({
       {/* Certificate */}
       <Section
         title="Course poora kijiye, certificate paaiye."
-        subtitle="Feminy Academy verified participation credential."
+        subtitle="Feminy Academy participation credential."
       >
         <CertificatePreview
           courseName="1-Day Intensive Masterclass"
@@ -250,6 +264,7 @@ export default async function OneDayCoursePage({
           priceDisplay={oneDayCourse.priceDisplay}
           priceNumber={oneDayCourse.price}
           gstNote={oneDayCourse.gstNote}
+          accessDuration={oneDayCourse.accessDuration}
           includedItems={oneDayCourse.included.items}
           refundOneLiner={oneDayCourse.refundOneLiner}
           actionType="oneday_enrol"

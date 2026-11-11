@@ -6,7 +6,13 @@ interface PlaceholderNoticeProps {
   className?: string;
 }
 
-const PLACEHOLDER_REGEX = /\[[A-Z ]{3,}.*\]|PHOTO:|Pending\]|\[.*Pending.*\]/i;
+export const PLACEHOLDER_REGEX = /\[[A-Z0-9_:/, '’—\-]+\]|PHOTO:|Pending\]|\[.*Pending.*\]/i;
+
+export function isPlaceholder(val?: string | null): boolean {
+  if (!val) return true;
+  const trimmed = val.trim();
+  return trimmed.startsWith("[") || PLACEHOLDER_REGEX.test(trimmed);
+}
 
 export const PlaceholderNotice: React.FC<PlaceholderNoticeProps> = ({
   label,
@@ -16,7 +22,7 @@ export const PlaceholderNotice: React.FC<PlaceholderNoticeProps> = ({
   const isDev = process.env.NODE_ENV !== "production";
 
   if (isDev) {
-    const hasPlaceholder = fallbackText && PLACEHOLDER_REGEX.test(fallbackText);
+    const hasPlaceholder = fallbackText && isPlaceholder(fallbackText);
     return (
       <span
         title={`Pending confirmation: ${label}`}
@@ -32,7 +38,7 @@ export const PlaceholderNotice: React.FC<PlaceholderNoticeProps> = ({
 
   // In production: NEVER render bracketed placeholder text or unverified notices
   if (!fallbackText) return null;
-  if (PLACEHOLDER_REGEX.test(fallbackText) || fallbackText.trim().startsWith("[")) {
+  if (isPlaceholder(fallbackText)) {
     return null;
   }
 

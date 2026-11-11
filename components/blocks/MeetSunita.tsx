@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { siteConfig } from "@/content/site";
+import { PlaceholderNotice, isPlaceholder } from "@/components/ui/PlaceholderNotice";
 import { ExternalLink, Youtube, Instagram, CheckCircle2 } from "lucide-react";
 
 interface MeetSunitaProps {
@@ -8,6 +9,11 @@ interface MeetSunitaProps {
 }
 
 export const MeetSunita: React.FC<MeetSunitaProps> = ({ className = "" }) => {
+  const isDev = process.env.NODE_ENV !== "production";
+  const experienceStat = siteConfig.stats.find((s) => s.id === "experience");
+  const studentsStat = siteConfig.stats.find((s) => s.id === "students");
+  const instagramStat = siteConfig.stats.find((s) => s.id === "instagram");
+
   return (
     <div className={`grid grid-cols-1 md:grid-cols-12 gap-8 items-center font-sans ${className}`}>
       {/* Portrait photo frame */}
@@ -45,42 +51,67 @@ export const MeetSunita: React.FC<MeetSunitaProps> = ({ className = "" }) => {
         </div>
 
         <div className="space-y-4 text-sm sm:text-base text-ink">
-          <div className="flex items-start gap-3">
-            <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-            <div>
-              <p className="font-semibold text-ink">Software Engineer se Cosmetologist</p>
-              <p className="text-ink-muted text-sm mt-0.5">
-                Pehle tech industry mein kaam kiya, phir cosmetology ko apna professional career banaya.
-              </p>
+          {(!isPlaceholder(siteConfig.meetSunita.careerSwitch) || isDev) && (
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+              <div>
+                <p className="font-semibold text-ink">
+                  {isPlaceholder(siteConfig.meetSunita.careerSwitch) ? (
+                    <PlaceholderNotice
+                      label="SUNITA'S WORDS: career switch"
+                      fallbackText={siteConfig.meetSunita.careerSwitch}
+                    />
+                  ) : (
+                    siteConfig.meetSunita.careerSwitch
+                  )}
+                </p>
+              </div>
             </div>
-          </div>
+          )}
 
-          <div className="flex items-start gap-3">
-            <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-            <div>
-              <p className="font-semibold text-ink">15+ saal ka experience</p>
-              <p className="text-ink-muted text-sm mt-0.5">
-                Skin, hair aur makeup mein hazaaron real clients handle kiye hain.
-              </p>
+          {experienceStat?.verified && (
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+              <div>
+                <p className="font-semibold text-ink">
+                  {experienceStat.value} saal ka experience
+                </p>
+                <p className="text-ink-muted text-sm mt-0.5">
+                  Skin, hair aur makeup mein practical expertise.
+                </p>
+              </div>
             </div>
-          </div>
+          )}
 
-          <div className="flex items-start gap-3">
-            <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-            <div>
-              <p className="font-semibold text-ink">150+ students trained</p>
-              <p className="text-ink-muted text-sm mt-0.5">
-                Aise students jo aaj apna salon chala rahi hain ya freelance clients le rahi hain.
-              </p>
+          {studentsStat?.verified && (
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+              <div>
+                <p className="font-semibold text-ink">
+                  {studentsStat.value} students trained
+                </p>
+                {!isPlaceholder(siteConfig.meetSunita.studentOutcome) ? (
+                  <p className="text-ink-muted text-sm mt-0.5">
+                    {siteConfig.meetSunita.studentOutcome}
+                  </p>
+                ) : isDev ? (
+                  <p className="text-ink-muted text-sm mt-0.5">
+                    <PlaceholderNotice
+                      label="VERIFIED STUDENT OUTCOME"
+                      fallbackText={siteConfig.meetSunita.studentOutcome}
+                    />
+                  </p>
+                ) : null}
+              </div>
             </div>
-          </div>
+          )}
 
           <div className="flex items-start gap-3">
             <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
             <div>
               <p className="font-semibold text-ink">Bahadurgarh mein physical academy</p>
               <p className="text-ink-muted text-sm mt-0.5">
-                Sirf internet pe nahi — zameen par apna studio aur academy hai.
+                Physical studio aur academy jahan practical hands-on training hoti hai.
               </p>
             </div>
           </div>
@@ -95,7 +126,7 @@ export const MeetSunita: React.FC<MeetSunitaProps> = ({ className = "" }) => {
             className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 rounded-full border border-line bg-paper text-ink hover:text-accent hover:border-accent text-[13px] font-semibold transition-colors"
           >
             <Instagram className="w-4 h-4 text-accent" />
-            <span>17K+ Instagram Family</span>
+            <span>{instagramStat?.verified ? `${instagramStat.value} ` : ""}Instagram Family</span>
             <ExternalLink className="w-3.5 h-3.5 opacity-60" />
           </a>
 

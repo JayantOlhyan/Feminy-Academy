@@ -4,7 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
-import { PlaceholderNotice } from "@/components/ui/PlaceholderNotice";
+import { PlaceholderNotice, isPlaceholder } from "@/components/ui/PlaceholderNotice";
 import { legalContent } from "@/content/legal";
 import { siteConfig } from "@/content/site";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
@@ -13,7 +13,7 @@ import { Sparkles, MapPin, CheckCircle2 } from "lucide-react";
 export const metadata: Metadata = {
   title: "About Sunita Rathee & Feminy Academy | Bahadurgarh",
   description:
-    "Software Engineer se Cosmetologist bani Sunita Rathee ki kahani aur Feminy Academy ka vision. 15+ saal ka beauty experience.",
+    "Sunita Rathee ki kahani aur Feminy Academy ka vision — practical cosmetology aur honest guidance.",
 };
 
 export default function AboutPage() {
@@ -41,16 +41,23 @@ export default function AboutPage() {
             <h2 className="font-serif text-2xl font-semibold text-ink">
               Sunita Rathee ki Journey
             </h2>
-            {legalContent.about.bio.map((paragraph, idx) => (
-              <p key={idx} className="text-base text-ink-muted leading-relaxed">
-                {paragraph}
-              </p>
-            ))}
-            <div className="pt-2 text-xs text-ink-muted">
-              Established:{" "}
-              <PlaceholderNotice label="YEAR" fallbackText="2010" /> in{" "}
-              {siteConfig.address}
-            </div>
+            {legalContent.about.bio.map((paragraph, idx) => {
+              if (isPlaceholder(paragraph) && process.env.NODE_ENV === "production") {
+                return null;
+              }
+              return (
+                <p key={idx} className="text-base text-ink-muted leading-relaxed">
+                  <PlaceholderNotice label={paragraph} fallbackText={paragraph} />
+                </p>
+              );
+            })}
+            {(!isPlaceholder("[YEAR]") || process.env.NODE_ENV !== "production") && (
+              <div className="pt-2 text-xs text-ink-muted">
+                Established:{" "}
+                <PlaceholderNotice label="YEAR" fallbackText="[YEAR]" /> in{" "}
+                {siteConfig.address}
+              </div>
+            )}
           </div>
 
           <div>

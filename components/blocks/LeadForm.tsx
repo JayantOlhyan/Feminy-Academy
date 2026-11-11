@@ -286,7 +286,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
     >
       <div className="text-center mb-8">
         <span className="text-xs font-semibold uppercase tracking-[0.12em] text-accent font-sans">
-          No Commitment · 100% Free
+          No Commitment · Free demo
         </span>
         <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-ink mt-2">
           Free demo class book karein

@@ -37,7 +37,20 @@ export default function PrivacyPage() {
                 {sec.heading}
               </h2>
               <p className="text-sm sm:text-base text-muted leading-relaxed">
-                <PlaceholderNotice label={sec.content} fallbackText={sec.content} />
+                {sec.content.includes("[GRIEVANCE OFFICER NAME, EMAIL]") ? (
+                  <>
+                    {process.env.NODE_ENV !== "production" && (
+                      <PlaceholderNotice
+                        label="GRIEVANCE OFFICER NAME, EMAIL"
+                        fallbackText="[GRIEVANCE OFFICER NAME, EMAIL]"
+                      />
+                    )}
+                    {" "}
+                    {sec.content.replace("[GRIEVANCE OFFICER NAME, EMAIL]", "").trim()}
+                  </>
+                ) : (
+                  <PlaceholderNotice label={sec.content} fallbackText={sec.content} />
+                )}
               </p>
             </Card>
           ))}
