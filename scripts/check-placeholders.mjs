@@ -67,3 +67,4 @@ if (hasErrors) {
   console.log(`✓ Placeholder check passed: ${checkedCount} rendered HTML files verified with zero placeholder leaks.`);
   process.exit(0);
 }
+
