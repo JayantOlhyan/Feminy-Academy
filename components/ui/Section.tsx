@@ -3,11 +3,11 @@ import { Container } from "./Container";
 
 interface SectionProps {
   id?: string;
-  number?: string; // e.g. "01", "02"
+  number?: string;
   title?: string;
   subtitle?: string;
   children: React.ReactNode;
-  variant?: "default" | "surface-2" | "white";
+  variant?: "default" | "surface-2" | "white" | "dark";
   className?: string;
   containerSize?: "narrow" | "default" | "wide";
   headerCentered?: boolean;
@@ -25,30 +25,33 @@ export const Section: React.FC<SectionProps> = ({
   headerCentered = false,
 }) => {
   const bgClasses = {
-    default: "bg-bg",
-    "surface-2": "surface-texture",
-    white: "bg-surface",
+    default: "bg-paper text-ink",
+    "surface-2": "bg-paper-2 text-ink",
+    white: "bg-paper text-ink",
+    dark: "bg-ink text-on-ink",
   };
 
+  const isDark = variant === "dark";
+
   return (
-    <section id={id} className={`py-14 sm:py-20 ${bgClasses[variant]} ${className}`}>
+    <section id={id} className={`py-18 lg:py-28 ${bgClasses[variant]} ${className}`}>
       <Container size={containerSize}>
         {(title || number) && (
           <div className={`mb-10 sm:mb-14 ${headerCentered ? "text-center mx-auto max-w-2xl" : "max-w-3xl"}`}>
             <div className={`flex items-baseline gap-3 ${headerCentered ? "justify-center" : ""}`}>
               {number && (
-                <span className="font-serif text-gold text-xl sm:text-2xl font-semibold tracking-wide select-none">
+                <span className="font-serif text-gold-line text-xl sm:text-2xl font-semibold tracking-wide select-none">
                   {number}
                 </span>
               )}
               {title && (
-                <h2 className="font-serif text-2xl sm:text-4xl font-semibold text-ink leading-tight">
+                <h2 className={`font-serif text-2xl sm:text-4xl font-semibold leading-tight ${isDark ? "text-on-ink" : "text-ink"}`}>
                   {title}
                 </h2>
               )}
             </div>
             {subtitle && (
-              <p className="mt-3 text-base sm:text-lg text-muted leading-relaxed">
+              <p className={`mt-3 text-base sm:text-lg leading-relaxed ${isDark ? "text-on-ink-muted" : "text-ink-muted"}`}>
                 {subtitle}
               </p>
             )}

@@ -10,37 +10,53 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "var(--bg)",
-        surface: "var(--surface)",
-        "surface-2": "var(--surface-2)",
+        paper: "var(--paper)",
+        "paper-2": "var(--paper-2)",
         ink: "var(--ink)",
-        muted: "var(--muted)",
+        "ink-muted": "var(--ink-muted)",
         line: "var(--line)",
-        brand: {
-          DEFAULT: "var(--brand)",
-          dark: "var(--brand-dark)",
+        accent: {
+          DEFAULT: "var(--accent)",
+          strong: "var(--accent-strong)",
         },
-        gold: "var(--gold)",
+        "gold-line": "var(--gold-line)",
+        "gold-text": "var(--gold-text)",
+        "on-ink": "var(--on-ink)",
+        "on-ink-muted": "var(--on-ink-muted)",
         whatsapp: "var(--whatsapp)",
         success: "var(--success)",
+
+        // Compatibility aliases mapping to new tokens
+        bg: "var(--paper)",
+        surface: "var(--paper)",
+        "surface-2": "var(--paper-2)",
+        muted: "var(--ink-muted)",
+        brand: {
+          DEFAULT: "var(--accent)",
+          dark: "var(--accent-strong)",
+        },
+        gold: "var(--gold-text)",
       },
       fontFamily: {
-        serif: ["var(--font-fraunces)", "serif"],
-        sans: ["var(--font-inter)", "sans-serif"],
-        mono: ["var(--font-inter)", "sans-serif"],
+        serif: ["var(--font-bodoni)", "serif"],
+        sans: ["var(--font-mukta)", "sans-serif"],
+        mono: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
       },
       spacing: {
-        18: "4.5rem",
+        18: "4.5rem", // 72px
+        28: "7rem",   // 112px
       },
       minHeight: {
         dvh: "100dvh",
       },
       borderRadius: {
-        card: "16px",
+        card: "4px",
+        input: "4px",
       },
       boxShadow: {
-        subtle: "0 4px 20px -2px rgba(35, 31, 32, 0.05)",
-        warm: "0 8px 30px rgba(138, 35, 70, 0.08)",
+        form: "0 8px 24px -4px rgba(22, 19, 20, 0.08)",
+        subtle: "0 2px 8px -1px rgba(22, 19, 20, 0.04)",
+        warm: "none",
       },
     },
   },

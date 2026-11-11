@@ -14,12 +14,12 @@ export const StatChip: React.FC<StatChipProps> = ({ stat, className = "" }) => {
 
   return (
     <div
-      className={`flex flex-col items-center justify-center text-center p-4 rounded-xl bg-surface/70 border border-line ${className}`}
+      className={`flex flex-col items-center justify-center text-center p-4 rounded-card bg-paper border border-line ${className}`}
     >
-      <div className="font-serif text-2xl sm:text-3xl lg:text-4xl font-semibold text-brand">
+      <div className="font-serif text-2xl sm:text-3xl lg:text-4xl font-semibold text-accent">
         {stat.value}
       </div>
-      <div className="mt-1 text-xs sm:text-sm text-muted font-medium">
+      <div className="mt-1 text-xs sm:text-sm text-ink-muted font-medium">
         {stat.label}
       </div>
       {!stat.verified && process.env.NODE_ENV !== "production" && (

@@ -29,19 +29,19 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseClasses =
-    "inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-semibold rounded-full min-h-[48px] min-w-[48px] transition-all duration-200 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
+    "inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-semibold min-h-[48px] min-w-[48px] transition-colors duration-150 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
 
   const variantClasses: Record<ButtonVariant, string> = {
     primary:
-      "bg-brand text-white hover:bg-brand-dark focus-visible:ring-brand shadow-sm",
+      "bg-accent text-white hover:bg-accent-strong focus-visible:ring-accent rounded-full",
     whatsapp:
-      "bg-whatsapp text-white hover:bg-[#188346] focus-visible:ring-whatsapp shadow-sm",
+      "bg-whatsapp text-white hover:bg-[#188346] focus-visible:ring-whatsapp rounded-full",
     secondary:
-      "bg-white text-ink border border-line hover:border-gold hover:text-ink focus-visible:ring-gold shadow-sm",
+      "bg-paper text-ink border border-line hover:border-ink hover:text-ink focus-visible:ring-ink rounded-card",
     gold:
-      "bg-gold text-white hover:bg-[#9E7A47] focus-visible:ring-gold shadow-sm",
+      "bg-gold-text text-white hover:bg-[#725725] focus-visible:ring-gold-text rounded-card",
     outline:
-      "bg-transparent text-ink border border-line hover:border-ink focus-visible:ring-ink",
+      "bg-transparent text-ink border border-line hover:border-ink focus-visible:ring-ink rounded-card",
   };
 
   const finalClasses = `${baseClasses} ${variantClasses[variant]} ${className}`;
