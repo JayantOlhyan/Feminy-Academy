@@ -26,10 +26,10 @@ export const PlaceholderNotice: React.FC<PlaceholderNoticeProps> = ({
     return (
       <span
         title={`Pending confirmation: ${label}`}
-        className={`inline items-baseline gap-1.5 ${className}`}
+        className={`inline items-baseline gap-2 ${className}`}
       >
         {fallbackText && !hasPlaceholder && <span>{fallbackText} </span>}
-        <span className="inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono font-medium rounded bg-amber-100 text-amber-900 border border-amber-300 select-none align-middle">
+        <span className="inline-flex items-center px-2 py-0.5 text-xs font-mono font-medium rounded-card bg-amber-100 text-amber-900 border border-amber-300 select-none align-middle">
           TODO: {label}
         </span>
       </span>

@@ -72,7 +72,7 @@ export const Logo: React.FC<LogoProps> = ({
   const subColor = theme === "dark" ? "text-gold-line" : "text-gold-text";
 
   return (
-    <div className={`inline-flex items-center gap-2.5 sm:gap-3 ${className}`}>
+    <div className={`inline-flex items-center gap-3 ${className}`}>
       {variant !== "wordmark" && <LogoMark className={markClassName} theme={theme} />}
       <div className="flex flex-col justify-center leading-none">
         <span
@@ -81,9 +81,9 @@ export const Logo: React.FC<LogoProps> = ({
           Feminy
         </span>
         <span
-          className={`text-[10px] sm:text-[11px] font-sans font-semibold tracking-[0.2em] uppercase ${subColor} mt-0.5`}
+          className={`text-xs font-sans font-medium tracking-[0.02em] ${subColor} mt-0.5`}
         >
-          ACADEMY
+          Academy
         </span>
       </div>
     </div>

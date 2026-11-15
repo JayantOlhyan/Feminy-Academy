@@ -33,40 +33,40 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="inline-flex items-center justify-center min-w-[44px] min-h-[44px] p-2.5 rounded-full bg-paper-2 text-ink hover:text-accent transition-colors"
+                className="inline-flex items-center justify-center min-w-[44px] min-h-[44px] p-2 rounded-full bg-paper-2 text-ink hover:text-accent transition-colors"
               >
-                <Instagram className="w-5 h-5" />
+                <Instagram className="w-5 h-5 stroke-[1.5]" />
               </a>
               <a
                 href={siteConfig.socials.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
-                className="inline-flex items-center justify-center min-w-[44px] min-h-[44px] p-2.5 rounded-full bg-paper-2 text-ink hover:text-accent transition-colors"
+                className="inline-flex items-center justify-center min-w-[44px] min-h-[44px] p-2 rounded-full bg-paper-2 text-ink hover:text-accent transition-colors"
               >
-                <Youtube className="w-5 h-5" />
+                <Youtube className="w-5 h-5 stroke-[1.5]" />
               </a>
             </div>
           </div>
 
           {/* Courses */}
           <div className="space-y-3">
-            <h3 className="text-[13px] font-semibold tracking-[0.12em] uppercase text-accent font-sans">
+            <h3 className="text-sm font-semibold text-accent font-sans">
               Courses
             </h3>
             <ul className="space-y-1 text-sm text-ink-muted">
               <li>
-                <Link href="/courses/hydra-facial" className="inline-flex items-center min-h-[44px] py-1.5 hover:text-accent transition-colors">
+                <Link href="/courses/hydra-facial" className="inline-flex items-center min-h-[44px] py-2 hover:text-accent transition-colors">
                   Hydra Facial Online
                 </Link>
               </li>
               <li>
-                <Link href="/courses/one-day" className="inline-flex items-center min-h-[44px] py-1.5 hover:text-accent transition-colors">
+                <Link href="/courses/one-day" className="inline-flex items-center min-h-[44px] py-2 hover:text-accent transition-colors">
                   1-Day Masterclass
                 </Link>
               </li>
               <li>
-                <Link href="/offline-academy" className="inline-flex items-center min-h-[44px] py-1.5 hover:text-accent transition-colors">
+                <Link href="/offline-academy" className="inline-flex items-center min-h-[44px] py-2 hover:text-accent transition-colors">
                   Offline 3-Month Course
                 </Link>
               </li>
@@ -75,27 +75,27 @@ export const Footer: React.FC = () => {
 
           {/* Academy */}
           <div className="space-y-3">
-            <h3 className="text-[13px] font-semibold tracking-[0.12em] uppercase text-accent font-sans">
+            <h3 className="text-sm font-semibold text-accent font-sans">
               Academy
             </h3>
             <ul className="space-y-1 text-sm text-ink-muted">
               <li>
-                <Link href="/about" className="inline-flex items-center min-h-[44px] py-1.5 hover:text-accent transition-colors">
+                <Link href="/about" className="inline-flex items-center min-h-[44px] py-2 hover:text-accent transition-colors">
                   About Sunita
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="inline-flex items-center min-h-[44px] py-1.5 hover:text-accent transition-colors">
+                <Link href="/contact" className="inline-flex items-center min-h-[44px] py-2 hover:text-accent transition-colors">
                   Contact
                 </Link>
               </li>
               <li>
-                <Link href="/offline-academy#visit" className="inline-flex items-center min-h-[44px] py-1.5 hover:text-accent transition-colors">
+                <Link href="/offline-academy#visit" className="inline-flex items-center min-h-[44px] py-2 hover:text-accent transition-colors">
                   Visit Academy
                 </Link>
               </li>
               <li>
-                <Link href="/pricing" className="inline-flex items-center min-h-[44px] py-1.5 hover:text-accent transition-colors">
+                <Link href="/pricing" className="inline-flex items-center min-h-[44px] py-2 hover:text-accent transition-colors">
                   Fee Structure
                 </Link>
               </li>
@@ -104,23 +104,23 @@ export const Footer: React.FC = () => {
 
           {/* Contact Details */}
           <div className="space-y-3">
-            <h3 className="text-[13px] font-semibold tracking-[0.12em] uppercase text-accent font-sans">
+            <h3 className="text-sm font-semibold text-accent font-sans">
               Contact
             </h3>
             <ul className="space-y-2 text-sm text-ink-muted">
-              <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 shrink-0 text-gold-line mt-1" />
+              <li className="flex items-start gap-3">
+                <MapPin className="w-4 h-4 shrink-0 stroke-[1.5] text-gold-line mt-1" />
                 <span>{siteConfig.address}</span>
               </li>
-              <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 shrink-0 text-gold-line" />
-                <a href="tel:+919955331142" className="inline-flex items-center min-h-[44px] hover:text-accent transition-colors">
+              <li className="flex items-center gap-3">
+                <Phone className="w-4 h-4 shrink-0 stroke-[1.5] text-gold-line" />
+                <a href="tel:+919955331142" className="inline-flex items-center min-h-[44px] hover:text-accent transition-colors tabular-nums">
                   +91 99553 31142
                 </a>
               </li>
               {(!isPlaceholder(siteConfig.hours) || isDev) && (
-                <li className="flex items-start gap-2.5">
-                  <Clock className="w-4 h-4 shrink-0 text-gold-line mt-1" />
+                <li className="flex items-start gap-3">
+                  <Clock className="w-4 h-4 shrink-0 stroke-[1.5] text-gold-line mt-1" />
                   <span>
                     {isPlaceholder(siteConfig.hours) ? (
                       <PlaceholderNotice label="ACADEMY HOURS" fallbackText={siteConfig.hours} />

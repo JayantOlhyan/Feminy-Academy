@@ -20,7 +20,7 @@ interface FinalCTABandProps {
 }
 
 export const FinalCTABand: React.FC<FinalCTABandProps> = ({
-  title = "Apne clients. Apni pehchaan. Shuruaat ek free demo class se.",
+  title = "Apne clients, apni pehchaan — shuruaat ek free demo class se",
   subtitle = "Koi advance payment nahi. Pehle demo lijiye, padhaane ka tareeka samajhiye.",
   primaryButtonText = "Courses dekhein",
   primaryButtonHref = "#courses",
@@ -55,7 +55,7 @@ export const FinalCTABand: React.FC<FinalCTABandProps> = ({
 
             {/* Only show batch info if a real date is confirmed */}
             {offlineAcademyData.facts.nextBatch && !offlineAcademyData.facts.nextBatch.startsWith("[") && (
-              <div className="text-[13px] font-sans text-ink-muted">
+              <div className="text-sm font-sans text-ink-muted">
                 Agla batch: {offlineAcademyData.facts.nextBatch}
               </div>
             )}
@@ -76,11 +76,11 @@ export const FinalCTABand: React.FC<FinalCTABandProps> = ({
               </Button>
             </div>
 
-            <p className="text-[13px] text-ink-muted font-sans">
+            <p className="text-sm text-ink-muted font-sans">
               Direct call:{" "}
               <a
                 href="tel:+919955331142"
-                className="inline-flex items-center justify-center min-h-[44px] px-2 py-2 font-semibold text-ink underline hover:text-accent"
+                className="inline-flex items-center justify-center min-h-[44px] px-2 py-2 font-semibold text-ink underline hover:text-accent tabular-nums"
               >
                 +91 99553 31142
               </a>

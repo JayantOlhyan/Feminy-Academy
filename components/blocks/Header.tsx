@@ -27,7 +27,7 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-paper border-b border-line shadow-xs">
+    <header className="sticky top-0 z-40 w-full bg-paper border-b border-line">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 h-16 sm:h-18 py-2 sm:py-3">
         {/* Official Brand Logo */}
         <Link
@@ -48,7 +48,7 @@ export const Header: React.FC = () => {
               onClick={handleWhatsAppClick}
               className="inline-flex items-center justify-center gap-2 h-[44px] min-w-[44px] px-4 text-sm font-semibold rounded-full bg-whatsapp text-white hover:bg-[#188346] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-whatsapp"
             >
-              <MessageCircle className="w-4 h-4 stroke-[2]" aria-hidden="true" />
+              <MessageCircle className="w-4 h-4 stroke-[1.5]" aria-hidden="true" />
               <span>WhatsApp karein</span>
             </a>
           </div>
@@ -81,22 +81,22 @@ export const Header: React.FC = () => {
                 onClick={handleWhatsAppClick}
                 className="inline-flex items-center justify-center gap-2 h-[44px] px-4 text-sm font-semibold rounded-full bg-whatsapp text-white hover:bg-[#188346] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-whatsapp"
               >
-                <MessageCircle className="w-4 h-4 stroke-[2]" aria-hidden="true" />
+                <MessageCircle className="w-4 h-4 stroke-[1.5]" aria-hidden="true" />
                 <span>WhatsApp karein</span>
               </a>
             </nav>
 
             {/* Mobile Header Buttons */}
-            <div className="flex md:hidden items-center gap-2.5 font-sans">
+            <div className="flex md:hidden items-center gap-3 font-sans">
               <a
                 href={whatsappHref || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={handleWhatsAppClick}
                 aria-label="WhatsApp"
-                className="inline-flex items-center justify-center min-w-[44px] min-h-[44px] p-2.5 rounded-full bg-whatsapp text-white hover:bg-[#188346] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-whatsapp"
+                className="inline-flex items-center justify-center min-w-[44px] min-h-[44px] p-2 rounded-full bg-whatsapp text-white hover:bg-[#188346] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-whatsapp"
               >
-                <MessageCircle className="w-5 h-5 stroke-[2]" aria-hidden="true" />
+                <MessageCircle className="w-5 h-5 stroke-[1.5]" aria-hidden="true" />
               </a>
 
               <button
@@ -107,9 +107,9 @@ export const Header: React.FC = () => {
                 className="inline-flex items-center justify-center min-w-[44px] min-h-[44px] p-2 text-ink hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-card"
               >
                 {mobileMenuOpen ? (
-                  <X className="w-6 h-6 stroke-[2]" aria-hidden="true" />
+                  <X className="w-6 h-6 stroke-[1.5]" aria-hidden="true" />
                 ) : (
-                  <Menu className="w-6 h-6 stroke-[2]" aria-hidden="true" />
+                  <Menu className="w-6 h-6 stroke-[1.5]" aria-hidden="true" />
                 )}
               </button>
             </div>
@@ -156,7 +156,7 @@ export const Header: React.FC = () => {
               onClick={handleWhatsAppClick}
               className="flex items-center justify-center gap-2 min-h-[48px] w-full px-4 py-3 text-base font-semibold rounded-full bg-whatsapp text-white hover:bg-[#188346] transition-colors"
             >
-              <MessageCircle className="w-5 h-5 stroke-[2]" aria-hidden="true" />
+              <MessageCircle className="w-5 h-5 stroke-[1.5]" aria-hidden="true" />
               <span>WhatsApp pe baat karein</span>
             </a>
           </div>

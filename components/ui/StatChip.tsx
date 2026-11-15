@@ -25,14 +25,14 @@ export const StatChip: React.FC<StatChipProps> = ({ stat, className = "" }) => {
     <div
       className={`flex flex-col items-center justify-center text-center p-4 rounded-card bg-paper border border-line ${className}`}
     >
-      <div className="font-serif text-2xl sm:text-3xl lg:text-4xl font-semibold text-accent">
+      <div className="font-serif text-2xl sm:text-3xl lg:text-4xl font-semibold text-accent tabular-nums">
         {stat.value}
       </div>
       <div className="mt-1 text-xs sm:text-sm text-ink-muted font-medium">
         {displayLabel}
       </div>
       {!stat.verified && process.env.NODE_ENV !== "production" && (
-        <span className="mt-1 text-[10px] text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded">
+        <span className="mt-1 text-xs text-amber-700 bg-amber-100 px-2 py-0.5 rounded-card">
           Unverified
         </span>
       )}

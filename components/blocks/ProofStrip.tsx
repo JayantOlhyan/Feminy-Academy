@@ -38,10 +38,10 @@ export const ProofStrip: React.FC = () => {
                   idx > 1 ? "pt-4 md:pt-0" : ""
                 }`}
               >
-                <div className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium text-ink tracking-tight">
+                <div className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium text-ink tracking-tight tabular-nums">
                   {stat.value}
                 </div>
-                <div className="mt-1.5 text-[13px] sm:text-sm font-sans text-ink-muted">
+                <div className="mt-2 text-sm font-sans text-ink-muted">
                   {displayLabel}
                 </div>
               </div>
@@ -49,7 +49,7 @@ export const ProofStrip: React.FC = () => {
           })}
         </div>
         {googleStat && (
-          <div className="mt-5 text-center text-[13px] text-ink-muted font-sans">
+          <div className="mt-5 text-center text-sm text-ink-muted font-sans">
             {googleStat.note || "Bahadurgarh studio ki verified rating hai."}
           </div>
         )}

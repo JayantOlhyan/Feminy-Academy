@@ -29,7 +29,7 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseClasses =
-    "inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-semibold min-h-[48px] min-w-[48px] transition-colors duration-150 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
+    "inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-semibold min-h-[48px] min-w-[48px] transition-[color,background-color,border-color,transform] duration-150 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
 
   const variantClasses: Record<ButtonVariant, string> = {
     primary:
@@ -49,7 +49,7 @@ export const Button: React.FC<ButtonProps> = ({
   const content = (
     <>
       {withWhatsAppIcon && (
-        <MessageCircle className="w-5 h-5 shrink-0 stroke-[2]" aria-hidden="true" />
+        <MessageCircle className="w-5 h-5 shrink-0 stroke-[1.5]" aria-hidden="true" />
       )}
       <span>{children}</span>
     </>

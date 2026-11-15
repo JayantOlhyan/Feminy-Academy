@@ -47,11 +47,11 @@ export const Accordion: React.FC<AccordionProps> = ({
                 aria-expanded={isOpen}
                 aria-controls={`accordion-content-${item.id}`}
                 id={`accordion-btn-${item.id}`}
-                className="flex w-full items-center justify-between text-left min-h-[48px] py-2.5 font-medium text-ink hover:text-brand transition-colors text-base sm:text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded"
+                className="flex w-full items-center justify-between text-left min-h-[48px] py-3 font-medium text-ink hover:text-brand transition-colors duration-150 text-base sm:text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded-card"
               >
                 <span className="pr-4">{item.title}</span>
                 <ChevronDown
-                  className={`w-5 h-5 shrink-0 text-gold transition-transform duration-200 ${
+                  className={`w-5 h-5 shrink-0 stroke-[1.5] text-gold transition-transform duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                     isOpen ? "rotate-180" : ""
                   }`}
                   aria-hidden="true"
@@ -62,12 +62,14 @@ export const Accordion: React.FC<AccordionProps> = ({
               id={`accordion-content-${item.id}`}
               role="region"
               aria-labelledby={`accordion-btn-${item.id}`}
-              className={`transition-all duration-300 ease-in-out ${
-                isOpen ? "max-h-[1000px] opacity-100 mt-2 mb-2" : "max-h-0 opacity-0 overflow-hidden"
+              className={`grid transition-[grid-template-rows,opacity] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                isOpen ? "grid-rows-[1fr] opacity-100 mt-2 mb-2" : "grid-rows-[0fr] opacity-0"
               }`}
             >
-              <div className="text-muted text-sm sm:text-base leading-relaxed pr-6">
-                {item.content}
+              <div className="overflow-hidden">
+                <div className="text-muted text-sm sm:text-base leading-relaxed pr-6">
+                  {item.content}
+                </div>
               </div>
             </div>
           </div>

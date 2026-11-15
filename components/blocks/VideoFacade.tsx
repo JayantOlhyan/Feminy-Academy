@@ -96,11 +96,11 @@ export const VideoFacade: React.FC<VideoFacadeProps> = ({
           {/* Central Play Button only if actual video URL exists */}
           {videoUrl && (
             <div className="relative z-10 flex flex-col items-center gap-3">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-accent/90 text-white flex items-center justify-center border border-gold-line group-hover:scale-105 group-hover:bg-accent transition-all duration-200">
-                <Play className="w-7 h-7 sm:w-8 sm:h-8 fill-current translate-x-0.5 text-white" />
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-accent/90 text-white flex items-center justify-center border border-gold-line group-hover:bg-accent transition-colors duration-150">
+                <Play className="w-7 h-7 sm:w-8 sm:h-8 fill-current translate-x-0.5 text-white stroke-[1.5]" />
               </div>
               {badgeText && (
-                <span className="px-4 py-1.5 rounded-full bg-black/60 text-white text-xs sm:text-sm font-medium border border-white/15">
+                <span className="px-4 py-2 rounded-full bg-black/60 text-white text-xs sm:text-sm font-medium border border-white/15">
                   {badgeText}
                 </span>
               )}

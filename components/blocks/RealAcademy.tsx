@@ -19,12 +19,12 @@ export const RealAcademy: React.FC<RealAcademyProps> = ({
   return (
     <div className={`w-full max-w-3xl mx-auto font-sans ${className}`}>
       {/* Authoritative Address & Location Card */}
-      <div className="rounded-card bg-paper border border-line p-6 sm:p-10 space-y-6 shadow-sm">
+      <div className="rounded-card bg-paper border border-line p-6 sm:p-10 space-y-6">
         <div>
-          <span className="text-[13px] font-semibold uppercase tracking-[0.12em] text-accent font-sans">
+          <span className="text-sm font-medium text-accent font-sans">
             Visit our academy
           </span>
-          <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-ink mt-1.5">
+          <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-ink mt-2">
             Bahadurgarh Academy & Studio
           </h3>
           <p className="text-sm sm:text-base text-ink-muted mt-2 leading-relaxed font-sans">
@@ -33,20 +33,20 @@ export const RealAcademy: React.FC<RealAcademyProps> = ({
         </div>
 
         <div className="space-y-4 text-sm text-ink border-y border-line py-5 font-sans">
-          <div className="flex items-start gap-3.5">
-            <MapPin className="w-5 h-5 shrink-0 text-gold-line mt-0.5" />
+          <div className="flex items-start gap-3">
+            <MapPin className="w-5 h-5 shrink-0 stroke-[1.5] text-gold-line mt-0.5" />
             <div>
               <p className="font-semibold text-ink text-base">{siteConfig.address}</p>
-              <p className="text-[13px] text-ink-muted mt-0.5">Bahadurgarh, Haryana</p>
+              <p className="text-sm text-ink-muted mt-0.5">Bahadurgarh, Haryana</p>
             </div>
           </div>
 
           {(!isPlaceholder(siteConfig.hours) || isDev) && (
-            <div className="flex items-start gap-3.5">
-              <Clock className="w-5 h-5 shrink-0 text-gold-line mt-0.5" />
+            <div className="flex items-start gap-3">
+              <Clock className="w-5 h-5 shrink-0 stroke-[1.5] text-gold-line mt-0.5" />
               <div>
                 <p className="font-semibold text-ink text-base">Visiting Hours</p>
-                <p className="text-[13px] text-ink-muted mt-0.5">
+                <p className="text-sm text-ink-muted mt-0.5">
                   {isPlaceholder(siteConfig.hours) ? (
                     <PlaceholderNotice label="ACADEMY HOURS" fallbackText={siteConfig.hours} />
                   ) : (
@@ -66,7 +66,7 @@ export const RealAcademy: React.FC<RealAcademyProps> = ({
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full border border-line hover:border-ink text-sm font-semibold text-ink min-h-[44px] transition-colors"
           >
-            <Navigation className="w-4 h-4 text-accent" />
+            <Navigation className="w-4 h-4 stroke-[1.5] text-accent" />
             <span>Google Maps pe dekhein</span>
           </a>
 

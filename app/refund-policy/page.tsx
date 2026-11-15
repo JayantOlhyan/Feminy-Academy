@@ -17,8 +17,8 @@ export default function RefundPolicyPage() {
     <div className="w-full">
       <section className="pt-12 pb-14 border-b border-line bg-surface">
         <Container size="narrow" className="text-center">
-          <span className="text-xs font-semibold uppercase tracking-widest text-gold bg-gold/10 px-3 py-1 rounded-full">
-            Payment Terms
+          <span className="text-sm font-medium text-gold-text">
+            Payment terms
           </span>
           <h1 className="font-serif text-3xl sm:text-5xl font-semibold text-ink mt-3 leading-tight">
             {legalContent.refund.title}
@@ -31,7 +31,7 @@ export default function RefundPolicyPage() {
 
       <Section containerSize="narrow">
         <div className="space-y-6">
-          <div className="p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs sm:text-sm">
+          <div className="p-4 rounded-card bg-amber-50 border border-amber-200 text-amber-900 text-xs sm:text-sm">
             <PlaceholderNotice
               label="SUNITA'S DECISION ON REFUND POLICY"
               fallbackText="Refund and cancellation decisions are subject to formal course enrolment confirmation."

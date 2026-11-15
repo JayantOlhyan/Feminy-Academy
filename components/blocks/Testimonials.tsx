@@ -37,7 +37,7 @@ export const Testimonials: React.FC<TestimonialsProps> = ({
         {items.map((item) => (
           <div
             key={item.id}
-            className="flex flex-col justify-between rounded-card bg-surface border border-line p-5 shadow-subtle"
+            className="flex flex-col justify-between rounded-card bg-surface border border-line p-5"
           >
             {item.type === "video" ? (
               <div className="space-y-3">
@@ -57,12 +57,12 @@ export const Testimonials: React.FC<TestimonialsProps> = ({
               </div>
             ) : item.type === "whatsapp" ? (
               <div className="space-y-3">
-                <div className="aspect-[9/16] rounded-xl bg-surface-2 border border-line p-4 flex flex-col justify-between">
+                <div className="aspect-[9/16] rounded-card bg-surface-2 border border-line p-4 flex flex-col justify-between">
                   <div className="flex items-center gap-2 text-whatsapp text-xs font-semibold">
-                    <MessageCircle className="w-4 h-4" />
+                    <MessageCircle className="w-4 h-4 stroke-[1.5]" />
                     <span>WhatsApp Feedback</span>
                   </div>
-                  <div className="p-3 bg-white rounded-lg shadow-sm text-xs text-muted border border-line">
+                  <div className="p-3 bg-white rounded-card text-xs text-muted border border-line">
                     <PlaceholderNotice
                       label="WHATSAPP SCREENSHOT FEEDBACK"
                       fallbackText="Sunita ma'am, thank you so much! HydraFacial ke steps itne ache se samajh aaye ki aaj pehla client successfully attend kiya."
@@ -83,11 +83,11 @@ export const Testimonials: React.FC<TestimonialsProps> = ({
             ) : (
               <div className="flex flex-col justify-between h-full space-y-4">
                 <div className="space-y-3">
-                  <Quote className="w-8 h-8 text-gold/50" />
-                  <p className="text-sm text-ink italic leading-relaxed">
+                  <Quote className="w-8 h-8 stroke-[1.5] text-gold/50" />
+                  <p className="text-sm text-ink leading-relaxed">
                     <PlaceholderNotice
                       label="REAL STUDENT TESTIMONIAL QUOTE"
-                      fallbackText="Maine bohot online courses dekhe the, par Sunita ma'am ne personally doubt solve kiye aur machine ki ek-ek setting live sikhayi. Truly practical!"
+                      fallbackText="Maine bohot online courses dekhe the, par Sunita ma'am ne personally doubt solve kiye aur machine ki ek-ek setting live sikhayi. Truly practical."
                     />
                   </p>
                 </div>

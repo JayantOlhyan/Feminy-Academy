@@ -23,7 +23,7 @@ export const SyllabusAccordion: React.FC<SyllabusAccordionProps> = ({
   };
 
   return (
-    <div className={`space-y-2.5 sm:space-y-4 max-w-3xl mx-auto font-sans ${className}`}>
+    <div className={`space-y-3 sm:space-y-4 max-w-3xl mx-auto font-sans ${className}`}>
       {modules.map((mod, mIdx) => {
         const isOpen = openIdx === mIdx;
         return (
@@ -35,16 +35,16 @@ export const SyllabusAccordion: React.FC<SyllabusAccordionProps> = ({
               type="button"
               onClick={() => toggle(mIdx)}
               aria-expanded={isOpen}
-              className="flex w-full items-center justify-between p-3.5 sm:p-5 text-left font-serif text-base sm:text-lg font-semibold text-ink hover:text-accent transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent min-h-[48px] gap-3"
+              className="flex w-full items-center justify-between p-4 sm:p-5 text-left font-serif text-base sm:text-lg font-semibold text-ink hover:text-accent transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent min-h-[48px] gap-3"
             >
-              <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
-                <span className="text-xs font-mono font-medium text-gold-text bg-paper-2 px-2 py-0.5 rounded-card border border-line whitespace-nowrap shrink-0">
+              <div className="flex items-center gap-3 min-w-0">
+                <span className="text-xs font-mono font-medium text-gold-text bg-paper-2 px-2 py-0.5 rounded-card border border-line whitespace-nowrap shrink-0 tabular-nums">
                   Module 0{mIdx + 1}
                 </span>
                 <span className="break-words">{mod.title}</span>
               </div>
               <ChevronDown
-                className={`w-5 h-5 shrink-0 text-gold-line transition-transform duration-200 ${
+                className={`w-5 h-5 shrink-0 stroke-[1.5] text-gold-line transition-transform duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                   isOpen ? "rotate-180" : ""
                 }`}
               />
@@ -55,10 +55,10 @@ export const SyllabusAccordion: React.FC<SyllabusAccordionProps> = ({
                 {mod.lessons.map((lesson: CourseLesson, lIdx: number) => (
                   <div
                     key={lIdx}
-                    className="py-2.5 sm:py-3 flex items-center justify-between text-sm gap-2"
+                    className="py-3 flex items-center justify-between text-sm gap-2"
                   >
-                    <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
-                      <PlayCircle className="w-4 h-4 text-accent shrink-0" />
+                    <div className="flex items-center gap-3 min-w-0 flex-1">
+                      <PlayCircle className="w-4 h-4 stroke-[1.5] text-accent shrink-0" />
                       <span className="font-medium text-ink break-words">{lesson.title}</span>
                     </div>
 
@@ -73,8 +73,8 @@ export const SyllabusAccordion: React.FC<SyllabusAccordionProps> = ({
                         </button>
                       )}
                       {lesson.duration ? (
-                        <div className="flex items-center gap-1 text-xs text-ink-muted whitespace-nowrap">
-                          <Clock className="w-3.5 h-3.5" />
+                        <div className="flex items-center gap-1 text-xs text-ink-muted whitespace-nowrap tabular-nums">
+                          <Clock className="w-4 h-4 stroke-[1.5]" />
                           <span>{lesson.duration}</span>
                         </div>
                       ) : null}

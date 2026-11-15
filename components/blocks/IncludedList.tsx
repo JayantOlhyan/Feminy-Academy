@@ -16,14 +16,14 @@ export const IncludedList: React.FC<IncludedListProps> = ({
   return (
     <div className={`grid grid-cols-1 md:grid-cols-12 gap-8 items-center font-sans ${className}`}>
       {/* Left 6 items */}
-      <div className="md:col-span-7 space-y-3.5">
+      <div className="md:col-span-7 space-y-3">
         {items.map((item, idx) => (
           <div
             key={idx}
-            className="flex items-start gap-3 p-3.5 rounded-card bg-paper border border-line"
+            className="flex items-start gap-3 p-4 rounded-card bg-paper border border-line"
           >
             <div className="w-5 h-5 rounded-full bg-whatsapp/15 text-whatsapp flex items-center justify-center shrink-0 mt-0.5">
-              <Check className="w-3.5 h-3.5 stroke-[2.5]" />
+              <Check className="w-3.5 h-3.5 stroke-[1.5]" />
             </div>
             <span className="text-sm sm:text-base font-medium text-ink">
               <PlaceholderNotice label={item} fallbackText={item} />
@@ -35,8 +35,8 @@ export const IncludedList: React.FC<IncludedListProps> = ({
       {/* Right Differentiator Box */}
       <div className="md:col-span-5">
         <div className="rounded-card bg-paper border border-line p-6 sm:p-8 relative">
-          <span className="text-xs font-semibold uppercase tracking-[0.12em] text-accent block mb-2 font-sans">
-            The Feminy Difference
+          <span className="text-sm font-medium text-accent block mb-2 font-sans">
+            The Feminy difference
           </span>
           <p className="font-serif text-lg sm:text-xl font-semibold text-ink leading-snug">
             {highlightNote}

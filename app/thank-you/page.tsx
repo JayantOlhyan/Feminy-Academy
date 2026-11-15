@@ -33,11 +33,11 @@ function ThankYouContent() {
       <div className="py-16 sm:py-24 text-center">
         <Container size="narrow">
           <div className="w-16 h-16 rounded-full bg-whatsapp/15 text-whatsapp flex items-center justify-center mx-auto mb-6">
-            <CheckCircle2 className="w-9 h-9 stroke-[2]" />
+            <CheckCircle2 className="w-9 h-9 stroke-[1.5]" />
           </div>
 
           <h1 className="font-serif text-3xl sm:text-5xl font-semibold text-ink leading-tight">
-            Welcome to Feminy Academy!
+            Enrolment confirmed
           </h1>
 
           <p className="mt-4 text-base sm:text-lg text-muted max-w-lg mx-auto leading-relaxed">
@@ -66,11 +66,11 @@ function ThankYouContent() {
     <div className="py-16 sm:py-24 text-center">
       <Container size="narrow">
         <div className="w-16 h-16 rounded-full bg-whatsapp/15 text-whatsapp flex items-center justify-center mx-auto mb-6">
-          <CheckCircle2 className="w-9 h-9 stroke-[2]" />
+          <CheckCircle2 className="w-9 h-9 stroke-[1.5]" />
         </div>
 
         <h1 className="font-serif text-3xl sm:text-5xl font-semibold text-ink leading-tight">
-          Shukriya! Aapki demo class request mil gayi hai.
+          Aapki demo class request mil gayi hai
         </h1>
 
         <p className="mt-4 text-base sm:text-lg text-muted max-w-lg mx-auto leading-relaxed">

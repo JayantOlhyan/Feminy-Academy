@@ -23,8 +23,8 @@ export default function AboutPage() {
     <div className="w-full">
       <section className="pt-12 pb-14 border-b border-line bg-paper font-sans">
         <Container size="narrow" className="text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.12em] text-accent">
-            Our Story & Founder
+          <span className="text-sm font-medium text-accent">
+            Our story & founder
           </span>
           <h1 className="font-serif text-3xl sm:text-5xl font-semibold text-ink mt-2 leading-tight">
             {legalContent.about.title}

@@ -153,9 +153,9 @@ export const LeadForm: React.FC<LeadFormProps> = ({
     return (
       <div
         id={id}
-        className={`w-full rounded-card bg-paper border border-line p-3.5 sm:p-5 shadow-form text-left ${className}`}
+        className={`w-full rounded-card bg-paper border border-line p-4 sm:p-5 shadow-form text-left ${className}`}
       >
-        <form onSubmit={handleSubmit} noValidate className="space-y-2.5 font-sans">
+        <form onSubmit={handleSubmit} noValidate className="space-y-3 font-sans">
           {/* Honeypot field */}
           <div className="hidden" aria-hidden="true">
             <label htmlFor={`website-${uid}`}>Website</label>
@@ -170,14 +170,14 @@ export const LeadForm: React.FC<LeadFormProps> = ({
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {activeFields.includes("name") && (
               <div>
                 <label
                   htmlFor={`lead-name-${uid}`}
-                  className="block text-xs font-semibold uppercase tracking-[0.12em] text-ink mb-1"
+                  className="block text-xs font-semibold text-ink mb-1"
                 >
-                  Aapka Naam <span className="text-accent">*</span>
+                  Aapka naam <span className="text-accent">*</span>
                 </label>
                 <input
                   id={`lead-name-${uid}`}
@@ -193,7 +193,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
                     setFormData({ ...formData, name: e.target.value });
                     if (errorMsg) setErrorMsg(null);
                   }}
-                  className="w-full min-h-[48px] px-3.5 py-2.5 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted/60 text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+                  className="w-full min-h-[48px] px-4 py-3 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted/60 text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
                 />
               </div>
             )}
@@ -202,12 +202,12 @@ export const LeadForm: React.FC<LeadFormProps> = ({
               <div>
                 <label
                   htmlFor={`lead-phone-${uid}`}
-                  className="block text-xs font-semibold uppercase tracking-[0.12em] text-ink mb-1"
+                  className="block text-xs font-semibold text-ink mb-1"
                 >
-                  Mobile Number (WhatsApp) <span className="text-accent">*</span>
+                  Mobile number (WhatsApp) <span className="text-accent">*</span>
                 </label>
                 <div className="relative">
-                  <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-ink-muted font-medium text-base pointer-events-none">
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-ink-muted font-medium text-base pointer-events-none tabular-nums">
                     +91
                   </span>
                   <input
@@ -234,7 +234,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
                     onBlur={() => {
                       if (formData.phone.length > 0) validatePhone(formData.phone);
                     }}
-                    className="w-full min-h-[48px] pl-12 pr-3.5 py-2.5 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted/60 text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+                    className="w-full min-h-[48px] pl-12 pr-4 py-3 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted/60 text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent tabular-nums"
                   />
                 </div>
               </div>
@@ -248,7 +248,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
           )}
 
           {errorMsg && (
-            <div role="alert" className="p-2.5 rounded-card bg-red-50 border border-red-200 text-red-900 text-xs space-y-2">
+            <div role="alert" className="p-3 rounded-card bg-red-50 border border-red-200 text-red-900 text-xs space-y-2">
               <div className="flex items-center gap-2 font-medium">
                 <AlertCircle className="w-4 h-4 text-accent shrink-0" />
                 <span>{errorMsg}</span>
@@ -285,8 +285,8 @@ export const LeadForm: React.FC<LeadFormProps> = ({
       className={`max-w-xl mx-auto rounded-card bg-paper border border-line p-6 sm:p-10 shadow-form font-sans ${className}`}
     >
       <div className="text-center mb-8">
-        <span className="text-xs font-semibold uppercase tracking-[0.12em] text-accent font-sans">
-          No Commitment · Free demo
+        <span className="text-sm font-medium text-accent font-sans">
+          No commitment · Free demo
         </span>
         <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-ink mt-2">
           Free demo class book karein
@@ -313,8 +313,8 @@ export const LeadForm: React.FC<LeadFormProps> = ({
 
         {/* Naam */}
         <div>
-          <label htmlFor={`lead-name-${uid}`} className="block text-xs font-semibold uppercase tracking-[0.12em] text-ink mb-1.5">
-            Aapka Naam <span className="text-accent">*</span>
+          <label htmlFor={`lead-name-${uid}`} className="block text-xs font-semibold text-ink mb-2">
+            Aapka naam <span className="text-accent">*</span>
           </label>
           <input
             id={`lead-name-${uid}`}
@@ -333,11 +333,11 @@ export const LeadForm: React.FC<LeadFormProps> = ({
 
         {/* Mobile Number */}
         <div>
-          <label htmlFor={`lead-phone-${uid}`} className="block text-xs font-semibold uppercase tracking-[0.12em] text-ink mb-1.5">
-            Mobile Number (WhatsApp) <span className="text-accent">*</span>
+          <label htmlFor={`lead-phone-${uid}`} className="block text-xs font-semibold text-ink mb-2">
+            Mobile number (WhatsApp) <span className="text-accent">*</span>
           </label>
           <div className="relative">
-            <span className="absolute left-4 top-3 text-ink-muted font-medium text-base">
+            <span className="absolute left-4 top-3 text-ink-muted font-medium text-base tabular-nums">
               +91
             </span>
             <input
@@ -361,18 +361,18 @@ export const LeadForm: React.FC<LeadFormProps> = ({
               onBlur={() => {
                 if (formData.phone.length > 0) validatePhone(formData.phone);
               }}
-              className="w-full min-h-[48px] pl-14 pr-4 py-3 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted/60 text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+              className="w-full min-h-[48px] pl-14 pr-4 py-3 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted/60 text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent tabular-nums"
             />
           </div>
           {phoneError && (
-            <p role="alert" className="mt-1.5 text-xs text-accent font-medium">{phoneError}</p>
+            <p role="alert" className="mt-2 text-xs text-accent font-medium">{phoneError}</p>
           )}
         </div>
 
         {/* Shehar */}
         <div>
-          <label htmlFor={`lead-city-${uid}`} className="block text-xs font-semibold uppercase tracking-[0.12em] text-ink mb-1.5">
-            Aapka Shehar <span className="text-accent">*</span>
+          <label htmlFor={`lead-city-${uid}`} className="block text-xs font-semibold text-ink mb-2">
+            Aapka shehar <span className="text-accent">*</span>
           </label>
           <input
             id={`lead-city-${uid}`}
@@ -391,18 +391,18 @@ export const LeadForm: React.FC<LeadFormProps> = ({
 
         {/* Interest Selector */}
         <div>
-          <label className="block text-xs font-semibold uppercase tracking-[0.12em] text-ink mb-2">
+          <label className="block text-xs font-semibold text-ink mb-2">
             Aap kya seekhna chahti hain?
           </label>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {(["Sab kuch", "Makeup", "Hair", "Skin"] as const).map((opt) => (
               <button
                 key={opt}
                 type="button"
                 onClick={() => setFormData({ ...formData, interest: opt })}
-                className={`min-h-[44px] py-2.5 px-3 text-xs sm:text-sm font-semibold rounded-card border transition-all ${
+                className={`min-h-[44px] py-2 px-3 text-xs sm:text-sm font-semibold rounded-card border transition-colors duration-150 ${
                   formData.interest === opt
-                    ? "bg-accent text-white border-accent shadow-sm"
+                    ? "bg-accent text-white border-accent"
                     : "bg-paper-2 text-ink border-line hover:border-ink"
                 }`}
               >
@@ -414,7 +414,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
 
         {/* Preferred Date (Optional) */}
         <div>
-          <label htmlFor={`lead-date-${uid}`} className="block text-xs font-semibold uppercase tracking-[0.12em] text-ink mb-1.5">
+          <label htmlFor={`lead-date-${uid}`} className="block text-xs font-semibold text-ink mb-2">
             Demo ke liye kaunsa din theek rahega? (Optional)
           </label>
           <input
@@ -425,7 +425,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
             value={formData.preferredDate}
             onFocus={handleFieldFocus}
             onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
-            className="w-full min-h-[48px] px-4 py-2.5 rounded-card border border-line bg-paper text-ink text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+            className="w-full min-h-[48px] px-4 py-3 rounded-card border border-line bg-paper text-ink text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
           />
         </div>
 

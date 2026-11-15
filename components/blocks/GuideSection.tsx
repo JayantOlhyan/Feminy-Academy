@@ -65,7 +65,7 @@ export const GuideSection: React.FC = () => {
       <Container size="wide">
         {/* Top Header: Empathy & Authority */}
         <div className="max-w-3xl mb-12 lg:mb-16">
-          <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-gold-line font-sans">
+          <p className="text-sm font-medium text-gold-line font-sans">
             {guide.eyebrow}
           </p>
           <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-on-ink leading-[1.1]">
@@ -82,10 +82,10 @@ export const GuideSection: React.FC = () => {
           <div className="mt-8 pt-6 border-t border-line/20 grid grid-cols-1 sm:grid-cols-3 gap-6">
             {guide.authority.map((item, idx) => (
               <div key={idx} className="space-y-1">
-                <span className="font-serif text-2xl sm:text-3xl font-medium text-gold-line">
+                <span className="font-serif text-2xl sm:text-3xl font-medium text-gold-line tabular-nums">
                   {item.value}
                 </span>
-                <p className="text-[13px] sm:text-sm text-on-ink-muted font-sans">
+                <p className="text-sm text-on-ink-muted font-sans">
                   {item.label}
                 </p>
               </div>
@@ -102,12 +102,12 @@ export const GuideSection: React.FC = () => {
                 src="/images/sunita-hero.jpg"
                 alt="Sunita Rathee — Founder & Cosmetologist"
                 fill
-                className="object-cover object-top grayscale hover:grayscale-0 transition-all duration-300"
+                className="object-cover object-top grayscale hover:grayscale-0 transition-[filter] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]"
                 sizes="(max-width: 1024px) 100vw, 400px"
               />
               <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-ink via-ink/80 to-transparent">
                 <p className="text-sm font-medium text-on-ink">Sunita Rathee</p>
-                <p className="text-[13px] text-on-ink-muted">Founder & Cosmetologist · Bahadurgarh</p>
+                <p className="text-sm text-on-ink-muted">Founder & Cosmetologist · Bahadurgarh</p>
               </div>
             </div>
           </div>
@@ -122,7 +122,7 @@ export const GuideSection: React.FC = () => {
                     key={idx}
                     type="button"
                     onClick={() => setActiveBeat(idx)}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                    className={`h-1.5 rounded-full transition-[width,background-color] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                       activeBeat === idx ? "w-10 bg-gold-line" : "w-3 bg-line/30"
                     }`}
                     aria-label={`Go to story beat ${idx + 1}`}
@@ -133,9 +133,9 @@ export const GuideSection: React.FC = () => {
               {guide.storyBeats.map((beat, idx) => (
                 <div
                   key={idx}
-                  className={`p-6 rounded-card border transition-all duration-300 ${
+                  className={`p-6 rounded-card border transition-[border-color,opacity,color] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                     activeBeat === idx
-                      ? "bg-ink border-gold-line/40 text-on-ink shadow-sm"
+                      ? "bg-ink border-gold-line/40 text-on-ink"
                       : "bg-transparent border-transparent text-on-ink-muted opacity-40 hover:opacity-75"
                   }`}
                 >

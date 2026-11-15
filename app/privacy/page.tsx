@@ -17,8 +17,8 @@ export default function PrivacyPage() {
     <div className="w-full">
       <section className="pt-12 pb-14 border-b border-line bg-surface">
         <Container size="narrow" className="text-center">
-          <span className="text-xs font-semibold uppercase tracking-widest text-gold bg-gold/10 px-3 py-1 rounded-full">
-            Data Protection
+          <span className="text-sm font-medium text-gold-text">
+            Data protection
           </span>
           <h1 className="font-serif text-3xl sm:text-5xl font-semibold text-ink mt-3 leading-tight">
             {legalContent.privacy.title}

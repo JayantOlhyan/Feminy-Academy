@@ -57,10 +57,10 @@ export interface HomeContent {
 
 export const homeContent: HomeContent = {
   hero: {
-    eyebrow: "FEMINY ACADEMY · BAHADURGARH",
+    eyebrow: "Feminy Academy · Bahadurgarh",
     // Option A is selected as default; Option B preserved for CRO A/B testing
-    h1: "Beauty ka hunar seekhiye — aur apne naam se kaam shuru kijiye.",
-    h1VariantB: "Ghar se shuru kijiye. Certificate ke saath professional baniye.",
+    h1: "Beauty ka hunar seekhiye — aur apne naam se kaam shuru kijiye",
+    h1VariantB: "Ghar se shuru kijiye. Certificate ke saath professional baniye",
     sub: experienceStat?.verified
       ? `Sunita Rathee, ${experienceStat.value} saal ki experienced cosmetologist, aapko simple Hindi mein step-by-step sikhaati hain — live doubt sessions ke saath.`
       : "Sunita Rathee, experienced cosmetologist, aapko simple Hindi mein step-by-step sikhaati hain — live doubt sessions ke saath.",
@@ -69,7 +69,7 @@ export const homeContent: HomeContent = {
     coursesLinkLabel: "Courses dekhein ↓",
   },
   problem: {
-    eyebrow: "ASLI RUKAWAT",
+    eyebrow: "Asli rukawat",
     heading: "Kya aapke saath bhi aisa hota hai?",
     pains: [
       "YouTube pe hazaar videos — par kaunsa tareeka sahi hai, pata hi nahi chalta.",
@@ -79,10 +79,10 @@ export const homeContent: HomeContent = {
     closing: "Ye galti aapki nahi hai. Aapko bas sahi guide chahiye.",
   },
   guide: {
-    eyebrow: "AAPKI GUIDE",
+    eyebrow: "Aapki guide",
     heading: experienceStat?.verified
-      ? `${experienceStat.value} saal ka practical tajurba aur verified guidance.`
-      : "Practical tajurba aur verified guidance.",
+      ? `${experienceStat.value} saal ka practical tajurba aur verified guidance`
+      : "Practical tajurba aur verified guidance",
     empathyFallback: [
       "Sunita Rathee",
       experienceStat?.verified ? `ne pichhle ${experienceStat.value} saalon mein` : "",
@@ -130,36 +130,36 @@ export const homeContent: HomeContent = {
     ],
   },
   plan: {
-    eyebrow: "AASAN RAASTA",
+    eyebrow: "Aasaan raasta",
     heading: "3 aasaan steps",
     steps: [
       {
         number: "1",
         title: "Free demo class book kijiye",
-        description: "2 minute ka form, koi payment nahi.",
+        description: "2 minute ka form, koi payment nahi",
       },
       {
         number: "2",
         title: "Apna course chuniye",
-        description: "Online (ghar se) ya Bahadurgarh academy mein.",
+        description: "Online (ghar se) ya Bahadurgarh academy mein",
       },
       {
         number: "3",
         title: "Seekhiye, practice kijiye, certificate lijiye",
-        description: "Real models pe practice aur live doubt sessions.",
+        description: "Real models pe practice aur live doubt sessions",
       },
     ],
     ctaLabel: "Step 1 abhi kijiye",
   },
   transformation: {
     showStudentStories: false,
-    eyebrow: "STUDENTS KI PEHCHAAN",
-    heading: "Inhone bhi yahin se shuru kiya tha.",
-    subtitle: "Real practice aur live guidance se badla confidence.",
+    eyebrow: "Students ki pehchaan",
+    heading: "Inhone bhi yahin se shuru kiya tha",
+    subtitle: "Real practice aur live guidance se badla confidence",
     studentStories: [],
   },
   finalCta: {
-    heading: "Apne clients. Apni pehchaan. Shuruaat ek free demo class se.",
+    heading: "Apne clients, apni pehchaan — shuruaat ek free demo class se",
     subtitle: "Koi advance fees nahi. Pehle aakar dekhiye, seekhiye, phir faisla kijiye.",
     trustNote: "Zero commitment · Hindi / Hinglish · Live doubt support",
   },

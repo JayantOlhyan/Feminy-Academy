@@ -55,14 +55,14 @@ export const PricingCard: React.FC<PricingCardProps> = ({
       className={`max-w-xl mx-auto rounded-card bg-paper border border-line p-6 sm:p-10 shadow-form relative font-sans ${className}`}
     >
       <div className="text-center space-y-2 pb-6 border-b border-line">
-        <span className="text-xs font-semibold uppercase tracking-[0.12em] text-accent font-sans">
-          Instant Online Enrolment
+        <span className="text-sm font-medium text-accent font-sans">
+          Instant online enrolment
         </span>
         <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-ink pt-2">
           {courseTitle}
         </h3>
         <div className="flex items-baseline justify-center gap-2 pt-2">
-          <span className="font-serif text-4xl sm:text-5xl font-bold text-accent">
+          <span className="font-serif text-4xl sm:text-5xl font-semibold text-accent tabular-nums">
             {priceDisplay}
           </span>
           {(!isPlaceholder(gstNote) || isDev) && (
@@ -87,8 +87,8 @@ export const PricingCard: React.FC<PricingCardProps> = ({
         {includedItems.slice(0, 6).map((item, idx) => {
           if (isPlaceholder(item) && !isDev) return null;
           return (
-            <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-ink">
-              <Check className="w-4 h-4 text-whatsapp shrink-0 mt-0.5" />
+            <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-ink">
+              <Check className="w-4 h-4 stroke-[1.5] text-whatsapp shrink-0 mt-0.5" />
               <span>
                 <PlaceholderNotice label={item} fallbackText={item} />
               </span>
@@ -133,8 +133,8 @@ export const PricingCard: React.FC<PricingCardProps> = ({
             </div>
           )}
 
-          <div className="flex items-center justify-center gap-1.5 text-xs text-ink-muted">
-            <ShieldCheck className="w-4 h-4 text-accent shrink-0" />
+          <div className="flex items-center justify-center gap-2 text-xs text-ink-muted">
+            <ShieldCheck className="w-4 h-4 stroke-[1.5] text-accent shrink-0" />
             <span>
               <Link
                 href="/refund-policy"
@@ -152,9 +152,9 @@ export const PricingCard: React.FC<PricingCardProps> = ({
             href={questionUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-1.5 min-h-[44px] px-3 py-2 text-xs font-medium text-ink-muted hover:text-accent transition-colors"
+            className="inline-flex items-center justify-center gap-2 min-h-[44px] px-3 py-2 text-xs font-medium text-ink-muted hover:text-accent transition-colors"
           >
-            <HelpCircle className="w-3.5 h-3.5" />
+            <HelpCircle className="w-4 h-4 stroke-[1.5]" />
             <span>Koi sawaal? WhatsApp kijiye →</span>
           </a>
         </div>

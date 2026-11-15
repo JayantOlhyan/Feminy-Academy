@@ -35,22 +35,22 @@ export default function HomePage() {
             {/* Left Content + Form (order-1 on mobile so submit bottom <= 640px) */}
             <div className="order-1 lg:col-span-7 space-y-3 sm:space-y-4 text-left">
               <div className="inline-flex items-center">
-                <span className="text-[13px] font-semibold uppercase tracking-[0.12em] text-accent font-sans">
+                <span className="text-sm font-medium text-accent font-sans">
                   {hero.eyebrow}
                 </span>
               </div>
 
               {/* H1 Option A active; Option B in content for A/B testing */}
-              <h1 className="font-serif text-[26px] sm:text-5xl lg:text-6xl font-semibold text-ink leading-[1.05] tracking-tight">
+              <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-semibold text-ink leading-[1.05] tracking-tight">
                 {hero.h1}
               </h1>
 
-              <p className="text-[15px] sm:text-lg text-ink-muted max-w-xl leading-relaxed font-sans">
+              <p className="text-base sm:text-lg text-ink-muted max-w-xl leading-relaxed font-sans">
                 {hero.sub}
               </p>
 
               {/* Compact Hero Lead Form */}
-              <div className="max-w-lg pt-0.5 space-y-2">
+              <div className="max-w-lg pt-1 space-y-2">
                 <LeadForm
                   id="hero-lead-form"
                   variant="compact"
@@ -60,19 +60,19 @@ export default function HomePage() {
                 />
 
                 {/* Trust Micro-line under form */}
-                <p className="text-[13px] text-ink-muted font-normal text-center sm:text-left font-sans">
+                <p className="text-sm text-ink-muted font-normal text-center sm:text-left font-sans">
                   {hero.trustMicroline}
                 </p>
 
                 {/* Secondary WhatsApp CTA + Courses Link */}
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 pt-1">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
                   <Button
                     variant="whatsapp"
                     href={whatsappUrl}
                     isExternal
                     withWhatsAppIcon
                     trackSource="home-hero"
-                    className="text-sm sm:text-base py-2.5 px-5"
+                    className="text-sm sm:text-base py-3 px-5"
                   >
                     Ya WhatsApp pe baat karein
                   </Button>
@@ -126,11 +126,11 @@ export default function HomePage() {
       <section className="py-18 lg:py-28 bg-paper-2 border-b border-line">
         <Container size="wide">
           <div className="max-w-3xl mb-10 sm:mb-14">
-            <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-accent font-sans">
-              ASLI ACADEMY
+            <p className="text-sm font-medium text-accent font-sans">
+              Asli academy
             </p>
             <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-ink leading-[1.1]">
-              Online hai, par asli hai.
+              Online hai, par asli hai
             </h2>
             <p className="mt-3 text-base sm:text-lg text-ink-muted leading-relaxed font-sans">
               Hamari academy Bahadurgarh mein hai. Aap kabhi bhi aakar mil sakti hain.

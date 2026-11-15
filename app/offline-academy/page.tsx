@@ -88,10 +88,10 @@ export default function OfflineAcademyPage() {
               </p>
 
               {/* Facts Row */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 p-4 rounded-card bg-paper-2 border border-line text-[13px] font-sans">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 p-4 rounded-card bg-paper-2 border border-line text-sm font-sans">
                 {(!isPlaceholder(offlineAcademyData.facts.duration) || isDev) && (
                   <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4 text-gold-line shrink-0" />
+                    <Clock className="w-4 h-4 stroke-[1.5] text-gold-line shrink-0" />
                     <span>
                       <strong>Duration:</strong>{" "}
                       <PlaceholderNotice
@@ -102,27 +102,27 @@ export default function OfflineAcademyPage() {
                   </div>
                 )}
                 <div className="flex items-center gap-2">
-                  <Users className="w-4 h-4 text-gold-line shrink-0" />
+                  <Users className="w-4 h-4 stroke-[1.5] text-gold-line shrink-0" />
                   <span>
                     <strong>Batch:</strong> {offlineAcademyData.facts.batchSize}
                   </span>
                 </div>
                 {offlineAcademyData.facts.nextBatch && (
                   <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4 text-gold-line shrink-0" />
+                    <Calendar className="w-4 h-4 stroke-[1.5] text-gold-line shrink-0" />
                     <span>
                       <strong>Next batch:</strong> {offlineAcademyData.facts.nextBatch}
                     </span>
                   </div>
                 )}
                 <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-gold-line shrink-0" />
+                  <Clock className="w-4 h-4 stroke-[1.5] text-gold-line shrink-0" />
                   <span>
                     <strong>Timings:</strong> {offlineAcademyData.facts.timings}
                   </span>
                 </div>
                 <div className="col-span-2 sm:col-span-2 flex items-center gap-2">
-                  <CreditCard className="w-4 h-4 text-accent shrink-0" />
+                  <CreditCard className="w-4 h-4 stroke-[1.5] text-accent shrink-0" />
                   <span>
                     <strong>Fee:</strong> {offlineAcademyData.facts.feeDisplay}
                     {offlineAcademyData.facts.emiAvailable && (
@@ -135,7 +135,7 @@ export default function OfflineAcademyPage() {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                 <Button variant="primary" href="#demo" className="text-base">
                   Free demo class book karein
                 </Button>
@@ -163,8 +163,8 @@ export default function OfflineAcademyPage() {
                     sizes="(max-width: 1024px) 100vw, 448px"
                   />
                   <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-ink via-ink/60 to-transparent text-white">
-                    <span className="text-xs uppercase tracking-[0.12em] text-gold-line font-semibold block">
-                      Bahadurgarh Studio
+                    <span className="text-xs text-gold-line font-medium block">
+                      Bahadurgarh studio
                     </span>
                     <span className="text-sm font-serif font-medium text-on-ink">
                       Direct practical training under Sunita Rathee

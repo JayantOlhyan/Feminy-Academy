@@ -98,7 +98,7 @@ export default function HydraFacialCoursePage() {
 
               {/* Price Block */}
               <div className="p-4 rounded-card bg-paper-2 border border-line flex flex-wrap items-baseline gap-3">
-                <span className="font-serif text-3xl sm:text-4xl font-bold text-accent">
+                <span className="font-serif text-3xl sm:text-4xl font-semibold text-accent tabular-nums">
                   {hydraFacialCourse.priceDisplay}
                 </span>
                 {(!isPlaceholder(hydraFacialCourse.gstNote) || isDev) && (
@@ -136,7 +136,7 @@ export default function HydraFacialCoursePage() {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                 {isPaymentEnabled ? (
                   <Button
                     variant="primary"
@@ -238,7 +238,7 @@ export default function HydraFacialCoursePage() {
         headerCentered
       >
         {!hydraFacialCourse.syllabusMeta.confirmed && (
-          <p className="text-xs text-ink-muted italic mb-4 text-center">
+          <p className="text-xs text-ink-muted mb-4 text-center">
             Final lesson list Sunita ma&apos;am ke saath confirm ho rahi hai.
           </p>
         )}

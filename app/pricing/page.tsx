@@ -21,9 +21,9 @@ export default function PricingPage() {
     <div className="w-full">
       <section className="pt-12 pb-14 border-b border-line bg-surface">
         <Container size="narrow" className="text-center">
-          <span className="text-xs font-semibold uppercase tracking-widest text-gold bg-gold/10 px-3 py-1 rounded-full">
-            Transparent Fees
-          </span>
+          <Badge variant="gold">
+            Transparent fees
+          </Badge>
           <h1 className="font-serif text-3xl sm:text-5xl font-semibold text-ink mt-3 leading-tight">
             {legalContent.pricing.title}
           </h1>
@@ -35,7 +35,7 @@ export default function PricingPage() {
 
       <Section containerSize="wide">
         <div className="space-y-6">
-          <div className="overflow-x-auto rounded-card border border-line bg-surface shadow-subtle">
+          <div className="overflow-x-auto rounded-card border border-line bg-surface">
             <table className="w-full text-left border-collapse text-sm">
               <thead>
                 <tr className="bg-surface-2 border-b border-line font-serif text-ink text-base">
@@ -55,7 +55,7 @@ export default function PricingPage() {
                         <span>
                           <PlaceholderNotice label={c.name} fallbackText={c.name} />
                         </span>
-                        <Badge variant="surface" className="text-[10px]">
+                        <Badge variant="surface" className="text-xs">
                           {c.badge}
                         </Badge>
                       </div>
@@ -67,7 +67,7 @@ export default function PricingPage() {
                     <td className="p-4 sm:p-5">
                       <PlaceholderNotice label={c.access} fallbackText={c.access} />
                     </td>
-                    <td className="p-4 sm:p-5 font-serif text-lg font-bold text-brand">
+                    <td className="p-4 sm:p-5 font-serif text-lg font-semibold text-brand tabular-nums">
                       <PlaceholderNotice label={c.price} fallbackText={c.price} />
                     </td>
                     <td className="p-4 sm:p-5 text-right">

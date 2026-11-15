@@ -11,8 +11,8 @@ export const CoursesSection: React.FC = () => {
       <Container size="wide">
         {/* Header */}
         <div className="max-w-3xl mb-10 sm:mb-14">
-          <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-accent font-sans">
-            HAMARE COURSES
+          <p className="text-sm font-medium text-accent font-sans">
+            Hamare courses
           </p>
           <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-ink leading-[1.1]">
             Aapke liye kaunsa course?
@@ -29,8 +29,8 @@ export const CoursesSection: React.FC = () => {
           <div className="min-w-[85%] sm:min-w-[340px] md:min-w-0 snap-center rounded-card bg-paper border border-gold-line/40 p-6 sm:p-8 flex flex-col justify-between">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <Badge variant="brand">ONLINE</Badge>
-                <span className="font-serif text-2xl font-semibold text-accent">
+                <Badge variant="brand">Online</Badge>
+                <span className="font-serif text-2xl font-semibold text-accent tabular-nums">
                   ₹3,000
                 </span>
               </div>
@@ -40,7 +40,7 @@ export const CoursesSection: React.FC = () => {
               <p className="text-sm text-ink-muted leading-relaxed font-sans">
                 Machine setup se client ke glow tak — poora process, Hindi mein.
               </p>
-              <div className="p-3 bg-paper-2 rounded-card text-[13px] text-ink-muted font-medium space-y-1 font-sans">
+              <div className="p-3 bg-paper-2 rounded-card text-sm text-ink-muted font-medium space-y-1 font-sans">
                 <p>• Recorded + live doubt sessions</p>
                 <p>• Certificate</p>
               </div>
@@ -61,8 +61,8 @@ export const CoursesSection: React.FC = () => {
           <div className="min-w-[85%] sm:min-w-[340px] md:min-w-0 snap-center rounded-card bg-paper border border-line p-6 sm:p-8 flex flex-col justify-between">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <Badge variant="brand">ONLINE</Badge>
-                <span className="font-serif text-2xl font-semibold text-ink">
+                <Badge variant="brand">Online</Badge>
+                <span className="font-serif text-2xl font-semibold text-ink tabular-nums">
                   ₹1,000
                 </span>
               </div>
@@ -72,7 +72,7 @@ export const CoursesSection: React.FC = () => {
               <p className="text-sm text-ink-muted leading-relaxed font-sans">
                 Ek din mein specific practical technique seekhiye real model demo ke saath.
               </p>
-              <div className="p-3 bg-paper-2 rounded-card text-[13px] text-ink-muted font-medium space-y-1 font-sans">
+              <div className="p-3 bg-paper-2 rounded-card text-sm text-ink-muted font-medium space-y-1 font-sans">
                 <p>• 1 din · Recorded + live doubt session</p>
                 <p>• Certificate</p>
               </div>
@@ -93,9 +93,9 @@ export const CoursesSection: React.FC = () => {
           <div className="min-w-[85%] sm:min-w-[340px] md:min-w-0 snap-center rounded-card bg-paper border border-line p-6 sm:p-8 flex flex-col justify-between">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <Badge variant="gold">OFFLINE · BAHADURGARH</Badge>
-                <span className="text-[13px] font-semibold text-gold-text font-sans uppercase">
-                  Career Ready
+                <Badge variant="gold">Offline · Bahadurgarh</Badge>
+                <span className="text-sm font-medium text-gold-text font-sans">
+                  Career ready
                 </span>
               </div>
               <h3 className="font-serif text-2xl font-semibold text-ink">
@@ -104,7 +104,7 @@ export const CoursesSection: React.FC = () => {
               <p className="text-sm text-ink-muted leading-relaxed font-sans">
                 Makeup, hair aur skin — real models pe practice karke professional baniye.
               </p>
-              <div className="p-3 bg-paper-2 rounded-card text-[13px] text-ink-muted font-medium space-y-1 font-sans">
+              <div className="p-3 bg-paper-2 rounded-card text-sm text-ink-muted font-medium space-y-1 font-sans">
                 <p>• Hands-on practical · Academy mein</p>
                 <p>• Certificate</p>
                 <p className="font-semibold text-ink pt-1">

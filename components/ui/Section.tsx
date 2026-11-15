@@ -70,13 +70,13 @@ export const Section: React.FC<SectionProps> = ({
         {(title || number) && (
           <div
             ref={headerRef}
-            className={`mb-5 sm:mb-8 lg:mb-12 transition-all duration-500 ease-out ${
+            className={`mb-6 sm:mb-8 lg:mb-12 transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
               headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
             } ${headerCentered ? "text-center mx-auto max-w-2xl" : "max-w-3xl"}`}
           >
             <div className={`flex items-baseline gap-3 ${headerCentered ? "justify-center" : ""}`}>
               {number && (
-                <span className="font-serif text-gold-line text-xl sm:text-2xl font-semibold tracking-wide select-none">
+                <span className="font-serif text-gold-line text-xl sm:text-2xl font-semibold tabular-nums select-none">
                   {number}
                 </span>
               )}

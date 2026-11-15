@@ -24,7 +24,7 @@ export default function ContactPage() {
     <div className="w-full font-sans">
       <section className="pt-12 pb-14 border-b border-line bg-paper">
         <Container size="narrow" className="text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.12em] text-accent font-sans">
+          <span className="text-sm font-medium text-accent font-sans">
             Get in touch
           </span>
           <h1 className="font-serif text-3xl sm:text-5xl font-semibold text-ink mt-2 leading-tight">
@@ -46,7 +46,7 @@ export default function ContactPage() {
 
             <div className="space-y-4 text-sm text-ink divide-y divide-line">
               <div className="pt-2 flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-gold-line shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 stroke-[1.5] text-gold-line shrink-0 mt-0.5" />
                 <div>
                   <p className="font-semibold text-ink">Academy Address</p>
                   <p className="text-ink-muted mt-0.5">{siteConfig.address}</p>
@@ -54,20 +54,20 @@ export default function ContactPage() {
               </div>
 
               <div className="pt-4 flex items-start gap-3">
-                <Phone className="w-5 h-5 text-gold-line shrink-0 mt-0.5" />
+                <Phone className="w-5 h-5 stroke-[1.5] text-gold-line shrink-0 mt-0.5" />
                 <div>
                   <p className="font-semibold text-ink">Phone</p>
-                  <p className="text-ink-muted mt-0.5">
+                  <p className="text-ink-muted mt-0.5 tabular-nums">
                     <PlaceholderNotice label="ACADEMY PHONE" fallbackText={siteConfig.phone} />
                   </p>
                 </div>
               </div>
 
               <div className="pt-4 flex items-start gap-3">
-                <MessageCircle className="w-5 h-5 text-whatsapp shrink-0 mt-0.5" />
+                <MessageCircle className="w-5 h-5 stroke-[1.5] text-whatsapp shrink-0 mt-0.5" />
                 <div>
                   <p className="font-semibold text-ink">WhatsApp</p>
-                  <p className="text-ink-muted mt-0.5">+{siteConfig.whatsappNumber}</p>
+                  <p className="text-ink-muted mt-0.5 tabular-nums">+{siteConfig.whatsappNumber}</p>
                 </div>
               </div>
 
@@ -132,7 +132,7 @@ export default function ContactPage() {
               className="block group rounded-card overflow-hidden border border-line bg-paper p-4 hover:border-ink transition-colors"
             >
               <div className="aspect-[4/3] rounded-card bg-paper-2 flex flex-col items-center justify-center p-4 text-center">
-                <Navigation className="w-8 h-8 text-accent mb-2 group-hover:scale-110 transition-transform" />
+                <Navigation className="w-8 h-8 stroke-[1.5] text-accent mb-2" />
                 <p className="text-sm font-semibold text-ink">Open Google Maps</p>
                 <p className="text-xs text-ink-muted mt-1">{siteConfig.address}</p>
               </div>

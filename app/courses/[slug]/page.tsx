@@ -96,7 +96,7 @@ export default async function OneDayCoursePage({
 
               {/* Price Block */}
               <div className="p-4 rounded-card bg-paper-2 border border-line flex flex-wrap items-baseline gap-3">
-                <span className="font-serif text-3xl sm:text-4xl font-bold text-accent">
+                <span className="font-serif text-3xl sm:text-4xl font-semibold text-accent tabular-nums">
                   {oneDayCourse.priceDisplay}
                 </span>
                 {(!isPlaceholder(oneDayCourse.gstNote) || isDev) && (
@@ -134,7 +134,7 @@ export default async function OneDayCoursePage({
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                 {isPaymentEnabled ? (
                   <Button variant="primary" href="#enrol" className="text-base">
                     Enrol karein — {oneDayCourse.priceDisplay}
@@ -278,8 +278,8 @@ export default async function OneDayCoursePage({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="p-6 rounded-card bg-surface border border-line flex flex-col justify-between space-y-4">
               <div>
-                <span className="text-xs font-semibold text-brand uppercase">
-                  Online Specialized
+                <span className="text-xs font-medium text-brand">
+                  Online specialized
                 </span>
                 <h4 className="font-serif text-lg font-semibold text-ink mt-1">
                   Online Hydra Facial Course (₹3,000)
@@ -291,16 +291,16 @@ export default async function OneDayCoursePage({
               <Button
                 variant="secondary"
                 href="/courses/hydra-facial"
-                className="w-full text-xs py-2.5"
+                className="w-full text-xs py-3"
               >
                 Hydra Facial Course dekhein →
               </Button>
             </div>
 
-            <div className="p-6 rounded-card bg-surface border border-gold-hairline shadow-warm flex flex-col justify-between space-y-4">
+            <div className="p-6 rounded-card bg-surface border border-gold-hairline flex flex-col justify-between space-y-4">
               <div>
-                <span className="text-xs font-semibold text-gold uppercase">
-                  Offline Academy
+                <span className="text-xs font-medium text-gold">
+                  Offline academy
                 </span>
                 <h4 className="font-serif text-lg font-semibold text-ink mt-1">
                   3-Month Professional Offline Diploma
@@ -312,7 +312,7 @@ export default async function OneDayCoursePage({
               <Button
                 variant="gold"
                 href="/offline-academy"
-                className="w-full text-xs py-2.5"
+                className="w-full text-xs py-3"
               >
                 Offline Course & Demo class →
               </Button>

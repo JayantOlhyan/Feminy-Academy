@@ -17,7 +17,7 @@ export const TransformationSection: React.FC = () => {
       <Container size="wide">
         {/* Section Heading */}
         <div className="max-w-3xl mb-12 lg:mb-16">
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent font-sans">
+          <p className="text-sm font-medium text-accent font-sans">
             {transformation.eyebrow}
           </p>
           <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-ink leading-[1.1]">
@@ -49,7 +49,7 @@ export const TransformationSection: React.FC = () => {
                 {/* Pehle / Ab Framing */}
                 <div className="space-y-3 pt-2">
                   <div className="space-y-1">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-ink-muted block font-sans">
+                    <span className="text-xs font-semibold text-ink-muted block font-sans">
                       Pehle:
                     </span>
                     <p className="text-sm text-ink leading-relaxed font-sans">
@@ -61,7 +61,7 @@ export const TransformationSection: React.FC = () => {
                   </div>
 
                   <div className="space-y-1 pt-2 border-t border-line">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-accent block font-sans">
+                    <span className="text-xs font-semibold text-accent block font-sans">
                       Ab:
                     </span>
                     <p className="text-sm font-medium text-ink leading-relaxed font-sans">

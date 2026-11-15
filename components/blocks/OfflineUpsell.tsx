@@ -10,8 +10,8 @@ export const OfflineUpsell: React.FC<OfflineUpsellProps> = ({ className = "" }) 
   return (
     <div className={`rounded-card bg-paper border border-line p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 font-sans ${className}`}>
       <div className="space-y-2">
-        <span className="text-xs font-semibold uppercase tracking-[0.12em] text-accent">
-          Next Level Mastery
+        <span className="text-sm font-medium text-accent">
+          Next level mastery
         </span>
         <h3 className="font-serif text-lg sm:text-xl font-semibold text-ink">
           Professional banna hai? 3-month offline course — Bahadurgarh academy mein real models pe practice.

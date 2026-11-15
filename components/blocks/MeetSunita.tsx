@@ -28,8 +28,8 @@ export const MeetSunita: React.FC<MeetSunitaProps> = ({ className = "" }) => {
               sizes="(max-width: 768px) 100vw, 400px"
             />
             <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-ink via-ink/70 to-transparent text-white text-left">
-              <span className="text-xs uppercase tracking-[0.12em] text-gold-line font-semibold block mb-0.5">
-                Teacher & Mentor
+              <span className="text-xs text-gold-line font-medium block mb-0.5">
+                Teacher & mentor
               </span>
               <h3 className="font-serif text-xl font-semibold">
                 Sunita Rathee
@@ -42,8 +42,8 @@ export const MeetSunita: React.FC<MeetSunitaProps> = ({ className = "" }) => {
       {/* Bio points */}
       <div className="md:col-span-7 space-y-6">
         <div>
-          <span className="text-[13px] font-semibold uppercase tracking-[0.12em] text-accent font-sans">
-            Founder & Master Educator
+          <span className="text-sm font-medium text-accent font-sans">
+            Founder & master educator
           </span>
           <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-ink mt-1">
             Sunita Rathee
@@ -123,22 +123,22 @@ export const MeetSunita: React.FC<MeetSunitaProps> = ({ className = "" }) => {
             href={siteConfig.socials.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 rounded-full border border-line bg-paper text-ink hover:text-accent hover:border-accent text-[13px] font-semibold transition-colors"
+            className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 rounded-full border border-line bg-paper text-ink hover:text-accent hover:border-accent text-sm font-medium transition-colors"
           >
-            <Instagram className="w-4 h-4 text-accent" />
+            <Instagram className="w-4 h-4 stroke-[1.5] text-accent" />
             <span>{instagramStat?.verified ? `${instagramStat.value} ` : ""}Instagram Family</span>
-            <ExternalLink className="w-3.5 h-3.5 opacity-60" />
+            <ExternalLink className="w-3.5 h-3.5 stroke-[1.5] opacity-60" />
           </a>
 
           <a
             href={siteConfig.socials.youtube}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 rounded-full border border-line bg-paper text-ink hover:text-accent hover:border-accent text-[13px] font-semibold transition-colors"
+            className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 rounded-full border border-line bg-paper text-ink hover:text-accent hover:border-accent text-sm font-medium transition-colors"
           >
-            <Youtube className="w-4 h-4 text-accent" />
+            <Youtube className="w-4 h-4 stroke-[1.5] text-accent" />
             <span>@SRMvibe YouTube</span>
-            <ExternalLink className="w-3.5 h-3.5 opacity-60" />
+            <ExternalLink className="w-3.5 h-3.5 stroke-[1.5] opacity-60" />
           </a>
         </div>
       </div>

@@ -64,7 +64,7 @@ export const WorkGallery: React.FC<WorkGalleryProps> = ({
             {/* Before / After Container */}
             <div className="relative grid grid-cols-2 gap-1 p-2 bg-paper-2 aspect-[4/3]">
               <div className="relative rounded-card overflow-hidden bg-[#2D2327] flex flex-col items-center justify-center p-2 text-center">
-                <span className="text-xs font-semibold uppercase tracking-wider text-white/90 bg-black/60 px-2 py-0.5 rounded-card mb-1">
+                <span className="text-xs font-medium text-white/90 bg-black/60 px-2 py-0.5 rounded-card mb-1">
                   Before
                 </span>
                 <span className="text-xs font-mono text-white/75">
@@ -72,7 +72,7 @@ export const WorkGallery: React.FC<WorkGalleryProps> = ({
                 </span>
               </div>
               <div className="relative rounded-card overflow-hidden bg-[#3F1A28] flex flex-col items-center justify-center p-2 text-center">
-                <span className="text-xs font-semibold uppercase tracking-wider text-white/90 bg-accent/90 px-2 py-0.5 rounded-card mb-1">
+                <span className="text-xs font-medium text-white/90 bg-accent/90 px-2 py-0.5 rounded-card mb-1">
                   After
                 </span>
                 <span className="text-xs font-mono text-white/75">
@@ -83,7 +83,7 @@ export const WorkGallery: React.FC<WorkGalleryProps> = ({
               {/* Touch-visible + Desktop Hover Zoom Affordance */}
               <div className="absolute bottom-3 right-3 md:inset-0 md:bg-accent/10 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
                 <div className="p-2 rounded-full bg-paper/95 text-accent border border-line">
-                  <ZoomIn className="w-4 h-4 md:w-5 md:h-5" aria-hidden="true" />
+                  <ZoomIn className="w-4 h-4 md:w-5 md:h-5 stroke-[1.5]" aria-hidden="true" />
                 </div>
               </div>
             </div>
@@ -121,9 +121,9 @@ export const WorkGallery: React.FC<WorkGalleryProps> = ({
               type="button"
               onClick={() => setActiveItem(null)}
               aria-label="Close image modal"
-              className="absolute top-3 right-3 inline-flex items-center justify-center min-w-[44px] min-h-[44px] p-2.5 text-ink hover:text-accent bg-paper-2 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              className="absolute top-3 right-3 inline-flex items-center justify-center min-w-[44px] min-h-[44px] p-2 text-ink hover:text-accent bg-paper-2 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
-              <X className="w-5 h-5" aria-hidden="true" />
+              <X className="w-5 h-5 stroke-[1.5]" aria-hidden="true" />
             </button>
 
             <h3
