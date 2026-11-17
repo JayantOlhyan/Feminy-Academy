@@ -134,7 +134,7 @@ export const legalContent = {
       {
         heading: "5. Grievance Officer Contact",
         content:
-          "For privacy inquiries or data requests, contact our Grievance Officer at contact@feminyacademy.com, Feminy Academy, Sector 9, Bahadurgarh, Haryana.",
+          "For privacy inquiries or data requests, contact our Grievance Officer at feminyacademy@gmail.com, Feminy Academy, Sector 9, Bahadurgarh, Haryana.",
       },
     ],
   },
@@ -157,7 +157,7 @@ export const legalContent = {
       {
         heading: "3. How to Request Assistance",
         content:
-          "To request assistance regarding payments or cancellations, write to contact@feminyacademy.com or send a message on WhatsApp to +91 99553 31142 with your registration details and transaction reference.",
+          "To request assistance regarding payments or cancellations, write to feminyacademy@gmail.com or send a message on WhatsApp to +91 99553 31142 with your registration details and transaction reference.",
       },
     ],
   },

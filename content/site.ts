@@ -30,7 +30,7 @@ export const siteConfig: SiteConfig = {
   byline: "by Sunita Rathee",
   phone: "+91 99553 31142",
   whatsappNumber: "919955331142",
-  email: "contact@feminyacademy.com",
+  email: "feminyacademy@gmail.com",
   address: "Sector 9, Bahadurgarh, Haryana",
   hours: "10:00 AM - 6:00 PM",
   mapsUrl: "https://maps.google.com/?q=Sector+9+Bahadurgarh+Haryana+124507",

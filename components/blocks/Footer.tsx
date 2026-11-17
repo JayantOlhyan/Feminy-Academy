@@ -123,8 +123,8 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 shrink-0 text-gold-line" />
-                <a href="mailto:contact@feminyacademy.com" className="hover:text-accent transition-colors">
-                  contact@feminyacademy.com
+                <a href="mailto:feminyacademy@gmail.com" className="hover:text-accent transition-colors">
+                  feminyacademy@gmail.com
                 </a>
               </li>
             </ul>
