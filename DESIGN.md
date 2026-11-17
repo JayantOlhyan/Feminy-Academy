@@ -2,6 +2,18 @@
 
 Single source of truth for visual identity, typography, tokens, and component guidelines for Feminy Academy.
 
+## Current revision: 17 November 2026
+
+Jayant explicitly requested softer rounded corners, friendlier typography, the exact supplied logo, GSAP motion and Scrollcraft. This revision supersedes the older typography, mark, radius and motion restrictions below. Historical specifications are retained for context.
+
+- Display: locally hosted Bricolage Grotesque Bold, 700. Body/UI: locally hosted Work Sans, 400/700, with system script fallbacks. Fonts and OFL licenses are under `public/fonts/feminy`.
+- Identity: use the exact supplied pink-and-gold raster crest at `public/brand/feminy-academy-logo.jpg`, uncropped and unmodified. Do not substitute the old generated F mark in the header/footer.
+- Radii: media/cards 24px desktop, 20px mobile; inner surfaces 16px/12px; buttons and filters pill-shaped. Logo artwork itself is not rounded or redrawn.
+- Styling overrides: `app/soft.css` loaded after the existing shared styles. Existing wine colour and readable contrast retained.
+- Motion: one GSAP controller for anchor navigation and section/hero choreography; native wheel and touch scrolling. Gallery glide is desktop-only, pausable and suspended while interacting, offscreen, in a hidden tab or behind a dialog. Hover/focus video previews are muted, explicitly engaged and disabled for touch/reduced-motion.
+- Mobile has no parallax or automated rail glide. Reduced-motion keeps all content visible with immediate navigation and manual video playback.
+- Scrollcraft refinement brief and score live at `../scrollcraft/builds/feminy-soft/BRIEF.md`. The existing Next.js architecture and conversion logic remain in place.
+
 ---
 
 ## 1. Positioning & Strategy

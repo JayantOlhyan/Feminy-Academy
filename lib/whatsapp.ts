@@ -11,7 +11,7 @@ export type WhatsAppAction =
 export function getWhatsAppUrl(
   action: WhatsAppAction = "general",
   customText?: string,
-  oneDayCourseName: string = "[1-DAY COURSE NAME]"
+  oneDayCourseName: string = "1-Day Beauty Masterclass"
 ): string {
   const number = siteConfig.whatsappNumber.replace(/\D/g, "");
   const lid = getStoredLid();
@@ -21,7 +21,7 @@ export function getWhatsAppUrl(
 
   switch (action) {
     case "general":
-      message = "Namaste Sunita ma'am, mujhe Feminy Academy ke courses ke baare mein jaankari chahiye.";
+      message = customText || "Namaste Sunita ma'am, mujhe Feminy Academy ke courses ke baare mein jaankari chahiye.";
       break;
     case "hydrafacial_enrol":
       message = `Namaste ma'am, mujhe Online HydraFacial Course (₹3,000) join karna hai.${refSuffix}`;
@@ -30,13 +30,14 @@ export function getWhatsAppUrl(
       message = `Namaste ma'am, mujhe ${oneDayCourseName} (₹1,000) join karna hai.${refSuffix}`;
       break;
     case "question":
-      message = `Namaste ma'am, course ke baare mein ek sawaal hai: ${customText || ""}`;
+      message = customText || "Namaste ma'am, course ke baare mein ek sawaal hai.";
       break;
     case "offline":
-      message =
-        "Namaste ma'am, mujhe 3-month offline course ke baare mein jaankari chahiye aur demo class book karni hai.";
+      message = customText ||
+        "Namaste ma'am, mujhe Bahadurgarh academy ki training, fees aur counselling ke baare mein jaankari chahiye.";
       break;
   }
 
+  if (refSuffix && !message.includes(refSuffix)) message += refSuffix;
   return `https://wa.me/${number}?text=${encodeURIComponent(message.trim())}`;
 }

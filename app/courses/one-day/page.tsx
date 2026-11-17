@@ -1,7 +1,7 @@
-import OneDayCoursePage, { generateMetadata } from "../[slug]/page";
+import type { Metadata } from "next";
+import { CourseLanding } from "@/components/sales/CourseLanding";
+import { salesCourses } from "@/content/sales";
 
-export { generateMetadata };
+export const metadata: Metadata = { title: "1-Day Beauty Masterclass", description: "Explore the learning plan, meet Sunita Rathee, review fees and discuss your batch before enrolment." };
 
-export default async function Page() {
-  return <OneDayCoursePage params={Promise.resolve({ slug: "one-day" })} />;
-}
+export default function CoursePage() { return <CourseLanding course={salesCourses.find(course => course.slug === "one-day")!} />; }

@@ -163,7 +163,7 @@ export const legalContent = {
       {
         heading: "3. How to Request Assistance",
         content:
-          "To request assistance regarding payments or cancellations, write to feminyacademy@gmail.com or send a message on WhatsApp to +91 99553 31142 with your registration details and transaction reference.",
+          "To request assistance regarding payments or cancellations, write to feminyacademy@gmail.com or send a message on WhatsApp to " + siteConfig.phone + " with your registration details and transaction reference.",
       },
     ],
   },

@@ -79,10 +79,10 @@ export const FinalCTABand: React.FC<FinalCTABandProps> = ({
             <p className="text-sm text-ink-muted font-sans">
               Direct call:{" "}
               <a
-                href="tel:+919955331142"
+                href="tel:+919017643392"
                 className="inline-flex items-center justify-center min-h-[44px] px-2 py-2 font-semibold text-ink underline hover:text-accent tabular-nums"
               >
-                +91 99553 31142
+                +91 90176 43392
               </a>
             </p>
           </div>

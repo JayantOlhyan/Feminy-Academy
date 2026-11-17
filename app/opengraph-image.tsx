@@ -1,4 +1,6 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 import { siteConfig } from "@/content/site";
 
 export const alt = "Feminy Academy by Sunita Rathee";
@@ -9,6 +11,7 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image() {
+  const logo = await readFile(path.join(process.cwd(), "public/brand/feminy-academy-logo.jpg"));
   const experienceStat = siteConfig.stats.find((s) => s.id === "experience");
   const studentsStat = siteConfig.stats.find((s) => s.id === "students");
   return new ImageResponse(
@@ -28,22 +31,9 @@ export default async function Image() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-          <div
-            style={{
-              width: "48px",
-              height: "48px",
-              borderRadius: "50%",
-              backgroundColor: "#7A1F3D",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "#F2EFEC",
-              fontSize: "24px",
-              fontWeight: "bold",
-            }}
-          >
-            F
-          </div>
+          {/* ImageResponse requires a native image with an embedded source. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={`data:image/jpeg;base64,${logo.toString("base64")}`} alt="Feminy crest" width={72} height={70} style={{objectFit:"contain"}} />
           <div style={{ display: "flex", flexDirection: "column" }}>
             <span style={{ fontSize: "36px", fontWeight: "bold", letterSpacing: "-0.02em" }}>
               Feminy

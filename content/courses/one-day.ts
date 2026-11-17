@@ -16,7 +16,7 @@ export const oneDayCourse: CourseData = {
   priceDisplay: "₹1,000",
   gstNote: "[GST NOTE]",
   accessDuration: "[ACCESS DURATION]",
-  checkoutUrl: "https://wa.me/919955331142?text=Hello%20Sunita%20ma%27am%2C%20mujhe%201-Day%20Masterclass%20mein%20enrol%20karna%20hai",
+  checkoutUrl: "https://wa.me/919017643392?text=Hello%20Sunita%20ma%27am%2C%20mujhe%201-Day%20Masterclass%20mein%20enrol%20karna%20hai",
   chips: [
     "1 din",
     "Structured + live doubt session",

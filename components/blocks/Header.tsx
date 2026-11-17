@@ -1,167 +1,26 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, MessageCircle } from "lucide-react";
-import { siteConfig } from "@/content/site";
-import { getWhatsAppUrl } from "@/lib/whatsapp";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
 import { storeUrlAttribution, isAdLandingSession } from "@/lib/lid";
-import { initAnalytics, trackEvent, trackWhatsAppClick } from "@/lib/tracking";
-import { Logo } from "@/components/ui/Logo";
+import { initAnalytics, trackEvent } from "@/lib/tracking";
+import { EnquiryLink } from "@/components/sales/Interactions";
 
-export const Header: React.FC = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isAdLanding, setIsAdLanding] = useState(false);
-  const [whatsappHref, setWhatsappHref] = useState(() => getWhatsAppUrl("general"));
+export function Brand() {
+  return <Link href="/" className="sales-brand" aria-label="Feminy Academy home"><Image className="sales-brand-logo" src="/brand/feminy-academy-logo.jpg" alt="Feminy crest logo" width={64} height={62} priority /><span className="sales-brand-name"><strong>Feminy Academy</strong><span>by Sunita Rathee</span></span></Link>;
+}
 
-  useEffect(() => {
-    storeUrlAttribution();
-    initAnalytics();
-    setIsAdLanding(isAdLandingSession());
-    setWhatsappHref(getWhatsAppUrl("general"));
-  }, []);
-
-  const handleWhatsAppClick = () => {
-    trackWhatsAppClick("header");
-    trackEvent("cta_click", { label: "whatsapp", location: "header" });
-  };
-
-  return (
-    <header className="sticky top-0 z-40 w-full bg-paper border-b border-line">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 h-16 sm:h-18 py-2 sm:py-3">
-        {/* Official Brand Logo */}
-        <Link
-          href="/"
-          aria-label="Feminy Academy Home"
-          className="group inline-flex items-center h-[48px] min-w-[44px] py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-card"
-        >
-          <Logo variant="full" theme="light" />
-        </Link>
-
-        {/* Ad Landing Mode: Hide nav links, show only WhatsApp */}
-        {isAdLanding ? (
-          <div>
-            <a
-              href={whatsappHref || "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={handleWhatsAppClick}
-              className="inline-flex items-center justify-center gap-2 h-[44px] min-w-[44px] px-4 text-sm font-semibold rounded-full bg-whatsapp text-white hover:bg-[#188346] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-whatsapp"
-            >
-              <MessageCircle className="w-4 h-4 stroke-[1.5]" aria-hidden="true" />
-              <span>WhatsApp karein</span>
-            </a>
-          </div>
-        ) : (
-          <>
-            {/* Desktop Navigation Links */}
-            <nav className="hidden md:flex items-center gap-6 font-sans" aria-label="Main Navigation">
-              <Link
-                href="/#courses"
-                className="inline-flex items-center h-[44px] px-2 text-sm font-medium text-ink hover:text-accent transition-colors"
-              >
-                Courses
-              </Link>
-              <Link
-                href="/offline-academy"
-                className="inline-flex items-center h-[44px] px-2 text-sm font-medium text-ink hover:text-accent transition-colors"
-              >
-                Offline Academy
-              </Link>
-              <Link
-                href="/about"
-                className="inline-flex items-center h-[44px] px-2 text-sm font-medium text-ink hover:text-accent transition-colors"
-              >
-                About Sunita
-              </Link>
-              <a
-                href={whatsappHref || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={handleWhatsAppClick}
-                className="inline-flex items-center justify-center gap-2 h-[44px] px-4 text-sm font-semibold rounded-full bg-whatsapp text-white hover:bg-[#188346] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-whatsapp"
-              >
-                <MessageCircle className="w-4 h-4 stroke-[1.5]" aria-hidden="true" />
-                <span>WhatsApp karein</span>
-              </a>
-            </nav>
-
-            {/* Mobile Header Buttons */}
-            <div className="flex md:hidden items-center gap-3 font-sans">
-              <a
-                href={whatsappHref || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={handleWhatsAppClick}
-                aria-label="WhatsApp"
-                className="inline-flex items-center justify-center min-w-[44px] min-h-[44px] p-2 rounded-full bg-whatsapp text-white hover:bg-[#188346] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-whatsapp"
-              >
-                <MessageCircle className="w-5 h-5 stroke-[1.5]" aria-hidden="true" />
-              </a>
-
-              <button
-                type="button"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                aria-expanded={mobileMenuOpen}
-                aria-label="Toggle navigation menu"
-                className="inline-flex items-center justify-center min-w-[44px] min-h-[44px] p-2 text-ink hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-card"
-              >
-                {mobileMenuOpen ? (
-                  <X className="w-6 h-6 stroke-[1.5]" aria-hidden="true" />
-                ) : (
-                  <Menu className="w-6 h-6 stroke-[1.5]" aria-hidden="true" />
-                )}
-              </button>
-            </div>
-          </>
-        )}
-      </div>
-
-      {/* Mobile Drawer (Only when not ad landing) */}
-      {!isAdLanding && mobileMenuOpen && (
-        <div className="md:hidden border-t border-line bg-paper px-4 pt-3 pb-6 space-y-3 font-sans">
-          <Link
-            href="/#courses"
-            onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center min-h-[44px] text-base font-medium text-ink hover:text-accent px-2"
-          >
-            Courses
-          </Link>
-          <Link
-            href="/offline-academy"
-            onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center min-h-[44px] text-base font-medium text-ink hover:text-accent px-2"
-          >
-            Offline Academy (Bahadurgarh)
-          </Link>
-          <Link
-            href="/about"
-            onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center min-h-[44px] text-base font-medium text-ink hover:text-accent px-2"
-          >
-            About Sunita
-          </Link>
-          <Link
-            href="/contact"
-            onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center min-h-[44px] text-base font-medium text-ink hover:text-accent px-2"
-          >
-            Contact & Address
-          </Link>
-          <div className="pt-2">
-            <a
-              href={whatsappHref || "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={handleWhatsAppClick}
-              className="flex items-center justify-center gap-2 min-h-[48px] w-full px-4 py-3 text-base font-semibold rounded-full bg-whatsapp text-white hover:bg-[#188346] transition-colors"
-            >
-              <MessageCircle className="w-5 h-5 stroke-[1.5]" aria-hidden="true" />
-              <span>WhatsApp pe baat karein</span>
-            </a>
-          </div>
-        </div>
-      )}
-    </header>
-  );
-};
+export function Header() {
+  const [open, setOpen] = useState(false);
+  const [adLanding, setAdLanding] = useState(false);
+  const pathname = usePathname();
+  const previousPath = useRef(pathname);
+  useEffect(() => { storeUrlAttribution(); initAnalytics(); setAdLanding(isAdLandingSession()); }, [pathname]);
+  useEffect(() => { if (previousPath.current !== pathname) { trackEvent("PageView", { page_path: pathname }); previousPath.current = pathname; } }, [pathname]);
+  useEffect(() => { setOpen(false); }, [pathname]);
+  useEffect(() => { if (!open) return; const escape = (event: KeyboardEvent) => { if (event.key === "Escape") { setOpen(false); document.getElementById("sales-menu-button")?.focus(); } }; document.addEventListener("keydown", escape); return () => document.removeEventListener("keydown", escape); }, [open]);
+  return <header className="sales-header"><div className="sales-container sales-header-inner"><Brand />{adLanding ? <EnquiryLink location="ad_header" className="sales-text-link">Ask a question</EnquiryLink> : <><nav className="sales-desktop-nav" aria-label="Main navigation"><Link href="/#courses">Our courses</Link><Link href="/offline-academy">The academy</Link><Link href="/about">Meet Sunita</Link><EnquiryLink location="header" className="sales-button sales-button-outline">Let’s talk</EnquiryLink></nav><button id="sales-menu-button" className="sales-menu-button" onClick={() => setOpen(!open)} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="sales-mobile-navigation">{open ? <X size={24} /> : <Menu size={24} />}</button></> }</div>{open && !adLanding && <nav className="sales-mobile-nav" id="sales-mobile-navigation" aria-label="Mobile navigation"><Link onClick={() => setOpen(false)} href="/#courses">Our courses</Link><Link onClick={() => setOpen(false)} href="/offline-academy">The academy</Link><Link onClick={() => setOpen(false)} href="/about">Meet Sunita</Link><Link onClick={() => setOpen(false)} href="/pricing">Course fees</Link><Link onClick={() => setOpen(false)} href="/contact">Contact</Link><EnquiryLink location="mobile_menu">Talk on WhatsApp</EnquiryLink></nav>}</header>;
+}

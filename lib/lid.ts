@@ -47,11 +47,18 @@ export function getUtmParams(): Record<string, string> {
   return stored;
 }
 
+function hasAdAttribution(params: URLSearchParams): boolean {
+  const source = (params.get("utm_source") || "").toLowerCase();
+  const medium = (params.get("utm_medium") || "").toLowerCase();
+  return Boolean(params.get("lid") || params.get("fbclid") || source === "meta" ||
+    (["instagram", "facebook", "ig", "fb"].includes(source) && ["paid_social", "paid", "cpc", "ads"].includes(medium)));
+}
+
 export function storeUrlAttribution(): { lid: string | null; isAdLanding: boolean } {
   if (typeof window === "undefined") return { lid: null, isAdLanding: false };
   const params = new URLSearchParams(window.location.search);
   const urlLid = params.get("lid");
-  const isAdFromUrl = Boolean(urlLid || params.get("utm_source") === "meta");
+  const isAdFromUrl = hasAdAttribution(params);
   const utms = getUtmParams();
 
   let storedLid: string | null = null;
@@ -74,7 +81,7 @@ export function isAdLandingSession(): boolean {
   if (typeof window === "undefined") return false;
   try {
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get("lid") || urlParams.get("utm_source") === "meta") {
+    if (hasAdAttribution(urlParams)) {
       return true;
     }
     return sessionStorage.getItem("feminy_ad_landing") === "true";

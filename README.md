@@ -1,3 +1,53 @@
+# Feminy Academy landing pages
+
+Current landing-page source includes the supplied crest logo, self-hosted Bricolage Grotesque and Work Sans, rounded surfaces, GSAP navigation and media motion, gallery filters, video stories and WhatsApp enquiries.
+
+Run `npm ci`, `npm run build`, then `npm start`. For development, use `npm run dev`. Do not build while the development server is running because both write `.next`.
+
+Production domain: https://feminy.academy. Set environment values using `.env.example`; no credentials are included. Existing email fixes are retained. WhatsApp enquiries use +91 90176 43392, matching the supplied asset pack and reviewed local version.
+
+See `docs/scrollcraft/BRIEF.md` and `docs/scrollcraft/VERIFICATION.md` for the motion design and verification limits. Current course terms, fee confirmation, live lead delivery and actual-device checks remain owner/deployment responsibilities. Reduced-motion handling is implemented; browser emulation could not be visually verified.
+
+The source media used by the site is included under `public/assets`, with selected pre-existing photographs under `public/academy`. Videos are loaded on interaction. No direct Google Drive embedding is required.
+
+---
+
+## Earlier project documentation
+
+The following notes retain previous implementation history and local handover context; the current instructions above take precedence.
+
+# Feminy Academy — mobile-first course website
+
+This workspace contains the 16 November 2026 redesign of the supplied Next.js project. The original Desktop folder is unchanged.
+
+## Current version
+
+- Homepage and two course landing pages, academy counselling, fees, about, contact and enquiry follow-up.
+- Real supplied photography and three clearly attributed archived client reviews.
+- WhatsApp-assisted enquiries to **+91 90176 43392**; no direct payment or learner portal.
+- Shared sales components in `components/sales`, course positioning in `content/sales.ts`, and scoped styles in `app/sales.css`.
+- Fonts are self-hosted copies of the original project’s built font subsets, so the build does not require Google Fonts network access.
+- Existing lead API, MongoDB/Sheet delivery and Meta conversion integrations are retained. Configure them before relying on the enquiry form or advertising reports.
+
+Read [the complete workflow](docs/CONVERSION-WORKFLOW.md) and [verification results](docs/VERIFICATION.md) before launch. Listed fees, exact syllabi, batch dates, access periods and certificate/refund terms require the academy’s current written confirmation. No current learner results have been invented.
+
+## Run an independent copy
+
+```sh
+npm ci
+npm run build
+node scripts/check-sales-behavior.mjs
+npm start
+```
+
+Use `.env.example` to configure local environment values. Do not commit real credentials. The current workspace links to the supplied project’s installed dependencies; run `npm ci` after extracting the source archive elsewhere.
+
+## Earlier project reference
+
+The original documentation follows for reference. Where it describes removed page sections, use the current implementation and workflow above.
+
+---
+
 # Feminy Academy — Official Website
 
 > **High-converting, mobile-first beauty academy platform by Sunita Rathee (Bahadurgarh, Haryana).**  
@@ -5,7 +55,7 @@
 
 🔗 **Live Production Site:** [https://feminy.academy/](https://feminy.academy/)
 
-[![Live Deployment](https://img.shields.io/badge/Live_Site-feminy.academy-00C7B7?style=flat&logo=netlify)](https://feminy.academy/)
+[![Live Deployment](https://img.shields.io/badge/Live_Site-feminy--academy.netlify.app-00C7B7?style=flat&logo=netlify)](https://feminy.academy/)
 [![Next.js 15](https://img.shields.io/badge/Next.js-15.5.29-black?style=flat&logo=next.js)](https://nextjs.org/)
 [![React 19](https://img.shields.io/badge/React-19.0-61dafb?style=flat&logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178c6?style=flat&logo=typescript)](https://www.typescriptlang.org/)

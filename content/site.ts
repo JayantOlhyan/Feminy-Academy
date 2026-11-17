@@ -36,8 +36,8 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   brand: "Feminy Academy",
   byline: "by Sunita Rathee",
-  phone: "+91 99553 31142",
-  whatsappNumber: "919955331142",
+  phone: "+91 90176 43392",
+  whatsappNumber: "919017643392",
   email: "feminyacademy@gmail.com",
   address: "Sector 9, Bahadurgarh, Haryana",
   hours: "[ACADEMY HOURS]",

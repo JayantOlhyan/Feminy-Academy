@@ -1,23 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Bodoni_Moda, Mukta } from "next/font/google";
+import "./fonts.css";
 import "./globals.css";
+import "./sales.css";
+import "./soft.css";
+import { LandingMotion } from "@/components/sales/LandingMotion";
 import { Header } from "@/components/blocks/Header";
 import { Footer } from "@/components/blocks/Footer";
 import { siteConfig } from "@/content/site";
 
-const bodoniModa = Bodoni_Moda({
-  subsets: ["latin"],
-  weight: ["500", "600"],
-  variable: "--font-bodoni",
-  display: "swap",
-});
-
-const mukta = Mukta({
-  subsets: ["latin"],
-  weight: ["400", "600"],
-  variable: "--font-mukta",
-  display: "swap",
-});
 
 export const viewport: Viewport = {
   themeColor: "#7A1F3D",
@@ -37,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s | Feminy Academy",
   },
   description:
-    "HydraFacial, makeup aur beauty courses Hindi mein. Expert cosmetologist Sunita Rathee se online seekhiye ya Bahadurgarh academy mein. Live doubt sessions + certificate.",
+    "Explore beauty courses with Sunita Rathee. Compare learning plans, meet your teacher, and discuss online or Bahadurgarh academy training.",
   keywords: [
     "Hydra Facial course Hindi",
     "beauty academy Bahadurgarh",
@@ -50,7 +40,7 @@ export const metadata: Metadata = {
   creator: "Feminy Academy",
   publisher: "Feminy Academy",
   icons: {
-    icon: "/icon.svg",
+    icon: "/icon-32.png",
     apple: "/apple-icon.png",
   },
   manifest: "/manifest.webmanifest",
@@ -60,7 +50,7 @@ export const metadata: Metadata = {
     url: siteUrl,
     title: "Feminy Academy by Sunita Rathee | Beauty Courses — Online & Bahadurgarh",
     description:
-      "Beauty seekhiye expert cosmetologist Sunita Rathee se — ghar baithe, ya Bahadurgarh academy mein. Simple Hindi mein, live doubt sessions ke saath.",
+      "Explore beauty courses with Sunita Rathee. Compare online learning and Bahadurgarh academy training, see her work and discuss enrolment.",
     siteName: "Feminy Academy",
   },
   ...(isStaging
@@ -93,7 +83,7 @@ export default function RootLayout({
         name: siteConfig.brand,
         alternateName: "Feminy Academy by Sunita Rathee",
         url: siteUrl,
-        logo: `${siteUrl}/icon-512.png`,
+        logo: `${siteUrl}/brand/feminy-academy-logo.jpg`,
         image: `${siteUrl}/icon-512.png`,
         telephone: siteConfig.phone,
         address: {
@@ -135,7 +125,6 @@ export default function RootLayout({
   return (
     <html
       lang="en-IN"
-      className={`${bodoniModa.variable} ${mukta.variable}`}
       suppressHydrationWarning
     >
       <body className="min-h-screen min-h-dvh flex flex-col font-sans bg-paper text-ink antialiased">
@@ -143,8 +132,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <a className="skip-link" href="#main-content">Skip to content</a>
         <Header />
-        <main className="flex-1 pb-20 md:pb-0">{children}</main>
+        <LandingMotion />
+        <main id="main-content" className="flex-1">{children}</main>
         <Footer />
       </body>
     </html>

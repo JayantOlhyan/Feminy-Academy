@@ -218,7 +218,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
                     autoComplete="tel"
                     enterKeyHint="send"
                     required
-                    maxLength={10}
+                    maxLength={16}
                     placeholder="98765 43210"
                     aria-invalid={phoneError ? "true" : "false"}
                     aria-describedby={phoneError ? `phone-err-${uid}` : undefined}
@@ -274,6 +274,9 @@ export const LeadForm: React.FC<LeadFormProps> = ({
           >
             {loading ? "Submit ho raha hai..." : submitLabel || "Free demo class book karein"}
           </Button>
+          <p className="text-xs text-ink-muted">
+            Is request par academy aapse training ke baare mein call ya WhatsApp par contact kar sakti hai. <Link href="/privacy" className="underline underline-offset-4">Privacy information</Link>
+          </p>
         </form>
       </div>
     );

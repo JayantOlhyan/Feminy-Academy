@@ -5,8 +5,12 @@ declare global {
     fbq?: (...args: unknown[]) => void;
     gtag?: (...args: unknown[]) => void;
     _feminyTrackingLoaded?: boolean;
+    _feminyTrackingScheduled?: boolean;
   }
 }
+
+// Course views and first-click events may happen before the deferred scripts load.
+const pendingEvents: { name: Parameters<typeof trackEvent>[0]; params?: Record<string, unknown>; id?: string }[] = [];
 
 export function generateEventId(prefix = "evt"): string {
   if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
@@ -16,7 +20,8 @@ export function generateEventId(prefix = "evt"): string {
 }
 
 export function initAnalytics(): void {
-  if (typeof window === "undefined" || window._feminyTrackingLoaded) return;
+  if (typeof window === "undefined" || window._feminyTrackingScheduled || window._feminyTrackingLoaded) return;
+  window._feminyTrackingScheduled = true;
 
   const metaPixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
   const gaId = process.env.NEXT_PUBLIC_GA4_ID;
@@ -67,6 +72,8 @@ export function initAnalytics(): void {
       window.gtag("js", new Date());
       window.gtag("config", gaId);
     }
+    const queued = pendingEvents.splice(0);
+    queued.forEach(event => trackEvent(event.name, event.params, event.id));
   };
 
   // Trigger on first user interaction or after 3s idle
@@ -95,6 +102,11 @@ export function trackEvent(
   eventId?: string
 ): void {
   if (typeof window === "undefined") return;
+
+  if (!window._feminyTrackingLoaded) {
+    if (pendingEvents.length < 100) pendingEvents.push({ name: eventName, params, id: eventId });
+    return;
+  }
 
   // Meta Pixel mapping
   if (window.fbq) {

@@ -1,0 +1,128 @@
+{
+  "gallery": [
+    {
+      "src": "/assets/05-gallery/bridal-studio-shoot/bridal-shoot-01.webp",
+      "alt": "Bridal portrait with pink eye makeup, floral hair and traditional jewellery",
+      "category": "Bridal artistry",
+      "title": "Bridal colour & finish"
+    },
+    {
+      "src": "/assets/05-gallery/bridal-studio-shoot/bridal-shoot-05.webp",
+      "alt": "Pink bridal makeup with a green veil and gold jewellery",
+      "category": "Bridal artistry",
+      "title": "Bridal colour & finish"
+    },
+    {
+      "src": "/assets/05-gallery/bridal-studio-shoot/bridal-shoot-11-artist-at-work.webp",
+      "alt": "Sunita applying eye makeup to a bride during a studio shoot",
+      "category": "Bridal artistry",
+      "title": "Bridal colour & finish"
+    },
+    {
+      "src": "/assets/05-gallery/bridal-studio-shoot/bridal-shoot-13-artist-at-work.webp",
+      "alt": "Sunita applying blush to a bride\u2019s cheek",
+      "category": "Bridal artistry",
+      "title": "Bridal colour & finish"
+    },
+    {
+      "src": "/assets/05-gallery/bridal-studio-shoot/bridal-shoot-14-artist-at-work.webp",
+      "alt": "Close view of bridal eye makeup and skin finish",
+      "category": "Bridal artistry",
+      "title": "Bridal colour & finish"
+    },
+    {
+      "src": "/assets/05-gallery/before-after-makeup/before-after-2020-03-03.webp",
+      "alt": "Before/after makeup split image",
+      "category": "Before & after",
+      "title": "Makeup transformation"
+    },
+    {
+      "src": "/assets/05-gallery/before-after-makeup/before-after-2021-10-20.webp",
+      "alt": "Before/after makeup split image",
+      "category": "Before & after",
+      "title": "Makeup transformation"
+    },
+    {
+      "src": "/assets/05-gallery/before-after-makeup/before-after-2021-10-21.webp",
+      "alt": "Before/after makeup split image",
+      "category": "Before & after",
+      "title": "Makeup transformation"
+    },
+    {
+      "src": "/assets/05-gallery/before-after-makeup/before-after-2021-12-30.webp",
+      "alt": "Before/after makeup split image",
+      "category": "Before & after",
+      "title": "Makeup transformation"
+    },
+    {
+      "src": "/assets/05-gallery/hair/haircut-before-after-01.webp",
+      "alt": "Haircut before/after Instagram post (#feminyacademy)",
+      "category": "Hair",
+      "title": "Hair work & practice"
+    },
+    {
+      "src": "/assets/05-gallery/hair/haircut-before-after-02.webp",
+      "alt": "Haircut before/after Instagram post (#feminyacademy)",
+      "category": "Hair",
+      "title": "Hair work & practice"
+    },
+    {
+      "src": "/assets/05-gallery/hair/hair-smoothening-gloss-result.webp",
+      "alt": "Hair gloss / smoothening result",
+      "category": "Hair",
+      "title": "Hair work & practice"
+    },
+    {
+      "src": "/assets/05-gallery/hair/hairstyling-practice-on-mannequins-collage.webp",
+      "alt": "Hairstyles on mannequin heads - academy training work",
+      "category": "Hair",
+      "title": "Hair work & practice"
+    },
+    {
+      "src": "/assets/05-gallery/salon-interior/salon-styling-stations-01.webp",
+      "alt": "Styling mirrors and chairs in Sunita\u2019s studio",
+      "category": "The studio",
+      "title": "Inside the Bahadurgarh studio"
+    },
+    {
+      "src": "/assets/05-gallery/salon-interior/salon-reception-desk-01.webp",
+      "alt": "Reception desk and framed photographs in the studio",
+      "category": "The studio",
+      "title": "Inside the Bahadurgarh studio"
+    },
+    {
+      "src": "/assets/05-gallery/salon-interior/salon-waiting-area-neon-sign-01.webp",
+      "alt": "Waiting bench beside the studio\u2019s green feature wall",
+      "category": "The studio",
+      "title": "Inside the Bahadurgarh studio"
+    },
+    {
+      "src": "/assets/05-gallery/salon-interior/salon-hair-wash-pedicure-area-01.webp",
+      "alt": "Hair wash and pedicure chairs in the studio",
+      "category": "The studio",
+      "title": "Inside the Bahadurgarh studio"
+    }
+  ],
+  "videos": [
+    {
+      "src": "/assets/04-testimonials/video-stories/story-01-spoken-review-combined.mp4",
+      "poster": "/assets/04-testimonials/video-stories/story-01-spoken-review-combined-poster.jpg",
+      "title": "A client\u2019s experience"
+    },
+    {
+      "src": "/assets/04-testimonials/video-stories/story-02-bride-yellow-saree-combined.mp4",
+      "poster": "/assets/04-testimonials/video-stories/story-02-bride-yellow-saree-combined-poster.jpg",
+      "title": "A bridal moment"
+    },
+    {
+      "src": "/assets/04-testimonials/video-stories/story-03-client-orange-green-saree-combined.mp4",
+      "poster": "/assets/04-testimonials/video-stories/story-03-client-orange-green-saree-combined-poster.jpg",
+      "title": "Ready for her occasion"
+    },
+    {
+      "src": "/assets/04-testimonials/video-stories/story-05-happy-client-srm.mp4",
+      "poster": "/assets/04-testimonials/video-stories/story-05-happy-client-srm-poster.jpg",
+      "title": "From the salon chair"
+    }
+  ]
+}

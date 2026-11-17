@@ -1,0 +1,115 @@
+{
+ "source": "Justdial listing 'Femina Beauty Point', Bahadurgarh. OCR of 04-testimonials/reviews/justdial-reviews-femina-beauty-point-2016-2019.pdf",
+ "aggregate": {
+  "rating": 4.8,
+  "count": 62,
+  "platform": "Justdial",
+  "note": "Old listing name. Reviews are 2016-2019, so they are stale. Fresh Google reviews would be better."
+ },
+ "excluded": "Reviews by 'Sunita Rathee', 'Pankaj Rathee', 'Meena Rathee' and 'Ashi Rathee' (self/family) were left out on purpose. Never show them.",
+ "reviews": [
+  {
+   "name": "Gourav",
+   "rating": 5,
+   "date": "2018-03-11",
+   "text_verbatim": "Best parlour in bhaduragrh its worth investing money there.... reasonable excellent work cooperative staff ..Even compared to Delhi..."
+  },
+  {
+   "name": "Himanshi",
+   "rating": 5,
+   "date": "2018-02-20",
+   "text_verbatim": "I had the best experience with this parlor. Makeup amazingly done and I totally appreciate the efforts. Completely satisfied with all the services."
+  },
+  {
+   "name": "Nikita Paliwal",
+   "rating": 5,
+   "date": "2018-07-15",
+   "text_verbatim": "Best experience for bridal Makeup ..... Loved the services !"
+  },
+  {
+   "name": "Mamta",
+   "rating": 5,
+   "date": "2018-07-09",
+   "text_verbatim": "Best for makeup n other services everyone must try.....thank you femina for the gorgeous makeup done for my special day..."
+  },
+  {
+   "name": "Amit",
+   "rating": 5,
+   "date": "2018-08-12",
+   "text_verbatim": "Best in the city! Well trained staff with all services at very reasonable price!"
+  },
+  {
+   "name": "Ruby",
+   "rating": 5,
+   "date": "2018-07-01",
+   "text_verbatim": "great experience best in bahadurgarh reasonable as compared to delhi."
+  },
+  {
+   "name": "Lalita",
+   "rating": 5,
+   "date": "2017-09-28",
+   "text_verbatim": "Absolutely amazing, thanks for the care!. Enjoyed the services, awesome facial and awesome relaxation."
+  },
+  {
+   "name": "Sharmila",
+   "rating": 4.5,
+   "date": "2018-10-31",
+   "text_verbatim": "Awesome work.. Everything is superb.. Always above the expectations..."
+  },
+  {
+   "name": "Jyoti",
+   "rating": 5,
+   "date": "2018-12-29",
+   "text_verbatim": "The best in the city with the best makeup and other services."
+  },
+  {
+   "name": "Priyanka",
+   "rating": 5,
+   "date": "2018-12-28",
+   "text_verbatim": "Nice and satisfactory quality.... I always prefer femina for haircut and others"
+  },
+  {
+   "name": "Santosh",
+   "rating": 5,
+   "date": "2018-05-07",
+   "text_verbatim": "Excellent services and best makeovers with best facial."
+  },
+  {
+   "name": "Nandani",
+   "rating": 5,
+   "date": "2018-02-08",
+   "text_verbatim": "Wonderful experience and elegant makeovers."
+  },
+  {
+   "name": "Monika",
+   "rating": 5,
+   "date": "2016-10-07",
+   "text_verbatim": "I found Femina Parlour best one in Bahadurgarh and it's quantitative and hygienic also."
+  },
+  {
+   "name": "Kanchan",
+   "rating": 5,
+   "date": "2018-03-01",
+   "text_verbatim": "Best beauty parlor in Bahadurgarh!"
+  },
+  {
+   "name": "Suman Kadian",
+   "rating": 5,
+   "date": "2019-06-17",
+   "text_verbatim": "Very impressive and good service"
+  },
+  {
+   "name": "Deepika",
+   "rating": 4.5,
+   "date": "2019-06-17",
+   "text_verbatim": "Mind blowing makeup."
+  },
+  {
+   "name": "Rana",
+   "rating": 4,
+   "date": "2018-02-07",
+   "text_verbatim": "Awesome make ....Look really beautiful..."
+  }
+ ],
+ "rules": "text_verbatim is the review as posted (OCR, original spelling). If you display it, show it as written. Light typo fixes are fine, but do not change the meaning or remove 'Femina'. If the old brand name is a problem, pick a different review. Always attribute to Justdial with the date."
+}
