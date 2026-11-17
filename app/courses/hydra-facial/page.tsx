@@ -53,7 +53,7 @@ export default function HydraFacialCoursePage() {
     provider: {
       "@type": "Organization",
       name: siteConfig.brand,
-      sameAs: "https://feminyacademy.com",
+      sameAs: "https://feminy.academy",
     },
     offers: {
       "@type": "Offer",

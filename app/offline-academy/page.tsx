@@ -50,7 +50,7 @@ export default function OfflineAcademyPage() {
     provider: {
       "@type": "Organization",
       name: "Feminy Academy",
-      sameAs: "https://feminyacademy.com",
+      sameAs: "https://feminy.academy",
     },
     educationalCredentialAwarded: "Feminy Academy Professional Diploma",
     courseMode: "Onsite",

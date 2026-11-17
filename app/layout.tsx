@@ -27,7 +27,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://feminyacademy.com"),
+  metadataBase: new URL("https://feminy.academy"),
   title: {
     default: "Feminy Academy by Sunita Rathee | Beauty Courses — Online & Bahadurgarh",
     template: "%s | Feminy Academy",
@@ -53,14 +53,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://feminyacademy.com",
+    url: "https://feminy.academy",
     title: "Feminy Academy by Sunita Rathee | Beauty Courses — Online & Bahadurgarh",
     description:
       "Beauty seekhiye 15 saal ki expert Sunita Rathee se — ghar baithe, ya Bahadurgarh academy mein. Simple Hindi mein, live doubt sessions ke saath.",
     siteName: "Feminy Academy",
   },
   alternates: {
-    canonical: "https://feminyacademy.com",
+    canonical: "https://feminy.academy",
   },
 };
 
@@ -74,12 +74,12 @@ export default function RootLayout({
     "@graph": [
       {
         "@type": "EducationalOrganization",
-        "@id": "https://feminyacademy.com/#organization",
+        "@id": "https://feminy.academy/#organization",
         name: siteConfig.brand,
         alternateName: "Feminy Academy by Sunita Rathee",
-        url: "https://feminyacademy.com",
-        logo: "https://feminyacademy.com/icon-512.png",
-        image: "https://feminyacademy.com/icon-512.png",
+        url: "https://feminy.academy",
+        logo: "https://feminy.academy/icon-512.png",
+        image: "https://feminy.academy/icon-512.png",
         telephone: siteConfig.phone,
         address: {
           "@type": "PostalAddress",
@@ -92,9 +92,9 @@ export default function RootLayout({
       },
       {
         "@type": "LocalBusiness",
-        "@id": "https://feminyacademy.com/#localbusiness",
+        "@id": "https://feminy.academy/#localbusiness",
         name: `${siteConfig.brand} Studio & Academy`,
-        image: "https://feminyacademy.com/images/sunita-portrait.jpg",
+        image: "https://feminy.academy/images/sunita-portrait.jpg",
         telephone: siteConfig.phone,
         address: {
           "@type": "PostalAddress",

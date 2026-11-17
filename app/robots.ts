@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/", "/thank-you"],
     },
-    sitemap: "https://feminyacademy.com/sitemap.xml",
+    sitemap: "https://feminy.academy/sitemap.xml",
   };
 }
