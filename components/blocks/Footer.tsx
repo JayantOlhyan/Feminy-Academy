@@ -131,12 +131,12 @@ export const Footer: React.FC = () => {
                 </li>
               )}
               {(!isPlaceholder(siteConfig.email) || isDev) && (
-                <li className="flex items-center gap-2.5">
-                  <Mail className="w-4 h-4 shrink-0 text-gold-line" />
+                <li className="flex items-center gap-3">
+                  <Mail className="w-4 h-4 shrink-0 stroke-[1.5] text-gold-line" />
                   {isPlaceholder(siteConfig.email) ? (
                     <PlaceholderNotice label="ACADEMY EMAIL" fallbackText={siteConfig.email} />
                   ) : (
-                    <a href={`mailto:${siteConfig.email}`} className="hover:text-accent transition-colors">
+                    <a href={`mailto:${siteConfig.email}`} className="inline-flex items-center min-h-[44px] hover:text-accent transition-colors">
                       {siteConfig.email}
                     </a>
                   )}

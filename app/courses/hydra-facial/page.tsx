@@ -55,7 +55,7 @@ export default function HydraFacialCoursePage() {
     provider: {
       "@type": "Organization",
       name: siteConfig.brand,
-      sameAs: process.env.NEXT_PUBLIC_SITE_URL || "https://feminy-academy.netlify.app",
+      sameAs: process.env.NEXT_PUBLIC_SITE_URL || "https://feminy.academy",
     },
     offers: {
       "@type": "Offer",

@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://feminy-academy.netlify.app";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://feminy.academy";
   const siteEnv = process.env.NEXT_PUBLIC_SITE_ENV || "staging";
   const isStaging = siteEnv !== "production";
 

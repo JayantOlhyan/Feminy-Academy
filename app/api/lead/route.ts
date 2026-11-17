@@ -177,7 +177,7 @@ export async function POST(req: NextRequest) {
     // Fire server-side Meta CAPI Lead event after a successful durable save (non-blocking, 3s timeout inside helper)
     const fbp = req.cookies.get("_fbp")?.value || null;
     const fbc = req.cookies.get("_fbc")?.value || null;
-    const origin = req.headers.get("origin") || "https://feminy-academy.netlify.app";
+    const origin = req.headers.get("origin") || "https://feminy.academy";
     const sourceUrl =
       req.headers.get("referer") ||
       (parsed.data.page ? `${origin}${parsed.data.page}` : origin);

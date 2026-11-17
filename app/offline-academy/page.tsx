@@ -51,7 +51,7 @@ export default function OfflineAcademyPage() {
     provider: {
       "@type": "Organization",
       name: "Feminy Academy",
-      sameAs: process.env.NEXT_PUBLIC_SITE_URL || "https://feminy-academy.netlify.app",
+      sameAs: process.env.NEXT_PUBLIC_SITE_URL || "https://feminy.academy",
     },
     educationalCredentialAwarded: "Feminy Academy Professional Diploma",
     courseMode: "Onsite",

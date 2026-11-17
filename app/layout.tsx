@@ -26,8 +26,7 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-// TODO(domain): decide myfeminy.com vs feminyacademy.com
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://feminy-academy.netlify.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://feminy.academy";
 const siteEnv = process.env.NEXT_PUBLIC_SITE_ENV || "staging";
 const isStaging = siteEnv !== "production";
 
