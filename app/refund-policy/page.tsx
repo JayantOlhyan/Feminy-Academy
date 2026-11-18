@@ -7,14 +7,14 @@ import { PlaceholderNotice } from "@/components/ui/PlaceholderNotice";
 import { legalContent } from "@/content/legal";
 
 export const metadata: Metadata = {
-  title: "Refund and Cancellation Policy | Feminy Academy",
+  title: "Refund and Cancellation Policy",
   description:
     "Refund terms, cancellation rules and eligibility criteria for Feminy Academy online courses and offline admissions.",
 };
 
 export default function RefundPolicyPage() {
   return (
-    <div className="w-full">
+    <div className="w-full policy-page">
       <section className="pt-12 pb-14 border-b border-line bg-surface">
         <Container size="narrow" className="text-center">
           <span className="text-sm font-medium text-gold-text">

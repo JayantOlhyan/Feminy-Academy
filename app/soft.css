@@ -157,3 +157,88 @@ body { font-family: var(--font-body), system-ui, sans-serif; line-height: 1.65; 
   .sales-page *, .sales-header *, .sales-footer * { animation: none !important; transition: none !important; }
   .sales-course-card:hover, .landing-reel-item:hover img, .landing-video-card:hover img { transform: none; }
 }
+
+/* Cross-device hardening: compact Samsung/Android, foldables, tablets and landscape. */
+:root { --header-height: 94px; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: calc(var(--header-height) + 20px); scroll-padding-bottom: calc(var(--enrolment-dock-height, 0px) + 20px); }
+.sales-header-inner { height: auto; min-height: var(--header-height); padding-block: 10px; }
+.sales-header .sales-brand { flex-shrink: 0; min-height: 44px; }
+.sales-header .sales-brand-name > strong { white-space: nowrap; }
+.sales-desktop-nav { flex-shrink: 0; }
+.sales-desktop-nav > a { white-space: nowrap; }
+.sales-menu-button { flex: none; }
+.sales-container > *, .sales-hero-grid > *, .sales-footer-grid > *, .sales-offline-grid > *, .sales-learning-grid > *, .sales-enrol-grid > *, .sales-faq-grid > *, .sales-curriculum-grid > * { min-width: 0; }
+.sales-hero-grid { grid-template-columns: minmax(0,1.06fr) minmax(0,1fr); }
+.sales-footer-links a, .sales-footer-bottom a, .sales-price-policy a { min-height: 44px; }
+.sales-faq summary { gap: 16px; overflow-wrap: anywhere; }
+.sales-button > svg, .sales-text-link > svg { flex-shrink: 0; }
+.sales-offline-grid input { scroll-margin-block: calc(var(--header-height) + 24px) calc(var(--enrolment-dock-height, 0px) + 32px); }
+.sales-offline-grid input:focus-visible { outline-offset: 2px; }
+.sales-offline-grid > div:has(form) { border-radius: var(--soft-radius); }
+.sales-mobile-bar { max-height: 30dvh; overflow-y: auto; overscroll-behavior: contain; }
+.sales-mobile-bar > div > span { font-size: 12px; line-height: 1.45; }
+.sales-mobile-bar > div > strong { font-size: 16px; }
+body:has(dialog[open]) .sales-mobile-bar, body:has(.sales-header[data-menu-open="true"]) .sales-mobile-bar, body:has(form :focus) .sales-mobile-bar { display: none; }
+.landing-lightbox { height: min(900px,calc(100dvh - 24px)); max-height: calc(100dvh - 24px); width: min(960px,calc(100% - 24px)); box-sizing: border-box; overflow: hidden; }
+.landing-lightbox[open] { display: flex; flex-direction: column; }
+.landing-lightbox-top, .landing-lightbox-bottom { flex: none; min-height: 44px; }
+.landing-lightbox-top > span { min-width: 0; overflow-wrap: anywhere; font-size: 15px; line-height: 1.5; }
+.landing-lightbox-top > button { flex: none; }
+.landing-lightbox-stage { flex: 1; min-height: 0; overflow: hidden; }
+.landing-lightbox-stage > video, .landing-lightbox-stage > .landing-lightbox-image { width: 100%; height: 100%; min-height: 0; object-fit: contain; }
+.landing-lightbox-bottom { margin-top: 12px; }
+.policy-page h1 { font-family: var(--font-display), system-ui, sans-serif; font-weight: 700; font-size: clamp(28px,4vw,48px); line-height: 1.18; letter-spacing: -.035em; }
+.policy-page h2 { font-family: var(--font-body), system-ui, sans-serif; font-weight: 700; font-size: 20px; line-height: 1.5; letter-spacing: -.02em; }
+.policy-page p { font-size: 16px; line-height: 1.75; }
+.policy-page .rounded-card { border-radius: var(--soft-radius-inner); }
+@media (max-width: 1023px) and (min-width: 701px) {
+  .sales-course-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .sales-offline-card { grid-column: 1/-1; display: grid; grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr); }
+  .sales-offline-card .sales-course-photo { height: 100%; min-height: 260px; }
+}
+@media (max-width: 900px) {
+  .sales-desktop-nav { display: none; }
+  .sales-menu-button { display: flex; }
+  .sales-header-inner { gap: 12px; }
+  .sales-mobile-nav { max-height: calc(100dvh - var(--header-height) - env(safe-area-inset-bottom)); overflow-y: auto; overscroll-behavior: contain; padding-bottom: max(20px,env(safe-area-inset-bottom)); background: var(--paper); }
+  .sales-mobile-nav > a { min-height: 48px; }
+  .sales-faq-grid, .sales-curriculum-grid, .sales-learning-grid, .sales-enrol-grid, .sales-offline-grid { grid-template-columns: minmax(0,1fr); }
+  .sales-course-nav > div { scrollbar-width: thin; }
+}
+@media (max-width: 700px) {
+  :root { --header-height: 78px; }
+  .sales-hero-grid { grid-template-columns: minmax(0,1fr); }
+  .sales-header .sales-brand-name > strong { font-size: clamp(15px,5vw,20px); }
+  .sales-header .sales-brand-logo { width: clamp(40px,12vw,51px); height: auto; }
+  .sales-brand-name > span { line-height: 1.5; }
+  .sales-footer .sales-brand-name > strong { white-space: normal; }
+  .sales-course-nav { position: static; }
+  .landing-lightbox { padding: 12px; }
+  .landing-lightbox-top { gap: 12px; }
+  .sales-price-policy { gap: 12px 20px; }
+}
+@media (max-width: 340px) {
+  .sales-container { width: calc(100% - 32px); }
+  .sales-header-inner { gap: 8px; }
+  .sales-brand { gap: 7px; }
+  .sales-header .sales-brand-name > strong { letter-spacing: -.7px; }
+  .sales-brand-name > span { font-size: 9px; }
+  .sales-page .landing-hero h1 { font-size: 30px; }
+  .sales-course-body { padding: 22px 18px; }
+  .sales-course-bottom { align-items: stretch; flex-direction: column; }
+  .sales-course-bottom .sales-button { width: 100%; }
+  .sales-footer-grid { grid-template-columns: minmax(0,1fr); }
+  .sales-footer .sales-brand-name > strong { font-size: 18px; }
+  .sales-mobile-bar { padding-inline: 12px; gap: 8px; }
+  .sales-mobile-bar .sales-button { padding-inline: 12px; }
+  .landing-reel-footer { width: calc(100% - 32px); flex-wrap: wrap; gap: 12px; }
+  .landing-reel-footer p { max-width: none; }
+}
+@media (max-height: 480px) {
+  .sales-mobile-bar { display: none; }
+  .landing-lightbox-top { margin-bottom: 8px; }
+  .landing-lightbox-bottom { margin-top: 8px; }
+}
+
+/* Keep small WhatsApp action text readable on every form state. */
+:root { --whatsapp: #166c3b; }

@@ -7,14 +7,14 @@ import { PlaceholderNotice } from "@/components/ui/PlaceholderNotice";
 import { legalContent } from "@/content/legal";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Feminy Academy",
+  title: "Privacy Policy",
   description:
     "Privacy and data protection guidelines for Feminy Academy students and visitors.",
 };
 
 export default function PrivacyPage() {
   return (
-    <div className="w-full">
+    <div className="w-full policy-page">
       <section className="pt-12 pb-14 border-b border-line bg-surface">
         <Container size="narrow" className="text-center">
           <span className="text-sm font-medium text-gold-text">

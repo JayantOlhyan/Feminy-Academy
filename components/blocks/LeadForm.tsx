@@ -49,7 +49,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
 
   const whatsappFallback = getWhatsAppUrl(
     "offline",
-    "Mujhe demo class book karni hai par form mein dikkat aayi."
+    "Mujhe academy counselling chahiye par enquiry form mein dikkat aayi."
   );
 
   const sanitizeIndianPhone = (raw: string): string => {
@@ -65,13 +65,6 @@ export const LeadForm: React.FC<LeadFormProps> = ({
     }
     setPhoneError(null);
     return true;
-  };
-
-  const handleFieldFocus = (e: React.FocusEvent<HTMLInputElement>) => {
-    if (window.innerWidth < 768) {
-      const el = e.currentTarget;
-      setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "center" }), 150);
-    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -188,12 +181,11 @@ export const LeadForm: React.FC<LeadFormProps> = ({
                   enterKeyHint="next"
                   placeholder="e.g. Priya Sharma"
                   value={formData.name}
-                  onFocus={handleFieldFocus}
                   onChange={(e) => {
                     setFormData({ ...formData, name: e.target.value });
                     if (errorMsg) setErrorMsg(null);
                   }}
-                  className="w-full min-h-[48px] px-4 py-3 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted/60 text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+                  className="w-full min-h-[48px] px-4 py-3 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
                 />
               </div>
             )}
@@ -223,7 +215,6 @@ export const LeadForm: React.FC<LeadFormProps> = ({
                     aria-invalid={phoneError ? "true" : "false"}
                     aria-describedby={phoneError ? `phone-err-${uid}` : undefined}
                     value={formData.phone}
-                    onFocus={handleFieldFocus}
                     onChange={(e) => {
                       const val = sanitizeIndianPhone(e.target.value);
                       setFormData({ ...formData, phone: val });
@@ -234,7 +225,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
                     onBlur={() => {
                       if (formData.phone.length > 0) validatePhone(formData.phone);
                     }}
-                    className="w-full min-h-[48px] pl-12 pr-4 py-3 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted/60 text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent tabular-nums"
+                    className="w-full min-h-[48px] pl-16 pr-4 py-3 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent tabular-nums"
                   />
                 </div>
               </div>
@@ -328,9 +319,8 @@ export const LeadForm: React.FC<LeadFormProps> = ({
             enterKeyHint="next"
             placeholder="e.g. Priya Sharma"
             value={formData.name}
-            onFocus={handleFieldFocus}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="w-full min-h-[48px] px-4 py-3 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted/60 text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+            className="w-full min-h-[48px] px-4 py-3 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
           />
         </div>
 
@@ -355,7 +345,6 @@ export const LeadForm: React.FC<LeadFormProps> = ({
               placeholder="98765 43210"
               aria-invalid={phoneError ? "true" : "false"}
               value={formData.phone}
-              onFocus={handleFieldFocus}
               onChange={(e) => {
                 const val = sanitizeIndianPhone(e.target.value);
                 setFormData({ ...formData, phone: val });
@@ -364,7 +353,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
               onBlur={() => {
                 if (formData.phone.length > 0) validatePhone(formData.phone);
               }}
-              className="w-full min-h-[48px] pl-14 pr-4 py-3 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted/60 text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent tabular-nums"
+              className="w-full min-h-[48px] pl-16 pr-4 py-3 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent tabular-nums"
             />
           </div>
           {phoneError && (
@@ -386,9 +375,8 @@ export const LeadForm: React.FC<LeadFormProps> = ({
             required
             placeholder="e.g. Bahadurgarh, Rohtak, Delhi..."
             value={formData.city}
-            onFocus={handleFieldFocus}
             onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-            className="w-full min-h-[48px] px-4 py-3 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted/60 text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+            className="w-full min-h-[48px] px-4 py-3 rounded-card border border-line bg-paper text-ink placeholder:text-ink-muted text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
           />
         </div>
 
@@ -426,7 +414,6 @@ export const LeadForm: React.FC<LeadFormProps> = ({
             type="date"
             enterKeyHint="send"
             value={formData.preferredDate}
-            onFocus={handleFieldFocus}
             onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
             className="w-full min-h-[48px] px-4 py-3 rounded-card border border-line bg-paper text-ink text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
           />

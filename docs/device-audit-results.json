@@ -1,0 +1,3317 @@
+{
+  "date": "2026-11-18",
+  "method": "Chromium viewport emulation, not physical-device certification",
+  "sizes": [
+    [
+      280,
+      653
+    ],
+    [
+      320,
+      568
+    ],
+    [
+      360,
+      640
+    ],
+    [
+      360,
+      800
+    ],
+    [
+      375,
+      812
+    ],
+    [
+      384,
+      824
+    ],
+    [
+      390,
+      844
+    ],
+    [
+      393,
+      873
+    ],
+    [
+      412,
+      915
+    ],
+    [
+      432,
+      960
+    ],
+    [
+      600,
+      800
+    ],
+    [
+      700,
+      1024
+    ],
+    [
+      701,
+      1024
+    ],
+    [
+      712,
+      1138
+    ],
+    [
+      753,
+      1200
+    ],
+    [
+      800,
+      1280
+    ],
+    [
+      900,
+      1200
+    ],
+    [
+      901,
+      1200
+    ],
+    [
+      1024,
+      768
+    ],
+    [
+      1366,
+      768
+    ],
+    [
+      1440,
+      900
+    ],
+    [
+      1920,
+      1080
+    ],
+    [
+      2560,
+      1440
+    ],
+    [
+      800,
+      360
+    ],
+    [
+      1280,
+      800
+    ],
+    [
+      640,
+      320
+    ],
+    [
+      851,
+      393
+    ],
+    [
+      1024,
+      600
+    ],
+    [
+      320,
+      700
+    ],
+    [
+      1280,
+      720
+    ],
+    [
+      480,
+      854
+    ],
+    [
+      640,
+      450
+    ]
+  ],
+  "routes": [
+    "/",
+    "/courses/hydra-facial",
+    "/courses/one-day",
+    "/offline-academy",
+    "/about",
+    "/contact",
+    "/pricing",
+    "/thank-you",
+    "/terms",
+    "/privacy",
+    "/refund-policy"
+  ],
+  "results": [
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 653,
+      "overflow": false,
+      "path": "/",
+      "width": 280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 653,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 653,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 653,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 653,
+      "overflow": false,
+      "path": "/about",
+      "width": 280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 653,
+      "overflow": false,
+      "path": "/contact",
+      "width": 280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 653,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 653,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 653,
+      "overflow": false,
+      "path": "/terms",
+      "width": 280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 653,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 653,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 568,
+      "overflow": false,
+      "path": "/",
+      "width": 320
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 568,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 320
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 568,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 320
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 568,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 320
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 568,
+      "overflow": false,
+      "path": "/about",
+      "width": 320
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 568,
+      "overflow": false,
+      "path": "/contact",
+      "width": 320
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 568,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 320
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 568,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 320
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 568,
+      "overflow": false,
+      "path": "/terms",
+      "width": 320
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 568,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 320
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 568,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 320
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 640,
+      "overflow": false,
+      "path": "/",
+      "width": 360
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 640,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 360
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 640,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 360
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 640,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 360
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 640,
+      "overflow": false,
+      "path": "/about",
+      "width": 360
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 640,
+      "overflow": false,
+      "path": "/contact",
+      "width": 360
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 640,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 360
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 640,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 360
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 640,
+      "overflow": false,
+      "path": "/terms",
+      "width": 360
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 640,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 360
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 640,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 360
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/",
+      "width": 360
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 360
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 360
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 360
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/about",
+      "width": 360
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/contact",
+      "width": 360
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 360
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 360
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/terms",
+      "width": 360
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 360
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 360
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 812,
+      "overflow": false,
+      "path": "/",
+      "width": 375
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 812,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 375
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 812,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 375
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 812,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 375
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 812,
+      "overflow": false,
+      "path": "/about",
+      "width": 375
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 812,
+      "overflow": false,
+      "path": "/contact",
+      "width": 375
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 812,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 375
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 812,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 375
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 812,
+      "overflow": false,
+      "path": "/terms",
+      "width": 375
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 812,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 375
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 812,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 375
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 824,
+      "overflow": false,
+      "path": "/",
+      "width": 384
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 824,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 384
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 824,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 384
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 824,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 384
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 824,
+      "overflow": false,
+      "path": "/about",
+      "width": 384
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 824,
+      "overflow": false,
+      "path": "/contact",
+      "width": 384
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 824,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 384
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 824,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 384
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 824,
+      "overflow": false,
+      "path": "/terms",
+      "width": 384
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 824,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 384
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 824,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 384
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 844,
+      "overflow": false,
+      "path": "/",
+      "width": 390
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 844,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 390
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 844,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 390
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 844,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 390
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 844,
+      "overflow": false,
+      "path": "/about",
+      "width": 390
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 844,
+      "overflow": false,
+      "path": "/contact",
+      "width": 390
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 844,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 390
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 844,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 390
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 844,
+      "overflow": false,
+      "path": "/terms",
+      "width": 390
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 844,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 390
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 844,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 390
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 873,
+      "overflow": false,
+      "path": "/",
+      "width": 393
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 873,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 393
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 873,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 393
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 873,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 393
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 873,
+      "overflow": false,
+      "path": "/about",
+      "width": 393
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 873,
+      "overflow": false,
+      "path": "/contact",
+      "width": 393
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 873,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 393
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 873,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 393
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 873,
+      "overflow": false,
+      "path": "/terms",
+      "width": 393
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 873,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 393
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 873,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 393
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 915,
+      "overflow": false,
+      "path": "/",
+      "width": 412
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 915,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 412
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 915,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 412
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 915,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 412
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 915,
+      "overflow": false,
+      "path": "/about",
+      "width": 412
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 915,
+      "overflow": false,
+      "path": "/contact",
+      "width": 412
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 915,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 412
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 915,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 412
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 915,
+      "overflow": false,
+      "path": "/terms",
+      "width": 412
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 915,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 412
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 915,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 412
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 960,
+      "overflow": false,
+      "path": "/",
+      "width": 432
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 960,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 432
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 960,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 432
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 960,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 432
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 960,
+      "overflow": false,
+      "path": "/about",
+      "width": 432
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 960,
+      "overflow": false,
+      "path": "/contact",
+      "width": 432
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 960,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 432
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 960,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 432
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 960,
+      "overflow": false,
+      "path": "/terms",
+      "width": 432
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 960,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 432
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 960,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 432
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/",
+      "width": 600
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 600
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 600
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 600
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/about",
+      "width": 600
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/contact",
+      "width": 600
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 600
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 600
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/terms",
+      "width": 600
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 600
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 600
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1024,
+      "overflow": false,
+      "path": "/",
+      "width": 700
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1024,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 700
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1024,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 700
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1024,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 700
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1024,
+      "overflow": false,
+      "path": "/about",
+      "width": 700
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1024,
+      "overflow": false,
+      "path": "/contact",
+      "width": 700
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1024,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 700
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1024,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 700
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1024,
+      "overflow": false,
+      "path": "/terms",
+      "width": 700
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1024,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 700
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1024,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 700
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1024,
+      "overflow": false,
+      "path": "/",
+      "width": 701
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1024,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 701
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1024,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 701
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1024,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 701
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1024,
+      "overflow": false,
+      "path": "/about",
+      "width": 701
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1024,
+      "overflow": false,
+      "path": "/contact",
+      "width": 701
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1024,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 701
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1024,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 701
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1024,
+      "overflow": false,
+      "path": "/terms",
+      "width": 701
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1024,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 701
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1024,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 701
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1138,
+      "overflow": false,
+      "path": "/",
+      "width": 712
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1138,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 712
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1138,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 712
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1138,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 712
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1138,
+      "overflow": false,
+      "path": "/about",
+      "width": 712
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1138,
+      "overflow": false,
+      "path": "/contact",
+      "width": 712
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1138,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 712
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1138,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 712
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1138,
+      "overflow": false,
+      "path": "/terms",
+      "width": 712
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1138,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 712
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1138,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 712
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/",
+      "width": 753
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 753
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 753
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 753
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/about",
+      "width": 753
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/contact",
+      "width": 753
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 753
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 753
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/terms",
+      "width": 753
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 753
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 753
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1280,
+      "overflow": false,
+      "path": "/",
+      "width": 800
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1280,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 800
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1280,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 800
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1280,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 800
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1280,
+      "overflow": false,
+      "path": "/about",
+      "width": 800
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1280,
+      "overflow": false,
+      "path": "/contact",
+      "width": 800
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1280,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 800
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1280,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 800
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1280,
+      "overflow": false,
+      "path": "/terms",
+      "width": 800
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1280,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 800
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1280,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 800
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/",
+      "width": 900
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 900
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 900
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 900
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/about",
+      "width": 900
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/contact",
+      "width": 900
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 900
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 900
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/terms",
+      "width": 900
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 900
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 900
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/",
+      "width": 901
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 901
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 901
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 901
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/about",
+      "width": 901
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/contact",
+      "width": 901
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 901
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 901
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/terms",
+      "width": 901
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 901
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1200,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 901
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 768,
+      "overflow": false,
+      "path": "/",
+      "width": 1024
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 768,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 1024
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 768,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 1024
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 768,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 1024
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 768,
+      "overflow": false,
+      "path": "/about",
+      "width": 1024
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 768,
+      "overflow": false,
+      "path": "/contact",
+      "width": 1024
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 768,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 1024
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 768,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 1024
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 768,
+      "overflow": false,
+      "path": "/terms",
+      "width": 1024
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 768,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 1024
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 768,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 1024
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 768,
+      "overflow": false,
+      "path": "/",
+      "width": 1366
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 768,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 1366
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 768,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 1366
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 768,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 1366
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 768,
+      "overflow": false,
+      "path": "/about",
+      "width": 1366
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 768,
+      "overflow": false,
+      "path": "/contact",
+      "width": 1366
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 768,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 1366
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 768,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 1366
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 768,
+      "overflow": false,
+      "path": "/terms",
+      "width": 1366
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 768,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 1366
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 768,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 1366
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 900,
+      "overflow": false,
+      "path": "/",
+      "width": 1440
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 900,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 1440
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 900,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 1440
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 900,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 1440
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 900,
+      "overflow": false,
+      "path": "/about",
+      "width": 1440
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 900,
+      "overflow": false,
+      "path": "/contact",
+      "width": 1440
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 900,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 1440
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 900,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 1440
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 900,
+      "overflow": false,
+      "path": "/terms",
+      "width": 1440
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 900,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 1440
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 900,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 1440
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1080,
+      "overflow": false,
+      "path": "/",
+      "width": 1920
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1080,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 1920
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1080,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 1920
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1080,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 1920
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1080,
+      "overflow": false,
+      "path": "/about",
+      "width": 1920
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1080,
+      "overflow": false,
+      "path": "/contact",
+      "width": 1920
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1080,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 1920
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1080,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 1920
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1080,
+      "overflow": false,
+      "path": "/terms",
+      "width": 1920
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1080,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 1920
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1080,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 1920
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1440,
+      "overflow": false,
+      "path": "/",
+      "width": 2560
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1440,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 2560
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1440,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 2560
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1440,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 2560
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1440,
+      "overflow": false,
+      "path": "/about",
+      "width": 2560
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1440,
+      "overflow": false,
+      "path": "/contact",
+      "width": 2560
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1440,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 2560
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1440,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 2560
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1440,
+      "overflow": false,
+      "path": "/terms",
+      "width": 2560
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1440,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 2560
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 1440,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 2560
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 360,
+      "overflow": false,
+      "path": "/",
+      "width": 800
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 360,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 800
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 360,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 800
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 360,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 800
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 360,
+      "overflow": false,
+      "path": "/about",
+      "width": 800
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 360,
+      "overflow": false,
+      "path": "/contact",
+      "width": 800
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 360,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 800
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 360,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 800
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 360,
+      "overflow": false,
+      "path": "/terms",
+      "width": 800
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 360,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 800
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 360,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 800
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/",
+      "width": 1280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 1280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 1280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 1280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/about",
+      "width": 1280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/contact",
+      "width": 1280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 1280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 1280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/terms",
+      "width": 1280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 1280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 800,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 1280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 320,
+      "overflow": false,
+      "path": "/",
+      "width": 640
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 320,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 640
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 320,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 640
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 320,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 640
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 320,
+      "overflow": false,
+      "path": "/about",
+      "width": 640
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 320,
+      "overflow": false,
+      "path": "/contact",
+      "width": 640
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 320,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 640
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 320,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 640
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 320,
+      "overflow": false,
+      "path": "/terms",
+      "width": 640
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 320,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 640
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 320,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 640
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 393,
+      "overflow": false,
+      "path": "/",
+      "width": 851
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 393,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 851
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 393,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 851
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 393,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 851
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 393,
+      "overflow": false,
+      "path": "/about",
+      "width": 851
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 393,
+      "overflow": false,
+      "path": "/contact",
+      "width": 851
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 393,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 851
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 393,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 851
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 393,
+      "overflow": false,
+      "path": "/terms",
+      "width": 851
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 393,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 851
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 393,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 851
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 600,
+      "overflow": false,
+      "path": "/",
+      "width": 1024
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 600,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 1024
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 600,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 1024
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 600,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 1024
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 600,
+      "overflow": false,
+      "path": "/about",
+      "width": 1024
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 600,
+      "overflow": false,
+      "path": "/contact",
+      "width": 1024
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 600,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 1024
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 600,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 1024
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 600,
+      "overflow": false,
+      "path": "/terms",
+      "width": 1024
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 600,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 1024
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 600,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 1024
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 700,
+      "overflow": false,
+      "path": "/",
+      "width": 320
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 700,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 320
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 700,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 320
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 700,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 320
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 700,
+      "overflow": false,
+      "path": "/about",
+      "width": 320
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 700,
+      "overflow": false,
+      "path": "/contact",
+      "width": 320
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 700,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 320
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 700,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 320
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 700,
+      "overflow": false,
+      "path": "/terms",
+      "width": 320
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 700,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 320
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 700,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 320
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 720,
+      "overflow": false,
+      "path": "/",
+      "width": 1280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 720,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 1280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 720,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 1280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 720,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 1280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 720,
+      "overflow": false,
+      "path": "/about",
+      "width": 1280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 720,
+      "overflow": false,
+      "path": "/contact",
+      "width": 1280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 720,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 1280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 720,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 1280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 720,
+      "overflow": false,
+      "path": "/terms",
+      "width": 1280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 720,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 1280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 720,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 1280
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 854,
+      "overflow": false,
+      "path": "/",
+      "width": 480
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 854,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 480
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 854,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 480
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 854,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 480
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 854,
+      "overflow": false,
+      "path": "/about",
+      "width": 480
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 854,
+      "overflow": false,
+      "path": "/contact",
+      "width": 480
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 854,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 480
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 854,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 480
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 854,
+      "overflow": false,
+      "path": "/terms",
+      "width": 480
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 854,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 480
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 854,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 480
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 450,
+      "overflow": false,
+      "path": "/",
+      "width": 640
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 450,
+      "overflow": false,
+      "path": "/courses/hydra-facial",
+      "width": 640
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 450,
+      "overflow": false,
+      "path": "/courses/one-day",
+      "width": 640
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 450,
+      "overflow": false,
+      "path": "/offline-academy",
+      "width": 640
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 450,
+      "overflow": false,
+      "path": "/about",
+      "width": 640
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 450,
+      "overflow": false,
+      "path": "/contact",
+      "width": 640
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 450,
+      "overflow": false,
+      "path": "/pricing",
+      "width": 640
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 450,
+      "overflow": false,
+      "path": "/thank-you",
+      "width": 640
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 450,
+      "overflow": false,
+      "path": "/terms",
+      "width": 640
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 450,
+      "overflow": false,
+      "path": "/privacy",
+      "width": 640
+    },
+    {
+      "clipped": [],
+      "collisions": [],
+      "duplicateBrandTitle": false,
+      "height": 450,
+      "overflow": false,
+      "path": "/refund-policy",
+      "width": 640
+    }
+  ]
+}

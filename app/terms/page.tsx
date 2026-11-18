@@ -7,14 +7,14 @@ import { PlaceholderNotice } from "@/components/ui/PlaceholderNotice";
 import { legalContent } from "@/content/legal";
 
 export const metadata: Metadata = {
-  title: "Terms and Conditions | Feminy Academy",
+  title: "Terms and Conditions",
   description:
     "Terms of service, course enrolment rules, anti-piracy policies and governing laws for Feminy Academy.",
 };
 
 export default function TermsPage() {
   return (
-    <div className="w-full">
+    <div className="w-full policy-page">
       <section className="pt-12 pb-14 border-b border-line bg-surface">
         <Container size="narrow" className="text-center">
           <span className="text-sm font-medium text-gold-text">

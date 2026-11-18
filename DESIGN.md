@@ -2,7 +2,11 @@
 
 Single source of truth for visual identity, typography, tokens, and component guidelines for Feminy Academy.
 
-## Current revision: 17 November 2026
+## Responsive hardening: 18 November 2026
+
+Navigation collapses at 900px. Short-screen menus scroll internally; media dialogs allocate remaining height after controls. Mobile enquiry docks account for overlays, editing and viewport changes. Normal-text WhatsApp contrast is now 6.48:1. Policy typography and titles are consistent. See `docs/DEVICE-AUDIT.md` and the saved 352-case result matrix for coverage and limitations.
+
+## Current visual direction: 17 November 2026
 
 Jayant explicitly requested softer rounded corners, friendlier typography, the exact supplied logo, GSAP motion and Scrollcraft. This revision supersedes the older typography, mark, radius and motion restrictions below. Historical specifications are retained for context.
 

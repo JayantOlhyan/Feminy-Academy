@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MessageCircle, Plus } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { trackEvent, trackWhatsAppClick } from "@/lib/tracking";
@@ -28,6 +28,7 @@ export function CourseView({ slug, name }: { slug: string; name: string }) {
 
 export function MobileEnrolment({ course, price }: { course?: string; price?: string }) {
   const [visible, setVisible] = useState(false);
+  const dock = useRef<HTMLElement>(null);
   useEffect(() => {
     const hero = document.getElementById("sales-hero");
     const enrol = document.getElementById("enrol");
@@ -36,18 +37,31 @@ export function MobileEnrolment({ course, price }: { course?: string; price?: st
       const pastHero = hero ? hero.getBoundingClientRect().bottom < 70 : false;
       const isVisible = (el: Element | null) => { if (!el) return false; const r = el.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; };
       const editing = /^(INPUT|SELECT|TEXTAREA)$/.test(document.activeElement?.tagName || "");
-      setVisible(pastHero && !isVisible(enrol) && !isVisible(footer) && !editing);
+      const overlay = document.querySelector('dialog[open], header[data-menu-open="true"]');
+      const smallHeight = (window.visualViewport?.height || innerHeight) < 480;
+      setVisible(pastHero && !isVisible(enrol) && !isVisible(footer) && !editing && !overlay && !smallHeight);
     };
     const observer = new IntersectionObserver(update);
     [hero, enrol, footer].forEach(el => el && observer.observe(el));
     window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    window.visualViewport?.addEventListener("resize", update);
+    document.addEventListener("feminy:overlay-change", update);
     document.addEventListener("focusin", update);
     document.addEventListener("focusout", update);
     update();
-    return () => { observer.disconnect(); window.removeEventListener("scroll", update); document.removeEventListener("focusin", update); document.removeEventListener("focusout", update); };
+    return () => { observer.disconnect(); window.removeEventListener("scroll", update); window.removeEventListener("resize", update); window.visualViewport?.removeEventListener("resize", update); document.removeEventListener("feminy:overlay-change", update); document.removeEventListener("focusin", update); document.removeEventListener("focusout", update); };
   }, []);
+  useEffect(() => {
+    const element = dock.current;
+    const measure = () => document.documentElement.style.setProperty("--enrolment-dock-height", `${element && getComputedStyle(element).display !== "none" ? element.getBoundingClientRect().height : 0}px`);
+    const observer = new ResizeObserver(measure);
+    if (element) observer.observe(element);
+    measure();
+    return () => { observer.disconnect(); document.documentElement.style.removeProperty("--enrolment-dock-height"); };
+  }, [visible]);
   if (!visible) return null;
-  return <aside className="sales-mobile-bar" aria-label="Course enquiry"><div><span>{course || "Find your course"}</span><strong>{price || "Learn with Sunita"}</strong></div>{course ? <EnquiryLink course={course} location="mobile_sticky"><MessageCircle size={18} aria-hidden="true" /> Get details</EnquiryLink> : <a className="sales-button" href="#courses">Explore courses</a>}</aside>;
+  return <aside ref={dock} className="sales-mobile-bar" aria-label="Course enquiry"><div><span>{course || "Find your course"}</span><strong>{price || "Learn with Sunita"}</strong></div>{course ? <EnquiryLink course={course} location="mobile_sticky"><MessageCircle size={18} aria-hidden="true" /> Get details</EnquiryLink> : <a className="sales-button" href="#courses">Explore courses</a>}</aside>;
 }
 
 export function PhoneLink() { return <a href={`tel:+${siteConfig.whatsappNumber}`} className="sales-text-link">{siteConfig.phone}</a>; }
