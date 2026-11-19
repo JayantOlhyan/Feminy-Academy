@@ -1,3 +1,4 @@
+import { priceSchedule, formatCourseFee } from "@/lib/offer-pricing";
 import { siteConfig } from "@/content/site";
 
 export interface CourseLesson {
@@ -79,8 +80,8 @@ export const hydraFacialCourse: CourseData = {
   headline: "Hydra Facial Course — machine setup se client ke glow tak.",
   subheadline:
     "Sunita ma'am se seekhiye poora process: skin samajhna, machine chalana, har step sahi karna aur common problems solve karna. Recorded lessons + live doubt sessions + certificate.",
-  price: 3000,
-  priceDisplay: "₹3,000",
+  price: priceSchedule.courses["hydra-facial"].basePrice,
+  priceDisplay: formatCourseFee(priceSchedule.courses["hydra-facial"].basePrice),
   gstNote: "[GST NOTE]",
   accessDuration: "[ACCESS DURATION]",
   checkoutUrl: "",

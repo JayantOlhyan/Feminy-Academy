@@ -27,3 +27,7 @@ These are browser viewport checks, not physical Samsung hardware certification. 
 ## Awaiting offer terms
 
 The owner clarified that the proposed ₹10,000 comparison price would be inflated. That fabricated reference price and the resulting 70% claim are not published. A resetting three-day timer is not published. A fixed three-day offer requires genuine post-offer prices and a real end date; a clarification is pending. No conversion uplift is claimed.
+
+## Subsequent authorisation
+
+The owner subsequently authorised a real ₹100 increase every three days. The shared timer and live fees are now implemented; see `SCHEDULED-PRICING.md`. The earlier inflated comparison-price request remains excluded.

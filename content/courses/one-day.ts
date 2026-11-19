@@ -1,3 +1,4 @@
+import { priceSchedule, formatCourseFee } from "@/lib/offer-pricing";
 import { CourseData } from "./hydra-facial";
 import { siteConfig } from "@/content/site";
 
@@ -12,8 +13,8 @@ export const oneDayCourse: CourseData = {
   headline: "1-Day Beauty Masterclass — ek din mein seekhiye salon-ready practical skill.",
   subheadline:
     "Sunita ma'am ke saath seekhiye step-by-step technique. Structured lessons + live doubt session + Feminy Academy certificate.",
-  price: 1000,
-  priceDisplay: "₹1,000",
+  price: priceSchedule.courses["one-day"].basePrice,
+  priceDisplay: formatCourseFee(priceSchedule.courses["one-day"].basePrice),
   gstNote: "[GST NOTE]",
   accessDuration: "[ACCESS DURATION]",
   checkoutUrl: "https://wa.me/919017643392?text=Hello%20Sunita%20ma%27am%2C%20mujhe%201-Day%20Masterclass%20mein%20enrol%20karna%20hai",

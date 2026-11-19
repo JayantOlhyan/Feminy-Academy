@@ -2,6 +2,10 @@
 
 Single source of truth for visual identity, typography, tokens, and component guidelines for Feminy Academy.
 
+## Genuine recurring price schedule: 19 November 2026
+
+The owner authorised actual ₹100 fee increases every three days. A server-anchored countdown now shows the real next price/deadline; prices update consistently across cards, course pages and mobile enquiry bars. First increase: 22 November 2026, 10:30 a.m. IST. See `docs/SCHEDULED-PRICING.md` for operation, checks and the WhatsApp enrolment boundary. This supersedes the pending genuine-offer-terms note from the prior revision.
+
 ## Mobile stories and offer strip: 19 November 2026
 
 Testimonials now use a seamless looping rail on mobile and desktop, with pause, native swipe and manual arrows; this supersedes the earlier no-mobile-auto-motion restriction for this rail only. Reduced-motion still disables automation. Hero rail behaviour remains unchanged. The shared introductory-offer strip and light media dialog follow the light theme. See `docs/MOBILE-STORIES-AND-OFFER.md` for allocation wording, checks and pending genuine promotion terms.

@@ -5,6 +5,7 @@ import "./sales.css";
 import "./soft.css";
 import "./brand.css";
 import { LandingMotion } from "@/components/sales/LandingMotion";
+import { OfferPricingProvider } from "@/components/sales/OfferPricing";
 import { Header } from "@/components/blocks/Header";
 import { Footer } from "@/components/blocks/Footer";
 import { siteConfig } from "@/content/site";
@@ -134,10 +135,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <a className="skip-link" href="#main-content">Skip to content</a>
+        <OfferPricingProvider>
         <Header />
         <LandingMotion />
         <main id="main-content" className="flex-1">{children}</main>
         <Footer />
+        </OfferPricingProvider>
       </body>
     </html>
   );

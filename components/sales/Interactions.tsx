@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { CourseFee, useOfferPricing } from "./OfferPricing";
+import { formatCourseFee } from "@/lib/offer-pricing";
 import { MessageCircle, Plus } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { trackEvent, trackWhatsAppClick } from "@/lib/tracking";
@@ -8,8 +10,11 @@ import { siteConfig } from "@/content/site";
 import type { ReactNode } from "react";
 
 export function EnquiryLink({ children, course, location, className = "sales-button" }: { children: ReactNode; course?: string; location: string; className?: string }) {
+  const pricing = useOfferPricing();
+  const quotedCourse = Object.values(pricing?.courses || {}).find(item => item.name === course);
+  const feeNote = quotedCourse ? ` Website par current course fee ${formatCourseFee(quotedCourse.price)} dikh rahi hai. Please final fee aur availability confirm kijiye.` : "";
   const message = course
-    ? `Namaste Sunita ma'am, mujhe ${course} ki details chahiye. Kripya syllabus, batch date, total fees, recording access, certificate aur refund terms share kijiye.`
+    ? `Namaste Sunita ma'am, mujhe ${course} ki details chahiye. Kripya syllabus, batch date, total fees, recording access, certificate aur refund terms share kijiye.${feeNote}`
     : "Namaste Sunita ma'am, mujhe Feminy Academy mein apne liye sahi course choose karna hai. Please details share kijiye.";
   // Keep the initial server and browser markup identical. Attach stored attribution after mount.
   const [href, setHref] = useState(() => `https://wa.me/${siteConfig.whatsappNumber.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`);
@@ -26,7 +31,7 @@ export function CourseView({ slug, name }: { slug: string; name: string }) {
   return null;
 }
 
-export function MobileEnrolment({ course, price }: { course?: string; price?: string }) {
+export function MobileEnrolment({ course, price, courseSlug }: { course?: string; price?: string; courseSlug?: string }) {
   const [visible, setVisible] = useState(false);
   const dock = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -61,7 +66,7 @@ export function MobileEnrolment({ course, price }: { course?: string; price?: st
     return () => { observer.disconnect(); document.documentElement.style.removeProperty("--enrolment-dock-height"); };
   }, [visible]);
   if (!visible) return null;
-  return <aside ref={dock} className="sales-mobile-bar" aria-label="Course enquiry"><div><span>{course || "Find your course"}</span><strong>{price || "Learn with Sunita"}</strong></div>{course ? <EnquiryLink course={course} location="mobile_sticky"><MessageCircle size={18} aria-hidden="true" /> Get details</EnquiryLink> : <a className="sales-button" href="#courses">Explore courses</a>}</aside>;
+  return <aside ref={dock} className="sales-mobile-bar" aria-label="Course enquiry"><div><span>{course || "Find your course"}</span><strong>{courseSlug ? <CourseFee slug={courseSlug} /> : price || "Learn with Sunita"}</strong></div>{course ? <EnquiryLink course={course} location="mobile_sticky"><MessageCircle size={18} aria-hidden="true" /> Get details</EnquiryLink> : <a className="sales-button" href="#courses">Explore courses</a>}</aside>;
 }
 
 export function PhoneLink() { return <a href={`tel:+${siteConfig.whatsappNumber}`} className="sales-text-link">{siteConfig.phone}</a>; }
