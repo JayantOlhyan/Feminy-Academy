@@ -27,3 +27,13 @@ The one-day course retains its existing format comparison rather than showing a 
 - Table region at 360px: 318px viewport with 700px contents; keyboard right-arrow scrolling moved it to 80px while page overflow remained false.
 - Course spotlight action reached `#enrol`; its section started about 19px below the measured sticky header.
 - Desktop offer/table and phone offer were visually reviewed. This is browser viewport testing, not physical-device certification.
+
+## Persistent footer and stronger differentiation
+
+The course action has moved out of the top offer into a fixed footer bar on the homepage, both online course pages and academy landing. It appears from the first screen on desktop and phones, shows the current fee, and names WhatsApp as the enrolment channel. Homepage opens course selection; online course actions open a course-specific WhatsApp enquiry; academy opens training counselling. This supersedes the earlier spotlight action placement above.
+
+The dock reserves measured bottom space so legal/footer links remain reachable. It hides for active form entry, video/media overlays, open mobile menus and viewports shorter than 480px. Header offer is now a compact two-part layout. At 360px, its total sticky header height reduced from about 240px to 180px.
+
+Comparison now starts with three evidence-based Feminy strengths: the current listed-fee difference against the cited ₹10,000 programme (tax/format differences explicitly qualified), focused Hindi/Hinglish learning, and direct academy enquiry. The fee difference is calculated from the current scheduled fee, not hardcoded; if Feminy's future fee no longer falls below ₹10,000, that savings-style message is replaced. A separate language row distinguishes known language from unspecified competitor details. Rows that require batch confirmation use an information icon rather than a checkmark implying guaranteed inclusion. Other providers' information remains unchanged; no data was manipulated to assert universal superiority.
+
+Validation: final production build/type/lint/rendered-page claim checks passed. Sixteen browser cases covered four landing pages at 280/360/712/1440px, all without page overflow, dock clipping or overlap between dock copy and button. Results: `footer-dock-results.json`. At the bottom of the academy page, the refund link remained about 28px above the dock. Form phone focus hid the dock, blurring restored it, opening a client video hid it, and an 800×400 viewport suppressed it. Current fee and course-specific WhatsApp target were checked without sending an enquiry.

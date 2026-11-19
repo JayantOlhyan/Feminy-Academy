@@ -1,0 +1,146 @@
+[
+  {
+    "clipped": false,
+    "dockVisible": true,
+    "overflow": false,
+    "overlap": false,
+    "path": "/",
+    "requested": 280,
+    "width": 280
+  },
+  {
+    "clipped": false,
+    "dockVisible": true,
+    "overflow": false,
+    "overlap": false,
+    "path": "/",
+    "requested": 360,
+    "width": 360
+  },
+  {
+    "clipped": false,
+    "dockVisible": true,
+    "overflow": false,
+    "overlap": false,
+    "path": "/",
+    "requested": 712,
+    "width": 712
+  },
+  {
+    "clipped": false,
+    "dockVisible": true,
+    "overflow": false,
+    "overlap": false,
+    "path": "/",
+    "requested": 1440,
+    "width": 1440
+  },
+  {
+    "clipped": false,
+    "dockVisible": true,
+    "overflow": false,
+    "overlap": false,
+    "path": "/courses/hydra-facial",
+    "requested": 280,
+    "width": 280
+  },
+  {
+    "clipped": false,
+    "dockVisible": true,
+    "overflow": false,
+    "overlap": false,
+    "path": "/courses/hydra-facial",
+    "requested": 360,
+    "width": 360
+  },
+  {
+    "clipped": false,
+    "dockVisible": true,
+    "overflow": false,
+    "overlap": false,
+    "path": "/courses/hydra-facial",
+    "requested": 712,
+    "width": 712
+  },
+  {
+    "clipped": false,
+    "dockVisible": true,
+    "overflow": false,
+    "overlap": false,
+    "path": "/courses/hydra-facial",
+    "requested": 1440,
+    "width": 1440
+  },
+  {
+    "clipped": false,
+    "dockVisible": true,
+    "overflow": false,
+    "overlap": false,
+    "path": "/courses/one-day",
+    "requested": 280,
+    "width": 280
+  },
+  {
+    "clipped": false,
+    "dockVisible": true,
+    "overflow": false,
+    "overlap": false,
+    "path": "/courses/one-day",
+    "requested": 360,
+    "width": 360
+  },
+  {
+    "clipped": false,
+    "dockVisible": true,
+    "overflow": false,
+    "overlap": false,
+    "path": "/courses/one-day",
+    "requested": 712,
+    "width": 712
+  },
+  {
+    "clipped": false,
+    "dockVisible": true,
+    "overflow": false,
+    "overlap": false,
+    "path": "/courses/one-day",
+    "requested": 1440,
+    "width": 1440
+  },
+  {
+    "clipped": false,
+    "dockVisible": true,
+    "overflow": false,
+    "overlap": false,
+    "path": "/offline-academy",
+    "requested": 280,
+    "width": 280
+  },
+  {
+    "clipped": false,
+    "dockVisible": true,
+    "overflow": false,
+    "overlap": false,
+    "path": "/offline-academy",
+    "requested": 360,
+    "width": 360
+  },
+  {
+    "clipped": false,
+    "dockVisible": true,
+    "overflow": false,
+    "overlap": false,
+    "path": "/offline-academy",
+    "requested": 712,
+    "width": 712
+  },
+  {
+    "clipped": false,
+    "dockVisible": true,
+    "overflow": false,
+    "overlap": false,
+    "path": "/offline-academy",
+    "requested": 1440,
+    "width": 1440
+  }
+]

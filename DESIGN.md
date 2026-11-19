@@ -2,6 +2,10 @@
 
 Single source of truth for visual identity, typography, tokens, and component guidelines for Feminy Academy.
 
+## Footer enrolment and comparison hierarchy: 19 November 2026
+
+The prominent course action now lives in a persistent light footer dock across landing pages on desktop and mobile. Top offer retains fee/countdown and becomes compact. Comparison introduces verified fee/format/language strengths and retains sourced provider facts. See `docs/OFFER-AND-MARKET-COMPARISON.md` and the 16-case dock results for behaviour and validation.
+
 ## Offer spotlight and sourced table: 19 November 2026
 
 Header announcement now uses contextual fee hierarchy, segmented countdown and one magenta action on pale gold. `app/offer.css` is loaded after the funnel layer. Homepage and Hydra Facial add a real comparison table immediately after preparation, highlighting Feminy and citing two published provider offers with format/scope differences. See `docs/OFFER-AND-MARKET-COMPARISON.md` for sources and verification.

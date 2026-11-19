@@ -44,3 +44,35 @@
   .offer-spotlight-action svg { width: 14px; }
   .price-clock-segment { width: 28px; }
 }
+/* The immediate course action lives in the persistent footer, leaving the offer calm and compact. */
+.offer-spotlight-inner { grid-template-columns: 1fr 1fr; }
+.offer-spotlight-timer { justify-self: end; }
+.sales-mobile-bar.sales-enrolment-dock { position: fixed; inset: auto 0 0; z-index: 45; display: block; max-height: 30dvh; padding: 14px 0 calc(14px + env(safe-area-inset-bottom)); background: var(--brand-nav); border: 0; border-top: 1px solid var(--line); border-radius: 0; box-shadow: 0 -5px 24px -18px rgb(52 43 54 / .25); }
+.sales-mobile-bar.sales-enrolment-dock > .enrolment-dock-inner { display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: 24px; }
+.enrolment-dock-course { display: grid; grid-template-columns: auto auto; align-items: baseline; gap: 3px 18px; min-width: 0; }
+.enrolment-dock-course > span { font-size: 15px; line-height: 1.4; color: var(--ink); font-weight: 700; }
+.enrolment-dock-course > strong { font-size: 25px; color: var(--accent-strong); white-space: normal; line-height: 1.3; font-family: var(--font-display),sans-serif; }
+.enrolment-dock-course > small { grid-column: 1/-1; color: var(--ink-muted); font-size: 11px; line-height: 1.5; }
+.sales-enrolment-dock .sales-button { flex: none; padding: 14px 26px; min-height: 50px; font-size: 15px; }
+body:has(.sales-enrolment-dock) { padding-bottom: var(--enrolment-dock-height, 100px); }
+@media(max-width:700px) {
+  .offer-spotlight-inner { grid-template-columns: minmax(0,1fr) 132px; gap: 10px; }
+  .offer-spotlight-timer { grid-column: auto; padding: 0; border: 0; }
+  .offer-spotlight .price-countdown-featured { flex-direction: column-reverse; align-items: flex-end; text-align: right; gap: 5px; }
+  .offer-spotlight .price-countdown-featured > span:first-child { max-width: none; }
+  .offer-spotlight-badge { max-width: 100%; }
+  .sales-mobile-bar.sales-enrolment-dock { padding-block: 10px calc(10px + env(safe-area-inset-bottom)); }
+  .sales-mobile-bar.sales-enrolment-dock > .enrolment-dock-inner { gap: 12px; }
+  .enrolment-dock-course { display: flex; flex-direction: column; gap: 1px; }
+  .enrolment-dock-course > span { font-size: 11px; }
+  .enrolment-dock-course > strong { font-size: 20px; }
+  .enrolment-dock-course > small { font-size: 9px; }
+  .sales-enrolment-dock .sales-button { min-height: 46px; padding: 12px 15px; font-size: 12px; gap: 7px; }
+}
+@media(max-width:340px) {
+  .offer-spotlight-inner { grid-template-columns: minmax(0,1fr) 124px; gap: 8px; }
+  .sales-enrolment-dock .sales-button { padding-inline: 10px; font-size: 11px; gap: 5px; }
+  .sales-enrolment-dock .sales-button svg { width: 15px; }
+  .sales-mobile-bar.sales-enrolment-dock > .enrolment-dock-inner { gap: 8px; }
+}
+@media(max-height:480px) { .sales-mobile-bar.sales-enrolment-dock { display: none; } }

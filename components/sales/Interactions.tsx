@@ -35,19 +35,12 @@ export function MobileEnrolment({ course, price, courseSlug }: { course?: string
   const [visible, setVisible] = useState(false);
   const dock = useRef<HTMLElement>(null);
   useEffect(() => {
-    const hero = document.getElementById("sales-hero");
-    const enrol = document.getElementById("enrol");
-    const footer = document.querySelector("footer");
     const update = () => {
-      const pastHero = hero ? hero.getBoundingClientRect().bottom < 70 : false;
-      const isVisible = (el: Element | null) => { if (!el) return false; const r = el.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; };
       const editing = /^(INPUT|SELECT|TEXTAREA)$/.test(document.activeElement?.tagName || "");
       const overlay = document.querySelector('dialog[open], header[data-menu-open="true"]');
       const smallHeight = (window.visualViewport?.height || innerHeight) < 480;
-      setVisible(pastHero && !isVisible(enrol) && !isVisible(footer) && !editing && !overlay && !smallHeight);
+      setVisible(!editing && !overlay && !smallHeight);
     };
-    const observer = new IntersectionObserver(update);
-    [hero, enrol, footer].forEach(el => el && observer.observe(el));
     window.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
     window.visualViewport?.addEventListener("resize", update);
@@ -55,7 +48,7 @@ export function MobileEnrolment({ course, price, courseSlug }: { course?: string
     document.addEventListener("focusin", update);
     document.addEventListener("focusout", update);
     update();
-    return () => { observer.disconnect(); window.removeEventListener("scroll", update); window.removeEventListener("resize", update); window.visualViewport?.removeEventListener("resize", update); document.removeEventListener("feminy:overlay-change", update); document.removeEventListener("focusin", update); document.removeEventListener("focusout", update); };
+    return () => { window.removeEventListener("scroll", update); window.removeEventListener("resize", update); window.visualViewport?.removeEventListener("resize", update); document.removeEventListener("feminy:overlay-change", update); document.removeEventListener("focusin", update); document.removeEventListener("focusout", update); };
   }, []);
   useEffect(() => {
     const element = dock.current;
@@ -66,7 +59,8 @@ export function MobileEnrolment({ course, price, courseSlug }: { course?: string
     return () => { observer.disconnect(); document.documentElement.style.removeProperty("--enrolment-dock-height"); };
   }, [visible]);
   if (!visible) return null;
-  return <aside ref={dock} className="sales-mobile-bar" aria-label="Course enquiry"><div><span>{course || "Find your course"}</span><strong>{courseSlug ? <CourseFee slug={courseSlug} /> : price || "Learn with Sunita"}</strong></div>{course ? <EnquiryLink course={course} location="mobile_sticky"><MessageCircle size={18} aria-hidden="true" /> Get details</EnquiryLink> : <a className="sales-button" href="#courses">Explore courses</a>}</aside>;
+  return <aside ref={dock} className="sales-mobile-bar sales-enrolment-dock" aria-label="Course enrolment"><div className="sales-container enrolment-dock-inner"><div className="enrolment-dock-course"><span>{course || "Your next beauty skill"}</span><strong>{courseSlug ? <CourseFee slug={courseSlug} /> : course ? price || "Fees on enquiry" : <>From <CourseFee slug="one-day" /></>}</strong><small>{course ? "Enrolment via WhatsApp" : "Choose a course to get started"}</small></div>{course ? <EnquiryLink course={course} location="footer_sticky"><MessageCircle size={18} aria-hidden="true" />{courseSlug ? "Get this course" : "Plan my training"}</EnquiryLink> : <a className="sales-button" href="#courses">Choose your course</a>}</div></aside>;
+
 }
 
 export function PhoneLink() { return <a href={`tel:+${siteConfig.whatsappNumber}`} className="sales-text-link">{siteConfig.phone}</a>; }

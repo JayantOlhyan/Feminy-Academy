@@ -216,3 +216,16 @@
   .market-cta { flex-direction: column; align-items: flex-start; padding: 22px; }
   .market-cta .sales-button { width: 100%; padding-inline: 14px; }
 }
+.comparison-strengths { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; margin: 0 0 30px; }
+.comparison-strengths article { background: var(--brand-lilac); border: 1px solid #e5d8ed; border-radius: 20px; padding: 24px; min-width: 0; }
+.comparison-strengths article:first-child { background: var(--brand-butter); border-color: #eee2ad; }
+.comparison-strengths svg { color: var(--accent-strong); margin-bottom: 18px; }
+.comparison-strengths strong { display: block; font-family: var(--font-display),sans-serif; font-size: 22px; line-height: 1.3; color: var(--ink); }
+.comparison-strengths p { margin: 12px 0 0; font-size: 13px; color: var(--ink-muted); }
+.market-table tbody th { position: sticky; left: 0; z-index: 1; }
+@media(max-width:700px) {
+  .comparison-strengths { grid-template-columns: minmax(0,1fr); gap: 12px; }
+  .comparison-strengths article { padding: 22px; }
+  .comparison-strengths svg { margin-bottom: 12px; }
+  .comparison-strengths strong { font-size: 20px; }
+}
