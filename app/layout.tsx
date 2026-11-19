@@ -11,7 +11,7 @@ import { siteConfig } from "@/content/site";
 
 
 export const viewport: Viewport = {
-  themeColor: "#281322",
+  themeColor: "#fffefb",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",

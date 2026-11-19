@@ -34,5 +34,5 @@ export function LearningSteps() {
 }
 
 export function FinalInvitation() {
-  return <section id="enrol" className="sales-final"><div className="sales-container"><span className="sales-caption">A skill begins with a first step</span><h2>Apni learning ko<br />ek nayi direction dijiye.</h2><p>Course choose karne mein help chahiye? Let’s talk about your goals.</p><EnquiryLink location="final"><MessageCircle size={18} aria-hidden="true" /> Find my course</EnquiryLink><Link href="/pricing" className="sales-text-link">Compare course fees</Link></div></section>;
+  return <section id="enrol" className="sales-final"><div className="sales-container"><span className="sales-caption">A skill begins with a first step</span><h2>Apni learning ko<br />ek nayi direction dijiye.</h2><p>Course choose karne mein help chahiye? Apna goal batayiye. Syllabus, dates aur total fees samajhiye, phir decide kijiye.</p><EnquiryLink location="final"><MessageCircle size={18} aria-hidden="true" /> Ask on WhatsApp</EnquiryLink><Link href="/pricing" className="sales-text-link">Compare course fees</Link><p className="sales-enquiry-note">This opens a WhatsApp conversation. You can ask questions before deciding to enrol.</p></div></section>;
 }

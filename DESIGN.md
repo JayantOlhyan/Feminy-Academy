@@ -2,6 +2,12 @@
 
 Single source of truth for visual identity, typography, tokens, and component guidelines for Feminy Academy.
 
+## Light theme correction: 19 November 2026
+
+User direction: light colours only. This supersedes the dark navbar, teacher, invitation and footer surfaces from the earlier refresh. `app/brand.css` now uses ivory #fffefb for the navigation and hero, lilac #f5f0fa for the teacher/footer, butter #fcf7dd for the invitation, and white/neutral content surfaces. Magenta remains the primary action accent; gold is an accent, with darker gold text for readability. Dark text is retained for accessibility. Social previews and browser theme colours match the light site.
+
+Conversion refinement: descriptive enquiry labels, visible fee comparison, and an explanation of what the WhatsApp action does. Existing real client stories, portfolio, course prices and practical next steps are retained. See `docs/LIGHT-THEME-RATIONALE.md` for evidence and verification. No conversion uplift has been measured.
+
 ## Brand refresh: 19 November 2026
 
 This revision supersedes the earlier wine palette and JPEG presentation. The original supplied JPEG remains intact. A transparent PNG derivative preserves the crest's F, FEMINY lettering, wings, shield and magenta/gold identity; it is a background-removal derivative, not a pixel-identical master. Header and footer use its smaller transparent PNG export directly, avoiding image-conversion failures.

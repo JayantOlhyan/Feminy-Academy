@@ -1,55 +1,60 @@
-/* Identity from the supplied crest: magenta, yellow gold and a contrasting plum ground. */
+/* Light-only surfaces; magenta and gold connect the experience to the supplied crest. */
 :root {
   --brand-magenta: #c3157e;
   --brand-magenta-strong: #9b0f63;
   --brand-gold: #f0e477;
   --brand-gold-text: #75600f;
-  --brand-nav: #281322;
-  --brand-on-nav: #fffaf2;
-  --brand-on-nav-muted: #d9cbd4;
-  --brand-nav-line: #604252;
+  --brand-nav: #fffefb;
+  --brand-on-nav: #342b36;
+  --brand-on-nav-muted: #665c69;
+  --brand-nav-line: #e8e1eb;
+  --brand-lilac: #f5f0fa;
+  --brand-butter: #fcf7dd;
   --accent: var(--brand-magenta);
   --accent-strong: var(--brand-magenta-strong);
   --gold-line: #c4ad4b;
   --gold-text: var(--brand-gold-text);
-  --ink: #281f27;
-  --ink-muted: #655b63;
+  --ink: #342b36;
+  --ink-muted: #665c69;
   --paper: #ffffff;
-  --paper-2: #f4f3ef;
-  --line: #e5e1e2;
-  --sales-blush: #faf9f6;
-  --sales-wine-wash: #f4edc5;
-  --on-ink: var(--brand-on-nav);
-  --on-ink-muted: var(--brand-on-nav-muted);
+  --paper-2: #f7f6f3;
+  --line: #e8e1eb;
+  --sales-blush: #fffefb;
+  --sales-wine-wash: #f7eaf3;
 }
 .sales-header { background: var(--brand-nav); color: var(--brand-on-nav); border-bottom: 1px solid var(--brand-nav-line); }
 .sales-header .sales-brand-name > strong, .sales-footer .sales-brand-name > strong { color: var(--brand-on-nav); }
-.sales-header .sales-brand-name > span, .sales-footer .sales-brand-name > span { color: var(--brand-gold); }
+.sales-header .sales-brand-name > span, .sales-footer .sales-brand-name > span { color: var(--brand-gold-text); }
 .sales-brand-logo { width: 70px; height: 70px; object-fit: contain; background: transparent; }
 .sales-header .sales-desktop-nav > a:not(.sales-button), .sales-header .sales-text-link { color: var(--brand-on-nav); }
-.sales-header .sales-desktop-nav > a:hover, .sales-header .sales-text-link:hover { color: var(--brand-gold); }
-.sales-header .sales-button { background: var(--brand-gold); border-color: var(--brand-gold); color: var(--brand-nav); box-shadow: none; }
-.sales-header .sales-button:hover { background: var(--brand-on-nav); border-color: var(--brand-on-nav); color: var(--brand-nav); }
+.sales-header .sales-desktop-nav > a:hover, .sales-header .sales-text-link:hover { color: var(--accent-strong); }
+.sales-header .sales-button { background: var(--brand-butter); border-color: var(--gold-line); color: var(--brand-on-nav); box-shadow: none; }
+.sales-header .sales-button:hover { background: var(--brand-gold); border-color: var(--gold-line); color: var(--brand-on-nav); }
 .sales-header .sales-menu-button { border: 1px solid var(--brand-nav-line); border-radius: 50%; color: var(--brand-on-nav); }
-.sales-header .sales-menu-button:hover { color: var(--brand-gold); }
+.sales-header .sales-menu-button:hover { color: var(--accent-strong); }
 .sales-header .sales-mobile-nav { background: var(--brand-nav); border-color: var(--brand-nav-line); }
 .sales-header .sales-mobile-nav > a:not(.sales-button) { color: var(--brand-on-nav); }
-.sales-header .sales-mobile-nav > a:not(.sales-button):hover { color: var(--brand-gold); }
-.sales-header :where(a,button):focus-visible, .sales-footer :where(a,button):focus-visible { outline-color: var(--brand-gold); }
+.sales-header .sales-mobile-nav > a:not(.sales-button):hover { color: var(--accent-strong); }
+.sales-header :where(a,button):focus-visible, .sales-footer :where(a,button):focus-visible { outline-color: var(--accent-strong); }
 .sales-header .sales-brand:hover, .sales-footer .sales-brand:hover { text-decoration: none; }
-.sales-footer { background: var(--brand-nav); color: var(--brand-on-nav); border-color: var(--brand-nav-line); }
-.sales-footer-grid p, .sales-footer-links a, .sales-footer .sales-footnote, .sales-footer-bottom { color: var(--brand-on-nav-muted); }
-.sales-footer h3, .sales-footer-socials a { color: var(--brand-on-nav); }
+.sales-footer { background: var(--brand-lilac); color: var(--ink); border-color: var(--line); }
+.sales-footer-grid p, .sales-footer-links a, .sales-footer .sales-footnote, .sales-footer-bottom { color: var(--ink-muted); }
+.sales-footer h3, .sales-footer-socials a { color: var(--ink); }
 .sales-footer-bottom, .sales-footer-socials a { border-color: var(--brand-nav-line); }
-.sales-footer a:hover { color: var(--brand-gold); }
-.sales-final { background: var(--brand-nav); color: var(--brand-on-nav); }
-.sales-final h2 { color: var(--brand-on-nav); }
-.sales-final .sales-caption { color: var(--brand-gold); }
-.sales-final p { color: var(--brand-on-nav-muted); }
-.sales-final .sales-text-link { color: var(--brand-gold); }
-.sales-teacher { background: var(--brand-nav); }
+.sales-footer a:hover { color: var(--accent-strong); }
+.sales-final { background: var(--brand-butter); color: var(--ink); border-block: 1px solid #eee5bc; }
+.sales-final h2 { color: var(--ink); }
+.sales-final .sales-caption { color: var(--brand-gold-text); }
+.sales-final p { color: var(--ink-muted); }
+.sales-final .sales-text-link { color: var(--accent-strong); }
+.sales-teacher { background: var(--brand-lilac); color: var(--ink); }
+.sales-teacher p, .sales-teacher .sales-footnote { color: var(--ink-muted); }
+.sales-teacher .sales-caption, .sales-teacher .sales-text-link { color: var(--accent-strong); }
+.sales-teacher .sales-check-list svg { color: var(--accent-strong); }
+.sales-offline-illustration { background: var(--brand-butter); color: var(--ink); }
 .landing-stories { background: var(--paper); border-block: 1px solid var(--line); }
 .sales-review-section { background: var(--paper-2); }
+.sales-final .sales-enquiry-note { margin: 18px auto 0; max-width: 54ch; font-size: 14px; line-height: 1.65; color: var(--ink-muted); }
 @media (max-width:700px) {
   .sales-header .sales-brand-logo, .sales-footer .sales-brand-logo { width: clamp(42px,12vw,52px); height: clamp(42px,12vw,52px); }
 }
