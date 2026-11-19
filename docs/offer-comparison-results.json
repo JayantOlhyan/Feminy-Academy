@@ -1,0 +1,122 @@
+[
+  {
+    "clippedOffer": false,
+    "overflow": false,
+    "path": "/",
+    "requested": 280,
+    "tablePresent": true,
+    "width": 280
+  },
+  {
+    "clippedOffer": false,
+    "overflow": false,
+    "path": "/",
+    "requested": 360,
+    "tablePresent": true,
+    "width": 360
+  },
+  {
+    "clippedOffer": false,
+    "overflow": false,
+    "path": "/",
+    "requested": 700,
+    "tablePresent": true,
+    "width": 700
+  },
+  {
+    "clippedOffer": false,
+    "overflow": false,
+    "path": "/",
+    "requested": 901,
+    "tablePresent": true,
+    "width": 901
+  },
+  {
+    "clippedOffer": false,
+    "overflow": false,
+    "path": "/",
+    "requested": 1440,
+    "tablePresent": true,
+    "width": 1440
+  },
+  {
+    "clippedOffer": false,
+    "overflow": false,
+    "path": "/courses/hydra-facial",
+    "requested": 280,
+    "tablePresent": true,
+    "width": 280
+  },
+  {
+    "clippedOffer": false,
+    "overflow": false,
+    "path": "/courses/hydra-facial",
+    "requested": 360,
+    "tablePresent": true,
+    "width": 360
+  },
+  {
+    "clippedOffer": false,
+    "overflow": false,
+    "path": "/courses/hydra-facial",
+    "requested": 700,
+    "tablePresent": true,
+    "width": 700
+  },
+  {
+    "clippedOffer": false,
+    "overflow": false,
+    "path": "/courses/hydra-facial",
+    "requested": 901,
+    "tablePresent": true,
+    "width": 901
+  },
+  {
+    "clippedOffer": false,
+    "overflow": false,
+    "path": "/courses/hydra-facial",
+    "requested": 1440,
+    "tablePresent": true,
+    "width": 1440
+  },
+  {
+    "clippedOffer": false,
+    "overflow": false,
+    "path": "/courses/one-day",
+    "requested": 280,
+    "tablePresent": false,
+    "width": 280
+  },
+  {
+    "clippedOffer": false,
+    "overflow": false,
+    "path": "/courses/one-day",
+    "requested": 360,
+    "tablePresent": false,
+    "width": 360
+  },
+  {
+    "clippedOffer": false,
+    "overflow": false,
+    "path": "/courses/one-day",
+    "requested": 700,
+    "tablePresent": false,
+    "width": 700
+  },
+  {
+    "clippedOffer": false,
+    "overflow": false,
+    "path": "/courses/one-day",
+    "requested": 901,
+    "tablePresent": false,
+    "width": 901
+  },
+  {
+    "clippedOffer": false,
+    "overflow": false,
+    "path": "/courses/one-day",
+    "requested": 1440,
+    "tablePresent": false,
+    "width": 1440
+  }
+]

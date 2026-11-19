@@ -1,3 +1,4 @@
+import { CourseMarketComparison } from "./CourseMarketComparison";
 import Image from "next/image";
 import Link from "next/link";
 import { Check, MessageCircle, BookOpen, ArrowDown } from "lucide-react";
@@ -23,6 +24,6 @@ export function CourseLanding({ course }: { course: SalesCourse }) {
     <LearningJourney course={course}/><LearningShowcase course={course}/>
     <section className="sales-section" id="learning"><div className="sales-container sales-learning-grid"><div><span className="sales-caption">Find your fit</span><h2>For the skill<br/>you want to build.</h2><ul className="sales-check-list">{course.audience.map(item=><li key={item}><Check size={18} aria-hidden="true"/>{item}</li>)}</ul><EnquiryLink course={course.name} location="course_fit" className="sales-text-link">Help me decide if this fits</EnquiryLink></div><div className="sales-outcomes">{course.outcomes.map(item=><article key={item.title}><h3>{item.title}</h3><p>{item.description}</p></article>)}</div></div></section>
     <section className="sales-section sales-soft" id="curriculum"><div className="sales-container sales-curriculum-grid"><div><BookOpen size={30} strokeWidth={1} aria-hidden="true"/><h2>Every topic.<br/>A clearer picture.</h2><p>Explore the outline. Your final batch syllabus, class format and support arrangements are confirmed before enrolment.</p><EnquiryLink course={course.name} location={`${course.slug}_syllabus`} className="sales-text-link">Request the final syllabus</EnquiryLink></div><DetailsList label="curriculum" items={course.modules.map((module,index)=>({question:`${String(index+1).padStart(2,"0")}  ${module.title}`,answer:module.topics.join(" • ")}))}/></div></section>
-    <TeacherStory/><MediaGallery mode="stories"/><ClientReviews/><AcademyEvidence/><CourseRequirements course={course}/><FormatComparison course={course}/><CourseCommitment course={course}/><CommonQuestions course={course}/><MobileEnrolment course={course.name} courseSlug={course.slug}/>
+    <TeacherStory/><MediaGallery mode="stories"/><ClientReviews/><AcademyEvidence/><CourseRequirements course={course}/>{course.slug === "hydra-facial" ? <CourseMarketComparison/> : <FormatComparison course={course}/>}<CourseCommitment course={course}/><CommonQuestions course={course}/><MobileEnrolment course={course.name} courseSlug={course.slug}/>
   </div>;
 }

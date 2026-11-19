@@ -1,0 +1,46 @@
+/* The offer is a small destination of its own: one message, a real deadline, one action. */
+.sales-offer-bar.offer-spotlight { background: #fcf7dd; padding: 0; border-top: 1px solid #eee2ad; border-bottom: 1px solid #eee2ad; text-align: left; }
+.offer-spotlight-inner { display: grid; grid-template-columns: 1.2fr 1fr auto; align-items: center; gap: 28px; padding-block: 16px; }
+.offer-spotlight-inner > * { min-width: 0; }
+.offer-spotlight-badge { display: inline-flex; gap: 6px; align-items: center; font-size: 11px; font-weight: 700; color: var(--accent-strong); background: #f8e7f1; padding: 5px 10px; border: 1px solid #eecddd; border-radius: 30px; }
+.offer-spotlight-copy p { display: flex; flex-direction: column; gap: 2px; margin: 7px 0 0; line-height: 1.3; }
+.offer-spotlight-copy p > span { font-size: 14px; color: var(--ink-muted); }
+.offer-spotlight-copy p > strong { font-family: var(--font-display),sans-serif; font-size: 27px; letter-spacing: -.035em; color: var(--accent-strong); }
+.offer-spotlight .price-countdown-featured { display: flex; flex-direction: column-reverse; align-items: center; gap: 7px; padding: 0; font-size: 11px; text-align: center; }
+.offer-spotlight .price-countdown-featured > .price-clock { padding: 0; min-width: 0; background: none; border: 0; border-radius: 0; }
+.price-clock-segments { display: flex; gap: 6px; }
+.price-clock-segment { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 47px; min-height: 53px; background: #fffefb; border: 1px solid #dfcf8a; border-radius: 11px; }
+.price-clock-segment > strong { font-size: 23px; font-family: var(--font-display),sans-serif; line-height: 1.1; color: var(--accent-strong); font-variant-numeric: tabular-nums; }
+.price-clock-segment > span { margin-top: 3px; font-size: 9px; font-weight: 400; color: var(--ink-muted); }
+.offer-spotlight-action { display: inline-flex; justify-content: center; align-items: center; gap: 10px; background: var(--accent); color: #fff; padding: 14px 22px; min-height: 50px; border-radius: 30px; font-size: 14px; font-weight: 700; text-decoration: none; box-shadow: 0 5px 14px -9px rgb(155 15 99 / .5); }
+.offer-spotlight-action:hover { background: var(--accent-strong); color: #fff; text-decoration: none; }
+.offer-spotlight-action svg { flex: none; }
+.offer-spotlight .price-countdown-loading { max-width: 30ch; text-align: center; }
+@media(max-width:1000px) {
+  .offer-spotlight-inner { gap: 16px; }
+  .offer-spotlight-copy p > strong { font-size: 23px; }
+  .offer-spotlight-action { padding-inline: 18px; font-size: 13px; }
+}
+@media(max-width:700px) {
+  .offer-spotlight-inner { grid-template-columns: 1fr auto; gap: 10px 12px; padding-block: 12px; }
+  .offer-spotlight-copy p { margin-top: 5px; }
+  .offer-spotlight-copy p > span { font-size: 11px; }
+  .offer-spotlight-copy p > strong { font-size: 20px; }
+  .offer-spotlight-badge { padding: 3px 7px; font-size: 9px; gap: 4px; }
+  .offer-spotlight-badge svg { width: 11px; height: 11px; }
+  .offer-spotlight-action { grid-column: 2; grid-row: 1; padding: 10px 12px; font-size: 11px; gap: 5px; max-width: 130px; min-height: 44px; }
+  .offer-spotlight-timer { grid-column: 1/-1; border-top: 1px solid #eee2ad; padding-top: 9px; }
+  .offer-spotlight .price-countdown-featured { flex-direction: row; justify-content: space-between; align-items: center; gap: 8px; text-align: left; font-size: 10px; }
+  .offer-spotlight .price-countdown-featured > span:first-child { max-width: 16ch; }
+  .price-clock-segments { gap: 4px; }
+  .price-clock-segment { width: 32px; min-height: 40px; border-radius: 7px; }
+  .price-clock-segment > strong { font-size: 18px; }
+  .price-clock-segment > span { font-size: 8px; margin-top: 1px; }
+}
+@media(max-width:340px) {
+  .offer-spotlight-inner { column-gap: 8px; }
+  .offer-spotlight-copy p > strong { font-size: 18px; }
+  .offer-spotlight-action { max-width: 90px; padding-inline: 9px; font-size: 10px; }
+  .offer-spotlight-action svg { width: 14px; }
+  .price-clock-segment { width: 28px; }
+}

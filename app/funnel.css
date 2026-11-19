@@ -164,3 +164,55 @@
   .funnel-mobile-topic li svg { flex: none; color: var(--accent-strong); margin-top: 4px; }
   .funnel-mobile-topic .sales-text-link { min-height: 44px; font-size: 14px; }
 }
+/* Comparison keeps the actual subject, delivery format and sourced fees visible together. */
+.market-comparison { background: var(--brand-nav); }
+.market-scroll-hint { display: none; align-items: center; gap: 7px; margin: 0 0 12px; font-size: 12px; color: var(--ink-muted); }
+.market-table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 24px; scrollbar-width: thin; scrollbar-color: #c7a8b9 var(--paper-2); }
+.market-table { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 800px; table-layout: fixed; text-align: left; }
+.market-table caption { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.market-label-col { width: 20%; }
+.market-feminy-col { width: 30%; }
+.market-table th,.market-table td { padding: 22px; border-bottom: 1px solid var(--line); vertical-align: top; overflow-wrap: anywhere; font-size: 14px; line-height: 1.7; }
+.market-table thead th { background: var(--paper-2); font-weight: 400; }
+.market-table thead th > strong { display: block; font-size: 21px; color: var(--ink); margin-bottom: 7px; line-height: 1.25; }
+.market-table thead th > span:last-child { display: block; color: var(--ink-muted); font-size: 13px; }
+.market-table .market-feminy { background: var(--brand-lilac); }
+.market-table thead .market-feminy { border-top: 4px solid var(--accent); padding-top: 18px; }
+.market-own-label { display: inline-block; color: var(--accent-strong); font-size: 10px; font-weight: 700; margin-bottom: 12px; }
+.market-table tbody th { font-weight: 700; color: var(--ink); background: var(--paper); }
+.market-table tbody td { color: var(--ink-muted); }
+.market-table tbody td.market-feminy { color: var(--ink); }
+.market-table tbody tr:last-child > * { border-bottom: 0; }
+.market-fee-row td > strong { display: block; font-family: var(--font-display),sans-serif; font-size: 30px; letter-spacing: -.04em; color: var(--ink); white-space: nowrap; line-height: 1.3; }
+.market-fee-row td.market-feminy > strong { font-size: 38px; color: var(--accent-strong); }
+.market-fee-row td > span { display: block; font-size: 11px; margin-top: 8px; line-height: 1.6; }
+.market-feature { display: flex; gap: 9px; align-items: flex-start; }
+.market-feature > svg { flex: none; color: var(--accent-strong); margin-top: 4px; }
+.market-comparison-bottom { margin-top: 20px; font-size: 12px; color: var(--ink-muted); }
+.market-comparison-bottom p { max-width: 100ch; }
+.market-sources { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; margin-top: 8px; }
+.market-sources a { color: var(--accent-strong); text-decoration: underline; text-underline-offset: 3px; min-height: 44px; display: inline-flex; align-items: center; }
+.market-cta { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 26px; border: 1px solid #eee2ad; border-radius: 20px; background: var(--brand-butter); margin-top: 26px; }
+.market-cta > div { display: flex; flex-direction: column; gap: 6px; }
+.market-cta strong { font-size: 21px; font-family: var(--font-display),sans-serif; }
+.market-cta span { color: var(--ink-muted); font-size: 14px; }
+.market-cta .sales-button { flex: none; }
+@media(max-width:900px) {
+  .market-scroll-hint { display: flex; }
+  .market-table { min-width: 760px; }
+  .market-table th,.market-table td { padding: 18px; font-size: 13px; }
+  .market-table thead th > strong { font-size: 18px; }
+  .market-table-scroll { border-radius: 18px; }
+}
+@media(max-width:700px) {
+  .market-table { min-width: 700px; }
+  .market-table th,.market-table td { padding: 16px; font-size: 12px; }
+  .market-label-col { width: 20%; }
+  .market-feminy-col { width: 30%; }
+  .market-table thead th > strong { font-size: 17px; }
+  .market-fee-row td > strong { font-size: 26px; }
+  .market-fee-row td.market-feminy > strong { font-size: 32px; }
+  .market-feature { gap: 6px; }
+  .market-cta { flex-direction: column; align-items: flex-start; padding: 22px; }
+  .market-cta .sales-button { width: 100%; padding-inline: 14px; }
+}
