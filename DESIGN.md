@@ -2,6 +2,12 @@
 
 Single source of truth for visual identity, typography, tokens, and component guidelines for Feminy Academy.
 
+## Brand refresh: 19 November 2026
+
+This revision supersedes the earlier wine palette and JPEG presentation. The original supplied JPEG remains intact. A transparent PNG derivative preserves the crest's F, FEMINY lettering, wings, shield and magenta/gold identity; it is a background-removal derivative, not a pixel-identical master. Header and footer use its smaller transparent PNG export directly, avoiding image-conversion failures.
+
+`app/brand.css` is the final identity layer: magenta #c3157e, gold #f0e477 and contrasting plum #281322. Page surfaces are white and warm neutral rather than pink. White on magenta is 5.63:1; gold on plum is 13.32:1; ivory navigation text on plum is 16.75:1.
+
 ## Responsive hardening: 18 November 2026
 
 Navigation collapses at 900px. Short-screen menus scroll internally; media dialogs allocate remaining height after controls. Mobile enquiry docks account for overlays, editing and viewport changes. Normal-text WhatsApp contrast is now 6.48:1. Policy typography and titles are consistent. See `docs/DEVICE-AUDIT.md` and the saved 352-case result matrix for coverage and limitations.

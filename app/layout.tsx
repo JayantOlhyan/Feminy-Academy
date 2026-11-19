@@ -3,6 +3,7 @@ import "./fonts.css";
 import "./globals.css";
 import "./sales.css";
 import "./soft.css";
+import "./brand.css";
 import { LandingMotion } from "@/components/sales/LandingMotion";
 import { Header } from "@/components/blocks/Header";
 import { Footer } from "@/components/blocks/Footer";
@@ -10,7 +11,7 @@ import { siteConfig } from "@/content/site";
 
 
 export const viewport: Viewport = {
-  themeColor: "#7A1F3D",
+  themeColor: "#281322",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
@@ -83,7 +84,7 @@ export default function RootLayout({
         name: siteConfig.brand,
         alternateName: "Feminy Academy by Sunita Rathee",
         url: siteUrl,
-        logo: `${siteUrl}/brand/feminy-academy-logo.jpg`,
+        logo: `${siteUrl}/brand/feminy-crest-transparent.png`,
         image: `${siteUrl}/icon-512.png`,
         telephone: siteConfig.phone,
         address: {

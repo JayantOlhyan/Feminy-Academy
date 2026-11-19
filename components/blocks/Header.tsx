@@ -10,7 +10,7 @@ import { initAnalytics, trackEvent } from "@/lib/tracking";
 import { EnquiryLink } from "@/components/sales/Interactions";
 
 export function Brand() {
-  return <Link href="/" className="sales-brand" aria-label="Feminy Academy home"><Image className="sales-brand-logo" src="/brand/feminy-academy-logo.jpg" alt="Feminy crest logo" width={64} height={62} priority /><span className="sales-brand-name"><strong>Feminy Academy</strong><span>by Sunita Rathee</span></span></Link>;
+  return <Link href="/" className="sales-brand" aria-label="Feminy Academy home"><Image className="sales-brand-logo" src="/brand/feminy-crest-navbar.png" unoptimized alt="Feminy crest logo" width={70} height={70} priority /><span className="sales-brand-name"><strong>Feminy Academy</strong><span>by Sunita Rathee</span></span></Link>;
 }
 
 export function Header() {

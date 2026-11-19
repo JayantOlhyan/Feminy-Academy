@@ -11,7 +11,7 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image() {
-  const logo = await readFile(path.join(process.cwd(), "public/brand/feminy-academy-logo.jpg"));
+  const logo = await readFile(path.join(process.cwd(), "public/brand/feminy-crest-transparent.png"));
   const experienceStat = siteConfig.stats.find((s) => s.id === "experience");
   const studentsStat = siteConfig.stats.find((s) => s.id === "students");
   return new ImageResponse(
@@ -24,7 +24,7 @@ export default async function Image() {
           flexDirection: "column",
           alignItems: "flex-start",
           justifyContent: "space-between",
-          backgroundColor: "#161314",
+          backgroundColor: "#281322",
           padding: "80px",
           color: "#F2EFEC",
           fontFamily: "sans-serif",
@@ -33,7 +33,7 @@ export default async function Image() {
         <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
           {/* ImageResponse requires a native image with an embedded source. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`data:image/jpeg;base64,${logo.toString("base64")}`} alt="Feminy crest" width={72} height={70} style={{objectFit:"contain"}} />
+          <img src={`data:image/png;base64,${logo.toString("base64")}`} alt="Feminy crest" width={72} height={70} style={{objectFit:"contain"}} />
           <div style={{ display: "flex", flexDirection: "column" }}>
             <span style={{ fontSize: "36px", fontWeight: "bold", letterSpacing: "-0.02em" }}>
               Feminy
@@ -43,7 +43,7 @@ export default async function Image() {
                 fontSize: "12px",
                 fontWeight: 600,
                 letterSpacing: "0.2em",
-                color: "#B8915A",
+                color: "#f0e477",
                 textTransform: "uppercase",
               }}
             >
@@ -56,7 +56,7 @@ export default async function Image() {
           <div
             style={{
               fontSize: "20px",
-              color: "#B8915A",
+              color: "#f0e477",
               textTransform: "uppercase",
               letterSpacing: "0.15em",
               fontWeight: 600,
