@@ -8,6 +8,7 @@ import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { trackEvent, trackWhatsAppClick } from "@/lib/tracking";
 import { siteConfig } from "@/content/site";
 import type { ReactNode } from "react";
+import Link from "next/link";
 
 export function EnquiryLink({ children, course, location, className = "sales-button" }: { children: ReactNode; course?: string; location: string; className?: string }) {
   const pricing = useOfferPricing();
@@ -59,7 +60,7 @@ export function MobileEnrolment({ course, price, courseSlug }: { course?: string
     return () => { observer.disconnect(); document.documentElement.style.removeProperty("--enrolment-dock-height"); };
   }, [visible]);
   if (!visible) return null;
-  return <aside ref={dock} className="sales-mobile-bar sales-enrolment-dock" aria-label="Course enrolment"><div className="sales-container enrolment-dock-inner"><div className="enrolment-dock-course"><span>{course || "Your next beauty skill"}</span><strong>{courseSlug ? <CourseFee slug={courseSlug} /> : course ? price || "Fees on enquiry" : <>From <CourseFee slug="one-day" /></>}</strong><small>{course ? "Enrolment via WhatsApp" : "Choose a course to get started"}</small></div>{course ? <EnquiryLink course={course} location="footer_sticky"><MessageCircle size={18} aria-hidden="true" />{courseSlug ? "Get this course" : "Plan my training"}</EnquiryLink> : <a className="sales-button" href="#courses">Choose your course</a>}</div></aside>;
+  return <aside ref={dock} className="sales-mobile-bar sales-enrolment-dock" aria-label="Course enrolment"><div className="sales-container enrolment-dock-inner"><div className="enrolment-dock-course"><span>{course || "Your next beauty skill"}</span><strong>{courseSlug ? <CourseFee slug={courseSlug} /> : course ? price || "Fees on enquiry" : <>From <CourseFee slug="one-day" /></>}</strong><small>{course ? courseSlug ? "Payment via Razorpay" : "Enrolment via WhatsApp" : "Choose a course to get started"}</small></div>{courseSlug ? <Link className="sales-button" href={`/checkout/${courseSlug}`}>Get this course</Link> : course ? <EnquiryLink course={course} location="footer_sticky"><MessageCircle size={18} aria-hidden="true" />Plan my training</EnquiryLink> : <a className="sales-button" href="#courses">Choose your course</a>}</div></aside>;
 
 }
 

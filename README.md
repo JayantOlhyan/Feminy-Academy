@@ -6,6 +6,8 @@ Run `npm ci`, `npm run build`, then `npm start`. For development, use `npm run d
 
 Production domain: https://feminy.academy. Set environment values using `.env.example`; no credentials are included. Existing email fixes are retained. WhatsApp enquiries use +91 90176 43392, matching the supplied asset pack and reviewed local version.
 
+Course buttons hand off to the separate learning platform, which owns login, Razorpay orders and purchased access. Checkout stays paused until the platform is deployed and configured; a price preflight blocks mismatched fees. The earlier standalone Payment Link endpoint is retired. See [the joint integration contract](docs/RAZORPAY-INTEGRATION.md) before enabling the handoff.
+
 See `docs/scrollcraft/BRIEF.md` and `docs/scrollcraft/VERIFICATION.md` for the motion design and verification limits. Current course terms, fee confirmation, live lead delivery and actual-device checks remain owner/deployment responsibilities. Reduced-motion handling is implemented; browser emulation could not be visually verified.
 
 The source media used by the site is included under `public/assets`, with selected pre-existing photographs under `public/academy`. Videos are loaded on interaction. No direct Google Drive embedding is required.

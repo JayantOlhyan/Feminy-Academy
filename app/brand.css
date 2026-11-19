@@ -109,3 +109,11 @@ html { scroll-padding-top: calc(var(--sticky-header-height, 140px) + 20px); }
   .sales-offer-bar .price-countdown { padding-inline: 12px; font-size: 11px; gap: 4px 8px; }
   .price-clock { min-width: 120px; }
 }
+
+/* Course checkout shares the existing academy palette and mobile spacing. */
+.course-checkout-layout { max-width: 760px; }
+.course-checkout-layout > h1 { margin-block: 28px; font-size: clamp(32px, 5vw, 52px); }
+.course-checkout-panel { padding: clamp(20px, 4vw, 40px); background: var(--brand-lilac); border: 1px solid var(--line); border-radius: 16px; }
+.course-checkout-panel h2 { font-size: clamp(26px, 4vw, 36px); }
+.course-checkout-panel p { margin-block: 20px; }
+.course-checkout-panel .sales-large-price { margin-block: 20px; }
