@@ -2,6 +2,10 @@
 
 Single source of truth for visual identity, typography, tokens, and component guidelines for Feminy Academy.
 
+## Mobile stories and offer strip: 19 November 2026
+
+Testimonials now use a seamless looping rail on mobile and desktop, with pause, native swipe and manual arrows; this supersedes the earlier no-mobile-auto-motion restriction for this rail only. Reduced-motion still disables automation. Hero rail behaviour remains unchanged. The shared introductory-offer strip and light media dialog follow the light theme. See `docs/MOBILE-STORIES-AND-OFFER.md` for allocation wording, checks and pending genuine promotion terms.
+
 ## Light theme correction: 19 November 2026
 
 User direction: light colours only. This supersedes the dark navbar, teacher, invitation and footer surfaces from the earlier refresh. `app/brand.css` now uses ivory #fffefb for the navigation and hero, lilac #f5f0fa for the teacher/footer, butter #fcf7dd for the invitation, and white/neutral content surfaces. Magenta remains the primary action accent; gold is an accent, with darker gold text for readability. Dark text is retained for accessibility. Social previews and browser theme colours match the light site.

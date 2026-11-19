@@ -46,7 +46,7 @@ export function LandingMotion() {
       if (!target) return;
       event.preventDefault();
       stop();
-      const offset = (document.querySelector(".sales-header-inner")?.getBoundingClientRect().height || 0) + 20;
+      const offset = (document.querySelector(".sales-header-inner")?.getBoundingClientRect().height || 0) + (document.querySelector(".sales-offer-bar")?.getBoundingClientRect().height || 0) + 20;
       const complete = () => {
         if (location.hash !== url.hash) history.pushState(null, "", `${location.pathname}${location.search}${url.hash}`);
         if (event.detail === 0) {

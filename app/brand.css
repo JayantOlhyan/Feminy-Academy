@@ -58,3 +58,41 @@
 @media (max-width:700px) {
   .sales-header .sales-brand-logo, .sales-footer .sales-brand-logo { width: clamp(42px,12vw,52px); height: clamp(42px,12vw,52px); }
 }
+
+/* A named, factual offer appears beneath the academy navigation on every page. */
+.sales-offer-bar { background: var(--brand-butter); border-top: 1px solid #eee5bc; }
+.sales-offer-bar > a { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 4px 18px; padding: 9px 20px; min-height: 42px; color: var(--ink); text-align: center; font-size: 14px; line-height: 1.5; }
+.sales-offer-bar > a > span { color: var(--accent-strong); text-decoration: underline; text-underline-offset: 3px; }
+.stories-rail { display: flex; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; overscroll-behavior-x: contain; scroll-behavior: auto; overflow-anchor: none; }
+.stories-rail::-webkit-scrollbar { display: none; }
+.stories-group { display: flex; flex: none; gap: 22px; padding: 4px 22px 6px 4px; width: max-content; }
+.stories-card { flex: none; width: clamp(240px,26vw,300px); border-radius: 24px; }
+.stories-card:focus-visible { outline: 3px solid var(--accent-strong); outline-offset: 1px; }
+.stories-controls { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 18px; }
+.stories-controls > p { margin: 0; font-size: 14px; color: var(--ink-muted); }
+.stories-controls > div { display: flex; gap: 8px; flex: none; }
+@media(max-width:700px) {
+  .stories-card { width: min(72vw,290px); border-radius: 20px; }
+  .stories-controls { align-items: flex-start; flex-direction: column; }
+  .sales-offer-bar > a { padding-block: 7px; font-size: 12px; gap: 0 10px; }
+}
+html { scroll-padding-top: calc(var(--sticky-header-height, 140px) + 20px); }
+.sales-offline-grid input { scroll-margin-top: calc(var(--sticky-header-height, 140px) + 24px); }
+.stories-carousel + .sales-footnote { margin-top: 24px; }
+@media(max-width:900px) {
+  .sales-header .sales-mobile-nav { max-height: calc(100dvh - var(--sticky-header-height, 124px) - env(safe-area-inset-bottom)); }
+}
+.sales-offer-note { display: flex; flex-direction: column; gap: 5px; margin-block: 18px; max-width: 58ch; font-size: 14px; line-height: 1.6; color: var(--ink-muted); }
+.sales-offer-note > strong { color: var(--accent-strong); }
+.landing-hero-copy > .sales-offer-note { margin: 18px auto 0; font-size: 14px; }
+.sales-price-panel .sales-offer-note { font-size: 14px; }
+.landing-lightbox { background: var(--brand-nav); color: var(--ink); border: 1px solid var(--line); }
+.landing-lightbox::backdrop { background: rgb(232 225 235 / .9); }
+.landing-lightbox video { background: var(--paper-2); }
+/* Keep monetary amounts intact, even when the adjacent explanation needs several lines. */
+.sales-hero-price > strong { flex: none; white-space: nowrap; }
+.sales-hero-price > span { min-width: 0; }
+@media(max-width:360px) {
+  .sales-hero-price { flex-wrap: wrap; gap: 12px; }
+  .sales-hero-price > span { border-left: 0; padding-left: 0; flex-basis: 100%; }
+}
