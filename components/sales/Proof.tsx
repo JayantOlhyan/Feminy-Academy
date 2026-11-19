@@ -30,7 +30,7 @@ export function CommonQuestions({ course }: { course?: SalesCourse }) {
   const courseQuestions = course ? [
     { question: `What does ${course.name} focus on?`, answer: course.description },
     { question: course.slug === "hydra-facial" ? "Which machine or products will I need?" : "What is the topic of my one-day batch?", answer: course.slug === "hydra-facial" ? "Share your machine model and experience with the academy. Ask for the selected batch’s product, attachment and practice requirements before buying equipment or joining." : "Ask for the exact technique, date, class format and tool list for your chosen batch. The one-day format is a focused session, rather than a complete multi-month programme." },
-    { question: "Why is there a countdown beside the fee?", answer: "The listed online course fee increases by ₹100 every three days on one shared schedule. The page shows the current fee, next fee and the exact next increase in IST. Refreshing does not restart the deadline." },
+    { question: "Why is there a countdown beside the fee?", answer: "The listed online course fee increases by 10% every three days on one shared schedule. The page shows the current fee, next fee and the exact next increase in IST. Refreshing does not restart the deadline." },
     ...salesFAQs,
   ] : salesFAQs;
   return <section className="sales-section" id="questions"><div className="sales-container sales-faq-grid"><div><span className="sales-caption">Before you decide</span><h2>Aapke sawaal.<br />Seedhe jawaab.</h2><p>Apna sawaal yahan nahi mila?</p><EnquiryLink className="sales-text-link" location="faq">Ask us on WhatsApp <MessageCircle size={17} aria-hidden="true" /></EnquiryLink></div><DetailsList items={courseQuestions} label="course_faq" /></div></section>;

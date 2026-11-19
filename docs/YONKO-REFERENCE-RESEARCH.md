@@ -16,7 +16,7 @@ Use this sequence as a design reference for Feminy while retaining its light pal
 |---|---|---|---|
 | Top offer strip | Pale lavender, centred copy, small type | Introduce the deal before the hero | Existing pale-gold academy offer strip |
 | Allocation claim | 1,236 of 1,500 spots claimed | Signal adoption and scarcity | Only show sold/remaining numbers if connected to enrolment records |
-| Price progression | ₹1,499 for the first 1,500, then ₹2,499 | Explain why buying sooner changes cost | Current genuine ₹100 increase every three days |
+| Price progression | ₹1,499 for the first 1,500, then ₹2,499 | Explain why buying sooner changes cost | Current genuine 10% increase every three days |
 | Filled progress bar | Purple fill, white remaining track, “Only 264 left” | Visualise the claimed allocation | No filled sales-progress bar until actual counts exist |
 | Compact brand mark | Small stacked black/green logo, left | Establish identity without consuming the hero | Supplied Feminy crest plus academy name |
 | Top purchase action | Dark pill, price inside, small payment-provider line | Give a quick action to returning visitors | Course enquiry action; payment wording only with a working checkout |

@@ -30,4 +30,4 @@ The owner clarified that the proposed ₹10,000 comparison price would be inflat
 
 ## Subsequent authorisation
 
-The owner subsequently authorised a real ₹100 increase every three days. The shared timer and live fees are now implemented; see `SCHEDULED-PRICING.md`. The earlier inflated comparison-price request remains excluded.
+The owner subsequently authorised a recurring increase every three days, updated on 19 November 2026 to compounded 10%. The shared timer and live fees are now implemented; see `SCHEDULED-PRICING.md`. The earlier inflated comparison-price request remains excluded.

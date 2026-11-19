@@ -29,7 +29,7 @@ export async function getCourseHandoff(slug: PricedCourseSlug, now = Date.now())
     if (!response.ok) return { status: "unavailable" };
     const data = courseResponse.safeParse(await response.json());
     if (!data.success || data.data.course.slug !== platformSlug) return { status: "unavailable" };
-    if (data.data.course.pricePaise !== getOfferPricing(now).courses[slug].price * 100) return { status: "price-mismatch" };
+    if (data.data.course.pricePaise !== Math.round(getOfferPricing(now).courses[slug].price * 100)) return { status: "price-mismatch" };
     return { status: "ready", url: `${origin}/courses/${platformSlug}` };
   } catch { return { status: "unavailable" }; }
 }

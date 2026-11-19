@@ -39,7 +39,7 @@ test('fixed backend fee cannot silently undercharge after a scheduled increase',
   const f=fixture();const boundary=start+pricing.priceSchedule.intervalMs;
   assert.equal((await f.mod.getCourseHandoff('hydra-facial',boundary-1)).status,'ready');
   assert.equal((await f.mod.getCourseHandoff('hydra-facial',boundary)).status,'price-mismatch');
-  f.setPayload({course:{slug:'hydra-facial',pricePaise:310000,currency:'INR'}});
+  f.setPayload({course:{slug:'hydra-facial',pricePaise:330000,currency:'INR'}});
   assert.equal((await f.mod.getCourseHandoff('hydra-facial',boundary)).status,'ready');
 });
 test('wrong course, non-INR, malformed data and backend failure all block checkout',async()=>{
@@ -58,4 +58,9 @@ test('platform configuration rejects unsafe schemes, credentials, paths and prod
 test('retired standalone endpoint always refuses to create an unlinked payment',async()=>{
   const route=load('app/api/payments/link/route.ts');const response=await route.POST();
   assert.equal(response.status,410);assert.match((await response.json()).error,/learning platform/);
+});
+
+test('platform comparison uses integer paise for compounded fractional-rupee fees', async () => {
+  const f=fixture();f.setPayload({course:{slug:'hydra-facial',pricePaise:439230,currency:'INR'}});
+  assert.equal((await f.mod.getCourseHandoff('hydra-facial',start+4*pricing.priceSchedule.intervalMs)).status,'ready');
 });

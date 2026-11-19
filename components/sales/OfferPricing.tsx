@@ -1,7 +1,8 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
-import { formatCourseFee, formatPriceDeadline, getOfferPricing, type OfferPricing, type PricedCourseSlug } from "@/lib/offer-pricing";
+import { usePathname } from "next/navigation";
+import { formatCourseFee, formatPriceDeadline, getOfferPricing, getTimedCourseSlug, type OfferPricing, type PricedCourseSlug } from "@/lib/offer-pricing";
 
 const PricingContext = createContext<OfferPricing | null>(null);
 
@@ -52,16 +53,18 @@ export function CourseFee({ slug, next = false }: { slug: string; next?: boolean
 }
 export function PriceCountdown({ compact = false, slug, featured = false }: { compact?: boolean; slug?: string; featured?: boolean }) {
   const pricing = useOfferPricing();
-  if (!pricing) return <span className="price-countdown-loading">Fees rise ₹100 every 3 days. Confirm the current fee with our team.</span>;
+  const timedCourse = getTimedCourseSlug(usePathname());
+  if (!timedCourse) return null;
+  if (!pricing) return <span className="price-countdown-loading">Fees rise 10% every 3 days. Confirm the current fee with our team.</span>;
   const seconds = Math.max(0, Math.ceil((pricing.nextIncreaseAt - pricing.serverNow) / 1000));
   const days = Math.floor(seconds / 86400);
   const hours = Math.floor(seconds % 86400 / 3600);
   const minutes = Math.floor(seconds % 3600 / 60);
   const countdown = `${days}d ${String(hours).padStart(2,"0")}h ${String(minutes).padStart(2,"0")}m ${String(seconds % 60).padStart(2,"0")}s`;
-  const course = pricing.courses[slug as PricedCourseSlug];
+  const course = pricing.courses[(slug || timedCourse) as PricedCourseSlug];
   return <span className={`price-countdown ${compact ? "price-countdown-compact" : ""} ${featured ? "price-countdown-featured" : ""}`}>
-    <span>{course ? `Next fee: ${formatCourseFee(course.nextPrice)}` : "Course fees rise ₹100"} · <time dateTime={new Date(pricing.nextIncreaseAt).toISOString()}>{formatPriceDeadline(pricing.nextIncreaseAt)}</time></span>
-    <span className="price-clock" role="timer" aria-live="off" aria-label={`Until the next ₹100 price increase: ${countdown}`}>{featured ? <span className="price-clock-segments" aria-hidden="true">{[[String(days).padStart(2,"0"),"days"],[String(hours).padStart(2,"0"),"hrs"],[String(minutes).padStart(2,"0"),"min"],[String(seconds % 60).padStart(2,"0"),"sec"]].map(([value,label]) => <span className="price-clock-segment" key={label}><strong>{value}</strong><span>{label}</span></span>)}</span> : countdown}</span>
-    {!compact && <span className="price-schedule-note">The fee increases by ₹100 every 3 days on this shared schedule.</span>}
+    <span>{course ? `Next fee: ${formatCourseFee(course.nextPrice)}` : "Course fees rise 10%"} · <time dateTime={new Date(pricing.nextIncreaseAt).toISOString()}>{formatPriceDeadline(pricing.nextIncreaseAt)}</time></span>
+    <span className="price-clock" role="timer" aria-live="off" aria-label={`Until the next 10% price increase: ${countdown}`}>{featured ? <span className="price-clock-segments" aria-hidden="true">{[[String(days).padStart(2,"0"),"days"],[String(hours).padStart(2,"0"),"hrs"],[String(minutes).padStart(2,"0"),"min"],[String(seconds % 60).padStart(2,"0"),"sec"]].map(([value,label]) => <span className="price-clock-segment" key={label}><strong>{value}</strong><span>{label}</span></span>)}</span> : countdown}</span>
+    {!compact && <span className="price-schedule-note">The fee increases by 10% every 3 days on this shared schedule.</span>}
   </span>;
 }
