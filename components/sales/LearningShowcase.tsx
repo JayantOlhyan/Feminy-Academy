@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { ArrowUpRight, BookOpen, Check } from "lucide-react";
+import { ArrowUpRight, BookOpen, Check, Plus } from "lucide-react";
 import { salesCourses, type SalesCourse } from "@/content/sales";
 import { EnquiryLink } from "./Interactions";
 
@@ -16,6 +16,7 @@ export function LearningShowcase({ course }: { course?: SalesCourse }) {
     {!course && <div className="funnel-course-switch" role="group" aria-label="Choose a course learning preview">{salesCourses.map(item => <button key={item.slug} aria-pressed={selected.slug === item.slug} onClick={() => { setSlug(item.slug); setExpanded(0); }}>{item.name}</button>)}</div>}
     <div className="funnel-learning-window">
       <div className="funnel-window-bar"><span><BookOpen size={16} aria-hidden="true"/> {selected.name}</span><span>Learning outline</span></div>
+      <div className="funnel-mobile-outline"><p>Tap a topic to see what you’ll explore.</p>{selected.modules.map((item,index) => <details key={`${selected.slug}-${item.title}`} name={`mobile-topics-${selected.slug}`}><summary><span>{String(index+1).padStart(2,"0")}</span><strong>{item.title}</strong><Plus size={18} aria-hidden="true"/></summary><div className="funnel-mobile-topic"><ul>{item.topics.map(topic => <li key={topic}><Check size={16} aria-hidden="true"/><span>{topic}</span></li>)}</ul><EnquiryLink course={selected.name} location="mobile_learning_preview" className="sales-text-link">Ask about this topic <ArrowUpRight size={16} aria-hidden="true"/></EnquiryLink></div></details>)}</div>
       <div className="funnel-learning-panels">
         <div className="funnel-outline"><span className="funnel-small-label">Explore the topics</span>{selected.modules.map((item,index) => <button key={item.title} aria-expanded={moduleIndex === index} aria-controls={`outline-${selected.slug}`} onClick={() => setExpanded(index)}><span>{String(index+1).padStart(2,"0")}</span>{item.title}<ArrowUpRight size={16} aria-hidden="true"/></button>)}</div>
         <div className="funnel-module" id={`outline-${selected.slug}`} aria-live="polite"><span className="funnel-small-label">Selected topic</span><h3>{selected.modules[moduleIndex].title}</h3><ul>{selected.modules[moduleIndex].topics.map(topic => <li key={topic}><Check size={17} aria-hidden="true"/><span>{topic}</span></li>)}</ul><EnquiryLink course={selected.name} location="learning_preview" className="sales-text-link">Ask about this learning plan <ArrowUpRight size={17} aria-hidden="true"/></EnquiryLink></div>

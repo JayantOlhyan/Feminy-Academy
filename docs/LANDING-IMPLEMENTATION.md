@@ -38,3 +38,11 @@ The software reference's roadmap, invented feature bundle and payment-provider m
 ## Operational limitation
 
 Enrolment remains a WhatsApp conversation or existing academy counselling form. This work does not add a payment gateway or student portal, and course fees must still be honoured by the academy team when completing enrolment.
+
+## Follow-up interaction pass
+
+Mobile previews now use native inline topic disclosures at widths up to 700px. Answers appear beside the selected topic rather than in a panel after the whole topic list. The desktop two-column/three-column preview remains at 701px and above. Native summary controls support keyboard activation; the shared name groups the disclosures so one topic opens at a time in supporting browsers. Homepage course switching resets the corresponding topic content.
+
+Loop-copy video clicks now move focus to the matching original card before opening the dialog. This gives the existing modal focus-restoration logic an accessible target instead of a card under `aria-hidden`.
+
+Verification: production build/type/lint/claim guard passed. Fifteen additional checks covered homepage and both online courses at 280, 360, 700, 701 and 1440px; every requested width matched, no page overflow occurred, and exactly the intended mobile/desktop preview was displayed. Native keyboard activation, exclusive topic opening, homepage course switch, opening a visible duplicate video card and closing its dialog were exercised. Focus returned to “Play From the salon chair” outside any `aria-hidden` ancestor. Results: `landing-followup-results.json`.

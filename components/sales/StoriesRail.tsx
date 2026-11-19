@@ -85,7 +85,14 @@ export function StoriesRail({ dialogOpen, onOpen }: { dialogOpen: boolean; onOpe
   return <div className="stories-carousel" role="region" aria-roledescription="carousel" aria-label="Client video stories">
     <div className="stories-rail" ref={rail} onPointerDown={() => setPaused(true)} onWheel={() => setPaused(true)}>
       {[0,1,2].map(copy => <div className="stories-group" ref={copy === 0 ? group : undefined} key={copy} aria-hidden={copy !== 1 ? true : undefined}>
-        {media.videos.map((video,index) => <button key={video.src} className="landing-video-card stories-card" tabIndex={copy === 1 ? 0 : -1} aria-label={`Play ${video.title}`} onClick={() => onOpen(index)}>
+        {media.videos.map((video,index) => <button key={video.src} className="landing-video-card stories-card" tabIndex={copy === 1 ? 0 : -1} aria-label={`Play ${video.title}`} onClick={() => {
+          // Loop copies are visual duplicates. Restore focus to the real accessible card.
+          if (copy !== 1) {
+            const original = rail.current?.querySelectorAll(".stories-group")[1]?.querySelectorAll<HTMLButtonElement>("button")[index];
+            original?.focus({ preventScroll: true });
+          }
+          onOpen(index);
+        }}>
           <Image src={video.poster} alt="" fill sizes="(max-width:700px) 72vw, 300px"/>
           <span className="landing-media-control"><Play size={24} fill="currentColor" aria-hidden="true"/></span><span className="landing-media-label">{video.title}</span>
         </button>)}

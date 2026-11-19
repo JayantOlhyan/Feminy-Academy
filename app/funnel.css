@@ -143,3 +143,24 @@
   .funnel-option-price { font-size: 28px; }
   .funnel-photo-tag { inset: auto 12px 12px; font-size: 12px; }
 }
+/* On phones, keep each topic's answer beside its trigger instead of below the whole list. */
+.funnel-mobile-outline { display: none; }
+@media(max-width:700px) {
+  .funnel-learning-panels { display: none; }
+  .funnel-mobile-outline { display: block; padding: 20px 18px; }
+  .funnel-mobile-outline > p { margin: 0 0 16px; font-size: 13px; color: var(--ink-muted); }
+  .funnel-mobile-outline details { border-bottom: 1px solid var(--line); }
+  .funnel-mobile-outline details:last-child { border-bottom: 0; }
+  .funnel-mobile-outline summary { display: flex; align-items: flex-start; gap: 10px; min-height: 52px; padding: 16px 0; list-style: none; cursor: pointer; font-size: 14px; line-height: 1.6; }
+  .funnel-mobile-outline summary::-webkit-details-marker { display: none; }
+  .funnel-mobile-outline summary > span { flex: none; font-size: 11px; padding-top: 2px; color: var(--accent-strong); }
+  .funnel-mobile-outline summary > strong { flex: 1; min-width: 0; }
+  .funnel-mobile-outline summary > svg { flex: none; color: var(--accent-strong); margin-top: 3px; }
+  .funnel-mobile-outline details[open] summary > svg { transform: rotate(45deg); }
+  .funnel-mobile-outline details[open] summary { color: var(--accent-strong); }
+  .funnel-mobile-topic { padding: 0 0 20px 24px; }
+  .funnel-mobile-topic ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .funnel-mobile-topic li { display: flex; align-items: flex-start; gap: 8px; font-size: 14px; line-height: 1.7; padding-block: 8px; }
+  .funnel-mobile-topic li svg { flex: none; color: var(--accent-strong); margin-top: 4px; }
+  .funnel-mobile-topic .sales-text-link { min-height: 44px; font-size: 14px; }
+}

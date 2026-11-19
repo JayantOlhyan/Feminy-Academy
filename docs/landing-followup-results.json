@@ -1,0 +1,122 @@
+[
+  {
+    "desktop": "none",
+    "mobile": "block",
+    "overflow": false,
+    "path": "/",
+    "requested": 280,
+    "width": 280
+  },
+  {
+    "desktop": "none",
+    "mobile": "block",
+    "overflow": false,
+    "path": "/",
+    "requested": 360,
+    "width": 360
+  },
+  {
+    "desktop": "none",
+    "mobile": "block",
+    "overflow": false,
+    "path": "/",
+    "requested": 700,
+    "width": 700
+  },
+  {
+    "desktop": "grid",
+    "mobile": "none",
+    "overflow": false,
+    "path": "/",
+    "requested": 701,
+    "width": 701
+  },
+  {
+    "desktop": "grid",
+    "mobile": "none",
+    "overflow": false,
+    "path": "/",
+    "requested": 1440,
+    "width": 1440
+  },
+  {
+    "desktop": "none",
+    "mobile": "block",
+    "overflow": false,
+    "path": "/courses/hydra-facial",
+    "requested": 280,
+    "width": 280
+  },
+  {
+    "desktop": "none",
+    "mobile": "block",
+    "overflow": false,
+    "path": "/courses/hydra-facial",
+    "requested": 360,
+    "width": 360
+  },
+  {
+    "desktop": "none",
+    "mobile": "block",
+    "overflow": false,
+    "path": "/courses/hydra-facial",
+    "requested": 700,
+    "width": 700
+  },
+  {
+    "desktop": "grid",
+    "mobile": "none",
+    "overflow": false,
+    "path": "/courses/hydra-facial",
+    "requested": 701,
+    "width": 701
+  },
+  {
+    "desktop": "grid",
+    "mobile": "none",
+    "overflow": false,
+    "path": "/courses/hydra-facial",
+    "requested": 1440,
+    "width": 1440
+  },
+  {
+    "desktop": "none",
+    "mobile": "block",
+    "overflow": false,
+    "path": "/courses/one-day",
+    "requested": 280,
+    "width": 280
+  },
+  {
+    "desktop": "none",
+    "mobile": "block",
+    "overflow": false,
+    "path": "/courses/one-day",
+    "requested": 360,
+    "width": 360
+  },
+  {
+    "desktop": "none",
+    "mobile": "block",
+    "overflow": false,
+    "path": "/courses/one-day",
+    "requested": 700,
+    "width": 700
+  },
+  {
+    "desktop": "grid",
+    "mobile": "none",
+    "overflow": false,
+    "path": "/courses/one-day",
+    "requested": 701,
+    "width": 701
+  },
+  {
+    "desktop": "grid",
+    "mobile": "none",
+    "overflow": false,
+    "path": "/courses/one-day",
+    "requested": 1440,
+    "width": 1440
+  }
+]
