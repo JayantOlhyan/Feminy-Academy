@@ -2,6 +2,10 @@
 
 Single source of truth for visual identity, typography, tokens, and component guidelines for Feminy Academy.
 
+## Reference-led landing implementation: 19 November 2026
+
+Homepage and both online course funnels now implement the researched selling sequence: illustrated steps, interactive curriculum preview, format comparison, preparation cards and a pale-gold closing fee/enquiry panel. Course pages are self-contained ad destinations with specific copy and FAQs. The academy landing also uses the new steps, requirements and comparison. Actual client videos remain correctly labelled; the learning preview uses real outline data. `app/funnel.css` is the final layout layer. See `docs/LANDING-IMPLEMENTATION.md` and the 24-case viewport results.
+
 ## Genuine recurring price schedule: 19 November 2026
 
 The owner authorised actual ₹100 fee increases every three days. A server-anchored countdown now shows the real next price/deadline; prices update consistently across cards, course pages and mobile enquiry bars. First increase: 22 November 2026, 10:30 a.m. IST. See `docs/SCHEDULED-PRICING.md` for operation, checks and the WhatsApp enrolment boundary. This supersedes the pending genuine-offer-terms note from the prior revision.

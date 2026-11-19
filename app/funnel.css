@@ -1,0 +1,145 @@
+/* Research-led landing composition: wide proof, visual steps, tangible outline, light close. */
+.funnel-centred-intro { text-align: center; max-width: 760px; margin: 0 auto 36px; }
+.funnel-centred-intro .sales-caption { display: block; margin-bottom: 14px; }
+.funnel-centred-intro h2 { font-size: clamp(32px,4vw,52px); }
+.funnel-centred-intro h2 > span { color: var(--accent-strong); }
+.funnel-centred-intro > p { max-width: 60ch; margin: 18px auto 0; color: var(--ink-muted); font-size: 16px; }
+.funnel-journey { background: var(--paper); }
+.funnel-step-grid { list-style: none; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; padding: 0; margin: 0; }
+.funnel-step-grid > li { min-width: 0; border: 1px solid var(--line); border-radius: 24px; padding: 10px; background: var(--brand-nav); overflow: hidden; }
+.funnel-step-picture { position: relative; height: 230px; border-radius: 16px; overflow: hidden; background: var(--brand-lilac); }
+.funnel-step-picture img { object-fit: cover; }
+.funnel-step-picture-0 img { object-position: center 28%; }
+.funnel-step-picture-1 img { object-position: center 32%; }
+.funnel-step-picture > span { position: absolute; bottom: 14px; left: 14px; background: var(--paper); border-radius: 30px; padding: 7px 14px; color: var(--ink); font-size: 12px; font-weight: 700; }
+.funnel-step-copy { padding: 22px 16px 18px; }
+.funnel-step-copy > span { font-size: 12px; color: var(--accent-strong); font-weight: 700; }
+.funnel-step-copy h3 { margin: 10px 0; font-size: 23px; }
+.funnel-step-copy p { color: var(--ink-muted); font-size: 15px; }
+.funnel-showcase { background: var(--paper-2); }
+.funnel-course-switch { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+.funnel-course-switch button { min-height: 44px; border: 1px solid var(--line); border-radius: 30px; padding: 10px 20px; background: var(--paper); color: var(--ink); font-size: 14px; font-weight: 700; }
+.funnel-course-switch button[aria-pressed="true"] { background: var(--accent); color: var(--paper); border-color: var(--accent); }
+.funnel-learning-window { border: 1px solid var(--line); border-radius: 24px; overflow: hidden; background: var(--paper); box-shadow: 0 20px 55px -35px rgb(52 43 54 / .3); }
+.funnel-window-bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding: 18px 24px; border-bottom: 1px solid var(--line); font-size: 13px; }
+.funnel-window-bar > span:first-child { display: inline-flex; align-items: center; gap: 9px; font-weight: 700; }
+.funnel-window-bar > span:last-child { color: var(--ink-muted); }
+.funnel-learning-panels { display: grid; grid-template-columns: 1fr 1.15fr .8fr; }
+.funnel-learning-panels > * { min-width: 0; }
+.funnel-outline { padding: 26px 20px; background: var(--brand-lilac); }
+.funnel-small-label { display: block; font-size: 12px; color: var(--ink-muted); margin-bottom: 18px; }
+.funnel-outline > button { display: flex; width: 100%; align-items: flex-start; gap: 10px; padding: 15px 10px; min-height: 52px; text-align: left; border-bottom: 1px solid var(--line); font-size: 14px; line-height: 1.6; border-radius: 8px; color: var(--ink); }
+.funnel-outline > button > span { color: var(--accent-strong); font-size: 11px; padding-top: 2px; flex: none; }
+.funnel-outline > button > svg { flex: none; margin-left: auto; margin-top: 4px; }
+.funnel-outline > button[aria-expanded="true"] { background: var(--paper); box-shadow: 0 3px 14px -9px rgb(52 43 54 / .3); font-weight: 700; }
+.funnel-module { padding: 26px; display: flex; flex-direction: column; }
+.funnel-module h3 { font-size: 25px; line-height: 1.25; margin-bottom: 22px; }
+.funnel-module ul { list-style: none; padding: 0; margin: 0 0 26px; }
+.funnel-module li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; line-height: 1.7; padding-block: 9px; }
+.funnel-module li svg { flex: none; color: var(--accent-strong); margin-top: 4px; }
+.funnel-module .sales-text-link { margin-top: auto; }
+.funnel-teacher-preview { position: relative; min-height: 440px; margin: 0; background: var(--brand-lilac); }
+.funnel-teacher-preview img { object-fit: cover; object-position: center 25%; }
+.funnel-teacher-preview figcaption { position: absolute; inset: auto 16px 16px; background: var(--brand-nav); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 4px; }
+.funnel-teacher-preview figcaption > span { font-size: 12px; color: var(--ink-muted); }
+.funnel-teacher-preview figcaption > strong { font-size: 18px; }
+.funnel-window-notes { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px 24px; border-top: 1px solid var(--line); padding: 18px 22px; font-size: 12px; color: var(--ink-muted); }
+.funnel-window-notes > span { display: inline-flex; align-items: center; gap: 6px; }
+.funnel-window-notes svg { color: var(--accent-strong); }
+.funnel-preview-note { text-align: center; margin: 18px auto 0; max-width: 80ch; }
+.funnel-requirements { background: var(--paper); }
+.funnel-requirement-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px; }
+.funnel-requirement-grid article { padding: 28px 24px; border: 1px solid var(--line); border-radius: 20px; }
+.funnel-requirement-grid article:nth-child(2) { background: var(--brand-butter); border-color: #eee5bc; }
+.funnel-requirement-grid svg { color: var(--accent-strong); }
+.funnel-requirement-grid h3 { font-size: 19px; margin: 24px 0 12px; }
+.funnel-requirement-grid p { font-size: 14px; color: var(--ink-muted); }
+.funnel-inline-help { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 18px; margin-top: 28px; font-size: 15px; color: var(--ink-muted); }
+.funnel-comparison { background: var(--paper-2); }
+.funnel-comparison-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; align-items: stretch; }
+.funnel-option { display: flex; flex-direction: column; padding: 30px 26px; background: var(--paper); border-radius: 22px; border: 1px solid var(--line); min-width: 0; }
+.funnel-option-selected { background: var(--brand-lilac); border-color: #c7a8d1; }
+.funnel-option-tag { font-size: 12px; line-height: 1.5; color: var(--accent-strong); margin-bottom: 20px; }
+.funnel-option h3 { font-size: 25px; line-height: 1.25; min-height: 2.5em; }
+.funnel-option-price { font-size: 32px; font-weight: 700; margin: 24px 0; }
+.funnel-option-quote { font-size: 23px; }
+.funnel-option ul { list-style: none; padding: 0; margin: 0 0 24px; }
+.funnel-option li { display: flex; gap: 8px; align-items: flex-start; padding-block: 12px; border-top: 1px solid var(--line); color: var(--ink-muted); font-size: 14px; line-height: 1.7; }
+.funnel-option li svg { flex: none; color: var(--accent-strong); margin-top: 4px; }
+.funnel-option > a { margin-top: auto; }
+.funnel-comparison .sales-footnote { margin-top: 22px; }
+.funnel-commitment { background: var(--paper); }
+.funnel-commitment-panel { display: grid; grid-template-columns: 1.1fr 1fr; gap: 50px; border-radius: 30px; background: var(--brand-butter); padding: 54px; border: 1px solid #eee5bc; }
+.funnel-commitment-panel > * { min-width: 0; }
+.funnel-commitment-panel h2 { font-size: clamp(34px,4vw,52px); margin-top: 18px; }
+.funnel-commitment-panel h2 span { color: var(--accent-strong); }
+.funnel-commitment-panel p { color: var(--ink-muted); margin-top: 22px; font-size: 16px; }
+.funnel-inclusion-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.funnel-inclusion-chips span { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; background: rgb(255 255 255 / .7); border-radius: 30px; font-size: 12px; }
+.funnel-final-fee { display: flex; flex-direction: column; align-items: flex-start; background: var(--brand-nav); padding: 30px; border-radius: 22px; border: 1px solid #eee5bc; }
+.funnel-final-fee > span:first-child { font-weight: 700; font-size: 18px; }
+.funnel-final-fee > strong { display: block; font-size: 50px; color: var(--accent-strong); margin-block: 18px; font-family: var(--font-display),sans-serif; }
+.funnel-final-fee .price-countdown { justify-content: flex-start; }
+.funnel-final-fee .sales-button { width: 100%; margin-top: 24px; }
+.funnel-final-fee p { font-size: 13px; margin-top: 18px; }
+.funnel-final-fee .sales-price-policy { display: flex; flex-wrap: wrap; gap: 12px; }
+.funnel-final-fee .sales-footnote { margin-top: 12px; font-size: 12px; }
+.funnel-home-fees { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; margin-top: 32px; }
+.funnel-home-fees > a { display: flex; justify-content: space-between; align-items: center; gap: 20px; border: 1px solid #d9ca84; padding: 16px 22px; border-radius: 16px; background: var(--brand-nav); font-size: 14px; text-align: left; }
+.funnel-home-fees strong { font-size: 20px; color: var(--accent-strong); }
+.funnel-photo-tag { position: absolute; left: 18px; bottom: 18px; right: 18px; background: var(--brand-nav); padding: 12px 16px; border-radius: 12px; color: var(--ink); font-size: 14px; font-weight: 700; }
+.funnel-hero-deadline { margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--line); }
+.funnel-hero-deadline .price-countdown { justify-content: flex-start; }
+.funnel-course-hero .sales-hero-copy h1 { font-size: clamp(38px,4.2vw,60px); }
+.funnel-course-hero .sales-hero-copy > p { font-size: 17px; }
+.funnel-course-hero .sales-hero-copy > .sales-footnote { font-size: 12px; margin-top: 14px; }
+.funnel-course-hero .sales-course-hero-photo > div { min-height: 590px; }
+.funnel-course-hero .sales-course-hero-photo img { object-position: center 25%; }
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
+  .funnel-step-grid > li { transition: transform .25s ease, box-shadow .25s ease; }
+  .funnel-step-grid > li:hover { transform: translateY(-4px); box-shadow: 0 18px 35px -28px rgb(52 43 54 / .35); }
+  .funnel-outline > button:hover { background: var(--paper); }
+}
+@media(max-width:1000px) {
+  .funnel-learning-panels { grid-template-columns: 1fr 1fr; }
+  .funnel-teacher-preview { display: none; }
+  .funnel-requirement-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .funnel-commitment-panel { gap: 28px; padding: 30px; }
+  .funnel-final-fee { padding: 24px; }
+  .funnel-step-picture { height: 180px; }
+  .funnel-step-copy { padding: 18px 8px 12px; }
+  .funnel-step-copy h3 { font-size: 20px; }
+}
+@media(max-width:700px) {
+  .funnel-centred-intro { margin-bottom: 26px; }
+  .funnel-centred-intro > p { font-size: 15px; }
+  .funnel-step-grid, .funnel-comparison-grid, .funnel-commitment-panel { grid-template-columns: minmax(0,1fr); }
+  .funnel-step-grid { gap: 20px; }
+  .funnel-step-picture { height: 220px; }
+  .funnel-step-copy { padding: 18px 14px 16px; }
+  .funnel-step-copy h3 { font-size: 23px; }
+  .funnel-learning-panels { grid-template-columns: minmax(0,1fr); }
+  .funnel-outline { padding: 20px 16px; }
+  .funnel-outline > button { padding: 12px 10px; min-height: 48px; }
+  .funnel-module { padding: 24px 20px; min-height: 310px; }
+  .funnel-module h3 { font-size: 24px; }
+  .funnel-window-bar { padding: 16px; }
+  .funnel-window-notes { justify-content: flex-start; padding: 18px; gap: 12px; }
+  .funnel-requirement-grid { gap: 12px; }
+  .funnel-requirement-grid article { padding: 22px 18px; }
+  .funnel-requirement-grid h3 { font-size: 18px; margin-top: 18px; }
+  .funnel-option h3 { min-height: 0; }
+  .funnel-option { padding: 28px 24px; }
+  .funnel-commitment-panel { padding: 24px 18px; border-radius: 24px; }
+  .funnel-final-fee { padding: 22px 18px; }
+  .funnel-final-fee > strong { font-size: 44px; }
+  .funnel-home-fees { flex-direction: column; }
+  .funnel-home-fees > a { padding: 16px 18px; }
+  .funnel-course-hero .sales-course-hero-photo > div { min-height: 360px; }
+}
+@media(max-width:380px) {
+  .funnel-requirement-grid { grid-template-columns: minmax(0,1fr); }
+  .funnel-final-fee .sales-button { padding-inline: 12px; font-size: 13px; }
+  .funnel-option-price { font-size: 28px; }
+  .funnel-photo-tag { inset: auto 12px 12px; font-size: 12px; }
+}

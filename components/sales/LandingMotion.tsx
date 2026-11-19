@@ -17,10 +17,10 @@ export function LandingMotion() {
       const entrance = page.querySelectorAll(".landing-hero-copy > *, .sales-hero-copy > h1, .sales-hero-copy > p, .sales-hero-copy > .sales-hero-actions");
       // Avoid moving a deep-linked section away from its requested position.
       if (!window.location.hash) gsap.from(entrance, { y: 14, opacity: 0, stagger: .055, duration: .65, ease: "power2.out", clearProps: "transform,opacity" });
-      page.querySelectorAll<HTMLElement>(".sales-section-intro, .sales-teacher-copy, .sales-curriculum-grid > div:first-child, .sales-enrol-grid > div:first-child, .sales-faq-grid > div:first-child").forEach(element => {
+      page.querySelectorAll<HTMLElement>(".sales-section-intro, .funnel-centred-intro, .sales-teacher-copy, .sales-curriculum-grid > div:first-child, .sales-enrol-grid > div:first-child, .sales-faq-grid > div:first-child").forEach(element => {
         gsap.from(element, { y: 18, opacity: .25, duration: .65, ease: "power2.out", clearProps: "transform,opacity", scrollTrigger: { trigger: element, start: "top 92%", once: true } });
       });
-      page.querySelectorAll(".sales-course-grid").forEach(grid => {
+      page.querySelectorAll(".sales-course-grid, .funnel-step-grid").forEach(grid => {
         gsap.from(grid.children, { y: 22, opacity: .3, stagger: .07, duration: .6, ease: "power2.out", clearProps: "transform,opacity", scrollTrigger: { trigger: grid, start: "top 92%", once: true } });
       });
       if (context.conditions.desktop) {

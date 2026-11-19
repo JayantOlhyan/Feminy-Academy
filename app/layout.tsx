@@ -4,6 +4,7 @@ import "./globals.css";
 import "./sales.css";
 import "./soft.css";
 import "./brand.css";
+import "./funnel.css";
 import { LandingMotion } from "@/components/sales/LandingMotion";
 import { OfferPricingProvider } from "@/components/sales/OfferPricing";
 import { Header } from "@/components/blocks/Header";
